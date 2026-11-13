@@ -1,0 +1,222 @@
+[
+  {
+    "source": "government-a",
+    "target": "regulator-a",
+    "kind": "oversight",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "government-a",
+    "target": "agency-a",
+    "kind": "oversight",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "regulator-a",
+    "target": "agency-a",
+    "kind": "cooperation",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-a",
+    "target": "think-tank-b",
+    "kind": "affiliation",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-b",
+    "target": "think-tank-c",
+    "kind": "affiliation",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-a",
+    "target": "government-a",
+    "kind": "policy",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-b",
+    "target": "regulator-a",
+    "kind": "policy",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "publication-a",
+    "target": "publication-b",
+    "kind": "syndication",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "nytimes",
+    "target": "publication-a",
+    "kind": "syndication",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-c",
+    "target": "publication-a",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-b",
+    "target": "nytimes",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "outlet-a",
+    "target": "outlet-b",
+    "kind": "syndication",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "think-tank-a",
+    "target": "outlet-a",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "outlet-b",
+    "target": "nytimes",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true
+  },
+  {
+    "source": "outlet-a",
+    "target": "tiktok",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "publication-b",
+    "target": "tiktok",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "outlet-a",
+    "target": "youtube",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "outlet-b",
+    "target": "facebook",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "outlet-b",
+    "target": "x",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "publication-a",
+    "target": "instagram",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "nytimes",
+    "target": "google",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish",
+      "scrape"
+    ]
+  },
+  {
+    "source": "nytimes",
+    "target": "chatgpt",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "scrape"
+    ]
+  },
+  {
+    "source": "publication-b",
+    "target": "x",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "government-a",
+    "target": "tiktok",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "publish"
+    ]
+  },
+  {
+    "source": "agency-a",
+    "target": "google",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "scrape",
+      "publish"
+    ]
+  },
+  {
+    "source": "publication-a",
+    "target": "chatgpt",
+    "kind": "content",
+    "weight": 0.6,
+    "placeholder": true,
+    "channels": [
+      "scrape"
+    ]
+  }
+]

@@ -1,0 +1,408 @@
+[
+  {
+    "id": "tiktok",
+    "name": "TikTok",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "Tt",
+    "tint": "#25f4ee",
+    "algorithms": [
+      {
+        "id": "for-you",
+        "name": "For You feed"
+      },
+      {
+        "id": "search",
+        "name": "Search ranking"
+      },
+      {
+        "id": "ads",
+        "name": "Ad targeting"
+      }
+    ],
+    "summary": "Short-form video platform built around an algorithmic For You feed.",
+    "sheet": {
+      "attention": 3,
+      "addiction": 3,
+      "reality-warping": 2,
+      "isolation": 2,
+      "financial": 3,
+      "ownership": 2
+    },
+    "draft": true,
+    "ingest": [
+      "publish"
+    ]
+  },
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "Yt",
+    "tint": "#ff3b30",
+    "algorithms": [
+      {
+        "id": "recommendations",
+        "name": "Up next"
+      },
+      {
+        "id": "shorts",
+        "name": "Shorts feed"
+      },
+      {
+        "id": "ads",
+        "name": "Ad targeting"
+      }
+    ],
+    "summary": "Video platform; recommendations drive the majority of watch time.",
+    "sheet": {
+      "attention": 2,
+      "addiction": 2,
+      "reality-warping": 2,
+      "isolation": 2,
+      "financial": 3,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "publish"
+    ]
+  },
+  {
+    "id": "instagram",
+    "name": "Instagram",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "Ig",
+    "tint": "#e1306c",
+    "algorithms": [
+      {
+        "id": "feed",
+        "name": "Feed ranking"
+      },
+      {
+        "id": "reels",
+        "name": "Reels"
+      },
+      {
+        "id": "explore",
+        "name": "Explore"
+      }
+    ],
+    "summary": "Photo and short video network owned by Meta.",
+    "sheet": {
+      "attention": 3,
+      "addiction": 3,
+      "reality-warping": 2,
+      "isolation": 2,
+      "financial": 3,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "publish"
+    ]
+  },
+  {
+    "id": "facebook",
+    "name": "Facebook",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "Fb",
+    "tint": "#1877f2",
+    "algorithms": [
+      {
+        "id": "feed",
+        "name": "News Feed"
+      },
+      {
+        "id": "groups",
+        "name": "Groups suggestions"
+      },
+      {
+        "id": "ads",
+        "name": "Ad targeting"
+      }
+    ],
+    "summary": "Social network owned by Meta; feed ranking based on predicted engagement.",
+    "sheet": {
+      "attention": 2,
+      "addiction": 2,
+      "reality-warping": 3,
+      "isolation": 3,
+      "financial": 3,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "publish"
+    ]
+  },
+  {
+    "id": "x",
+    "name": "X",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "X",
+    "tint": "#e7e7e7",
+    "algorithms": [
+      {
+        "id": "for-you",
+        "name": "For You timeline"
+      },
+      {
+        "id": "trends",
+        "name": "Trends"
+      },
+      {
+        "id": "grok-training",
+        "name": "Grok training (LLM)"
+      }
+    ],
+    "summary": "Microblogging platform, formerly Twitter.",
+    "sheet": {
+      "attention": 2,
+      "addiction": 2,
+      "reality-warping": 3,
+      "isolation": 3,
+      "financial": 2,
+      "ownership": 3
+    },
+    "draft": true,
+    "ingest": [
+      "publish",
+      "scrape"
+    ]
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "Gp",
+    "tint": "#10a37f",
+    "algorithms": [
+      {
+        "id": "model",
+        "name": "Language model"
+      },
+      {
+        "id": "fine-tuning",
+        "name": "LLM fine-tuning"
+      },
+      {
+        "id": "memory",
+        "name": "Memory & personalisation"
+      }
+    ],
+    "summary": "Conversational AI assistant by OpenAI.",
+    "sheet": {
+      "attention": 1,
+      "addiction": 1,
+      "reality-warping": 1,
+      "isolation": 1,
+      "financial": 2,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "scrape"
+    ]
+  },
+  {
+    "id": "google",
+    "name": "Google",
+    "kind": "platform",
+    "concepts": [
+      "platforms"
+    ],
+    "onPhone": true,
+    "glyph": "G",
+    "tint": "#fbbc05",
+    "algorithms": [
+      {
+        "id": "ranking",
+        "name": "Search ranking"
+      },
+      {
+        "id": "ai-overviews",
+        "name": "AI overviews"
+      },
+      {
+        "id": "ads",
+        "name": "Ad auction"
+      }
+    ],
+    "summary": "Search engine; decides which sources are seen first.",
+    "sheet": {
+      "attention": 1,
+      "addiction": 1,
+      "reality-warping": 1,
+      "isolation": 1,
+      "financial": 3,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "publish",
+      "scrape"
+    ]
+  },
+  {
+    "id": "nytimes",
+    "name": "NY Times",
+    "kind": "outlet",
+    "concepts": [
+      "publications"
+    ],
+    "onPhone": true,
+    "glyph": "T",
+    "tint": "#f2f2f2",
+    "algorithms": [
+      {
+        "id": "homepage",
+        "name": "Homepage curation"
+      }
+    ],
+    "summary": "US newspaper of record, subscription funded.",
+    "sheet": {
+      "attention": 1,
+      "addiction": 1,
+      "reality-warping": 1,
+      "isolation": 1,
+      "financial": 1,
+      "ownership": 1
+    },
+    "draft": true,
+    "ingest": [
+      "publish"
+    ],
+    "hasWebsite": true
+  },
+  {
+    "id": "government-a",
+    "name": "Government A",
+    "kind": "institution",
+    "concepts": [
+      "institutions"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true
+  },
+  {
+    "id": "regulator-a",
+    "name": "Regulator A",
+    "kind": "institution",
+    "concepts": [
+      "institutions"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true
+  },
+  {
+    "id": "agency-a",
+    "name": "Agency A",
+    "kind": "institution",
+    "concepts": [
+      "institutions"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true
+  },
+  {
+    "id": "think-tank-a",
+    "name": "Think tank A",
+    "kind": "org",
+    "concepts": [
+      "think-tanks"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "think-tank-b",
+    "name": "Think tank B",
+    "kind": "org",
+    "concepts": [
+      "think-tanks"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "think-tank-c",
+    "name": "Think tank C",
+    "kind": "org",
+    "concepts": [
+      "think-tanks"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "publication-a",
+    "name": "Publication A",
+    "kind": "outlet",
+    "concepts": [
+      "publications"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "publication-b",
+    "name": "Publication B",
+    "kind": "outlet",
+    "concepts": [
+      "publications"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "outlet-a",
+    "name": "Broadcaster A",
+    "kind": "outlet",
+    "concepts": [
+      "mainstream-media"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  },
+  {
+    "id": "outlet-b",
+    "name": "Broadcaster B",
+    "kind": "outlet",
+    "concepts": [
+      "mainstream-media"
+    ],
+    "summary": "Fictional placeholder for layout.",
+    "placeholder": true,
+    "hasWebsite": true
+  }
+]

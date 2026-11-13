@@ -1,0 +1,12 @@
+// Cloudflare Workers static-assets deployment. No Worker script: Cloudflare
+// serves the contents of dist/ directly. Cloudflare's Git integration
+// (Workers Builds) runs `npm run build` then `npx wrangler deploy` on each push.
+// "name" must match the Worker's name in the Cloudflare dashboard.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "atlas-of-influence",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}

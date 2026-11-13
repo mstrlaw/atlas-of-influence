@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars
+.env
+.env.*
+.DS_Store
+*.log
+# Old hand-delivered build (7 Nov 2026); the build is reproducible from source.
+app/platform-atlas.built.html
