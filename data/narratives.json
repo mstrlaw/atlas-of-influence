@@ -1,0 +1,105 @@
+{
+  "note": "Narratives: storylines in circulation that link paths sharing no contract. Rules (framework spec, neutrality rule 6): record one only when a source names it as a narrative; word it as a claim in circulation; do not label it true or false. 'carriers' is free text until actors are encoded; 'evidence' lists the rows whose sources name or document it.",
+  "narratives": [
+    {
+      "id": "ukraine-threat",
+      "title": "Ukrainians and Ukraine are a threat or a burden",
+      "carriers": [
+        "Cloned Euronews clips on a pro-Russian Telegram channel",
+        "Paid articles in West African outlets",
+        "A Dakar conference with a paid-for celebrity"
+      ],
+      "evidence": [
+        "E45",
+        "E65",
+        "E100"
+      ]
+    },
+    {
+      "id": "sahel-liberation",
+      "title": "France and the West destabilise the Sahel; the Alliance of Sahel States is liberation",
+      "carriers": [
+        "Paid articles in West African outlets",
+        "Youth conferences",
+        "State media in alliance countries"
+      ],
+      "evidence": [
+        "E65",
+        "E89",
+        "E100"
+      ]
+    },
+    {
+      "id": "white-genocide-sa",
+      "title": "A \"white genocide\" is under way in South Africa",
+      "carriers": [
+        "Grok, unprompted"
+      ],
+      "evidence": [
+        "E74",
+        "E77",
+        "E79"
+      ]
+    },
+    {
+      "id": "iran-foreign-plot",
+      "title": "Iran's unrest is orchestrated by the United States and Israel",
+      "carriers": [
+        "Iranian campaigns on X",
+        "Russian state media"
+      ],
+      "evidence": [
+        "E33",
+        "E84"
+      ]
+    },
+    {
+      "id": "pahlavi-alternative",
+      "title": "Reza Pahlavi is the sole alternative for Iran",
+      "carriers": [
+        "Reactivated X accounts",
+        "A hashtag network linked to Israel",
+        "Iran International"
+      ],
+      "evidence": [
+        "E44",
+        "E86"
+      ]
+    },
+    {
+      "id": "great-replacement",
+      "title": "Elites are engineering demographic replacement; \"remigration\" is ordinary policy",
+      "carriers": [
+        "European far-right parties",
+        "News outlets relaying the terms"
+      ],
+      "evidence": [
+        "E40"
+      ]
+    },
+    {
+      "id": "factcheck-censorship",
+      "title": "Fact-checking and disinformation research are censorship",
+      "carriers": [
+        "A US congressional committee",
+        "Critics of fact-checkers"
+      ],
+      "evidence": [
+        "E52",
+        "E62"
+      ]
+    },
+    {
+      "id": "satanic-west",
+      "title": "NATO and the EU are satanic and normalise paedophilia",
+      "carriers": [
+        "A Facebook post in North Macedonia",
+        "QAnon circles",
+        "A speech by Vladimir Putin"
+      ],
+      "evidence": [
+        "E34"
+      ]
+    }
+  ]
+}
