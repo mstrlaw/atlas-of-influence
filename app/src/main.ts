@@ -509,6 +509,7 @@ async function boot() {
     document.body.dataset.view = next.name;
     back.hidden = next.name === 'home';
     reset.hidden = legend.hidden = !inExplore(next);
+    $('tip').hidden = true;
 
     const app = next.name === 'home' ? null : actor(next.appId)!;
     const appChanged = !!app && (prev.name === 'home' || prev.appId !== app.id);
@@ -552,13 +553,9 @@ async function boot() {
   platform.prewarm(stage.renderer, stage.scene, stage.camera);
   document.fonts?.ready.then(() => { warm(); network.refreshLabels(); });
   warm();
-  (window as any).__atlas = { get net() { return net; }, ex, stage, platform, network, repaint, caseOf }; // debug hook for visual tests
+  // Debug hook for visual tests.
+  (window as any).__atlas = { get net() { return net; }, ex, stage, platform, network, repaint, caseOf, trail: () => ({ steps: trail.length, lit: (network as any).lit.size, hot: (network as any).hot.length }) };
   startRouter(isApp); // fires apply() for a deep-linked view
-  if (location.search.includes('debug')) {
-    const pre = document.createElement('pre'); pre.id = 'dbg'; pre.style.cssText = 'position:fixed;right:0;bottom:0;z-index:99;font-size:15px;background:#fff;max-width:900px;white-space:pre-wrap';
-    document.body.appendChild(pre);
-    setInterval(() => { pre.textContent = JSON.stringify({ p: ex.p, freeCamera, pendingFocus, trail: trail.length, shown: network.trailShown, userMoved, cam: stage.camera.position.toArray().map((x) => +x.toFixed(2)), fly: !!fly, t: performance.now() | 0 }); }, 200);
-  }
 
   $('loading').remove();
 }

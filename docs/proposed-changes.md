@@ -81,6 +81,7 @@ The framework map reads this table. Details of each ruling are under Decisions.
 | 42 | rejected | |
 | 43 | accepted | neutrality rule 8 |
 | 44 | accepted | `plat.monetisation` |
+- **Phase 2 started, 14 Nov 2026** (user: "improve on the 3d visualization based on all that we've discussed"). On the `feat/atlas-explore` branch the atlas is drawn from the model. Encoding choices made without the user and awaiting review: 24 cases chosen and worded from the evidence log; one record per case; `check: true` for countervailing steps; regulators grouped under "Checks and oversight" in the scene; four apps added to the phone (WhatsApp, Web, CBS News, Local news) so every case has a venue.
 
 Recommended order: 8, 1, 14, 9–10, 22–24 first (they settle the data model's shape); then 34–35 (granularity, time); the rest after.
 

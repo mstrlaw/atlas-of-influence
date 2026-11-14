@@ -1,5 +1,5 @@
 {
-  "note": "Structured mirror of docs/framework-spec.md, used to draw the framework map (scripts/framework-map.mjs). The spec is the source of truth: change it first, then mirror the change here. The 'evidence_groups' block is a reading aid for the map, not part of the model.",
+  "note": "Structured mirror of docs/framework-spec.md, used by the framework map (scripts/framework-map.mjs) and by the 3D atlas. The spec is the source of truth: change it first, then mirror the change here. Cases, actors and relations live in their own files. The 'evidence_groups' block is a reading aid for the map, not part of the model.",
   "dimensions": [
     {
       "id": "actor",
@@ -521,152 +521,6 @@
       ]
     }
   ],
-  "cases": [
-    {
-      "id": "hanover",
-      "title": "Hanover Institute",
-      "period": "2026",
-      "origin": "Israeli state",
-      "transparency": "Deceptive",
-      "layers": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L6"
-      ],
-      "key_mechanisms": [
-        "llm.retrieval",
-        "prod.front"
-      ],
-      "path_mechanisms": [
-        "fund.disclosure_gap",
-        "entry.web",
-        "entry.seo_geo",
-        "prod.query_mirroring",
-        "prod.manufactured_doubt",
-        "prod.citation_stuffing"
-      ],
-      "sourcing": "evidenced"
-    },
-    {
-      "id": "clock-tower-x",
-      "title": "Clock Tower X",
-      "period": "2025–26",
-      "origin": "Israeli state",
-      "transparency": "Disclosed contract, undisclosed sites",
-      "layers": [
-        "L1",
-        "L3",
-        "L4"
-      ],
-      "key_mechanisms": [
-        "llm.retrieval",
-        "llm.corpus",
-        "entry.seo_geo"
-      ],
-      "path_mechanisms": [
-        "entry.web"
-      ],
-      "sourcing": "evidenced"
-    },
-    {
-      "id": "pravda",
-      "title": "Pravda network",
-      "period": "2022–",
-      "origin": "Russian state-aligned",
-      "transparency": "Deceptive",
-      "layers": [
-        "L2",
-        "L3",
-        "L4",
-        "L6"
-      ],
-      "key_mechanisms": [
-        "llm.corpus",
-        "prod.laundering"
-      ],
-      "path_mechanisms": [
-        "entry.web"
-      ],
-      "sourcing": "evidenced"
-    },
-    {
-      "id": "tenet",
-      "title": "Tenet Media",
-      "period": "2023–24",
-      "origin": "Russian state",
-      "transparency": "Covert",
-      "layers": [
-        "L1",
-        "L2",
-        "L3",
-        "L4",
-        "L5"
-      ],
-      "key_mechanisms": [
-        "fund.covert",
-        "prod.influencer"
-      ],
-      "path_mechanisms": [
-        "entry.direct",
-        "plat.ranking"
-      ],
-      "sourcing": "evidenced"
-    },
-    {
-      "id": "stoic",
-      "title": "STOIC / Zero Zeno",
-      "period": "2024",
-      "origin": "Israeli for-hire firm",
-      "transparency": "Deceptive",
-      "layers": [
-        "L2",
-        "L3",
-        "L5"
-      ],
-      "key_mechanisms": [
-        "crowd.inauthentic"
-      ],
-      "path_mechanisms": [
-        "entry.direct"
-      ],
-      "sourcing": "evidenced"
-    },
-    {
-      "id": "sinclair",
-      "title": "Sinclair must-runs",
-      "period": "2018",
-      "origin": "US owner",
-      "transparency": "Overt",
-      "layers": [
-        "L1",
-        "L2"
-      ],
-      "key_mechanisms": [
-        "own.directive"
-      ],
-      "path_mechanisms": [],
-      "sourcing": "partly sourced"
-    },
-    {
-      "id": "grok",
-      "title": "Grok tuning",
-      "period": "",
-      "origin": "Platform owner (X / xAI)",
-      "transparency": "Semi-overt",
-      "layers": [
-        "L1",
-        "L4",
-        "L6"
-      ],
-      "key_mechanisms": [
-        "llm.owner_tuning"
-      ],
-      "path_mechanisms": [],
-      "sourcing": "partly sourced"
-    }
-  ],
   "balance_gaps": [
     "China (one paywalled row)",
     "Iran's own operations as a case",
@@ -685,7 +539,6 @@
   "evidence_groups": [
     {
       "name": "Hanover Institute and the Havas chain",
-      "case": "hanover",
       "labels": [
         "Hanover Institute",
         "Havas chain",
@@ -695,42 +548,36 @@
     },
     {
       "name": "Clock Tower X",
-      "case": "clock-tower-x",
       "labels": [
         "Clock Tower X"
       ]
     },
     {
       "name": "Pravda network",
-      "case": "pravda",
       "labels": [
         "Pravda network"
       ]
     },
     {
       "name": "Tenet Media",
-      "case": "tenet",
       "labels": [
         "Tenet Media"
       ]
     },
     {
       "name": "STOIC / Zero Zeno",
-      "case": "stoic",
       "labels": [
         "STOIC"
       ]
     },
     {
       "name": "Sinclair must-runs",
-      "case": "sinclair",
       "labels": [
         "Sinclair"
       ]
     },
     {
       "name": "Grok: owner tuning incidents",
-      "case": "grok",
       "labels": [
         "Grok \"MechaHitler\"",
         "Grok \"white genocide\"",

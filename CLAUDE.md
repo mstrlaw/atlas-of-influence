@@ -5,7 +5,7 @@ Maps how actors, institutions, platforms, AI models and crowds shape what appear
 ## Standing rules from the user
 
 - **Discuss before changing the model.** When the user shares links, analyse how they fit or change the model and discuss; do not edit `docs/framework-spec.md` unprompted.
-- **Do not edit the 3D atlas's content or visuals to reflect the model until the user gives the go-ahead for Phase 2.** Build, tooling and deployment work in `app/` is fine.
+- **Phase 2 is under way** (user go-ahead, 14 Nov 2026): the 3D atlas is drawn from the model in `data/`. The renderer knows nothing about specific companies; to change what is shown, change the data.
 - **Log every source the user provides** in `data/evidence.json` (next ID: **E190**), following `docs/source-analysis.md`: one grade (documented / reported / claimed / contested / opinion), a `read_status` (full / partial / secondhand / unread), an optional `note`, any `responses` from those named, and a `visual_use` note. Regenerate `data/evidence.md` with `node scripts/evidence-md.mjs`, then run `node scripts/sources-index.mjs`; never hand-edit the markdown table.
 - Academic grounding: reuse existing frameworks and their IDs (DISARM, ABC/ABCDE, etc.) rather than inventing vocabulary.
 - Balance: mechanisms are ideology-agnostic; cases span actor origins and the political spectrum; name intermediaries without implying culpability unless a source does.
@@ -32,15 +32,19 @@ data/evidence.json       evidence log, E01–E189 (edit this)
 data/evidence.md         generated table of the same
 data/sources/            source snapshots, one folder per source (see its README); index.json is generated
 data/narratives.json     narratives (rule: only when a source names one; worded as a claim in circulation)
-data/framework.json      structured copy of the spec (layers, mechanisms, cases); mirror spec changes here
-scripts/                 generators for evidence.md, the sources index and the framework map (plain Node, no dependencies)
+data/framework.json      layers, mechanisms, actor groups, Influence Facts lines; mirror spec changes here
+data/actors.json         actors (platforms on the phone carry an `app` block)
+data/relations.json      standing relations (owns, funds, pays, regulates…), each citing evidence
+data/cases.json          cases: ordered steps citing evidence rows; `@app` = the platform being viewed, `screen` = the phone
+scripts/                 evidence-md, sources-index, framework-map, validate-model (plain Node, no dependencies)
 app/public/framework.html generated framework map (git-ignored), served at /framework; built by `npm run dev` and `npm run build`
 app/                     3D Platform Atlas: Vite + TypeScript + three.js, gsap, d3-force-3d
-app/data/*.json          app content (mostly placeholders), bundled at build time
-app/src/                 see the code map in HANDOVER.md §4.3
+app/src/                 data/model.ts (reads /data), scene/ (stage, phone, platform, layout, network), ui/ (screen = phone sheet, panel = explore panel), state/store.ts (hash router)
 ```
 
-New model data files (cases, actors, mechanisms, layers) go in the root `data/`, not `app/data/`, until Phase 2.
+All model data lives in the root `data/`; the app imports it from there. `npm run build` runs `scripts/validate-model.mjs` first and fails on a broken reference.
+
+To check the atlas visually, build, run `npx vite preview`, and drive a headless browser in real time (the scene animates with real time; Chrome's `--virtual-time-budget` screenshots are unreliable for it).
 
 ## App commands (run in `app/`)
 

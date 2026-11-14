@@ -131,6 +131,23 @@ The four `llm.*` entries came out of the Israeli cases: Pravda targets the train
 
 **Fast and slow routes into AI answers.** Retrieval (`llm.retrieval`) works within days and is well evidenced: chatbots cited the Hanover Institute in tests (E04), and their answers changed again within weeks of the press coverage (E10). Training (`llm.corpus`) is a long-term strategy and is evidenced only up to the seeding: sites built for machines, not readers (E19, E25), present in a crawl dataset used for training (E18). No source in the log yet shows a trained model's answers changing because of seeded data; the NewsGuard audit (E24) does not separate the two routes. Both routes follow the same path in the 3D model; the difference in speed and persistence is explained in the case text.
 
+## How the 3D atlas draws the model
+
+Decided across 13–14 Nov 2026 and built on the `feat/atlas-explore` branch.
+
+| In the model | In the scene |
+|---|---|
+| Layers | Depth behind the phone. The phone is the interface (L6); the platform cube behind it is mediation (L4); entry (L3) is a "direct posting" slab and a "web" sphere behind the platform; then the crowd (L5), production (L2) and structure (L1), furthest back. A ruler on the floor names the bands. |
+| Actors | Cubes, grouped into spheres by kind. Companies and individuals are not grouped: they sit beside what they own or fund. |
+| Fronts and fake accounts | Hollow cubes. |
+| Checks and oversight | Regulators, courts, researchers, monitors and fact-checkers sit in their own sphere above the pipeline, not in it. (This moves `regulator` out of "States and politics", where the first grouping had put it.) |
+| A case | A path drawn in pink from actor to actor to the platform and on to the screen, played step by step. Its countervailing steps are drawn in green. |
+| A narrative | The steps that carry it, in violet. |
+| Ownership | Everything an owner controls, joined in black. |
+| Evidence, grades, who knew, cost, responses | Not drawn. They are in the panel beside the scene, under each step and in the sources list. |
+
+The visitor chooses a case, a narrative or an owner from a panel; the scene responds, and the camera moves to what was chosen. Clicking a cube opens that actor. The Influence Facts sheet on the phone counts cases and sources per line for the app, and reads "Not yet examined" where the atlas holds none.
+
 ## Extended forms of influence
 
 Some influence works beneath or around the pipeline. The Atlas records it and its evidence, but does not draw it in the 3D model for now (decided 13 Nov 2026; there is no L0 Infrastructure layer). What it sets off inside the pipeline is drawn as usual.
@@ -229,7 +246,14 @@ Each line's indicator is computed from the evidence, not scored by hand. How it 
 
 Coverage is uneven and that is accepted for now: Meta has far more evidence than any other platform, which partly reflects its size and record and partly how much it has been sued and studied. More platforms are to be covered before the indicators are compared across them.
 
-## Seed cases
+## Cases
+
+The cases are encoded in `../data/cases.json` (24 as of 14 Nov 2026), with their actors in `actors.json` and standing relations in `relations.json`. Each case is one record: a plain-text summary, its attributes, an ordered list of steps (actor, mechanism, whom it acts on, the evidence rows behind it), its effects mapped to Influence Facts lines, and what is not established. `scripts/validate-model.mjs` checks every reference.
+
+Choices made while encoding, still to be reviewed: one record per case, with no sub-cases and no dates on steps (the parked questions on case size and time); a countervailing step (reporting, research, a regulator or court) is marked `check: true` and needs no mechanism; a step may end at `screen`, meaning what the person holding the phone sees.
+
+The table below is the original set of seven seed cases, kept for reference.
+
 
 Seven cases cover several actor origins, every layer, and the range from overt and legal to covert. They are the first `Case` records.
 
@@ -296,8 +320,8 @@ Next steps:
 
 1. Fill DISARM technique IDs into the mechanism catalogue.
 2. Source the Sinclair and Grok rows, and add Chinese and Iranian cases for balance.
-3. Encode the seven cases as `Case` records in the JSON.
-4. 3D mapping: layers become depth bands behind the phone; mechanisms light up on edges; a selected case plays as an animated path from L1 to the screen; fronts sit inside their concept sphere but are drawn as hollow cubes.
+3. Done: 24 cases are encoded in `data/cases.json`.
+4. Done on `feat/atlas-explore`: the 3D atlas is drawn from the model (see "How the 3D atlas draws the model").
 
 ## Sources
 

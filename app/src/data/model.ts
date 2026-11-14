@@ -238,11 +238,13 @@ export function trailForOwner(ownerId: string, appId: string): TrailStep[] {
 
 export function trailForActor(actorId: string, appId: string): TrailStep[] {
   const g = graphFor(appId);
-  const steps: TrailStep[] = [{ nodes: [actorId], links: [], platform: false, screen: false, kind: 'path' }];
+  // Checks and oversight keep their own colour, so a regulator never reads as part of an influence path.
+  const kind: TrailStep['kind'] = groupOfKind.get(actorById.get(actorId)?.kind ?? '')?.layer === 'oversight' ? 'check' : 'path';
+  const steps: TrailStep[] = [{ nodes: [actorId], links: [], platform: false, screen: false, kind }];
   for (const l of g.links) {
     if (l.source !== actorId && l.target !== actorId) continue;
     const other = l.source === actorId ? l.target : l.source;
-    steps.push({ nodes: other === appId ? [] : [other], links: [{ key: l.key, from: l.source, to: l.target }], platform: other === appId, screen: false, kind: 'path' });
+    steps.push({ nodes: other === appId ? [] : [other], links: [{ key: l.key, from: l.source, to: l.target }], platform: other === appId, screen: false, kind: l.checkOnly ? 'check' : kind });
   }
   return steps;
 }

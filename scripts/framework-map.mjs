@@ -45,6 +45,24 @@ if (ungrouped.length) {
   console.warn(`No evidence group matches: ${[...new Set(ungrouped)].join('; ')}`);
 }
 
+// --- Cases: the shape the page draws, derived from data/cases.json -----------
+const { cases: caseRecords } = JSON.parse(read('data', 'cases.json'));
+const mechById = new Map(framework.mechanisms.map((m) => [m.id, m]));
+const citedRows = new Set();
+framework.cases = caseRecords.map((c) => {
+  const ids = new Set([...c.steps.flatMap((s) => s.evidence), ...c.effects.flatMap((e) => e.evidence)]);
+  ids.forEach((id) => citedRows.add(id));
+  const mechs = [...new Set(c.steps.map((s) => s.mechanism).filter((m) => mechById.has(m)))];
+  const layerSet = new Set(mechs.flatMap((m) => [mechById.get(m).from, mechById.get(m).to]).filter(Boolean));
+  if (c.steps.some((s) => s.to === 'screen')) layerSet.add('L6');
+  if (c.effects.some((e) => e.level === 'ultimate')) layerSet.add('L7');
+  return {
+    id: c.id, title: c.title, period: c.period, origin: c.countries.join(', '), transparency: c.attributes.transparency,
+    layers: [...layerSet], key_mechanisms: mechs, path_mechanisms: [], rows: ids.size, sourcing: 'evidenced',
+  };
+});
+for (const g of groups) g.case = g.rows.some((id) => citedRows.has(id)) ? 'cited' : null;
+
 // --- Proposed changes: "N. **Title.** rest" under "## X. Section" ----------
 const proposals = [];
 const decided = new Map(); // number -> 'accepted' | 'rejected' | 'deferred' | 'decided'
@@ -65,6 +83,7 @@ const data = {
   readCounts,
   responses: evidence.reduce((n, r) => n + (r.responses?.length ?? 0), 0),
   groups: groups.map((g) => ({ name: g.name, case: g.case, count: g.rows.length })),
+  cited: citedRows.size,
   proposals,
   narratives,
   totals: {
@@ -209,8 +228,8 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&l
 const lc = (id) => 'var(--l' + id.slice(1) + ')';
 const caseById = Object.fromEntries(F.cases.map((c) => [c.id, c]));
 const usedBy = (mechId) => F.cases.filter((c) => c.key_mechanisms.includes(mechId) || c.path_mechanisms.includes(mechId));
-const rowsOfCase = (id) => D.groups.filter((g) => g.case === id).reduce((n, g) => n + g.count, 0);
-const modelled = D.groups.filter((g) => g.case).reduce((n, g) => n + g.count, 0);
+const rowsOfCase = (id) => caseById[id].rows;
+const modelled = D.cited;
 const unusedMechs = F.mechanisms.filter((m) => usedBy(m.id).length === 0).length;
 
 const stat = (n, label) => '<div class="stat"><b>' + n + '</b><span>' + label + '</span></div>';
@@ -222,7 +241,7 @@ const pipeline = F.layers.map((L) => {
     return '<div class="mech' + (cases.length ? '' : ' unused') + '" data-mech="' + m.id + '">' +
       '<div class="mono"><span>' + m.id + '</span>' + (m.to ? '<span class="to" style="--c:' + lc(m.to) + '">→ ' + m.to + '</span>' : '') + '</div>' +
       '<div class="name">' + esc(m.name) + '</div>' +
-      '<div class="used">' + (cases.length ? cases.map((c) => esc(c.title)).join(', ') : 'No seed case uses it') + '</div></div>';
+      '<div class="used">' + (cases.length ? cases.map((c) => esc(c.title)).join(', ') : 'No case uses it') + '</div></div>';
   }).join('');
   return '<div class="layer" data-layer="' + L.id + '" style="--c:' + lc(L.id) + '"><header><b>' + L.id + '</b><div>' + esc(L.name) +
     '</div><p>' + esc(L.covers) + '</p></header><div class="mechs">' +
@@ -261,11 +280,11 @@ const proposalCards = sections.map((s) =>
 document.getElementById('app').innerHTML =
 '<header><a class="back" href="./">← The 3D atlas</a><h1>Atlas of Influence: framework map</h1>' +
 '<p class="lede">What the model covers today, what evidence stands behind it, and what it does not cover yet. Built ' + D.built + ' from the files in data/ and docs/.</p>' +
-'<div class="stats">' + stat(F.layers.length, 'layers') + stat(F.mechanisms.length, 'mechanisms') + stat(F.cases.length, 'seed cases') +
+'<div class="stats">' + stat(F.layers.length, 'layers') + stat(F.mechanisms.length, 'mechanisms') + stat(F.cases.length, 'cases') +
   stat(D.narratives.length, 'narratives') + stat(D.totals.evidence, 'evidence rows') + stat(D.totals.sources, 'sources') + stat(D.totals.snapshots, 'with a snapshot') + stat(D.proposals.filter((p) => ['proposed', 'parked', 'open', 'task', 'pending'].includes(p.status)).length, 'proposals still open') + '</div></header>' +
 
 '<section><h2>The pipeline, from the world to the screen</h2>' +
-'<p class="lede">Each column is a layer; each box is a mechanism, placed where it starts. An arrow marks a mechanism that acts on another layer. Pick a case to see its path. ' + unusedMechs + ' of ' + F.mechanisms.length + ' mechanisms are not used by any seed case.</p>' +
+'<p class="lede">Each column is a layer; each box is a mechanism, placed where it starts. An arrow marks a mechanism that acts on another layer. Pick a case to see its path. ' + unusedMechs + ' of ' + F.mechanisms.length + ' mechanisms are not used by any case.</p>' +
 '<div class="picker" id="picker"><button data-case="" aria-pressed="true">All</button>' + F.cases.map((c) => '<button data-case="' + c.id + '" aria-pressed="false">' + esc(c.title) + '</button>').join('') + '</div>' +
 '<div class="scroll"><div class="pipeline" id="pipeline">' + pipeline + '</div></div>' +
 '<div class="loops"><b>Feedback loops</b>' + F.loops.map((l) => '<span' + (l.status === 'proposed' ? ' class="dashed"' : '') + '>' + l.from + ' → ' + l.to + ' ' + esc(l.name) + (l.status === 'proposed' ? ' (proposed)' : '') + '</span>').join('') + '</div></section>' +
@@ -274,13 +293,13 @@ document.getElementById('app').innerHTML =
 '<div class="scroll"><table><thead><tr><th>Form</th><th>Evidence</th></tr></thead><tbody>' +
 F.extended.map((x) => '<tr><td><b>' + esc(x.name) + '</b><br><span class="mono" style="color:var(--muted)">' + x.id + '</span></td><td class="mono">' + x.evidence.join(' ') + '</td></tr>').join('') + '</tbody></table></div></section>' +
 
-'<section><h2>Seed cases</h2><p class="lede">A case is an ordered path through the layers. Click a row to light its path above.</p>' +
-'<div class="scroll"><table><thead><tr><th>Case</th><th>Actor origin</th><th>Transparency</th><th>Layers L1 to L7</th><th>Evidence rows</th><th>Sourcing</th></tr></thead><tbody>' + caseRows + '</tbody></table></div></section>' +
+'<section><h2>Cases</h2><p class="lede">A case is an ordered path through the layers. Click a row to light its path above.</p>' +
+'<div class="scroll"><table><thead><tr><th>Case</th><th>Countries</th><th>Transparency</th><th>Layers L1 to L7</th><th>Evidence rows</th><th>Status</th></tr></thead><tbody>' + caseRows + '</tbody></table></div></section>' +
 
 '<section><h2>Evidence behind the model</h2>' +
-'<p class="lede"><b style="color:var(--ink)">' + modelled + ' of ' + D.totals.evidence + ' evidence rows belong to a seed case.</b> The other ' + (D.totals.evidence - modelled) + ' are logged but not yet expressed as cases, actors or mechanisms. Rows are not tagged by mechanism or layer yet, so coverage per layer cannot be counted.</p>' +
+'<p class="lede"><b style="color:var(--ink)">' + modelled + ' of ' + D.totals.evidence + ' evidence rows are cited by a case.</b> The other ' + (D.totals.evidence - modelled) + ' are logged but not yet used in a case; some are unread, some await a case of their own.</p>' +
 '<div class="two"><div class="bars"><h3>By confidence grade</h3>' + gradeBars + '<h3 style="margin-top:14px">By how the source was read</h3>' + readBars + '<p class="lede" style="font-size:13px">' + D.responses + ' responses from the people and organisations named are recorded alongside.</p></div>' +
-'<div class="bars"><h3>By topic</h3><div class="legend"><span><i style="background:var(--accent)"></i>in a seed case</span><span><i style="background:var(--gap-ink)"></i>not modelled yet</span></div>' + groupBars + '</div></div></section>' +
+'<div class="bars"><h3>By topic</h3><div class="legend"><span><i style="background:var(--accent)"></i>topic has a case</span><span><i style="background:var(--gap-ink)"></i>no case yet</span></div>' + groupBars + '</div></div></section>' +
 
 '<section><h2>What a case records</h2><div class="cards">' +
 '<div class="card"><h3>Five dimensions</h3><dl>' + F.dimensions.map((d) => '<dt>' + esc(d.name) + '</dt><dd>' + esc(d.question) + '</dd>').join('') + '</dl></div>' +

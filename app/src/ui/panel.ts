@@ -42,6 +42,11 @@ export class Panel {
 
   constructor(private hooks: PanelHooks) {
     this.root.addEventListener('click', (ev) => this.onClick(ev));
+    // Steps are list items that act as buttons: make them work from the keyboard too.
+    this.root.addEventListener('keydown', (ev) => {
+      const el = ev.target as HTMLElement;
+      if ((ev.key === 'Enter' || ev.key === ' ') && el.classList.contains('step')) { ev.preventDefault(); el.click(); }
+    });
     document.getElementById('panel-grip')!.addEventListener('click', () => this.root.classList.toggle('collapsed'));
   }
 
