@@ -135,21 +135,25 @@ The four `llm.*` entries came out of the Israeli cases: Pravda targets the train
 
 Decided across 13–14 Nov 2026 and built on the `feat/atlas-explore` branch.
 
-**One atlas, always whole** (decided 14 Nov 2026). Every platform, sphere and actor in the model is in the scene at all times, each in a fixed place worked out once from all the data. Exploring an app, a case, a narrative or an owner never adds, removes or moves an object. It only changes what is lit and where the camera looks: what is chosen takes its colour, what belongs to the open app stays at full strength, and everything else stays in place, drawn pale.
+**One atlas, always whole** (decided 14 Nov 2026). Every sphere and every actor that is drawn is in the scene at all times, each in a fixed place worked out once from all the data. Exploring an app, a case, a narrative or an owner never adds, removes or moves one of them. It only changes what is lit and where the camera looks: what is chosen takes its colour, what belongs to the app being viewed stays at full strength, and everything else stays in place, drawn pale.
+
+**One platform at a time** (decided 14 Nov 2026). A single platform stands behind the phone: the app being viewed. It changes with what is viewed, and the links running into it are that app's. Showing several platforms at once, for content or a narrative that spreads across them, is an idea held for later.
+
+**Checks are not drawn** (decided 14 Nov 2026). Countervailing steps (reporting, research, regulators, courts) and the actors who appear only as the ones doing the checking are left out of the scene. Each case lists its checks at the end of its panel, before the sources.
 
 | In the model | In the scene |
 |---|---|
-| Layers | Depth behind the phone. The phone is the interface (L6); behind it stands a wall of platforms, one cube per app in the same grid as the phone's home screen (L4); entry (L3) is a "direct posting" slab and a "web" sphere behind the wall; then the crowd (L5), production (L2) and structure (L1), furthest back. A ruler on the floor names the bands. |
-| The app being viewed | The phone stands in front of that app's platform, which is drawn open: its ranking systems dock onto it and beams run from it to the screen. Choosing another app closes it back into its cube; the phone moves to the other platform, and that one opens. |
+| Layers | Depth behind the phone. The phone is the interface (L6); the platform cube behind it is mediation (L4); entry (L3) is a "direct posting" slab and a "web" sphere behind the platform; then the crowd (L5), production (L2) and structure (L1), furthest back. A ruler on the floor names the bands. |
+| The app being viewed | The platform behind the phone: its ranking systems dock onto it and beams run from it to the screen. Choosing another app closes it and reopens it as that app's platform, in the same place. |
 | Actors | Cubes, grouped into spheres by kind. Each sphere has a fixed place: its band sets its depth, and spheres in the same band are stacked one above the other. Companies and individuals are not grouped: they sit at the back, beside what they own or fund. |
 | Fronts and fake accounts | Hollow cubes. |
-| Checks and oversight | Regulators, courts, researchers, monitors and fact-checkers sit in their own sphere above the pipeline, not in it. (This moves `regulator` out of "States and politics", where the first grouping had put it.) |
-| A case | A path drawn in pink from actor to actor to the platform and on to the screen, played step by step. Its countervailing steps are drawn in green. A case that ran on several platforms has a link into each of them; the path shown ends at the one the phone is on. |
-| A narrative | The steps that carry it, in violet, on every platform they ran on. |
-| Ownership | Everything an owner controls, joined in black, including every platform it owns. |
+| Checks and oversight | Not drawn. Regulators, courts, researchers, monitors, fact-checkers and reporters who appear only as the ones checking are listed in the case's panel. (`regulator` stays out of "States and politics", where the first grouping had put it.) |
+| A case | A path drawn in pink from actor to actor to the platform and on to the screen, played step by step. A case that ran on several platforms is shown on one of them at a time. |
+| A narrative | The steps that carry it, in violet. Choosing a narrative opens one of the apps it is carried on. |
+| Ownership | Everything an owner controls, joined in black. Of the platforms it owns, the one being viewed is shown. |
 | Evidence, grades, who knew, cost, responses | Not drawn. They are in the panel beside the scene, under each step and in the sources list. |
 
-The visitor chooses a case, a narrative or an owner from a panel; the scene responds, and the camera moves to what was chosen. Clicking an actor's cube opens that actor; clicking a platform on the wall opens that app. The Influence Facts sheet on the phone counts cases and sources per line for the app, and reads "Not yet examined" where the atlas holds none.
+The visitor chooses a case, a narrative or an owner from a panel; the scene responds, and the camera moves to what was chosen. Clicking a cube opens that actor. The Influence Facts sheet on the phone counts cases and sources per line for the app, and reads "Not yet examined" where the atlas holds none.
 
 ## Extended forms of influence
 

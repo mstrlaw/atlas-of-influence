@@ -8,11 +8,9 @@ import type { TrailStep } from '../data/types';
 import { GATEWAYS, GATEWAY_Z, WWW_R, WEBSITE_R, type NetworkLayout, type LayoutNode } from './layout';
 
 const CUBE = 0.42;
-const PLAT = 0.8; // a platform on the wall
 const BG = new THREE.Color('#d3d5da');
 const INTRA = new THREE.Color('#ff8a3d'); // link within a group (orange, as in the sketch)
 const CROSS = new THREE.Color('#ff3d6e'); // link across groups / to the platform (pink)
-const CHECK = new THREE.Color('#2f9e6e'); // a countervailing link: reporting, research, a regulator
 const RING = '#6b707c';
 const PALE_FILL = new THREE.Color('#dfe0e5'); // a cube that is present but not part of what is being explored
 const PALE_EDGE = new THREE.Color('#a9acb6');
@@ -21,7 +19,6 @@ const INTERNAL = new THREE.Color('#4a4e58'); // gateway → platform: inside the
 /** How each kind of highlight is drawn. Ownership and narrative must not look alike (framework spec). */
 export const TRAIL_STYLE: Record<TrailStep['kind'], { line: THREE.Color; fill: string; edge: string }> = {
   path: { line: new THREE.Color('#f0134d'), fill: '#ffd3dd', edge: '#f0134d' },
-  check: { line: new THREE.Color('#12915b'), fill: '#d2f3e3', edge: '#12915b' },
   own: { line: new THREE.Color('#15161c'), fill: '#ffffff', edge: '#15161c' },
   thread: { line: new THREE.Color('#6a3df0'), fill: '#e5dcff', edge: '#6a3df0' },
 };
@@ -37,8 +34,6 @@ const websiteGeo = new THREE.SphereGeometry(WEBSITE_R, 32, 20);
 // Shared geometry: uploaded to the GPU once, reused for every cube and ring of every network.
 const boxGeo = new THREE.BoxGeometry(CUBE, CUBE, CUBE);
 const edgeGeo = new THREE.EdgesGeometry(boxGeo);
-const platGeo = new THREE.BoxGeometry(PLAT, PLAT, PLAT);
-const platEdgeGeo = new THREE.EdgesGeometry(platGeo);
 const ringGeo = (() => {
   const pts: number[] = [];
   for (let i = 0; i <= 128; i++) { const a = (i / 128) * Math.PI * 2; pts.push(Math.cos(a), Math.sin(a), 0); }
@@ -59,9 +54,9 @@ type Slab = { mesh: THREE.Mesh; mat: THREE.MeshStandardMaterial; edgeMat: THREE.
 // ---------- Billboard labels ----------
 // Text is drawn once per unique string into a canvas texture and shown on a Sprite, which always faces
 // the camera. Sized in world units, so labels behave like the objects they name (depth-tested, perspective).
-export type LabelStyle = 'entity' | 'concept' | 'platform' | 'app' | 'site' | 'band';
+export type LabelStyle = 'entity' | 'concept' | 'platform' | 'site' | 'band';
 const LABEL_FONT = "'Inter Tight', system-ui, -apple-system, sans-serif";
-const LABEL_H: Record<LabelStyle, number> = { entity: 0.17, concept: 0.24, platform: 0.3, app: 0.2, site: 0.095, band: 0.15 }; // world-unit height of the text line
+const LABEL_H: Record<LabelStyle, number> = { entity: 0.17, concept: 0.24, platform: 0.3, site: 0.095, band: 0.15 }; // world-unit height of the text line
 const HALO = 'rgba(211,213,218,0.92)'; // scene background, so labels stay legible over lines
 const labelCache = new Map<string, { tex: THREE.CanvasTexture; aspect: number }>();
 
@@ -74,7 +69,7 @@ function labelTexture(text: string, style: LabelStyle) {
   const ctx = canvas.getContext('2d')!;
   const caps = style === 'concept' || style === 'band';
   const t = caps ? text.toUpperCase() : text;
-  const font = style === 'concept' || style === 'platform' || style === 'app' ? `800 ${px}px ${LABEL_FONT}` : `600 ${px}px ${LABEL_FONT}`;
+  const font = style === 'concept' || style === 'platform' ? `800 ${px}px ${LABEL_FONT}` : `600 ${px}px ${LABEL_FONT}`;
   const spacing = caps ? 6 : 0;
   ctx.font = font;
   if ('letterSpacing' in ctx) (ctx as any).letterSpacing = `${spacing}px`;
@@ -138,22 +133,22 @@ export function setLabel(sprite: THREE.Sprite, text: string, style: LabelStyle) 
 /** A node's place in the current highlight. */
 type Lit = { kind: TrailStep['kind']; k: number; current: boolean };
 /** A lit link segment, drawn from `a` toward `b` up to `t`. */
-type HotSeg = { a: LayoutNode; b: LayoutNode; t: number; kind: TrailStep['kind'] };
+type HotSeg = { a: LayoutNode; b: LayoutNode; t: number; kind: TrailStep['kind']; app?: string };
 
 /**
- * Renders the atlas: the wall of platforms, the entry gateways, actor cubes, group spheres drawn as their
- * exact silhouette ring (outline only), and links. It is built once and nothing is ever added or removed.
- * What is being explored only changes how things are lit:
+ * Renders the atlas behind the platform: the entry gateways, actor cubes, group spheres drawn as their
+ * exact silhouette ring (outline only), and links. It is built once and no sphere or actor is ever added,
+ * removed or moved. One platform stands in front of it at a time (drawn by PlatformView); the links that
+ * run into the platform are those of the app being viewed. What is being explored only changes how things are lit:
  *  - a context (the app that is open) keeps its own part of the atlas at full strength and lets the rest recede;
  *  - a trail (a case, a narrative, an owner's holdings) is drawn in its own colour on top.
- * The first reveal runs hop by hop from the wall, driven by the explore progress p.
+ * The first reveal runs hop by hop from the platform, driven by the explore progress p.
  */
 export class NetworkView {
   readonly root = new THREE.Group();
   /** Extra size for names on the trail, for small screens where the whole picture is drawn smaller. */
   labelBoost = 1;
   private cubes: Cube[] = [];
-  private plats: Cube[] = [];
   private rings: Ring[] = [];
   private slab: Slab;
   private www!: { sites: { node: LayoutNode | null; mesh: THREE.Mesh; mat: THREE.MeshStandardMaterial; label: THREE.Sprite }[]; ring: Ring };
@@ -166,8 +161,8 @@ export class NetworkView {
   private pulse: THREE.Mesh;
   private ruler = new THREE.Group();
   private layout: NetworkLayout | null = null;
-  /** What the link buffer draws, ordered so `a` is the end nearer the wall (lines grow from it). */
-  private segs: { a: LayoutNode; b: LayoutNode }[] = [];
+  /** What the link buffer draws, ordered so `a` is the end nearer the platform (lines grow from it). `app` marks a link into the platform. */
+  private segs: { a: LayoutNode; b: LayoutNode; app?: string }[] = [];
   private baseColours: THREE.Color[] = [];
   private lineMats: LineMaterial[] = [];
 
@@ -184,8 +179,9 @@ export class NetworkView {
   private ctxLinks = new Set<number>();
   private away = new Map<LayoutNode, number>(); // 0 = in context, 1 = receded
   private linkAway = new Float32Array(0);
-  // The platform that is open: its wall cube gives way to the detailed platform drawn in its place.
+  // The platform being viewed, and how far it has opened. Links into the platform follow it.
   private open: { id: string | null; k: number } = { id: null, k: 0 };
+  private painted = { id: null as string | null, k: -1 };
 
   constructor() {
     this.linkMat = new LineMaterial({ vertexColors: true, linewidth: 1.4, transparent: true, opacity: 0.6 });
@@ -239,7 +235,7 @@ export class NetworkView {
   }
 
   /**
-   * A depth ruler along the floor, beside the wall: the pipeline's layers from the phone back to structure,
+   * A depth ruler along the floor: the pipeline's layers from the phone back to structure,
    * so depth reads as "how far upstream". Labels only; the actors themselves are placed by the layout.
    */
   private buildRuler(L: NetworkLayout, phoneZ: number) {
@@ -248,7 +244,7 @@ export class NetworkView {
     this.ruler.userData.ends = [new THREE.Vector3(x, y, phoneZ), new THREE.Vector3(x, y, L.depth.L1)];
     const marks: [number, string][] = [
       [phoneZ, 'L6 · Your screen'],
-      [0, 'L4 · Platforms'],
+      [0, 'L4 · Platform'],
       [GATEWAY_Z, 'L3 · Entry'],
       [L.depth.L5, 'L5 · Crowd'],
       [L.depth.L2, 'L2 · Production'],
@@ -318,8 +314,7 @@ export class NetworkView {
       setLabel(c.label, n.node!.name, style);
       return c;
     };
-    this.plats = layout.platforms.map((n) => place(this.makeCube(platGeo, platEdgeGeo), n, 'app'));
-    this.cubes = layout.nodes.filter((n) => n.node && !n.platform).map((n) => place(this.makeCube(boxGeo, edgeGeo), n, 'entity'));
+    this.cubes = layout.nodes.filter((n) => n.node).map((n) => place(this.makeCube(boxGeo, edgeGeo), n, 'entity'));
     this.rings = layout.spheres.map((sp) => {
       const r = this.makeRing();
       setLabel(r.label, sp.name, 'concept');
@@ -340,12 +335,17 @@ export class NetworkView {
     this.baseColours = [];
     for (const l of layout.links) {
       const [a, b] = l.source.hop <= l.target.hop ? [l.source, l.target] : [l.target, l.source];
-      this.segs.push({ a, b });
-      this.baseColours.push(l.kind === 'internal' ? INTERNAL : l.check ? CHECK : l.intra ? INTRA : CROSS);
+      this.segs.push({ a, b, app: l.app });
+      this.baseColours.push(l.kind === 'internal' ? INTERNAL : l.intra ? INTRA : CROSS);
     }
     this.linkGeo.instanceCount = n;
     this.linkAway = new Float32Array(n);
     this.paintLinks();
+  }
+
+  /** How strongly a link into the platform is drawn: fully for the app being viewed, not at all for any other. */
+  private linkOn(app?: string) {
+    return !app ? 1 : app === this.open.id ? smooth(clamp01(this.open.k)) : 0;
   }
 
   /** Link colours: their own colour normally; faded toward the background when outside the context or the trail. */
@@ -357,7 +357,7 @@ export class NetworkView {
     this.baseColours.forEach((base, i) => {
       const ctx = 0.72 * this.linkAway[i];
       const trail = this.hotLinks.has(i) ? 0.2 : 0.86;
-      c.copy(base).lerp(BG, ctx + (trail - ctx) * this.dim);
+      c.copy(base).lerp(BG, ctx + (trail - ctx) * this.dim).lerp(BG, 1 - this.linkOn(this.segs[i].app));
       carr.set([c.r, c.g, c.b, c.r, c.g, c.b], i * 6);
     });
     col.needsUpdate = true;
@@ -382,7 +382,7 @@ export class NetworkView {
     }
   }
 
-  /** The platform whose detailed view is open, and how far open it is (0 → its wall cube, 1 → fully replaced). */
+  /** The platform being viewed, and how far it has opened (0 → closed, 1 → open). */
   setOpen(id: string | null, k: number) {
     this.open = { id, k };
   }
@@ -427,9 +427,7 @@ export class NetworkView {
         if (!n) return;
         const nk = ni === 0 ? Math.min(1, k * 4) : seg(k, 0.7, 1);
         const prev = this.lit.get(n);
-        // A node on the path keeps the path's colour even when a check also touches it.
-        const kind = prev && prev.k > 0 && prev.kind !== 'check' && step.kind === 'check' ? prev.kind : step.kind;
-        if (!prev || nk >= prev.k || prev.kind === 'check') this.lit.set(n, { kind, k: Math.max(nk, prev?.k ?? 0), current: current || !!prev?.current });
+        if (!prev || nk >= prev.k) this.lit.set(n, { kind: step.kind, k: Math.max(nk, prev?.k ?? 0), current: current || !!prev?.current });
       });
       for (const link of step.links) {
         const idx = L.segments.get(link.key);
@@ -445,8 +443,8 @@ export class NetworkView {
           const t = clamp01(k * order.length - si);
           this.hotLinks.add(li);
           if (t <= 0) return;
-          this.hot.push({ a, b, t, kind: step.kind });
-          if (current && t < 1) {
+          this.hot.push({ a, b, t, kind: step.kind, app: l.app });
+          if (current && t < 1 && this.linkOn(l.app) > 0) {
             this.pulseAt = { a: new THREE.Vector3(a.x, a.y, a.z), b: new THREE.Vector3(b.x, b.y, b.z), t, kind: step.kind };
           }
         });
@@ -455,9 +453,9 @@ export class NetworkView {
     this.paintLinks();
   }
 
-  /** Cube meshes that can be clicked (actors and platforms), each carrying its node in userData. */
+  /** Cube meshes that can be clicked, each carrying its node in userData. */
   pickables(): THREE.Object3D[] {
-    return [...this.cubes, ...this.plats].filter((c) => c.mesh.visible && c.edgeMat.opacity > 0.1).map((c) => c.mesh);
+    return this.cubes.filter((c) => c.mesh.visible).map((c) => c.mesh);
   }
 
   /** Everything the atlas occupies, as world points: for framing the whole of it. */
@@ -480,7 +478,7 @@ export class NetworkView {
 
   /** Make everything visible for one warm-up render (shader compile + buffer upload). */
   showAllForWarmup() {
-    [...this.cubes, ...this.plats].forEach((c) => { c.mesh.visible = c.label.visible = true; c.mat.opacity = c.edgeMat.opacity = 1; });
+    this.cubes.forEach((c) => { c.mesh.visible = c.label.visible = true; c.mat.opacity = c.edgeMat.opacity = 1; });
     this.rings.forEach((r) => (r.line.visible = r.label.visible = true));
     this.slab.mesh.visible = this.slab.label.visible = true;
     this.www.sites.forEach((w) => (w.mesh.visible = w.label.visible = true));
@@ -488,14 +486,13 @@ export class NetworkView {
     this.linkLine.visible = this.hotLine.visible = this.pulse.visible = true;
   }
 
-  // Reveal window for a node: the wall rises first; hop 1 starts right after the beams reach the phone; outer hops follow.
+  // Reveal window for a node: hop 1 starts right after the beams reach the phone; outer hops follow.
   private window(hop: number) {
     const max = Math.max(1, (this.layout?.maxHop ?? 1) - 1);
     const start = hop === 0 ? 0.8 : 0.84 + 0.1 * ((hop - 1) / max);
     return { start, end: Math.min(1, start + 0.08) };
   }
   private nodeK(n: LayoutNode, p: number) {
-    if (n.platform) return smooth(seg(p, 0.4, 0.82));
     const w = this.window(n.hop);
     return smooth(seg(p, w.start, w.end));
   }
@@ -540,6 +537,7 @@ export class NetworkView {
       const to = this.ctxNodes && !this.ctxLinks.has(i) ? 1 : 0;
       if (this.linkAway[i] !== to) { this.linkAway[i] = ease(this.linkAway[i], to, 3); repaint = true; }
     }
+    if (this.painted.id !== this.open.id || this.painted.k !== this.open.k) { this.painted = { ...this.open }; repaint = true; }
     if (repaint) this.paintLinks();
     const dim = this.dim;
     /** Strength of something the trail does not touch: its context strength, falling to a ghost under a trail. */
@@ -556,11 +554,11 @@ export class NetworkView {
 
     // Cubes pop in (scale with a slight overshoot) as their hop is reached. After that they are always there:
     // lit in the trail's colour, at full strength in the open app's context, or receded.
-    const paint = (c: Cube, size: number, gone = 0) => {
+    for (const c of this.cubes) {
       const n = c.mesh.userData.node as LayoutNode;
-      const k = this.nodeK(n, p) * (1 - gone);
+      const k = this.nodeK(n, p);
       c.mesh.visible = c.label.visible = k > 0.001;
-      if (!c.mesh.visible) return;
+      if (!c.mesh.visible) continue;
       const lit = this.lit.get(n);
       const on = lit ? lit.k : 0;
       const hollow = !!n.node?.hollow;
@@ -568,15 +566,15 @@ export class NetworkView {
       const beat = lit?.current ? 1 + 0.07 * Math.sin(time * 5) : 1;
       const grow = (0.35 + 0.65 * backOut(k)) * (1 + 0.16 * on) * beat;
       // Label sits just above the cube (world up, also when the atlas is tilted).
-      c.label.position.copy(c.mesh.position).addScaledVector(worldUp, (size / 2) * grow * 1.25 + 0.06);
+      c.label.position.copy(c.mesh.position).addScaledVector(worldUp, (CUBE / 2) * grow * 1.25 + 0.06);
       const shown = on > 0 ? 1 : rest(n);
       const dist = camPos.distanceTo(c.mesh.getWorldPosition(tmp));
-      // Names: always readable on the trail; kept legible from afar inside the context (and on the wall);
-      // outside it they are shown only from close by, so the whole atlas does not turn into a wall of text.
-      const near = n.platform ? 1 : 1 - smooth(seg(dist, 13, 21)) * away;
+      // Names: always readable on the trail; kept legible from afar inside the context; outside it they are
+      // shown only from close by, so the whole atlas does not turn into a wall of text.
+      const near = 1 - smooth(seg(dist, 13, 21)) * away;
       fadeLabel(c.label, k * (on > 0 ? 1 : (1 - dim) * near * (1 - 0.55 * away)));
-      const far = on > 0 ? THREE.MathUtils.clamp((dist / 13) * this.labelBoost, 1, (n.platform ? 1.5 : lit?.current ? 2.6 : 2) * this.labelBoost)
-        : THREE.MathUtils.clamp(dist / (n.platform ? 15 : 17), 1, 1 + (n.platform ? 1.2 : 0.9) * (1 - away));
+      const far = on > 0 ? THREE.MathUtils.clamp((dist / 13) * this.labelBoost, 1, (lit?.current ? 2.6 : 2) * this.labelBoost)
+        : THREE.MathUtils.clamp(dist / 17, 1, 1 + 0.9 * (1 - away));
       c.label.scale.set(c.label.userData.w * far, c.label.userData.h * far, 1);
       c.label.renderOrder = on > 0 ? 4 : 2;
       (c.label.material as THREE.SpriteMaterial).depthTest = !(on > 0);
@@ -585,19 +583,16 @@ export class NetworkView {
       // What is not lit stays solid and turns pale, so it is plainly still there and never reads as hollow.
       const style = lit ? TRAIL_STYLE[lit.kind] : null;
       const pale = on > 0 ? 0 : 1 - clamp01((shown - 0.2) / 0.8);
-      c.mat.color.set(style && on > 0 ? style.fill : n.platform ? '#e9e9ee' : '#f4f4f6').lerp(PALE_FILL, pale);
+      c.mat.color.set(style && on > 0 ? style.fill : '#f4f4f6').lerp(PALE_FILL, pale);
       c.edgeMat.color.set(style && on > 0 ? style.edge : '#1a1b20').lerp(PALE_EDGE, pale);
       // Fronts and fake accounts are hollow: an outline with almost nothing inside.
       const body = hollow ? 0.14 + 0.2 * on : 1;
       c.mat.opacity = k * body;
       c.edgeMat.opacity = k;
       c.mat.depthWrite = !hollow && k > 0.95;
-    };
-    for (const c of this.cubes) paint(c, CUBE);
-    // The open platform's wall cube gives way to the detailed platform drawn in its place.
-    for (const c of this.plats) paint(c, PLAT, c.mesh.name === this.open.id ? clamp01(this.open.k * 2.2) : 0);
+    }
 
-    // Gateways rise into place behind the wall, just before the actors that feed them.
+    // Gateways rise into place behind the platform, just before the actors that feed them.
     {
       const sl = this.slab;
       const n = sl.mesh.userData.node as LayoutNode | undefined;
@@ -662,7 +657,8 @@ export class NetworkView {
       });
     }
 
-    // Links draw from the node nearer the wall toward the other one.
+    // Links draw from the node nearer the platform toward the other one. A link into the platform is drawn
+    // only while its app is the one being viewed.
     const buf = (this.linkGeo.attributes.instanceStart as THREE.InterleavedBufferAttribute).data;
     const arr = buf.array as Float32Array;
     const A = new THREE.Vector3(), B = new THREE.Vector3();
@@ -673,9 +669,9 @@ export class NetworkView {
       if (a.gateway === 'scrape') toSurface(A, B);
       if (b.gateway === 'scrape') toSurface(B, A);
     };
-    this.segs.forEach(({ a, b }, i) => {
+    this.segs.forEach(({ a, b, app }, i) => {
       ends(a, b);
-      const t = smooth(seg(p, this.window(a.hop).start, this.window(b.hop).end));
+      const t = this.linkOn(app) < 0.02 ? 0 : smooth(seg(p, this.window(a.hop).start, this.window(b.hop).end));
       arr.set([A.x, A.y, A.z, A.x + (B.x - A.x) * t, A.y + (B.y - A.y) * t, A.z + (B.z - A.z) * t], i * 6);
     });
     buf.needsUpdate = true;
@@ -691,7 +687,8 @@ export class NetworkView {
       const hca = hc.array as Float32Array;
       const n = Math.min(this.hot.length, this.segs.length);
       for (let i = 0; i < n; i++) {
-        const { a, b, t, kind } = this.hot[i];
+        const { a, b, kind, app } = this.hot[i];
+        const t = this.hot[i].t * this.linkOn(app); // a trail's line into another platform is not drawn here
         ends(a, b);
         ha.set([A.x, A.y, A.z, A.x + (B.x - A.x) * t, A.y + (B.y - A.y) * t, A.z + (B.z - A.z) * t], i * 6);
         const c = TRAIL_STYLE[kind].line;

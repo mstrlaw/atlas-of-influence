@@ -4,45 +4,50 @@ import type { Band, Channel, Graph, GraphNode } from '../data/types';
 
 /**
  * Layout of the whole atlas. It is computed once, from all the data, and never changes with what is
- * being explored: every platform, sphere and actor keeps its place, and a selection only lights things up.
+ * being explored: every sphere and actor keeps its place, and a selection only lights things up. One platform
+ * stands behind the phone at a time; which one depends on what is being viewed.
  *
  * Depth carries meaning. Reading from the phone backwards:
- *  - the wall of platforms (one cube per app, in the same grid as the phone's home screen);
+ *  - the platform: one place, right behind the phone, taken by whichever app is being viewed;
  *  - the two ways content enters a platform: direct posting, and the web;
  *  - the crowd, then production (media, think tanks, the influence industry), then structure (states, owners).
- * Checks and oversight sit above the pipeline, not in it.
+ * Checks are not drawn; if an oversight actor also takes part in a path, its sphere sits above the pipeline, not in it.
  *
  * Each sphere (actor group) has a fixed centre, worked out from the bands alone: all centres lie in one
  * upright plane along the pipeline, a band is a column of spheres in it, and each band starts where the one
  * before it ends. Only the cubes are simulated: members settle inside their sphere, and actors with no
  * sphere (companies, individuals) settle at the back, drawn toward what they own or fund.
  *
- * Coordinates are in the atlas frame: the platform wall is the plane z = 0, facing the phone (+z),
- * and everything upstream extends toward -z.
+ * Coordinates are in the atlas frame: the platform is at the origin, facing the phone (+z), and everything
+ * upstream extends toward -z.
  */
 
 export interface LayoutNode {
   id: string;
-  node: GraphNode | null; // null for the entry gateways
+  node: GraphNode | null; // null for the platform's place and the entry gateways
   group: string | null;
+  /** The one place behind the phone where the platform being viewed stands. Every app resolves to it. */
   platform: boolean;
   x: number; y: number; z: number;
   vx?: number; vy?: number; vz?: number;
   fx?: number; fy?: number; fz?: number;
-  hop: number; // graph distance from the platform wall (for the reveal)
-  gateway?: Channel; // set on the entry gateways behind the wall
+  hop: number; // graph distance from the platform (for the reveal)
+  gateway?: Channel; // set on the entry gateways behind the platform
 }
 /** kind: 'entity' (between actors, or straight to a platform), 'entry' (actor → gateway), 'internal' (gateway → platform). */
-export interface LayoutLink { source: LayoutNode; target: LayoutNode; intra: boolean; kind: 'entity' | 'entry' | 'internal'; check: boolean }
+export interface LayoutLink {
+  source: LayoutNode; target: LayoutNode; intra: boolean; kind: 'entity' | 'entry' | 'internal';
+  /** Set on a link into the platform: the app it belongs to. It is drawn only while that app is the one being viewed. */
+  app?: string;
+}
 export interface LayoutSphere { id: string; name: string; color: string; x: number; y: number; z: number; r: number; members: LayoutNode[] }
 export interface NetworkLayout {
   nodes: LayoutNode[];
   links: LayoutLink[];
   spheres: LayoutSphere[];
-  platforms: LayoutNode[];
+  /** The platform's place. */
+  platform: LayoutNode;
   gateways: LayoutNode[];
-  /** Half the width and height of the platform wall (world units). */
-  wall: { halfW: number; halfH: number };
   /** Depth of each band behind the wall, and the lowest point of the atlas (world units): for the depth ruler. */
   depth: { L5: number; L2: number; L1: number };
   floor: number;
@@ -52,15 +57,12 @@ export interface NetworkLayout {
   byId: Map<string, LayoutNode>;
 }
 
-/** The platform wall: one slot per app, row by row, like the phone's home screen. */
-export const WALL = { cols: 4, gap: 1.9 };
-
 // Two ways content reaches a platform:
-//  - publish: actors post on the platform directly → the "Direct posting" slab behind the wall;
+//  - publish: actors post on the platform directly → the "Direct posting" slab right behind it;
 //  - scrape: actors publish on the web, which the platform fetches → "Website" spheres inside "The web".
 export const GATEWAYS: { channel: Channel; label: string; x: number }[] = [
-  { channel: 'publish', label: 'Direct posting', x: -1.0 },
-  { channel: 'scrape', label: 'The web', x: 1.0 },
+  { channel: 'publish', label: 'Direct posting', x: 0 },
+  { channel: 'scrape', label: 'The web', x: 1.6 },
 ];
 /** Outer radius of the web sphere (world units). */
 export const WWW_R = 0.7;
@@ -70,7 +72,7 @@ export const WEBSITE_OFFSETS: [number, number, number][] = [0, 1, 2].map((i) => 
   const a = Math.PI / 2 + (i * Math.PI * 2) / 3; // triangle, one on top
   return [Math.cos(a) * 0.34, Math.sin(a) * 0.34, (i - 1) * 0.08];
 });
-export const GATEWAY_Z = -2.3;
+export const GATEWAY_Z = -2.0;
 
 // The simulation runs in "d3 units" (pixel-like) for well-tuned default behaviour; S converts to world units.
 const S = 50;
@@ -92,15 +94,10 @@ export function layoutNetwork(graph: Graph): NetworkLayout {
   const byId = new Map<string, LayoutNode>();
   const add = (n: LayoutNode) => { nodes.push(n); byId.set(n.id, n); return n; };
 
-  // ---- The platform wall: fixed slots ----
+  // ---- The platform: one fixed place. Only one platform is shown at a time, so every app resolves to it. ----
   const apps = graph.nodes.filter((n) => n.band === 'L4');
-  const rows = Math.ceil(apps.length / WALL.cols);
-  const gap = WALL.gap * S;
-  const platforms = apps.map((gn, i) => {
-    const x = ((i % WALL.cols) - (WALL.cols - 1) / 2) * gap, y = ((rows - 1) / 2 - Math.floor(i / WALL.cols)) * gap;
-    return add({ id: gn.id, node: gn, group: null, platform: true, hop: 0, x, y, z: 0, fx: x, fy: y, fz: 0 });
-  });
-  const wall = { halfW: ((WALL.cols - 1) / 2) * WALL.gap, halfH: ((rows - 1) / 2) * WALL.gap };
+  const platform = add({ id: '@platform', node: null, group: null, platform: true, hop: 0, x: 0, y: 0, z: 0, fx: 0, fy: 0, fz: 0 });
+  for (const a of apps) byId.set(a.id, platform);
 
   // ---- Spheres: fixed centres ----
   const count = new Map<string, number>();
@@ -167,21 +164,19 @@ export function layoutNetwork(graph: Graph): NetworkLayout {
   const segments = new Map<string, number[]>();
   const push = (l: LayoutLink) => links.push(l) - 1;
   const once = new Map<string, number>();
-  const internal = (g: LayoutNode, p: LayoutNode) => {
-    const k = `${g.id}>${p.id}`;
-    if (!once.has(k)) once.set(k, push({ source: g, target: p, intra: false, kind: 'internal', check: false }));
+  const internal = (g: LayoutNode, app: string) => {
+    const k = `${g.id}>${app}`;
+    if (!once.has(k)) once.set(k, push({ source: g, target: platform, intra: false, kind: 'internal', app }));
     return once.get(k)!;
   };
-  const entry = (s: LayoutNode, g: LayoutNode, check: boolean) => {
+  const entry = (s: LayoutNode, g: LayoutNode) => {
     const k = `${s.id}>${g.id}`;
-    const i = once.get(k);
-    if (i === undefined) { once.set(k, push({ source: s, target: g, intra: false, kind: 'entry', check })); return once.get(k)!; }
-    if (!check) links[i].check = false;
-    return i;
+    if (!once.has(k)) once.set(k, push({ source: s, target: g, intra: false, kind: 'entry' }));
+    return once.get(k)!;
   };
-  for (const p of platforms) {
-    if (p.node!.ingest?.includes('publish')) internal(slab, p);
-    if (p.node!.ingest?.includes('scrape')) websites.forEach((w) => internal(w, p));
+  for (const a of apps) {
+    if (a.ingest?.includes('publish')) internal(slab, a.id);
+    if (a.ingest?.includes('scrape')) websites.forEach((w) => internal(w, a.id));
   }
   const siteOf = new Map<LayoutNode, LayoutNode>();
   for (const l of graph.links) {
@@ -190,19 +185,19 @@ export function layoutNetwork(graph: Graph): NetworkLayout {
     if (t.platform && (l.via === 'publish' || l.via === 'scrape')) {
       if (l.via === 'scrape' && !siteOf.has(s)) siteOf.set(s, websites[siteOf.size % websites.length]);
       const gate = l.via === 'publish' ? slab : siteOf.get(s)!;
-      segments.set(l.key, [entry(s, gate, l.checkOnly), internal(gate, t)]);
+      segments.set(l.key, [entry(s, gate), internal(gate, l.target)]);
     } else {
-      segments.set(l.key, [push({ source: s, target: t, intra: !!s.group && s.group === t.group, kind: 'entity', check: l.checkOnly })]);
+      segments.set(l.key, [push({ source: s, target: t, intra: !!s.group && s.group === t.group, kind: 'entity', app: t.platform ? l.target : undefined })]);
     }
   }
 
-  // Hops from the wall (BFS, undirected) for the staged reveal.
+  // Hops from the platform (BFS, undirected) for the staged reveal.
   const adj = new Map<LayoutNode, LayoutNode[]>();
   for (const l of links) {
     adj.set(l.source, [...(adj.get(l.source) ?? []), l.target]);
     adj.set(l.target, [...(adj.get(l.target) ?? []), l.source]);
   }
-  const queue = [...platforms];
+  const queue = [platform];
   while (queue.length) {
     const n = queue.shift()!;
     for (const m of adj.get(n) ?? []) if (m.hop === Infinity) { m.hop = n.hop + 1; queue.push(m); }
@@ -273,6 +268,6 @@ export function layoutNetwork(graph: Graph): NetworkLayout {
   });
 
   const depth = { L5: bandZ.L5 / S, L2: bandZ.L2 / S, L1: bandZ.L1 / S };
-  const floor = Math.min(-wall.halfH - 0.4, ...spheres.map((sp) => sp.y - sp.r), ...nodes.map((n) => n.y));
-  return { nodes, links, spheres, platforms, gateways, wall, depth, floor, maxHop: Math.max(...nodes.map((n) => n.hop)), segments, byId };
+  const floor = Math.min(-1.2, ...spheres.map((sp) => sp.y - sp.r), ...nodes.map((n) => n.y));
+  return { nodes, links, spheres, platform, gateways, depth, floor, maxHop: Math.max(...nodes.map((n) => n.hop)), segments, byId };
 }

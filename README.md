@@ -7,9 +7,9 @@ Live at [atlas.criticalfuture.tech](https://atlas.criticalfuture.tech).
 ## What you can do in it
 
 1. **Tap an app** on the phone. Its *Influence Facts* sheet shows what the atlas holds on that app, line by line: how many cases, and how many sources behind them. A line with nothing reads "Not yet examined".
-2. **Explore what's behind it.** The camera pulls back to show the whole atlas behind the phone: a wall of platforms, then everything that feeds them. Crowds are nearest, media and the influence industry in the middle, owners and states furthest back, regulators and researchers above. Every platform and actor is always there, in the same place. What you explore decides what is lit, not what exists.
+2. **Explore what's behind it.** The camera pulls back to show the app's platform behind the phone and the whole atlas behind that: crowds nearest, media and the influence industry in the middle, owners and states furthest back. Every actor is always there, in the same place. What you explore decides what is lit, not what exists; only the platform changes with the app you are viewing.
 3. **Choose what to follow** in the panel: a *case* (an example of influence, played step by step as a path), a *narrative* (a storyline carried by actors who may be unrelated) or an *owner* (everything one actor controls). The scene lights up what you chose, everything else turns pale, and the camera moves to it.
-4. **Check the sources.** Every step lists the evidence it rests on. Each source shows a link, a grade for what the fact rests on, and whether the source was read in full.
+4. **Check the sources.** Every step lists the evidence it rests on. Reporting, research and court actions on a case are listed as its checks. Each source shows a link, a grade for what the fact rests on, and whether the source was read in full.
 
 There is also a [framework page](https://atlas.criticalfuture.tech/framework) that shows the whole model on one screen: layers, mechanisms, cases, evidence and open questions.
 

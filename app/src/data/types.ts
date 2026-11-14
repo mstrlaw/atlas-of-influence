@@ -3,7 +3,7 @@
 
 export type Channel = 'publish' | 'scrape';
 export type LayerId = 'L1' | 'L2' | 'L3' | 'L4' | 'L5' | 'L6' | 'L7';
-/** Depth band a node sits in. 'L4' is the wall of platforms; 'oversight' is beside the pipeline, not a step in it. */
+/** Depth band a node sits in. 'L4' is the platform; 'oversight' is beside the pipeline, not a step in it. */
 export type Band = 'L1' | 'L2' | 'L4' | 'L5' | 'oversight';
 
 export interface EvidenceRow {
@@ -86,7 +86,7 @@ export type Selection =
   | { type: 'owner'; id: string }
   | { type: 'actor'; id: string };
 
-// ---------- The atlas graph: every actor and platform, the same whatever is being explored ----------
+// ---------- The atlas graph: every actor that is drawn, the same whatever is being explored ----------
 
 export interface GraphNode {
   id: string;
@@ -110,8 +110,6 @@ export interface GraphLink {
   target: string;
   /** Set when the target is a platform. */
   via?: Via;
-  /** True when the link only exists because of countervailing steps. */
-  checkOnly: boolean;
 }
 
 export interface GraphSphere { id: string; name: string; color: string }
@@ -134,5 +132,5 @@ export interface TrailStep {
   platform: boolean;
   /** The step reaches the phone's screen. */
   screen: boolean;
-  kind: 'path' | 'check' | 'own' | 'thread';
+  kind: 'path' | 'own' | 'thread';
 }

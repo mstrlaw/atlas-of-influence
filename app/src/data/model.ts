@@ -89,9 +89,12 @@ export function mechanismLayers(id: string): string {
 }
 
 // ---------- The atlas graph ----------
-// One graph for the whole atlas: every actor, every platform, every relation and every step of every
-// case. It is the same whichever app, case, narrative or owner is being explored; a selection only
-// decides what is lit.
+// One graph for the whole atlas: every actor, every relation and every step of every case. It is the
+// same whichever app, case, narrative or owner is being explored; a selection only decides what is lit.
+//
+// Checks are not drawn (decided 14 Nov 2026). A check is a countervailing step: reporting, research,
+// a regulator, a court. Those steps, and the actors who appear only as the ones doing the checking,
+// are listed in the panel for context and left out of the scene.
 
 const SCRAPE = new Set(['entry.web', 'entry.seo_geo', 'llm.corpus', 'llm.retrieval', 'prod.query_mirroring', 'prod.laundering']);
 const PUBLISH = new Set(['entry.direct', 'crowd.inauthentic', 'crowd.participatory', 'prod.influencer', 'plat.ads', 'prod.impersonation', 'prod.paid_placement']);
@@ -140,12 +143,28 @@ function ownersOf(id: string, seen = new Set<string>()): string[] {
   return out;
 }
 
+/** Actors whose only part in the atlas is to check others: the actor of a check step, or a regulator in a 'regulates' relation. */
+const checkOnly = (() => {
+  const checks = new Set<string>(), other = new Set<string>();
+  for (const c of cases) for (const s of c.steps) {
+    if (s.check) checks.add(s.actor);
+    else { other.add(s.actor); if (s.to) other.add(s.to); }
+  }
+  for (const r of relations) {
+    if (r.kind === 'regulates') checks.add(r.source);
+    else { other.add(r.source); other.add(r.target); }
+  }
+  return new Set([...checks].filter((id) => !other.has(id)));
+})();
+/** Is this actor drawn in the scene? */
+export const isDrawn = (id: string) => actorById.has(id) && !checkOnly.has(id);
+
 let graph: Graph | null = null;
 
 export function atlasGraph(): Graph {
   if (graph) return graph;
 
-  const nodes: GraphNode[] = actors.map((a) => {
+  const nodes: GraphNode[] = actors.filter((a) => isDrawn(a.id)).map((a) => {
     const g = a.app ? undefined : groupOfKind.get(a.kind);
     return {
       id: a.id, name: a.name, group: g?.id ?? null, band: (a.app ? 'L4' : g?.layer ?? 'L2') as Band,
@@ -154,15 +173,13 @@ export function atlasGraph(): Graph {
   });
 
   const links = new Map<string, GraphLink>();
-  const put = (h: Hop, check: boolean) => {
-    if (!actorById.has(h.source) || !actorById.has(h.target)) return;
-    const l = links.get(h.key);
-    if (l) { if (!check) l.checkOnly = false; return; }
-    links.set(h.key, { key: h.key, source: h.source, target: h.target, via: h.via, checkOnly: check });
+  const put = (h: Hop) => {
+    if (!isDrawn(h.source) || !isDrawn(h.target) || links.has(h.key)) return;
+    links.set(h.key, { key: h.key, source: h.source, target: h.target, via: h.via });
   };
-  for (const r of relations) put(hop(r.source, r.target), false);
-  // A case is drawn once for each platform it ran on.
-  for (const c of cases) for (const v of c.venues) for (const s of c.steps) { const h = stepHop(s, v); if (h) put(h, !!s.check); }
+  for (const r of relations) if (r.kind !== 'regulates') put(hop(r.source, r.target));
+  // A case has a link into each platform it ran on; the one drawn is the platform being viewed.
+  for (const c of cases) for (const v of c.venues) for (const s of c.steps) { const h = s.check ? null : stepHop(s, v); if (h) put(h); }
 
   const used = new Set(nodes.map((n) => n.group));
   graph = {
@@ -172,20 +189,18 @@ export function atlasGraph(): Graph {
   return graph;
 }
 
-/** The part of the atlas one app's cases, owners and regulators touch. Lit softly while that app is open. */
+/** The part of the atlas one app's cases and owners touch. Drawn at full strength while that app is open. */
 export function contextFor(appId: string): AppContext {
   const nodes = new Set<string>([appId]);
   const links = new Set<string>();
   for (const c of casesFor(appId)) for (const s of c.steps) {
+    if (s.check) continue;
     for (const id of [resolve(s.actor, appId), resolve(s.to, appId)]) if (id) nodes.add(id);
     const h = stepHop(s, appId);
     if (h) links.add(h.key);
   }
   [...nodes].forEach((id) => ownersOf(id).forEach((o) => nodes.add(o)));
-  for (const r of relations) {
-    if (r.kind === 'regulates' && r.target === appId) nodes.add(r.source);
-    if (nodes.has(r.source) && nodes.has(r.target)) links.add(hop(r.source, r.target).key);
-  }
+  for (const r of relations) if (r.kind !== 'regulates' && nodes.has(r.source) && nodes.has(r.target)) links.add(hop(r.source, r.target).key);
   return { nodes, links };
 }
 
@@ -199,16 +214,20 @@ function stepTrail(s: Step, appId: string, kind: TrailStep['kind'], viewed = app
   return { nodes, links: h ? [{ key: h.key, from: h.from, to: h.to }] : [], platform: screen || nodes.includes(viewed), screen, kind };
 }
 
+/** The steps of a case that form its path, in order. Checks are not part of the path. */
+export const pathSteps = (c: Case) => c.steps.filter((s) => !s.check);
+export const checkSteps = (c: Case) => c.steps.filter((s) => s.check);
+
 export function trailForCase(caseId: string, appId: string): TrailStep[] {
   const c = caseById.get(caseId);
-  return c ? c.steps.map((s) => stepTrail(s, appId, s.check ? 'check' : 'path')) : [];
+  return c ? pathSteps(c).map((s) => stepTrail(s, appId, 'path')) : [];
 }
 
 /** Every step, in any case (or only the cases on one app), that carries the narrative. */
 export function narrativeSteps(narrativeId: string, appId?: string): { c: Case; step: Step; index: number }[] {
   const out: { c: Case; step: Step; index: number }[] = [];
   for (const c of appId ? casesFor(appId) : cases)
-    c.steps.forEach((step, index) => { if (step.narrative === narrativeId) out.push({ c, step, index }); });
+    c.steps.forEach((step, index) => { if (step.narrative === narrativeId && !step.check) out.push({ c, step, index }); });
   return out;
 }
 
@@ -248,13 +267,12 @@ export function trailForOwner(ownerId: string, viewed: string): TrailStep[] {
 }
 
 export function trailForActor(actorId: string, viewed: string): TrailStep[] {
-  // Checks and oversight keep their own colour, so a regulator never reads as part of an influence path.
-  const kind: TrailStep['kind'] = groupOfKind.get(actorById.get(actorId)?.kind ?? '')?.layer === 'oversight' ? 'check' : 'path';
+  const kind: TrailStep['kind'] = 'path';
   const steps: TrailStep[] = [{ nodes: [actorId], links: [], platform: false, screen: false, kind }];
   for (const l of atlasGraph().links) {
     if (l.source !== actorId && l.target !== actorId) continue;
     const other = l.source === actorId ? l.target : l.source;
-    steps.push({ nodes: [other], links: [{ key: l.key, from: l.source, to: l.target }], platform: other === viewed, screen: false, kind: l.checkOnly ? 'check' : kind });
+    steps.push({ nodes: [other], links: [{ key: l.key, from: l.source, to: l.target }], platform: other === viewed, screen: false, kind });
   }
   return steps;
 }

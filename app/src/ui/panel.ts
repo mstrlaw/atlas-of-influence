@@ -1,6 +1,6 @@
 import {
-  actor, caseEvidence, caseOf, cases, casesFor, casesWithActor, countryName, gradeMeanings, holdings, isApp, kindLabel,
-  mechanism, mechanismLayers, nameOf, narrative, narrativeList, narrativeSteps, ownerReaches, owners, readMeanings,
+  actor, caseEvidence, caseOf, cases, casesFor, casesWithActor, checkSteps, countryName, gradeMeanings, holdings, isApp, kindLabel,
+  mechanism, mechanismLayers, nameOf, narrative, narrativeList, narrativeSteps, ownerReaches, owners, pathSteps, readMeanings,
   relations, responsesOf, sheetParts, sourcesOf,
 } from '../data/model';
 import type { Case, Selection } from '../data/types';
@@ -121,7 +121,7 @@ export class Panel {
       .map(([id, label]) => `<button class="tab${this.tab === id ? ' on' : ''}" data-act="tab" data-tab="${id}" aria-pressed="${this.tab === id}">${label}</button>`)
       .join('');
     const intro = mine.length
-      ? `The atlas holds ${plural(mine.length, 'case')} for this app. Choose one to follow its path through the scene. Everything in the atlas stays in view; what belongs to this app is drawn at full strength.`
+      ? `The atlas holds ${plural(mine.length, 'case')} for this app. Choose one to follow its path through the scene. Every actor in the atlas stays in view; what belongs to this app is drawn at full strength.`
       : 'The atlas holds no case for this app yet. That means it has not been examined, not that there is nothing to find. The rest of the atlas stays in view.';
     const list = this.tab === 'cases' ? this.caseList() : this.tab === 'narratives' ? this.narrativeListView() : this.ownerList();
     return `<header class="p-head"><p class="eyebrow">What is behind</p><h2>${esc(appName(this.appId))}</h2>
@@ -145,11 +145,12 @@ export class Panel {
   private narrativeListView(): string {
     const cards = narrativeList
       .map(({ narrative: n, steps }) => {
-        // Every platform is in the scene, so a narrative is lit wherever it runs: no need to change app.
+        // One platform is shown at a time: a narrative carried elsewhere opens one of the apps it runs on.
         const here = steps.filter((s) => s.c.venues.includes(this.appId));
+        const app = here.length ? '' : steps[0]?.c.venues[0] ?? '';
         const where = here.length ? `carried in ${plural(here.length, 'step')} on this app`
-          : steps.length ? `carried on ${esc([...new Set(steps.flatMap((s) => s.c.venues))].map(appName).join(', '))}` : 'no case drawn yet';
-        return `<button class="card" data-act="select" data-type="narrative" data-id="${n.id}">
+          : steps.length ? `carried on ${esc(appName(app))}` : 'no case drawn yet';
+        return `<button class="card" data-act="select" data-type="narrative" data-id="${n.id}"${app ? ` data-app="${app}"` : ''}>
             <span class="card-title">“${esc(n.title)}”</span><span class="card-meta">${where}</span></button>`;
       })
       .join('');
@@ -160,9 +161,10 @@ export class Panel {
     const cards = owners
       .map(({ actor: a, holdings: h }) => {
         const reaches = ownerReaches(a.id, this.appId);
-        return `<button class="card" data-act="select" data-type="owner" data-id="${a.id}">
+        const app = reaches ? '' : h.map((x) => x.relation.target).find(isApp) ?? '';
+        return `<button class="card" data-act="select" data-type="owner" data-id="${a.id}"${app ? ` data-app="${app}"` : ''}>
             <span class="card-title">${esc(a.name)}</span>
-            <span class="card-meta">${reaches ? 'reaches this app' : kindLabel(a.kind)}</span>
+            <span class="card-meta">${reaches ? 'reaches this app' : app ? `seen on ${esc(appName(app))}` : kindLabel(a.kind)}</span>
             <span class="card-text">Owns or controls ${esc(h.map((x) => appName(x.relation.target)).join(', '))}.</span></button>`;
       })
       .join('');
@@ -211,18 +213,19 @@ export class Panel {
   private caseView(c: Case): string {
     const app = this.appId;
     const attr = (label: string, value?: string) => (value ? `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>` : '');
-    const steps = c.steps
+    const who = (s: Case['steps'][number]) => `${esc(nameOf(s.actor, app))}${s.to ? ` <span class="arrow">→</span> ${esc(nameOf(s.to, app))}` : ''}`;
+    // The path is what the scene draws and plays. Checks are not drawn: they are listed at the end.
+    const steps = pathSteps(c)
       .map((s, i) => {
         const m = s.mechanism ? mechanism(s.mechanism) : undefined;
-        const who = `${esc(nameOf(s.actor, app))}${s.to ? ` <span class="arrow">→</span> ${esc(nameOf(s.to, app))}` : ''}`;
-        const tag = s.check ? '<span class="tag check">Check</span>' : m ? `<span class="tag">${esc(m.name)} · ${esc(mechanismLayers(m.id))}</span>` : '';
+        const tag = m ? `<span class="tag">${esc(m.name)} · ${esc(mechanismLayers(m.id))}</span>` : '';
         const extra = [
           s.cost ? `<span class="fact"><b>Cost</b> ${esc(s.cost)}</span>` : '',
           s.knowing ? `<span class="fact">${esc(KNOWING_LABEL[s.knowing] ?? s.knowing)}</span>` : '',
           s.narrative ? `<button class="fact link" data-act="select" data-type="narrative" data-id="${s.narrative}">Carries “${esc(narrative(s.narrative)?.title ?? s.narrative)}”</button>` : '',
         ].join('');
-        return `<li class="step${s.check ? ' is-check' : ''}" data-act="step" data-i="${i}" tabindex="0" role="button">
-            <p class="step-who">${who}</p>${tag}<p class="step-text">${esc(s.text)}</p>
+        return `<li class="step" data-act="step" data-i="${i}" tabindex="0" role="button">
+            <p class="step-who">${who(s)}</p>${tag}<p class="step-text">${esc(s.text)}</p>
             ${extra ? `<p class="step-extra">${extra}</p>` : ''}<p class="step-src">${this.chips(s.evidence)}</p></li>`;
       })
       .join('');
@@ -235,13 +238,19 @@ export class Panel {
     const unknown = c.not_established.length
       ? `<section><h3>Not established</h3><ul class="plain">${c.not_established.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></section>`
       : '';
+    const checked = checkSteps(c);
+    const checks = checked.length
+      ? `<section><h3>Checks</h3>
+          <p class="fine">Reporting, research, regulators and courts that examined or acted on this. They are not drawn in the scene.</p>
+          <ul class="checks">${checked.map((s) => `<li><p class="step-who">${who(s)}</p><p class="step-text">${esc(s.text)}</p><p class="step-src">${this.chips(s.evidence)}</p></li>`).join('')}</ul></section>`
+      : '';
     const elsewhere = c.venues.filter((v) => v !== app);
     const ids = caseEvidence(c);
     return `${this.back('All cases')}
       <header class="p-head"><p class="eyebrow">Case · ${esc(c.period)}${c.countries.length ? ' · ' + esc(c.countries.map(countryName).join(', ')) : ''}</p>
         <h2>${esc(c.title)}</h2><p class="summary-text">${esc(c.summary)}</p></header>
       <section><div class="path-head"><h3>The path</h3><button class="play" data-act="play">Play the path</button></div>
-        <p class="fine">Pink lines are the path. Green lines are checks: reporting, research, regulators and courts. Select a step to go to it, or use the ← and → keys.</p>
+        <p class="fine">The pink line is the path. Select a step to go to it, or use the ← and → keys.</p>
         <ol class="steps">${steps}</ol></section>
       ${effects}${unknown}
       <section><h3>How to read it</h3><dl class="attrs">
@@ -250,7 +259,7 @@ export class Panel {
         ${attr('Aimed at', c.target ? TARGET_LABEL[c.target] ?? c.target : undefined)}
         ${c.attribution ? attr('Established by', `${c.attribution.by}. ${c.attribution.method}.`) : ''}</dl>
         ${elsewhere.length ? `<p class="fine">Also on ${elsewhere.map((v) => `<button class="inline" data-act="select" data-type="case" data-id="${c.id}" data-app="${v}">${esc(appName(v))}</button>`).join(', ')}.</p>` : ''}</section>
-      ${this.responses(ids)}${this.sources(ids)}`;
+      ${this.responses(ids)}${checks}${this.sources(ids)}`;
   }
 
   // ---------- A narrative ----------
