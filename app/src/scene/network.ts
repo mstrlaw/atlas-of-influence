@@ -516,7 +516,8 @@ export class NetworkView {
     ring.line.lookAt(camPos);
     ring.mat.opacity = 0.85 * k * fade;
     ring.label.position.copy(this.root.worldToLocal(tangent.clone().addScaledVector(camUp, ringR + 0.05)));
-    fadeLabel(ring.label, k * fade);
+    // The name keeps its full strength whatever is lit: a faded name reads as a different style of text.
+    fadeLabel(ring.label, k);
   }
 
   update(p: number, camera: THREE.Camera, dt = 0.016, time = 0) {
