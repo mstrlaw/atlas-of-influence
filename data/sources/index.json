@@ -1,0 +1,1467 @@
+[
+  {
+    "id": "S001",
+    "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
+    "publisher": "politico.com",
+    "evidence": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S002",
+    "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E18",
+      "E22",
+      "E23"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S003",
+    "url": "https://quincyinst.org/2026/07/28/israel-is-paying-millions-to-train-ai-chatbots-how-to-talk-about-gaza-its-working/",
+    "publisher": "quincyinst.org",
+    "evidence": [
+      "E17",
+      "E19",
+      "E21"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S004",
+    "url": "https://truthout.org/articles/israel-has-a-new-6m-plan-to-flood-gen-z-platforms-with-pro-israel-content/",
+    "publisher": "truthout.org",
+    "evidence": [
+      "E20"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S005",
+    "url": "https://www.newsguardrealitycheck.com/p/a-well-funded-moscow-based-global",
+    "publisher": "newsguardrealitycheck.com",
+    "evidence": [
+      "E24"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S006",
+    "url": "https://www.techdirt.com/tag/llm-grooming/",
+    "publisher": "techdirt.com",
+    "evidence": [
+      "E25"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S007",
+    "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/doj-right-wing-influencers-like-tim-pool-benny-johnson-helped-spread-russian-disinformation-on-youtube-x/5766158/",
+    "publisher": "nbcnewyork.com",
+    "evidence": [
+      "E26"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S008",
+    "url": "https://www.nbcnews.com/tech/security/meta-openai-say-disrupted-israeli-companys-influence-campaign-rcna154774",
+    "publisher": "nbcnews.com",
+    "evidence": [
+      "E27"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S009",
+    "url": "https://news.err.ee/1609903256/estonian-volunteers-struggling-to-protect-wikipedia-from-russian-propaganda",
+    "publisher": "news.err.ee",
+    "evidence": [
+      "E28",
+      "E29"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S010",
+    "url": "https://www.natureasia.com/en/info/press-releases/detail/9242",
+    "publisher": "natureasia.com",
+    "evidence": [
+      "E30"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S011",
+    "url": "https://www.niemanlab.org/reading/nbc-appears-to-cut-crowds-booing-of-jd-vance-from-winter-olympics-broadcast/",
+    "publisher": "niemanlab.org",
+    "evidence": [
+      "E31"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S012",
+    "url": "https://www.thenationalnews.com/future/technology/2026/05/08/iranians-reach-120-days-without-the-internet-as-blackout-continues/",
+    "publisher": "thenationalnews.com",
+    "evidence": [
+      "E32"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S013",
+    "url": "https://www.nytimes.com/2026/01/16/business/iran-internet-blackout-protests-disinformation.html",
+    "publisher": "nytimes.com",
+    "evidence": [
+      "E33",
+      "E84",
+      "E85",
+      "E86"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S014",
+    "url": "https://meta.mk/en/qanon-propaganda-for-satanizing-nato-and-eu/",
+    "publisher": "meta.mk",
+    "evidence": [
+      "E34"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S015",
+    "url": "https://www.counteroffensive.news/p/how-russia-uses-ai-to-meddle-in-midterm",
+    "publisher": "counteroffensive.news",
+    "evidence": [
+      "E35",
+      "E36"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S016",
+    "url": "https://futurism.com/artificial-intelligence/local-newspaper-shut-down-reporters-ai-fakes",
+    "publisher": "futurism.com",
+    "evidence": [
+      "E37"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S017",
+    "url": "https://www.counterpunch.org/2026/06/19/elon-musk-and-the-politics-of-trillionaire-fascism/",
+    "publisher": "counterpunch.org",
+    "evidence": [
+      "E38"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S018",
+    "url": "https://blogs.mediapart.fr/carine-fouteau/blog/190126/contre-l-information-bardella-au-service-du-faux",
+    "publisher": "blogs.mediapart.fr",
+    "evidence": [
+      "E39"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S019",
+    "url": "https://www.politico.eu/article/media-stop-normalize-far-right/",
+    "publisher": "politico.eu",
+    "evidence": [
+      "E40"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S020",
+    "url": "https://royalsocietypublishing.org/rsos/article/13/2/251428/479919/A-new-measure-of-issue-polarization-using-k-means",
+    "publisher": "royalsocietypublishing.org",
+    "evidence": [
+      "E41"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S021",
+    "url": "https://timothynguyen.org/2025/08/21/physics-grifters-eric-weinstein-sabine-hossenfelder-and-a-crisis-of-credibility/",
+    "publisher": "timothynguyen.org",
+    "evidence": [
+      "E42"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S022",
+    "url": "https://garymarcus.substack.com/p/ai-bot-swarms-threaten-to-undermine",
+    "publisher": "garymarcus.substack.com",
+    "evidence": [
+      "E43"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S023",
+    "url": "https://www.aljazeera.com/features/2026/1/15/network-linked-to-israel-pushes-to-shape-external-iran-protest-narrative",
+    "publisher": "aljazeera.com",
+    "evidence": [
+      "E44"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S024",
+    "url": "https://www.euronews.com/my-europe/2026/01/15/euronews-journalists-voices-stolen-in-fake-anti-ukraine-videos",
+    "publisher": "euronews.com",
+    "evidence": [
+      "E45"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S025",
+    "url": "https://ukdefencejournal.org.uk/?p=65594",
+    "publisher": "ukdefencejournal.org.uk",
+    "evidence": [
+      "E46"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S026",
+    "url": "https://www.nature.com/articles/s41562-023-01538-4",
+    "publisher": "nature.com",
+    "evidence": [
+      "E47"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S027",
+    "url": "https://www.thefp.com/p/jay-solomon-pro-china-tik-tok-brainwashes-american-youth",
+    "publisher": "thefp.com",
+    "evidence": [
+      "E48"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S028",
+    "url": "https://progressive.international/wire/2025-12-03-atlas-network-la-desinformacin-como-arma-neoliberal/en",
+    "publisher": "progressive.international",
+    "evidence": [
+      "E49"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S029",
+    "url": "https://www.ansa.it/amp/english/news/world/2024/08/17/moscow-uses-ai-to-create-fake-news-with-scarce-results-meta_7527920b-8d29-4708-a1cd-4b4107414361.html",
+    "publisher": "ansa.it",
+    "evidence": [
+      "E50"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S030",
+    "url": "https://newyorkwarcrimes.com",
+    "publisher": "newyorkwarcrimes.com",
+    "evidence": [
+      "E51"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S031",
+    "url": "https://www.poynter.org/commentary/2024/fact-checking-is-not-censorship/",
+    "publisher": "poynter.org",
+    "evidence": [
+      "E52"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S032",
+    "url": "https://www.socialmediatoday.com/news/meta-announces-shut-down-crowdtangle-monitoring-app/710358/",
+    "publisher": "socialmediatoday.com",
+    "evidence": [
+      "E53"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S033",
+    "url": "https://mediajustice.org/wp-content/uploads/2026/03/MediaJustice-Media-Capture-Report.pdf",
+    "publisher": "mediajustice.org",
+    "evidence": [
+      "E54"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S034",
+    "url": "https://www.nytimes.com/2026/04/17/business/media/artificial-intelligence-trump-social-media.html",
+    "publisher": "nytimes.com",
+    "evidence": [
+      "E55",
+      "E87",
+      "E88"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S035",
+    "url": "https://www.economist.com/by-invitation/2026/04/29/stop-big-tech-from-making-users-behave-in-ways-they-dont-want-to",
+    "publisher": "economist.com",
+    "evidence": [
+      "E56"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S036",
+    "url": "https://observer.co.uk/news/national/article/from-russia-with-interference-burnham-first-pm-to-confirm-kremlin-role-in-brexit-vote",
+    "publisher": "observer.co.uk",
+    "evidence": [
+      "E57"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S037",
+    "url": "https://jacobin.com/2025/03/joe-rogan-podcast-manosphere-influencer",
+    "publisher": "jacobin.com",
+    "evidence": [
+      "E58"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S038",
+    "url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=67851",
+    "publisher": "hbs.edu",
+    "evidence": [
+      "E59"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S039",
+    "url": "https://podscribe.app/feeds/http-joeroganexpjoeroganlibsynprocom-rss/episodes/2b25a552c8104f36ac0cf7673fdf1167",
+    "publisher": "podscribe.app",
+    "evidence": [
+      "E60"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S040",
+    "url": "https://www.platformer.news/stanford-internet-observatory-shutdown-stamos-diresta-sio/",
+    "publisher": "platformer.news",
+    "evidence": [
+      "E61"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S041",
+    "url": "https://www.sfchronicle.com/bayarea/article/stanford-internet-observatory-unclear-future-19515031.php",
+    "publisher": "sfchronicle.com",
+    "evidence": [
+      "E62"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S042",
+    "url": "https://www.npr.org/2024/09/07/nx-s1-5101895/doj-says-russia-paid-right-wing-influencers-to-spread-russian-propaganda",
+    "publisher": "npr.org",
+    "evidence": [
+      "E63"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S043",
+    "url": "https://mediatechdemocracy.com/en/publications/tenet-russia-funding_2024/",
+    "publisher": "mediatechdemocracy.com",
+    "evidence": [
+      "E64"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S044",
+    "url": "https://www.france24.com/en/africa/20260403-article-russia-influenced-west-african-media-content",
+    "publisher": "france24.com",
+    "evidence": [
+      "E65",
+      "E89",
+      "E90",
+      "E91"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S045",
+    "url": "https://uatv.ua/en/leaked-files-detail-russia-s-expanding-influence-network-across-africa/",
+    "publisher": "uatv.ua",
+    "evidence": [
+      "E66"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S046",
+    "url": "https://www.theguardian.com/technology/2023/feb/15/elon-musk-changes-twitter-algorithm-super-bowl-slump-report",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E67"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S047",
+    "url": "https://www.firstpost.com/world/musk-tweaked-twitter-algo-to-boost-his-posts-lied-about-journalists-and-report-that-called-him-out-12180192.html/amp",
+    "publisher": "firstpost.com",
+    "evidence": [
+      "E68",
+      "E92"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S048",
+    "url": "https://www.nature.com/articles/s41586-026-10098-2",
+    "publisher": "nature.com",
+    "evidence": [
+      "E69"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S049",
+    "url": "https://www.bbc.com/news/articles/c1elddq34p7o",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E70",
+      "E93"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S050",
+    "url": "https://theconversation.com/a-few-weeks-of-xs-algorithm-can-make-you-more-right-wing-and-it-doesnt-wear-off-quickly-276153",
+    "publisher": "theconversation.com",
+    "evidence": [
+      "E71",
+      "E94"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S051",
+    "url": "https://gizmodo.com/researchers-find-that-xs-algorithm-can-push-users-to-lean-more-conservative-2000723017",
+    "publisher": "gizmodo.com",
+    "evidence": [
+      "E72"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S052",
+    "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_203/IP_26_203_EN.pdf",
+    "publisher": "ec.europa.eu",
+    "evidence": [
+      "E73"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S053",
+    "url": "https://www.lemonde.fr/en/pixels/article/2025/11/24/why-grok-is-first-and-foremost-a-disinformation-machine_6747782_13.html",
+    "publisher": "lemonde.fr",
+    "evidence": [
+      "E74",
+      "E95"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S054",
+    "url": "https://journalismsciencealliance.eu/project/grok-is-this-true-how-ai-fact-checkers-are-reshaping-truth-and-spreading-misinformation-in-real-time/",
+    "publisher": "journalismsciencealliance.eu",
+    "evidence": [
+      "E75"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S055",
+    "url": "https://oecd.ai/en/incidents/2024-11-11-1690",
+    "publisher": "oecd.ai",
+    "evidence": [
+      "E76"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S056",
+    "url": "https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content",
+    "publisher": "npr.org",
+    "evidence": [
+      "E77"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S057",
+    "url": "https://www.theguardian.com/us-news/2024/sep/12/twitter-ai-bot-grok-election-misinformation",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E78"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S058",
+    "url": "https://mg.co.za/news/south-africa/2025-05-24-grok-s-white-genocide-misinformation-shows-need-for-african-tailored-ai-algorithms/",
+    "publisher": "mg.co.za",
+    "evidence": [
+      "E79"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S059",
+    "url": "https://unn.ua/en/amp/grok-temporarily-refused-to-respond-to-sources-accusing-musk-and-trump-of-disinformation",
+    "publisher": "unn.ua",
+    "evidence": [
+      "E80"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S060",
+    "url": "https://www.washingtonpost.com/business/2026/11/07/trump-ally-laura-loomer-paid-thousands-political-tweets-people-familiar-say/",
+    "publisher": "washingtonpost.com",
+    "evidence": [
+      "E81",
+      "E96"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S061",
+    "url": "https://newrepublic.com/post/217689/laura-loomer-hiatus-paid-posts-election-republicans",
+    "publisher": "newrepublic.com",
+    "evidence": [
+      "E82"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S062",
+    "url": "https://www.thebulwark.com/p/is-laura-loomer-for-sale-maga-maha-casey-means",
+    "publisher": "thebulwark.com",
+    "evidence": [
+      "E83",
+      "E97"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S063",
+    "url": "https://forbiddenstories.org/sahel-journalists-activists-ngos-russian-agents/",
+    "publisher": "forbiddenstories.org",
+    "evidence": [
+      "E98",
+      "E99",
+      "E100",
+      "E101"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S064",
+    "url": "https://www.aljazeera.com/economy/2026/10/16/meta-employees-say-lulas-accounts-restricted-in-brazil-election-report",
+    "publisher": "aljazeera.com",
+    "evidence": [
+      "E102",
+      "E103",
+      "E104"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S065",
+    "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+    "publisher": "techpolicy.press",
+    "evidence": [
+      "E105",
+      "E106",
+      "E107",
+      "E108",
+      "E109"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S066",
+    "url": "https://www1.folha.uol.com.br/internacional/en/brazil/2026/10/meta-ai-creates-campaign-material-for-flavio-bolsonaro-and-blocks-lula-content.shtml",
+    "publisher": "www1.folha.uol.com.br",
+    "evidence": [
+      "E110",
+      "E111",
+      "E112"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S067",
+    "url": "https://slate.com/technology/2018/05/twitter-will-start-hiding-tweets-that-detract-from-the-conversation.html",
+    "publisher": "slate.com",
+    "evidence": [
+      "E113",
+      "E114",
+      "E115"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S068",
+    "url": "https://abcnews.com/Technology/twitter-denies-conservative-shadow-banning-claims-alters-search/story?id=56841398",
+    "publisher": "abcnews.com",
+    "evidence": [
+      "E116",
+      "E117",
+      "E118"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S069",
+    "url": "https://journals.sagepub.com/doi/full/10.1177/01634437221077174",
+    "publisher": "journals.sagepub.com",
+    "evidence": [
+      "E119"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S070",
+    "url": "https://www.graphika.com/reports/save-the-date-for-spamouflage",
+    "publisher": "graphika.com",
+    "evidence": [
+      "E120"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S071",
+    "url": "https://notesfrompoland.com/2025/02/27/russia-paid-operatives-to-paint-anti-government-graffiti-in-poland-finds-report/",
+    "publisher": "notesfrompoland.com",
+    "evidence": [
+      "E121",
+      "E122",
+      "E123"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S072",
+    "url": "https://www.recordedfuture.com/blog/russia-new-generation-warfare",
+    "publisher": "recordedfuture.com",
+    "evidence": [
+      "E124",
+      "E125"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S073",
+    "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+    "publisher": "euawareness.org",
+    "evidence": [
+      "E126",
+      "E127",
+      "E128",
+      "E129",
+      "E130",
+      "E131"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S074",
+    "url": "https://mccourt.georgetown.edu/news/full-spectrum-propaganda-explained-a-conversation-with-renee-diresta-and-josh-goldstein/",
+    "publisher": "mccourt.georgetown.edu",
+    "evidence": [
+      "E132"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S075",
+    "url": "https://www.texastribune.org/2017/11/01/russian-facebook-page-organized-protest-texas-different-russian-page-l/",
+    "publisher": "texastribune.org",
+    "evidence": [
+      "E133"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S076",
+    "url": "https://lawzero.org/en/blog/trained-please-sycophancy-and-design-language-models",
+    "publisher": "lawzero.org",
+    "evidence": [
+      "E134"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S077",
+    "url": "https://www.bbc.com/news/articles/c9wx2dz2v44o",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E135"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S078",
+    "url": "https://www.theguardian.com/commentisfree/2025/may/15/mark-zuckerberg-loneliness-epidemic-ai-friends",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E136"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S079",
+    "url": "https://www.apa.org/monitor/2026/09/ai-psychosis",
+    "publisher": "apa.org",
+    "evidence": [
+      "E137"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S080",
+    "url": "https://www.nature.com/articles/s44271-026-00486-9",
+    "publisher": "nature.com",
+    "evidence": [
+      "E138"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S081",
+    "url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal",
+    "publisher": "en.wikipedia.org",
+    "evidence": [
+      "E139",
+      "E140",
+      "E141"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S082",
+    "url": "https://www.amnesty.org/en/latest/news/2019/07/the-great-hack-facebook-cambridge-analytica/",
+    "publisher": "amnesty.org",
+    "evidence": [
+      "E142"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S083",
+    "url": "https://systemicjustice.org/article/facebook-and-genocide-how-facebook-contributed-to-genocide-in-myanmar-and-why-it-will-not-be-held-accountable/",
+    "publisher": "systemicjustice.org",
+    "evidence": [
+      "E143",
+      "E144",
+      "E145",
+      "E146"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S084",
+    "url": "https://www.asc.upenn.edu/research/centers/milton-wolf-seminar-media-and-diplomacy/blog/road-hell-paved-good-intentions-role-facebook-fuelling-ethnic-violence",
+    "publisher": "asc.upenn.edu",
+    "evidence": [
+      "E147",
+      "E148"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S085",
+    "url": "https://www.amnesty.org/en/latest/news/2025/02/meta-new-policy-changes/",
+    "publisher": "amnesty.org",
+    "evidence": [
+      "E149",
+      "E150"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S086",
+    "url": "https://www.cbsnews.com/news/facebook-instagram-dangerous-content-60-minutes-2022-12-11/",
+    "publisher": "cbsnews.com",
+    "evidence": [
+      "E151",
+      "E152"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S087",
+    "url": "https://www.pbs.org/newshour/show/facebooks-psychological-study-ends-testing-users-trust",
+    "publisher": "pbs.org",
+    "evidence": [
+      "E153"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S088",
+    "url": "https://en.wikipedia.org/wiki/Facebook_emotional_manipulation_experiment",
+    "publisher": "en.wikipedia.org",
+    "evidence": [
+      "E154"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S089",
+    "url": "https://www.reuters.com/technology/facebook-research-shows-company-knew-instagram-harm-teens-senators-say-2021-09-30/",
+    "publisher": "reuters.com",
+    "evidence": [
+      "E155"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S090",
+    "url": "https://www.npr.org/2021/10/06/1043138622/facebook-instagram-teens-mental-health",
+    "publisher": "npr.org",
+    "evidence": [
+      "E156"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S091",
+    "url": "https://www.npr.org/sections/alltechconsidered/2014/06/30/326929138/facebook-manipulates-our-moods-for-science-and-commerce-a-roundup",
+    "publisher": "npr.org",
+    "evidence": [
+      "E157"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S092",
+    "url": "https://www.theguardian.com/technology/2021/dec/06/rohingya-sue-facebook-myanmar-genocide-us-uk-legal-action-social-media-violence",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E158"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S093",
+    "url": "https://www.bbc.com/news/technology-58570353",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E159"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S094",
+    "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+    "publisher": "cnbc.com",
+    "evidence": [
+      "E160",
+      "E161",
+      "E162"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S095",
+    "url": "https://www.cbsnews.com/video/instagram-owner-meta-ordered-to-pay-nearly-1b-in-fines-for-risking-child-safety-court-says/",
+    "publisher": "cbsnews.com",
+    "evidence": [
+      "E163"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S096",
+    "url": "https://en.wikipedia.org/wiki/Lawsuits_involving_Meta_Platforms",
+    "publisher": "en.wikipedia.org",
+    "evidence": [
+      "E164"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S097",
+    "url": "https://apnews.com/article/meta-social-media-trials-50b3050f8e257e578a9b5c02a947c95a",
+    "publisher": "apnews.com",
+    "evidence": [
+      "E165"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S098",
+    "url": "https://www.bloomberg.com/news/articles/2026-11-12/meta-tiktok-payouts-reveal-cost-to-settle-social-media-addiction-suits",
+    "publisher": "bloomberg.com",
+    "evidence": [
+      "E166"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S099",
+    "url": "https://www.bbc.com/news/articles/cqdr8zxrr3dxo",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E167"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S100",
+    "url": "https://www.bbc.com/news/articles/cd68q3wynnqo",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E168"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S101",
+    "url": "https://www.amnesty.org/en/latest/news/2023/11/tiktok-risks-pushing-children-towards-harmful-content/",
+    "publisher": "amnesty.org",
+    "evidence": [
+      "E169"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S102",
+    "url": "https://www.opb.org/article/2024/10/11/tiktok-knows-its-app-is-harming-kids-new-internal-documents-show/",
+    "publisher": "opb.org",
+    "evidence": [
+      "E170",
+      "E171",
+      "E172"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S103",
+    "url": "https://nonprofitquarterly.org/the-ellisons-empire-media-consolidation-narrative-control-and-the-threat-to-democracy/",
+    "publisher": "nonprofitquarterly.org",
+    "evidence": [
+      "E173",
+      "E174"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S104",
+    "url": "https://jacobin.com/2025/09/trump-ellison-tiktok-media-consolidation",
+    "publisher": "jacobin.com",
+    "evidence": [
+      "E175"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S105",
+    "url": "https://www.pbs.org/newshour/show/tiktok-users-say-they-are-being-censored-after-change-to-u-s-ownership",
+    "publisher": "pbs.org",
+    "evidence": [
+      "E176",
+      "E177"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S106",
+    "url": "https://www.bbc.com/news/articles/cr4qwwk0g0yo",
+    "publisher": "bbc.com",
+    "evidence": [
+      "E178"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S107",
+    "url": "https://www.npr.org/transcripts/nx-s1-5754023",
+    "publisher": "npr.org",
+    "evidence": [
+      "E179"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S108",
+    "url": "https://theweek.com/media/larry-ellison-the-billionaires-burgeoning-media-empire",
+    "publisher": "theweek.com",
+    "evidence": [
+      "E180"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S109",
+    "url": "https://www.theverge.com/tech/1028597/tiktok-eu-for-you-algorithm-rabbit-hole-effect",
+    "publisher": "theverge.com",
+    "evidence": [
+      "E181"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S110",
+    "url": "https://www.cbc.ca/news/world/upscrolled-app-tiktok-users-downloading-censorship-9.7073441",
+    "publisher": "cbc.ca",
+    "evidence": [
+      "E182"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S111",
+    "url": "https://www.theguardian.com/commentisfree/2026/jan/30/tiktok-us-takeover-new-type-of-censorship",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E183"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S112",
+    "url": "https://www.cbsnews.com/colorado/news/sinclair-same-script-criticism-viral/",
+    "publisher": "cbsnews.com",
+    "evidence": [
+      "E184",
+      "E185"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S113",
+    "url": "https://www.nbcnews.com/nightly-news/video/tv-anchors-decrying-fake-news-puts-spotlight-on-sinclair-broadcast-group-1200738371824",
+    "publisher": "nbcnews.com",
+    "evidence": [
+      "E186"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S114",
+    "url": "https://www.npr.org/sections/thetwo-way/2018/04/02/598794433/video-reveals-power-of-sinclair-as-local-news-anchors-recite-script-in-unison",
+    "publisher": "npr.org",
+    "evidence": [
+      "E187"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S115",
+    "url": "https://www.npr.org/2018/04/02/598916366/sinclair-broadcast-group-forces-nearly-200-station-anchors-to-read-same-script",
+    "publisher": "npr.org",
+    "evidence": [
+      "E188"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S116",
+    "url": "https://www.nytimes.com/2018/04/02/business/media/sinclair-news-anchors-script.html",
+    "publisher": "nytimes.com",
+    "evidence": [
+      "E189"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  }
+]
