@@ -943,61 +943,76 @@
   ],
   "actor_groups": [
     {
+      "id": "states",
       "name": "States and politics",
       "kinds": [
         "state",
-        "political",
-        "regulator"
-      ]
+        "political"
+      ],
+      "layer": "L1",
+      "color": "#4dd6ff"
     },
     {
-      "name": "Platforms",
-      "kinds": [
-        "platform"
-      ]
-    },
-    {
+      "id": "media",
       "name": "Media",
       "kinds": [
         "publisher",
         "outlet"
-      ]
+      ],
+      "layer": "L2",
+      "color": "#ff7a3d"
     },
     {
+      "id": "think-tanks",
       "name": "Think tanks and fronts",
       "kinds": [
         "think_tank"
-      ]
+      ],
+      "layer": "L2",
+      "color": "#f5c518"
     },
     {
+      "id": "influence-industry",
       "name": "Influence industry",
       "kinds": [
         "pr_firm",
         "influence_vendor",
         "content_farm"
-      ]
+      ],
+      "layer": "L2",
+      "color": "#ff3d6e"
     },
     {
+      "id": "voices",
       "name": "Voices",
       "kinds": [
         "influencer",
         "crowd"
-      ]
+      ],
+      "layer": "L5",
+      "color": "#9b7bff"
     },
     {
+      "id": "oversight",
       "name": "Checks and oversight",
       "kinds": [
+        "regulator",
         "fact_checker",
         "researcher",
         "monitor"
-      ]
+      ],
+      "layer": "oversight",
+      "color": "#3fbf7f"
     },
     {
+      "id": null,
       "name": "Not grouped (placed beside what they own or fund)",
       "kinds": [
         "company",
         "individual"
-      ]
+      ],
+      "layer": "L1",
+      "color": "#8a8d99"
     }
   ],
   "overlays": [
@@ -1087,32 +1102,46 @@
       "part": "What it does to you",
       "lines": [
         {
+          "id": "attention",
           "name": "Attention",
-          "term": "attention"
+          "term": "attention",
+          "definition": "Design that fragments focus: infinite feeds, short loops, autoplay."
         },
         {
+          "id": "compulsive",
           "name": "Compulsive use",
-          "term": "autonomy"
+          "term": "autonomy",
+          "definition": "Being kept on the app, or steered in your choices, against your own intent."
         },
         {
+          "id": "reality",
           "name": "Reality warping",
-          "term": "perception"
+          "term": "perception",
+          "definition": "What you come to believe is true, common or important, including what is hidden from you."
         },
         {
+          "id": "division",
           "name": "Division",
-          "term": "polarization"
+          "term": "polarization",
+          "definition": "Narrowed exposure to other views; people pushed apart."
         },
         {
+          "id": "trust",
           "name": "Trust",
-          "term": "trust"
+          "term": "trust",
+          "definition": "Losing the ability to tell what or who is real."
         },
         {
+          "id": "offline",
           "name": "Offline consequences",
-          "term": "behaviour"
+          "term": "behaviour",
+          "definition": "Influence that spills into the physical world: rallies, harassment, votes."
         },
         {
+          "id": "wellbeing",
           "name": "Wellbeing",
-          "term": "wellbeing"
+          "term": "wellbeing",
+          "definition": "Harm to mental health, body image and safety, especially for young users."
         }
       ]
     },
@@ -1120,18 +1149,37 @@
       "part": "What drives it",
       "lines": [
         {
+          "id": "money",
           "name": "Money",
-          "term": "L1 funding"
+          "term": "L1 funding",
+          "definition": "How the platform earns, and what that rewards."
         },
         {
+          "id": "owner",
           "name": "Owner influence",
-          "term": "owns relations"
+          "term": "owns relations",
+          "definition": "Who controls it, and whether they steer it."
         },
         {
+          "id": "transparency",
           "name": "Transparency",
-          "term": "supp.data_access, oversight"
+          "term": "supp.data_access, oversight",
+          "definition": "Whether outsiders can see inside: data for researchers, audits, reports."
         }
       ]
     }
-  ]
+  ],
+  "grade_meanings": {
+    "documented": "Filings, court records, platform reports, peer-reviewed studies, authenticated leaks",
+    "reported": "Investigative journalism, reproducible tests, research cited in journalism",
+    "claimed": "An actor's or vendor's own statement, unverified",
+    "contested": "Credible accounts conflict",
+    "opinion": "Commentary or argument"
+  },
+  "read_meanings": {
+    "full": "The cited source was read in full",
+    "partial": "Paywalled or truncated; part was read",
+    "secondhand": "Known through other coverage of it",
+    "unread": "Not read yet"
+  }
 }
