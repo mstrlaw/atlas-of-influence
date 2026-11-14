@@ -417,6 +417,13 @@ async function boot() {
     if (e.key === 'Escape') goBack();
     const v = getView();
     if (v.name === 'app' && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) step(v.appId, e.key === 'ArrowRight' ? 1 : -1);
+    // In a case: ← → step through the path.
+    if (inExplore(v) && v.sel?.type === 'case' && trail.length && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')) {
+      const el = document.activeElement as HTMLElement | null;
+      if (el && /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+      e.preventDefault();
+      jumpToStep(Math.max(0, Math.min(trail.length - 1, play.step + (e.key === 'ArrowRight' ? 1 : -1))));
+    }
   });
 
   function goBack() {

@@ -242,7 +242,7 @@ export class Panel {
       <header class="p-head"><p class="eyebrow">Case · ${esc(c.period)}${c.countries.length ? ' · ' + esc(c.countries.map(countryName).join(', ')) : ''}</p>
         <h2>${esc(c.title)}</h2><p class="summary-text">${esc(c.summary)}</p></header>
       <section><div class="path-head"><h3>The path</h3><button class="play" data-act="play">Play the path</button></div>
-        <p class="fine">Pink lines are the path. Green lines are checks: reporting, research, regulators and courts.</p>
+        <p class="fine">Pink lines are the path. Green lines are checks: reporting, research, regulators and courts. Select a step to go to it, or use the ← and → keys.</p>
         <ol class="steps">${steps}</ol></section>
       ${effects}${unknown}
       <section><h3>How to read it</h3><dl class="attrs">

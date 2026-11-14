@@ -382,7 +382,9 @@ export class NetworkView {
         if (!n) return;
         const nk = ni === 0 ? Math.min(1, k * 4) : seg(k, 0.7, 1);
         const prev = this.lit.get(n);
-        if (!prev || nk >= prev.k) this.lit.set(n, { kind: step.kind, k: Math.max(nk, prev?.k ?? 0), current: current || !!prev?.current });
+        // A node on the path keeps the path's colour even when a check also touches it.
+        const kind = prev && prev.k > 0 && prev.kind !== 'check' && step.kind === 'check' ? prev.kind : step.kind;
+        if (!prev || nk >= prev.k || prev.kind === 'check') this.lit.set(n, { kind, k: Math.max(nk, prev?.k ?? 0), current: current || !!prev?.current });
       });
       for (const link of step.links) {
         const idx = L.segments.get(link.key);
