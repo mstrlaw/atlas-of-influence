@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Atlas of Influence: 3D Platform Atlas (static web app)",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "framework": "node ../scripts/framework-map.mjs",
+    "dev": "npm run framework && vite",
+    "build": "npm run framework && tsc --noEmit && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy"
   },

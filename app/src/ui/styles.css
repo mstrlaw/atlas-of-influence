@@ -111,6 +111,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 #hud { position: fixed; inset: 0; pointer-events: none; padding: max(14px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
 #hud > * { pointer-events: auto; }
 .brand { position: absolute; top: max(14px, env(safe-area-inset-top)); left: max(16px, env(safe-area-inset-left)); font-weight: 800; font-size: 15px; letter-spacing: -.2px; color: #1a1b20; }
+.framework-link { position: absolute; top: max(14px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); font-weight: 600; font-size: 14px; color: #1a1b20; text-decoration: none; border-bottom: 1px solid #1a1b2055; }
+.framework-link:hover { border-bottom-color: #1a1b20; }
 .tag { font-family: var(--hand); color: var(--pink); font-size: 20px; font-weight: 600; margin-left: 4px; }
 .back {
   position: absolute; top: max(48px, calc(env(safe-area-inset-top) + 36px)); left: max(16px, env(safe-area-inset-left));
@@ -140,6 +142,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* Narrow screens: the phone fills the viewport, so in-phone controls (home bar, ‹ ›) replace the HUD. */
 @media (max-width: 600px) {
   body[data-view="app"] .brand, body[data-view="explore"] .brand, body[data-view="focus"] .brand { display: none; }
+  body[data-view="app"] .framework-link, body[data-view="explore"] .framework-link, body[data-view="focus"] .framework-link { display: none; }
   .back { top: max(12px, env(safe-area-inset-top)); padding: 8px 14px; font-size: 14px; }
 }
 @media (max-width: 600px) {

@@ -30,9 +30,9 @@ One-time setup in the Cloudflare dashboard:
 3. Root directory: `app`
 4. Build command: `npm run build`
 5. Deploy command: `npx wrangler deploy`
-6. Optional: under Build → Build watch paths, include only `app/*` so edits to `docs/` and `data/` do not trigger a deploy.
+Leave Build watch paths at the default: the framework map is generated from `data/` and `docs/`, so changes there must redeploy too.
 
-Only `app/dist/` is published.
+Only `app/dist/` is published: the 3D app and the framework map at `/framework`.
 
 ## Licence
 
