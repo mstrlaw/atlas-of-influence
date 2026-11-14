@@ -3,8 +3,8 @@
 
 export type Channel = 'publish' | 'scrape';
 export type LayerId = 'L1' | 'L2' | 'L3' | 'L4' | 'L5' | 'L6' | 'L7';
-/** Depth band an actor sits in. 'oversight' is beside the pipeline, not a step in it. */
-export type Band = 'L1' | 'L2' | 'L5' | 'oversight';
+/** Depth band a node sits in. 'L4' is the wall of platforms; 'oversight' is beside the pipeline, not a step in it. */
+export type Band = 'L1' | 'L2' | 'L4' | 'L5' | 'oversight';
 
 export interface EvidenceRow {
   id: string;
@@ -86,27 +86,29 @@ export type Selection =
   | { type: 'owner'; id: string }
   | { type: 'actor'; id: string };
 
-// ---------- The graph drawn behind one platform ----------
+// ---------- The atlas graph: every actor and platform, the same whatever is being explored ----------
 
 export interface GraphNode {
   id: string;
   name: string;
-  /** Sphere the node belongs to, or null for actors placed beside what they own or fund. */
+  /** Sphere the node belongs to, or null for platforms and for actors placed beside what they own or fund. */
   group: string | null;
   band: Band;
   /** Fronts and fake accounts are drawn hollow. */
   hollow: boolean;
+  /** Set on platforms (the apps on the phone): how content enters them. */
+  ingest?: Channel[];
 }
 
 /** How a link reaches the platform: through direct posting, through the web, or straight to it (ownership, orders, oversight). */
 export type Via = Channel | 'direct';
 
 export interface GraphLink {
-  /** Stable key: the two node ids in order (the platform is its app id). */
+  /** Stable key: the two node ids in order, or `actor|platform:via` for a link into a platform. */
   key: string;
   source: string;
   target: string;
-  /** Set when the target is the platform itself. */
+  /** Set when the target is a platform. */
   via?: Via;
   /** True when the link only exists because of countervailing steps. */
   checkOnly: boolean;
@@ -115,19 +117,20 @@ export interface GraphLink {
 export interface GraphSphere { id: string; name: string; color: string }
 
 export interface Graph {
-  appId: string;
   nodes: GraphNode[];
   links: GraphLink[];
   spheres: GraphSphere[];
-  uses: { publish: boolean; scrape: boolean };
 }
+
+/** What belongs to one app: the part of the atlas its cases, owners and regulators touch. */
+export interface AppContext { nodes: Set<string>; links: Set<string> }
 
 /** One step of a highlight, resolved to things the scene can light up. */
 export interface TrailStep {
   nodes: string[];
   /** Link keys, each with the direction of travel. */
   links: { key: string; from: string; to: string }[];
-  /** The step involves the platform itself. */
+  /** The step involves the platform being viewed. */
   platform: boolean;
   /** The step reaches the phone's screen. */
   screen: boolean;

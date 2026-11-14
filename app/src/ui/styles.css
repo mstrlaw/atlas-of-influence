@@ -176,6 +176,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .legend i { display: inline-block; flex: none; }
 .k-cube, .k-hollow { width: 11px; height: 11px; border: 1.5px solid #1a1b20; background: #f4f4f6; }
 .k-hollow { background: transparent; }
+.k-cube.big { width: 15px; height: 15px; margin: -2px -2px -2px -2px; background: #e9e9ee; }
 .k-line { width: 18px; height: 0; border-top: 3px solid; }
 .k-line.path { border-color: #f0134d; } .k-line.check { border-color: #12915b; }
 .k-line.own { border-color: #15161c; } .k-line.thread { border-color: #6a3df0; }

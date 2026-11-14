@@ -36,7 +36,8 @@ function setOpacity(o: THREE.Object3D, v: number) {
 }
 
 /**
- * The platform behind the phone: big cube, docked algorithm cubes and projection beams to the screen.
+ * The platform that is open, drawn in detail in its place on the wall: big cube, docked algorithm cubes
+ * and projection beams to the screen. The other platforms stay on the wall as plain cubes.
  * Everything is driven by the plain `anim` object so GSAP can tween each part of the reveal separately.
  */
 export class PlatformView {
@@ -48,7 +49,7 @@ export class PlatformView {
   private beamMat: LineMaterial;
 
   readonly anim = {
-    /** 0 → hidden far behind, 1 → in place */
+    /** 0 → closed (only its cube on the wall shows), 1 → open */
     rise: 0,
     /** per algorithm cube, 0 → flung outward and invisible, 1 → docked */
     dock: [] as { t: number }[],
@@ -61,6 +62,9 @@ export class PlatformView {
     this.body.add(this.core);
     this.group.add(this.body);
     this.label.position.set(0, 1.05, 0); // above the top algorithm cube
+    // The open platform's name is never hidden behind its neighbours on the wall.
+    (this.label.material as THREE.SpriteMaterial).depthTest = false;
+    this.label.renderOrder = 5;
     this.body.add(this.label);
     // One mesh per slot, built once and reused for every platform: no GPU uploads mid-transition.
     this.slots = SLOTS.map((slot, i) => {
@@ -138,10 +142,10 @@ export class PlatformView {
     this.beams.forEach((b) => (b.visible = beamsOn));
     if (!this.group.visible) return;
 
-    // Rise: emerge from deeper in the scene, slightly below, scaling up.
-    this.body.position.set(0, -0.6 * (1 - rise), -3.2 * (1 - rise));
+    // Open: grow out of this platform's cube on the wall, coming a little forward.
+    this.body.position.set(0, 0, -0.35 * (1 - rise));
     this.body.scale.setScalar(0.6 + 0.4 * rise);
-    this.body.rotation.y = -0.5 * (1 - rise) + Math.sin(t * 0.3) * 0.05;
+    this.body.rotation.y = -0.35 * (1 - rise) + Math.sin(t * 0.3) * 0.05;
     // The core turns fully opaque early, so algorithm cubes hidden inside it stay hidden until they emerge.
     const solid = Math.min(1, rise * 2.2);
     setOpacity(this.core, solid); // algos are overridden just below

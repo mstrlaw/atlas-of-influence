@@ -121,8 +121,8 @@ export class Panel {
       .map(([id, label]) => `<button class="tab${this.tab === id ? ' on' : ''}" data-act="tab" data-tab="${id}" aria-pressed="${this.tab === id}">${label}</button>`)
       .join('');
     const intro = mine.length
-      ? `The atlas holds ${plural(mine.length, 'case')} for this app. Choose one to follow its path through the scene.`
-      : 'The atlas holds no case for this app yet. That means it has not been examined, not that there is nothing to find.';
+      ? `The atlas holds ${plural(mine.length, 'case')} for this app. Choose one to follow its path through the scene. Everything in the atlas stays in view; what belongs to this app is drawn at full strength.`
+      : 'The atlas holds no case for this app yet. That means it has not been examined, not that there is nothing to find. The rest of the atlas stays in view.';
     const list = this.tab === 'cases' ? this.caseList() : this.tab === 'narratives' ? this.narrativeListView() : this.ownerList();
     return `<header class="p-head"><p class="eyebrow">What is behind</p><h2>${esc(appName(this.appId))}</h2>
         <p class="lede">${intro}</p><div class="tabs" role="group" aria-label="Explore by">${tabs}</div></header>${list}`;
@@ -145,11 +145,11 @@ export class Panel {
   private narrativeListView(): string {
     const cards = narrativeList
       .map(({ narrative: n, steps }) => {
+        // Every platform is in the scene, so a narrative is lit wherever it runs: no need to change app.
         const here = steps.filter((s) => s.c.venues.includes(this.appId));
-        const app = here.length ? '' : steps[0]?.c.venues[0] ?? '';
         const where = here.length ? `carried in ${plural(here.length, 'step')} on this app`
-          : steps.length ? `carried on ${esc(appName(app))}` : 'no case drawn yet';
-        return `<button class="card" data-act="select" data-type="narrative" data-id="${n.id}"${app ? ` data-app="${app}"` : ''}>
+          : steps.length ? `carried on ${esc([...new Set(steps.flatMap((s) => s.c.venues))].map(appName).join(', '))}` : 'no case drawn yet';
+        return `<button class="card" data-act="select" data-type="narrative" data-id="${n.id}">
             <span class="card-title">“${esc(n.title)}”</span><span class="card-meta">${where}</span></button>`;
       })
       .join('');
@@ -160,10 +160,9 @@ export class Panel {
     const cards = owners
       .map(({ actor: a, holdings: h }) => {
         const reaches = ownerReaches(a.id, this.appId);
-        const app = reaches ? '' : h.map((x) => x.relation.target).find(isApp) ?? '';
-        return `<button class="card" data-act="select" data-type="owner" data-id="${a.id}"${app ? ` data-app="${app}"` : ''}>
+        return `<button class="card" data-act="select" data-type="owner" data-id="${a.id}">
             <span class="card-title">${esc(a.name)}</span>
-            <span class="card-meta">${reaches ? 'reaches this app' : app ? `seen on ${esc(appName(app))}` : kindLabel(a.kind)}</span>
+            <span class="card-meta">${reaches ? 'reaches this app' : kindLabel(a.kind)}</span>
             <span class="card-text">Owns or controls ${esc(h.map((x) => appName(x.relation.target)).join(', '))}.</span></button>`;
       })
       .join('');

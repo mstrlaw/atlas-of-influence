@@ -23,16 +23,16 @@ export class Stage {
     container.appendChild(this.renderer.domElement);
 
     this.scene.background = new THREE.Color('#d3d5da');
-    this.scene.fog = new THREE.Fog("#d3d5da", 40, 110);
+    this.scene.fog = new THREE.Fog("#d3d5da", 70, 190);
 
-    this.camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+    this.camera = new THREE.PerspectiveCamera(35, 1, 0.1, 220);
     this.camera.position.set(0, 0, 6);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
     this.controls.minDistance = 2;
-    this.controls.maxDistance = 80;
+    this.controls.maxDistance = 120;
     this.controls.enabled = false;
 
     this.addLights();

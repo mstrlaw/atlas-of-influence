@@ -1,13 +1,13 @@
 import './ui/styles.css';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { actor, apps, caseOf, graphFor, isApp, kindLabel, trailForActor, trailForCase, trailForNarrative, trailForOwner } from './data/model';
+import { actor, apps, atlasGraph, caseOf, contextFor, isApp, kindLabel, trailForActor, trailForCase, trailForNarrative, trailForOwner } from './data/model';
 import type { Selection, TrailStep } from './data/types';
 import { Stage } from './scene/stage';
 import { Phone, PHONE, SCREEN_PX } from './scene/phone';
 import { PlatformView } from './scene/platform';
 import { NetworkView } from './scene/network';
-import { layoutNetwork, type NetworkLayout } from './scene/layout';
+import { layoutNetwork } from './scene/layout';
 import { paintFromDOM } from './scene/domPainter';
 import { ScreenUI } from './ui/screen';
 import { Panel } from './ui/panel';
@@ -29,20 +29,23 @@ async function boot() {
   stage.scene.add(phone.group);
   platform.addTo(stage.scene);
 
-  // The network lives in the platform's frame (platform at origin, its front facing the phone).
-  const network = new NetworkView(480);
-  platform.group.add(network.root);
-  const layouts = new Map<string, NetworkLayout>();
-  // Wide screens: the network fans out behind and to the right (where the camera's sideways move reveals it);
-  // tall screens: behind and upward. Cached per app and orientation.
-  const layoutOf = (appId: string) => {
-    const tall = stage.aspect < 0.85;
-    const key = `${appId}|${tall ? 'tall' : 'wide'}`;
-    if (!layouts.has(key)) layouts.set(key, layoutNetwork(graphFor(appId), tall ? { x: 20, y: 230, kx: 0.09, ky: 0.02 } : { x: 190, y: 50 }));
-    return layouts.get(key)!;
-  };
-  let net = layoutOf(apps[0].id);
-  network.build(net);
+  // The atlas: every platform, sphere and actor, laid out once from all the data. Nothing in it is added,
+  // removed or moved by what is explored; a selection only changes what is lit and where the camera looks.
+  // It stands behind the phone: the wall of platforms faces the phone's back, and the rest extends away from it.
+  const DEPTH = 3.2; // from the phone to the wall
+  const network = new NetworkView();
+  network.root.position.set(0, 0, -DEPTH);
+  stage.scene.add(network.root);
+  const net = layoutNetwork(atlasGraph());
+  network.build(net, DEPTH);
+  network.root.updateMatrixWorld(true);
+  /** Where a platform stands on the wall (x, y); the phone stands in front of the one it shows. */
+  const slotOf = (appId: string) => { const n = net.byId.get(appId)!; return new THREE.Vector2(n.x, n.y); };
+  const phoneAt = slotOf(apps[0].id); // glides when another app is opened
+  const platAt = phoneAt.clone();     // the open platform: closes in one slot, opens in the next
+  let openId = apps[0].id;
+  /** 1 = the open platform is fully open; dips to 0 while it swaps for another. */
+  const sw = { k: 1, busy: false };
 
   const ui = new ScreenUI((id) => go({ name: 'app', appId: id }));
 
@@ -68,25 +71,11 @@ async function boot() {
   }
   const HOME_POSE: Pose = { p: [0, 0, 0], r: [0, 0, 0] };
 
-  // Explore: subtle. The phone stays put and keeps (almost) facing the viewer; the camera eases back and a
-  // little to the right, so the platform and network — stacked in depth directly behind the phone — peek out
-  // from behind it, still partly hidden by it.
-  const PHONE_TURN = 0.08;                                    // tiny turn toward the camera
-  function layoutFor() {
-    const phonePos = new THREE.Vector3(0, 0, 0);
-    const phone: Pose = { p: phonePos.toArray() as THREE.Vector3Tuple, r: [0, PHONE_TURN, 0] };
-    const back = new THREE.Vector3(-Math.sin(PHONE_TURN), 0, -Math.cos(PHONE_TURN)); // phone's back, into the scene
-    // Same height as the phone, straight along its back axis: the feeding algorithm lines up with the phone.
-    const platform = phonePos.clone().addScaledVector(back, 3.2);
-    const toPhone = phonePos.clone().sub(platform);
-    const platformRotY = Math.atan2(toPhone.x, toPhone.z); // platform front (+z) faces the phone
-    const netRoll = 0;
-    return { phone, platform: platform.toArray() as THREE.Vector3Tuple, platformRotY, netRoll };
-  }
-  /** The angle the scene is first shown from: three-quarters, from the side and above, so the pipeline from structure to the screen reads across the picture. */
-  const viewDir = () => (stage.aspect < 0.85 ? new THREE.Vector3(0.5, 0.52, 0.69) : new THREE.Vector3(0.66, 0.36, 0.66)).normalize();
+  /** The angle the scene is first shown from: mostly from the side, a little from the front and above, so the pipeline reads across the picture from the screen (left) back to structure (right). */
+  const viewDir = () => (stage.aspect < 0.85 ? new THREE.Vector3(0.62, 0.5, 0.6) : new THREE.Vector3(0.79, 0.3, 0.55)).normalize();
 
   /** Camera position and target that fit a set of world points into the part of the window the panel leaves free. */
+  const probe = new THREE.PerspectiveCamera();
   function fit(points: THREE.Vector3[], dir: THREE.Vector3, margin = 1.12, minHalf = 1.6): Cam {
     const right = new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), dir).normalize();
     const up = new THREE.Vector3().crossVectors(dir, right).normalize();
@@ -100,33 +89,42 @@ async function boot() {
     const tanV = Math.tan(THREE.MathUtils.degToRad(stage.camera.fov / 2));
     const freeW = wide() ? (innerWidth - PANEL_W) / innerWidth : 1;
     const freeH = wide() ? 1 : 1 - SHEET_SHARE;
-    const d = Math.min(90, Math.max(halfH / (tanV * freeH), halfW / (tanV * stage.aspect * freeW)) + (hi.z - mid.z));
+    // First guess: as if everything stood at the depth nearest the camera.
+    let d = Math.max(halfH / (tanV * freeH), halfW / (tanV * stage.aspect * freeW)) + (hi.z - mid.z);
     const target = right.clone().multiplyScalar(mid.x).addScaledVector(up, mid.y).addScaledVector(dir, mid.z);
+    // Then tighten it by looking: project the points, centre what is seen, and close in until it fills the free part.
+    probe.fov = stage.camera.fov; probe.aspect = stage.aspect; probe.near = 0.1; probe.far = 400;
+    probe.updateProjectionMatrix();
+    const q = new THREE.Vector3();
+    for (let i = 0; i < 5; i++) {
+      probe.position.copy(target).addScaledVector(dir, d);
+      probe.lookAt(target);
+      probe.updateMatrixWorld(true);
+      let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+      for (const p of points) { q.copy(p).project(probe); x0 = Math.min(x0, q.x); x1 = Math.max(x1, q.x); y0 = Math.min(y0, q.y); y1 = Math.max(y1, q.y); }
+      target.addScaledVector(right, ((x0 + x1) / 2) * d * tanV * stage.aspect).addScaledVector(up, ((y0 + y1) / 2) * d * tanV);
+      const pad = 0.5 / d; // half a unit of air around the picture
+      const fill = Math.max(((x1 - x0) / 2 * margin + pad / (tanV * stage.aspect)) / freeW, ((y1 - y0) / 2 * margin + pad / tanV) / freeH);
+      const floor = Math.max(minHalf / (tanV * freeH), minHalf / (tanV * stage.aspect * freeW));
+      d = Math.max(floor, d * fill);
+    }
+    d = Math.min(115, d);
     return { pos: target.clone().addScaledVector(dir, d), target };
   }
 
-  /** Corner points of the phone and the platform cube, so a framing never cuts them off. */
-  function bodyPoints(phoneToo: boolean, platformToo: boolean): THREE.Vector3[] {
+  /** Corner points of the phone and the open platform, so a framing never cuts them off. */
+  function bodyPoints(phoneToo: boolean, platformToo: boolean, at = slotOf(openId)): THREE.Vector3[] {
     const pts: THREE.Vector3[] = [];
-    if (phoneToo) for (const x of [-1, 1]) for (const y of [-1, 1]) pts.push(new THREE.Vector3((x * PHONE.w) / 2, (y * PHONE.h) / 2, 0));
+    if (phoneToo) for (const x of [-1, 1]) for (const y of [-1, 1]) pts.push(new THREE.Vector3(at.x + (x * PHONE.w) / 2, at.y + (y * PHONE.h) / 2, 0));
     if (platformToo) for (const x of [-1, 1]) for (const y of [-1, 1]) for (const z of [-1, 1])
-      pts.push(platform.group.localToWorld(new THREE.Vector3(x * 0.95, y * 0.95, z * 0.95)));
+      pts.push(new THREE.Vector3(at.x + x * 0.95, at.y + y * 0.95, -DEPTH + z * 0.95));
     return pts;
   }
-  /** Everything in the scene: the phone, the platform and the whole network behind it. */
+  /** The whole atlas with the phone in front of it. It is the same picture whichever app is open. */
   function overview(): Cam {
-    const pts = bodyPoints(true, true);
-    for (const n of net.nodes) { const p = network.worldPositionOf(n.id); if (p) pts.push(p); }
-    return fit(pts, viewDir(), 1.06);
-  }
-  /** Place the platform for this layout and work out where the camera ends up. Needs `net` to be current. */
-  function exploreSetup() {
-    const L = layoutFor();
-    platform.group.position.set(...L.platform);
-    platform.group.rotation.y = L.platformRotY;
-    network.root.rotation.set(0, 0, L.netRoll);
-    platform.group.updateMatrixWorld(true);
-    return { L, cam: overview() };
+    const pts = network.extent();
+    for (const a of apps) pts.push(...bodyPoints(true, false, slotOf(a.id)));
+    return fit(pts, viewDir(), 1.04);
   }
 
   // ---------- Transition: one progress value drives everything ----------
@@ -134,10 +132,8 @@ async function boot() {
   // so motion is continuous (no stalls between steps), reverse is the exact mirror,
   // and interrupting just retargets the same value.
   const ex = { p: 0 };
-  /** Replays the network's reveal on its own (when switching app inside explore) without moving anything else. */
-  const reveal = { p: 1, on: false };
   let fromCam = homeCamera();
-  let { L, cam: toCam } = exploreSetup();
+  let toCam = overview();
   let tween: gsap.core.Tween | null = null;
 
   const clamp01 = (x: number) => Math.min(1, Math.max(0, x));
@@ -151,16 +147,13 @@ async function boot() {
     // Phone: lifts off the page (z bump + top edge tipping back) while it travels and turns.
     const tPhone = smooth(seg(p, 0, 0.85));
     const lift = bump(seg(p, 0, 0.75)) * 0.4; // a gentle nudge, not a lift-off
+    // In explore the phone stands in front of the platform it shows.
     phone.group.position.set(
-      lerp(HOME_POSE.p[0], L.phone.p[0], tPhone),
-      lerp(HOME_POSE.p[1], L.phone.p[1], tPhone),
-      lerp(HOME_POSE.p[2], L.phone.p[2], tPhone) + 0.25 * lift,
+      lerp(HOME_POSE.p[0], phoneAt.x, tPhone),
+      lerp(HOME_POSE.p[1], phoneAt.y, tPhone),
+      HOME_POSE.p[2] + 0.25 * lift,
     );
-    phone.group.rotation.set(
-      lerp(HOME_POSE.r[0], L.phone.r[0], tPhone) - 0.14 * lift,
-      lerp(HOME_POSE.r[1], L.phone.r[1], tPhone),
-      lerp(HOME_POSE.r[2], L.phone.r[2], tPhone),
-    );
+    phone.group.rotation.set(HOME_POSE.r[0] - 0.14 * lift, HOME_POSE.r[1], HOME_POSE.r[2]);
 
     // The panel takes part of the window in explore: slide the picture into the part that stays free.
     const k = smooth(seg(p, 0.25, 1));
@@ -176,12 +169,16 @@ async function boot() {
       stage.camera.lookAt(camTarget);
     }
 
-    // Platform: rises, then algorithms dock one by one, then beams draw to the screen.
-    platform.anim.rise = smooth(seg(p, 0.35, 0.85));
-    platform.anim.dock.forEach((d, i) => (d.t = backOut(seg(p, 0.6 + i * 0.05, 0.84 + i * 0.05))));
-    platform.anim.beams.forEach((b, i) => (b.t = smooth(seg(p, 0.8 + i * 0.03, 0.95 + i * 0.015))));
-    // Network: revealed hop by hop from the platform.
-    network.update(reveal.on ? Math.min(p, reveal.p) : p, stage.camera, dt, time);
+    // The open platform: grows out of its cube on the wall, then its algorithms dock one by one, then beams
+    // draw to the screen. `sw.k` closes and reopens it when another app is chosen.
+    const k2 = sw.k;
+    platform.group.position.set(platAt.x, platAt.y, -DEPTH);
+    platform.anim.rise = smooth(seg(p, 0.4, 0.85)) * smooth(seg(k2, 0, 0.6));
+    platform.anim.dock.forEach((d, i) => (d.t = backOut(seg(p, 0.6 + i * 0.05, 0.84 + i * 0.05)) * smooth(seg(k2, 0.3 + i * 0.06, 0.8 + i * 0.04))));
+    platform.anim.beams.forEach((b, i) => (b.t = smooth(seg(p, 0.8 + i * 0.03, 0.95 + i * 0.015)) * smooth(seg(k2, 0.7, 1))));
+    network.setOpen(openId, platform.anim.rise);
+    // The atlas: revealed once, hop by hop from the wall.
+    network.update(p, stage.camera, dt, time);
   }
 
   function takeCamera() {
@@ -211,10 +208,9 @@ async function boot() {
     };
     if (ex.p > 0) return start(); // reversing mid-way: screen is already the 3D copy
 
-    // From flat: lay out this platform's network, fresh endpoints, then swap the HTML screen for its painted copy.
-    net = layoutOf(appId);
-    network.build(net);
-    ({ L, cam: toCam } = exploreSetup());
+    // From flat: open this app's platform, fresh endpoints, then swap the HTML screen for its painted copy.
+    openNow(appId);
+    toCam = overview();
     fromCam = homeCamera();
     userMoved = false;
     repaint();
@@ -240,17 +236,39 @@ async function boot() {
     });
   }
 
-  /** Another app while already exploring: swap the network in place and replay its reveal. */
+  /** Open a platform at once (while it cannot be seen). */
+  function openNow(appId: string) {
+    gsap.killTweensOf(sw); gsap.killTweensOf(phoneAt);
+    openId = appId;
+    platform.setEntity(actor(appId)!);
+    phoneAt.copy(slotOf(appId));
+    platAt.copy(phoneAt);
+    sw.k = 1; sw.busy = false;
+    network.setContext(contextFor(appId));
+  }
+
+  /**
+   * Another app while already exploring. The atlas stays exactly as it is: the open platform closes back
+   * into its cube, the phone glides to the other platform, and that one opens.
+   */
   function switchApp(appId: string) {
-    net = layoutOf(appId);
-    network.build(net);
+    const to = slotOf(appId);
     userMoved = false;
     pendingFocus = true;
     repaint();
-    gsap.killTweensOf(reveal);
-    reveal.on = true;
-    reveal.p = 0.8;
-    gsap.to(reveal, { p: 1, duration: 1.1, ease: 'power1.inOut', onComplete: () => { reveal.on = false; settled(); } });
+    gsap.killTweensOf(sw); gsap.killTweensOf(phoneAt);
+    sw.busy = true;
+    network.setContext(contextFor(appId));
+    gsap.to(phoneAt, { x: to.x, y: to.y, duration: 1.0, ease: 'power2.inOut' });
+    gsap.to(sw, {
+      k: 0, duration: 0.3 * sw.k, ease: 'power1.in',
+      onComplete: () => {
+        openId = appId;
+        platform.setEntity(actor(appId)!);
+        platAt.copy(to);
+        gsap.to(sw, { k: 1, duration: 0.95, ease: 'none', onComplete: () => { sw.busy = false; settled(); } });
+      },
+    });
   }
 
   // ---------- Camera moves in explore ----------
@@ -278,14 +296,15 @@ async function boot() {
   function frame(points: THREE.Vector3[], duration = 1.1, minHalf = 1.6) {
     if (!points.length) return;
     const dir = userMoved ? stage.camera.position.clone().sub(stage.controls.target).normalize() : viewDir();
-    const cam = fit(points, dir, 1.12, minHalf);
+    const cam = fit(points, dir, 1.3, minHalf);
     flyTo(cam.pos, cam.target, duration);
   }
 
   function pointsOf(steps: TrailStep[]): THREE.Vector3[] {
     const pts: THREE.Vector3[] = [];
     for (const s of steps) for (const id of s.nodes) { const p = network.worldPositionOf(id); if (p) pts.push(p); }
-    pts.push(...bodyPoints(steps.some((s) => s.screen), steps.some((s) => s.platform)));
+    const here = steps.some((s) => s.platform);
+    pts.push(...bodyPoints(steps.some((s) => s.screen), here));
     return pts;
   }
 
@@ -372,7 +391,7 @@ async function boot() {
     panel.show(v.appId, v.sel);
     panel.setPlayback(-1, false);
     if (!move && !freeCamera) return;
-    if (!freeCamera || reveal.on) { pendingFocus = true; return; }
+    if (!freeCamera || sw.busy) { pendingFocus = true; return; }
     focusSelection();
   }
 
@@ -399,6 +418,7 @@ async function boot() {
   stage.onResize(() => {
     platform.setResolution(innerWidth, innerHeight);
     network.setResolution(innerWidth, innerHeight);
+    network.labelBoost = wide() ? 1 : 1.5;
     if (ex.p === 0) fromCam = homeCamera();
   });
 
@@ -479,7 +499,7 @@ async function boot() {
       if (!a) return;
       tip.innerHTML = `<b></b><span></span>`;
       tip.firstElementChild!.textContent = a.name;
-      tip.lastElementChild!.textContent = kindLabel(a.kind) + (a.authentic === false ? ' · front or fake account' : '');
+      tip.lastElementChild!.textContent = a.app ? 'Platform · select to open it' : kindLabel(a.kind) + (a.authentic === false ? ' · front or fake account' : '');
       tip.style.transform = `translate(${Math.min(ev.clientX + 14, innerWidth - 260)}px, ${ev.clientY + 16}px)`;
     };
     canvas.addEventListener('pointerdown', (ev) => { down = { x: ev.clientX, y: ev.clientY, t: performance.now() }; tip.hidden = true; });
@@ -490,7 +510,9 @@ async function boot() {
       if (!d || !inExplore(v) || !freeCamera) return;
       if (Math.hypot(ev.clientX - d.x, ev.clientY - d.y) > 6 || performance.now() - d.t > 500) return;
       const id = hit(ev);
-      if (id) go({ name: 'explore', appId: v.appId, sel: { type: 'actor', id } });
+      // A platform on the wall opens that app; any other cube opens that actor.
+      if (id && isApp(id)) go({ name: 'explore', appId: id });
+      else if (id) go({ name: 'explore', appId: v.appId, sel: { type: 'actor', id } });
     });
     let queued = false;
     canvas.addEventListener('pointermove', (ev) => {
@@ -520,15 +542,17 @@ async function boot() {
 
     const app = next.name === 'home' ? null : actor(next.appId)!;
     const appChanged = !!app && (prev.name === 'home' || prev.appId !== app.id);
-    if (app && (!inExplore(prev) || appChanged)) platform.setEntity(app);
 
     if (!app) ui.showHome();
     else ui.showApp(app, next.name === 'app' && prev.name === 'home');
     // Leaving explore straight to home: the tilted screen should already show the home grid.
     if (!app && inExplore(prev)) repaint();
 
-    if (inExplore(next) && !inExplore(prev)) toExplore(next.appId);
-    else if (!inExplore(next) && inExplore(prev)) toFlat();
+    if (inExplore(next) && !inExplore(prev)) {
+      // Coming back mid-way with another app: the platform is already in view, so swap it in the scene.
+      if (ex.p > 0 && next.appId !== openId) switchApp(next.appId);
+      toExplore(next.appId);
+    } else if (!inExplore(next) && inExplore(prev)) toFlat();
     else if (inExplore(next) && inExplore(prev) && appChanged) switchApp(next.appId);
 
     if (inExplore(next)) {
@@ -551,17 +575,18 @@ async function boot() {
   placeScreen();
   platform.setResolution(innerWidth, innerHeight);
   network.setResolution(innerWidth, innerHeight);
+  network.labelBoost = wide() ? 1 : 1.5;
   document.body.dataset.view = 'home';
   // Repaint once web fonts are ready so the texture uses the same typeface as the HTML.
   // Pre-paint and upload the screen texture so the first Explore doesn't stall on a GPU upload.
   const warm = () => repaint();
-  platform.setEntity(apps[0]);
+  openNow(apps[0].id);
   network.showAllForWarmup();
   platform.prewarm(stage.renderer, stage.scene, stage.camera);
   document.fonts?.ready.then(() => { warm(); network.refreshLabels(); });
   warm();
   // Debug hook for visual tests.
-  (window as any).__atlas = { get net() { return net; }, ex, stage, platform, network, repaint, caseOf, trail: () => ({ steps: trail.length, lit: (network as any).lit.size, hot: (network as any).hot.length }) };
+  (window as any).__atlas = { net, ex, sw, get openId() { return openId; }, stage, platform, network, repaint, caseOf, trail: () => ({ steps: trail.length, lit: (network as any).lit.size, hot: (network as any).hot.length }) };
   startRouter(isApp); // fires apply() for a deep-linked view
 
   $('loading').remove();
