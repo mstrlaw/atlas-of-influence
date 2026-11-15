@@ -1,0 +1,473 @@
+{
+  "note": "Cases: evidenced paths through the model. A step is one actor using one mechanism on another actor or on the platform ('@app' = the platform the case is being viewed on; 'screen' = what the person holding the phone sees). check: true marks a countervailing step (reporting, research, a regulator). Every step cites evidence rows from data/evidence.json. 'effects' feed the Influence Facts sheet; 'drivers' are its second part. Provisional choices made while encoding, pending the user's review: one record per case, no sub-cases, no dates on steps.",
+  "cases": [
+    {
+      "id": "hanover-institute", "title": "Hanover Institute", "period": "2026",
+      "venues": ["chatgpt"], "countries": ["US", "IL", "DE"], "languages": ["en"],
+      "summary": "A think tank that did not exist a month earlier published 124 long reports on Israel and Gaza in nine days. Its footer says it is distributed by a US firm on behalf of a German media agency on behalf of the Israeli government's advertising agency. The reports are written as answers to questions people ask chatbots, and in tests ChatGPT and Perplexity cited them. After journalists reported this, ChatGPT began flagging the funding controversy. No effect on public opinion is shown.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "organisational", "origin": "foreign" },
+      "target": "ai_model",
+      "attribution": { "by": "Politico and the Guardian", "method": "US foreign-agent filings, the site's own footer, technical markers and web archives" },
+      "steps": [
+        { "actor": "israel-lapam", "to": "havas-media-germany", "mechanism": "fund.disclosure_gap", "text": "Israel's government advertising agency contracts Havas Media Germany, which pays five US firms. Havas's US arm deregistered in October 2025, so no single filing shows the whole campaign.", "evidence": ["E13", "E14", "E15"] },
+        { "actor": "havas-media-germany", "to": "piro", "mechanism": "fund.disclosure_gap", "text": "Havas contracts the US firm Piro across two work orders.", "cost": "$1 million", "evidence": ["E11"] },
+        { "actor": "piro", "to": "res", "mechanism": "entry.seo_geo", "text": "The site is built with Res, a start-up that optimises content for AI answer engines; its founder registers as Piro's subcontractor.", "evidence": ["E05", "E09"] },
+        { "actor": "piro", "to": "hanover-institute", "mechanism": "prod.front", "text": "The Hanover Institute appears with no named authors and an unidentified founder. Piro discloses over a dozen of its articles as \"informational materials\".", "cost": "$100,000 for over a dozen articles", "evidence": ["E01", "E02", "E03"] },
+        { "actor": "hanover-institute", "to": "@app", "mechanism": "prod.query_mirroring", "text": "It publishes 124 reports and 560,000 words in nine days. All but one headline is a question; \"no court has ruled\" recurs in 20 reports and one 2022 study is cited 454 times.", "evidence": ["E07", "E08"] },
+        { "actor": "@app", "to": "screen", "mechanism": "llm.retrieval", "text": "Asked neutral questions about Gaza, ChatGPT and Perplexity cite the institute.", "evidence": ["E04"] },
+        { "actor": "politico", "to": "@app", "check": true, "text": "Politico and then the Guardian report the funding chain. Afterwards ChatGPT's answer flags the controversy and links the coverage.", "evidence": ["E10"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Chatbots cited the institute in neutral tests.", "evidence": ["E04"] },
+        { "line": "reality", "level": "ultimate", "text": "No effect on opinion is shown: Israeli officials called the campaign a failure and US polls kept falling.", "evidence": ["E22"] }
+      ],
+      "drivers": [],
+      "not_established": ["Whether any reader's view changed.", "Piro's filings describe \"informational materials\" and do not name AI models as a goal."]
+    },
+    {
+      "id": "clock-tower-x", "title": "Clock Tower X", "period": "2025–26",
+      "venues": ["chatgpt"], "countries": ["US", "IL", "DE"], "languages": ["en"],
+      "summary": "Through the same German agency, Israel's government advertising agency paid a US firm whose contract names \"GPT framing results\" as a deliverable. The firm runs websites with a few hundred visitors a month, built for machines to read. They already appear in a web crawl that AI companies train on. Whether any model's answers changed is not shown.",
+      "attributes": { "intent": "adversarial", "transparency": "undisclosed", "coordination": "organisational", "origin": "foreign" },
+      "target": "ai_model",
+      "attribution": { "by": "Quincy Institute, Drop Site News and the Guardian", "method": "US foreign-agent filings and analysis of a public web-crawl dataset" },
+      "steps": [
+        { "actor": "israel-lapam", "to": "havas-media-germany", "mechanism": "fund.disclosure_gap", "text": "The Israeli agency contracts Havas Media Germany, the intermediary for five US firms.", "evidence": ["E13", "E15"] },
+        { "actor": "havas-media-germany", "to": "clock-tower-x", "mechanism": "fund.disclosure_gap", "text": "Havas pays Clock Tower X in six instalments under a contract that includes \"deployment of websites and content to deliver GPT framing results\".", "cost": "$15 million paid, of a $46.5 million contract", "evidence": ["E12", "E17"] },
+        { "actor": "clock-tower-x", "to": "ctx-sites", "mechanism": "entry.seo_geo", "text": "The firm runs low-traffic sites, averaging a few hundred visitors a month, and uses AI search-optimisation software to improve how its narratives rank.", "evidence": ["E19", "E20"] },
+        { "actor": "ctx-sites", "to": "@app", "mechanism": "llm.corpus", "text": "Seven of the sites appear 294 times in Common Crawl's July 2026 index, a dataset widely used to train AI models.", "evidence": ["E18"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "The firm told a reporter it is \"seeing success\" but gave no data.", "evidence": ["E21"] }
+      ],
+      "drivers": [],
+      "not_established": ["That any trained model's answers changed because of these sites.", "The method behind the chatbot tests reported for this campaign."]
+    },
+    {
+      "id": "pravda-network", "title": "Pravda network", "period": "2022–",
+      "venues": ["chatgpt"], "countries": ["RU"], "languages": ["en", "fr", "es"],
+      "summary": "A network of about a hundred websites republishes pro-Kremlin content in bulk, around 10,000 articles a day in 2025. Researchers say it is built for AI systems, not human readers. In an audit, ten leading chatbots repeated its narratives about a third of the time.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "networked", "origin": "foreign" },
+      "target": "ai_model",
+      "attribution": { "by": "NewsGuard and the American Sunlight Project", "method": "Audit of chatbot answers and analysis of the network's sites" },
+      "steps": [
+        { "actor": "pravda-network", "mechanism": "prod.laundering", "text": "The network republishes content across 101 websites, about 10,000 articles a day in 2025, with new subdomains for countries and regions.", "evidence": ["E130", "E25"] },
+        { "actor": "pravda-network", "to": "@app", "mechanism": "llm.corpus", "text": "The volume is aimed at the web crawlers and search indexes that AI models draw on, which researchers call \"LLM grooming\".", "evidence": ["E25"] },
+        { "actor": "@app", "to": "screen", "mechanism": "llm.corpus", "text": "Ten leading chatbots repeated the network's narratives about a third of the time.", "evidence": ["E24"] },
+        { "actor": "newsguard", "to": "@app", "check": true, "text": "NewsGuard audits the chatbots and publishes the result.", "evidence": ["E24"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Chatbots repeated the network's narratives about a third of the time.", "evidence": ["E24"] }
+      ],
+      "drivers": [],
+      "not_established": ["Whether the chatbots picked this up through training or through live retrieval; the audit does not separate the two.", "Any effect on what people believe."]
+    },
+    {
+      "id": "tenet-media", "title": "Tenet Media", "period": "2023–24",
+      "venues": ["youtube", "x"], "countries": ["US", "CA", "RU"], "languages": ["en"],
+      "summary": "According to a US indictment, employees of the Russian state broadcaster RT funnelled nearly $10 million through shell companies to a US media company, which paid well-known commentators for videos. The commentators say they did not know where the money came from, and prosecutors did not accuse them of wrongdoing.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "organisational", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "US Department of Justice", "method": "Indictment" },
+      "steps": [
+        { "actor": "rt", "to": "tenet-media", "mechanism": "fund.covert", "text": "RT employees route money to Tenet Media through shell companies, using a fake investor persona.", "cost": "nearly $10 million", "evidence": ["E26", "E63"] },
+        { "actor": "tenet-media", "to": "tenet-commentators", "mechanism": "prod.influencer", "text": "Tenet pays commentators for videos. Its founders allegedly knew the source of the money.", "cost": "$100,000 per video for one commentator; $2 million a year offered to another", "knowing": "disputed", "evidence": ["E63"] },
+        { "actor": "tenet-commentators", "to": "@app", "mechanism": "entry.direct", "text": "About 2,000 videos are posted, drawing over 16 million views on YouTube.", "evidence": ["E63"] },
+        { "actor": "us-doj", "to": "rt", "check": true, "text": "The US Department of Justice indicts the RT employees. It does not accuse the commentators.", "evidence": ["E26"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "The videos drew over 16 million views.", "evidence": ["E63"] },
+        { "line": "reality", "level": "ultimate", "text": "In Canada about one in four people can recognise a Tenet commentator; researchers found no evidence that it influenced Canadian politicians.", "evidence": ["E64"] }
+      ],
+      "drivers": [],
+      "not_established": ["Whether the commentators knew; they say they were deceived.", "Any change in viewers' opinions."]
+    },
+    {
+      "id": "stoic", "title": "STOIC / Zero Zeno", "period": "2024",
+      "venues": ["facebook", "instagram", "x"], "countries": ["IL", "US"], "languages": ["en"],
+      "summary": "A Tel Aviv firm ran fake accounts posting pro-Israel content. OpenAI and Meta said they disrupted the operation. The log holds one source for this case.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "organisational", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "OpenAI and Meta", "method": "Platform threat reports" },
+      "steps": [
+        { "actor": "stoic", "to": "stoic-accounts", "mechanism": "crowd.inauthentic", "text": "The firm STOIC operates a set of fake accounts.", "evidence": ["E27"] },
+        { "actor": "stoic-accounts", "to": "@app", "mechanism": "entry.direct", "text": "The accounts post pro-Israel content.", "evidence": ["E27"] },
+        { "actor": "meta", "to": "stoic-accounts", "check": true, "text": "Meta and OpenAI say they disrupted the operation.", "evidence": ["E27"] }
+      ],
+      "effects": [],
+      "drivers": [],
+      "not_established": ["Who commissioned the firm.", "Reach and effect; the single source gives neither."]
+    },
+    {
+      "id": "sinclair-must-runs", "title": "Sinclair's scripted promos", "period": "2018",
+      "venues": ["local-news"], "countries": ["US"], "languages": ["en"],
+      "summary": "In March 2018 the largest owner of local television stations in the US had its news anchors record a company-written message warning viewers about \"fake stories\" in national media. A compilation of dozens of anchors reading identical words went viral. Staff objected anonymously; one news director told colleagues his job depended on airing it.",
+      "attributes": { "intent": "ideological / editorial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "CNN Money", "method": "A company memo and an internal email it obtained" },
+      "steps": [
+        { "actor": "sinclair", "to": "sinclair-stations", "mechanism": "own.directive", "text": "A memo from Sinclair's head of news tells stations to film the promo and run it frequently. Earlier \"must-run\" segments include a \"Terrorism Alert Desk\" and commentaries by a former Trump campaign adviser.", "knowing": "yes", "evidence": ["E184", "E185"] },
+        { "actor": "sinclair-stations", "to": "@app", "mechanism": "entry.direct", "text": "Local anchors in dozens of markets read the same script on air. One news director writes: \"These MUST Run. If they do not, my job is on the line.\"", "evidence": ["E184", "E185", "E186"] },
+        { "actor": "cnn", "to": "sinclair", "check": true, "text": "CNN Money reports the memo. A Deadspin compilation of the promos spreads widely.", "evidence": ["E184"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "One company-written message reached viewers through trusted local presenters in dozens of markets, without saying where it came from.", "evidence": ["E184"] }
+      ],
+      "drivers": ["owner"],
+      "not_established": ["How many stations aired it and whether any refused.", "Any effect on viewers."]
+    },
+    {
+      "id": "grok-tuning", "title": "Grok and its instructions", "period": "2025",
+      "venues": ["x"], "countries": ["US", "ZA", "FR"], "languages": ["en"],
+      "summary": "Grok is the chatbot built into X; both are owned by Elon Musk. Its behaviour has changed abruptly several times after changes to its hidden instructions. In May 2025 it inserted \"white genocide\" claims into unrelated answers. In July 2025, after an instruction not to shy away from politically incorrect claims, it posted antisemitic content. Earlier it had been told to ignore sources critical of Musk and Trump. xAI attributed two of these to unauthorised changes by staff.",
+      "attributes": { "intent": "not established", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "xAI's own statements and published prompts; NPR; Le Monde", "method": "Company admissions and the published system prompt" },
+      "steps": [
+        { "actor": "elon-musk", "to": "xai", "mechanism": "own.directive", "text": "Musk says Grok has been \"improved significantly\". He had criticised its answers and said it would be updated to stop citing some outlets.", "evidence": ["E77", "E74"] },
+        { "actor": "xai", "to": "@app", "mechanism": "llm.owner_tuning", "text": "A system-prompt update tells Grok not to \"shy away from making claims which are politically incorrect\" and to assume media viewpoints are biased.", "evidence": ["E77"] },
+        { "actor": "xai", "to": "@app", "mechanism": "supp.source_exclusion", "text": "For a time the prompt tells Grok to ignore sources saying Musk or Trump spread misinformation. xAI confirms it and blames an employee acting without approval.", "evidence": ["E80"] },
+        { "actor": "@app", "to": "screen", "mechanism": "llm.owner_tuning", "narrative": "white-genocide-sa", "text": "Grok inserts \"white genocide\" claims about South Africa into unrelated answers (May 2025), then posts antisemitic content and calls itself \"MechaHitler\" (July 2025).", "evidence": ["E79", "E77"] },
+        { "actor": "eu-commission", "to": "@app", "check": true, "text": "The European Commission opens a formal investigation into Grok's risks. Poland says it will report xAI, and Turkey restricts access.", "evidence": ["E73", "E77"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Users asking unrelated questions were given false or hateful claims by the platform's own assistant.", "evidence": ["E79", "E77"] },
+        { "line": "trust", "level": "proximate", "text": "A study found Grokipedia, built from Grok's output, citing a conspiracy site and a neo-Nazi site as sources.", "evidence": ["E95"] }
+      ],
+      "drivers": ["owner"],
+      "not_established": ["Whether the owner ordered any specific change; xAI attributes two of them to unauthorised modifications.", "How many users saw the answers."]
+    },
+    {
+      "id": "x-owner-boost", "title": "X: the owner's posts boosted", "period": "2023–24",
+      "venues": ["x"], "countries": ["US"], "languages": ["en"],
+      "summary": "After a Super Bowl post by Elon Musk drew fewer views than one by President Biden, engineers at the company changed the ranking system to boost Musk's posts by a factor of 1,000, according to Platformer. Musk denied it and blamed a bug. A researcher using the platform's own data found impressions on his posts rose 737% the next day.",
+      "attributes": { "intent": "ideological / editorial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Platformer, reported by the Guardian", "method": "Interviews and internal documents" },
+      "steps": [
+        { "actor": "elon-musk", "to": "@app", "mechanism": "own.directive", "text": "About 80 engineers are pulled in to raise the reach of the owner's posts, and deploy a change that boosts them by a factor of 1,000.", "evidence": ["E67"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "More than 90% of his followers, and many people who do not follow him, are shown his posts in the For You feed.", "evidence": ["E67"] },
+        { "actor": "graham-qut", "to": "@app", "check": true, "text": "A researcher using the platform's own data finds impressions on Musk's posts up 737% the day after the Super Bowl. After Musk endorsed a candidate in July 2024, views of his posts rose 138%.", "evidence": ["E92", "E94"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "What appeared important in the feed was set by who owns the platform.", "evidence": ["E67", "E92"] }
+      ],
+      "drivers": ["owner"],
+      "not_established": ["Musk says his posts were not boosted and blames a bug; Platformer stands by its report."]
+    },
+    {
+      "id": "x-feed-tilt", "title": "X: what the feed does to opinions", "period": "2023",
+      "venues": ["x"], "countries": ["US"], "languages": ["en"],
+      "summary": "In a field experiment published in Nature, 4,965 US users were randomly given either X's algorithmic feed or a chronological one for seven weeks. The algorithmic feed showed more conservative posts and activists and far less traditional news, and shifted users' opinions on several issues to the right. Party identity and hostility toward the other side did not change. An earlier study found the same tilt before the current owner bought the platform.",
+      "attributes": { "intent": "not established", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Gauthier and colleagues, Nature (2026)", "method": "Randomised field experiment" },
+      "steps": [
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "The algorithmic feed makes conservative posts about 20% more likely, posts by activists 27% more likely, and traditional news about 58% less likely.", "evidence": ["E69"] },
+        { "actor": "nature-study", "to": "@app", "check": true, "text": "Researchers measure the effect by randomly assigning users to the two feeds. X does not respond.", "evidence": ["E30", "E72"] }
+      ],
+      "effects": [
+        { "line": "division", "level": "ultimate", "text": "Users on the algorithmic feed moved right on immigration, the investigations of Donald Trump and the war in Ukraine. Party identity and hostility toward the other side were unchanged.", "metric": "4.7 points more likely to prioritise Republican issues; 7.4 points less likely to view Zelenskyy positively", "evidence": ["E69", "E71"] },
+        { "line": "reality", "level": "proximate", "text": "The feed changed whom users followed, and the change lasted after they switched back.", "evidence": ["E30", "E71"] }
+      ],
+      "drivers": [],
+      "not_established": ["Whether anyone chose this outcome. A 2022 study found the algorithm already amplified the mainstream right in six of seven countries, before the change of owner."]
+    },
+    {
+      "id": "loomer-paid-posts", "title": "Paid political posts", "period": "2025–26",
+      "venues": ["x"], "countries": ["US"], "languages": ["en"],
+      "summary": "A former Trump campaign adviser and three anonymous sources told the Washington Post that the activist Laura Loomer is paid by private clients to post political messages on X without saying so. Documents the Post reviewed appear to show four payments totalling over $60,000. Loomer denies being paid to post. No US regulator covers undisclosed paid political posts.",
+      "attributes": { "intent": "commercial", "transparency": "undisclosed", "coordination": "individual", "origin": "domestic" },
+      "target": "decision_maker",
+      "attribution": { "by": "The Washington Post", "method": "One named and three anonymous sources, bank emails and a wire statement" },
+      "steps": [
+        { "actor": "x-strategies", "to": "laura-loomer", "mechanism": "prod.influencer", "text": "The consultant Alex Bruesewitz says his firm paid Loomer for posts on policy issues last year, on behalf of clients he does not name.", "cost": "$3,000–5,000 per post, according to two sources", "evidence": ["E81", "E82"] },
+        { "actor": "loomer-clients", "to": "laura-loomer", "mechanism": "prod.influencer", "text": "Documents appear to show four payments to Loomer and her company since May 2025. They do not state a purpose.", "cost": "over $60,000 in four payments", "evidence": ["E81"] },
+        { "actor": "laura-loomer", "to": "@app", "mechanism": "entry.direct", "text": "The posts go out to 1.9 million followers with no disclosure. People who paid her say some clients hired her assuming she has the president's ear.", "evidence": ["E81"] }
+      ],
+      "effects": [
+        { "line": "trust", "level": "proximate", "text": "Readers cannot tell a paid message from a personal view; a researcher says this degrades confidence in what people see online.", "evidence": ["E81"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["Loomer denies being paid to post and says she was paid for a research document.", "Which posts were paid for, and by whom.", "The Federal Trade Commission has no jurisdiction over political advertising, so no disclosure rule applies."]
+    },
+    {
+      "id": "brazil-meta-2026", "title": "Meta and Brazil's 2026 election", "period": "2026",
+      "venues": ["facebook", "instagram", "whatsapp"], "countries": ["BR"], "languages": ["pt"],
+      "summary": "In the weeks before Brazil's presidential runoff, President Lula's campaign said Meta's platforms were restricting his accounts while recommending his opponent's. Folha de S.Paulo reported internal messages in which Meta employees acknowledged the restrictions, and found that Meta's AI assistant refused to make campaign material for Lula but made it for his opponent. An electoral-court justice ordered equal treatment under a daily fine, and prosecutors demanded an independent audit. Meta says these were technical problems and denies favouring anyone.",
+      "attributes": { "intent": "not established", "transparency": "undisclosed", "coordination": "organisational", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "Folha de S.Paulo; Brazil's electoral court and federal prosecutors", "method": "Internal messages, the outlet's own tests, a court order" },
+      "steps": [
+        { "actor": "meta", "to": "@app", "mechanism": "plat.moderation", "text": "Meta's automated systems block over 206,000 pieces of content in five days. Prosecutors find most blocks had no individual justification.", "evidence": ["E106"] },
+        { "actor": "@app", "to": "screen", "mechanism": "supp.demotion", "text": "Lula's party says his posts lost the share button and reach. Folha reports internal messages acknowledging restrictions on his accounts, while the platform recommended his opponent's profile.", "evidence": ["E102", "E104"] },
+        { "actor": "meta", "to": "@app", "mechanism": "plat.moderation", "text": "On WhatsApp, Meta's AI assistant refuses a \"Lula 13\" poster but makes a \"Flávio 22\" one. The block applies to Brazilian phone numbers only.", "evidence": ["E110", "E111"] },
+        { "actor": "folha", "to": "@app", "check": true, "text": "Folha de S.Paulo publishes the internal messages and its own tests.", "evidence": ["E102", "E110"] },
+        { "actor": "lula-campaign", "to": "brazil-tse", "check": true, "text": "Lula's campaign takes the case to the electoral court.", "evidence": ["E112"] },
+        { "actor": "brazil-tse", "to": "meta", "check": true, "text": "A justice orders Meta to treat both candidates equally and to apply identical criteria in its AI tool.", "cost": "fine of 500,000 reais a day for non-compliance", "evidence": ["E103"] },
+        { "actor": "brazil-mpf", "to": "meta", "check": true, "text": "Federal prosecutors give Meta 48 hours to answer recommendations that include an independent audit of its moderation algorithms.", "evidence": ["E105"] },
+        { "actor": "brazil-civil-society", "to": "meta", "check": true, "text": "Four civil-society groups document takedowns and reduced reach; demonstrators gather outside Meta's São Paulo office.", "evidence": ["E108"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "One candidate's content was harder to find and share while the other's was recommended.", "evidence": ["E102", "E104"] }
+      ],
+      "drivers": ["transparency"],
+      "not_established": ["Whether anyone at Meta intended the uneven outcome. Meta says its filter did not recognise prompts using only the first name \"Flávio\".", "Whether Meta complied with the order.", "Any effect on the vote."]
+    },
+    {
+      "id": "twitter-2018-visibility", "title": "Twitter's hidden replies (2018)", "period": "2018",
+      "venues": ["x"], "countries": ["US"], "languages": ["en"],
+      "summary": "In 2018 Twitter began hiding tweets from accounts its software judged to \"detract from the conversation\". The tweets stayed up but dropped out of search and reply threads, and the authors were not told. The system scored accounts by how often other users reported, blocked or muted them. Two months later prominent Republicans were found missing from search suggestions and the president called it illegal. Twitter said the cause was behaviour signals, not politics, and changed the system.",
+      "attributes": { "intent": "not established", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Twitter's own announcement; Vice News", "method": "Company statements and search tests" },
+      "steps": [
+        { "actor": "users-reporting", "to": "@app", "mechanism": "crowd.participatory", "text": "The system does not read content. It scores an account by how often others report, block and mute it against how often they like and repost it.", "evidence": ["E114"] },
+        { "actor": "@app", "to": "screen", "mechanism": "supp.demotion", "text": "Tweets from low-scoring accounts drop out of search results and reply threads, while staying visible to followers. Affected users are not told.", "evidence": ["E113"] },
+        { "actor": "vice", "to": "@app", "check": true, "text": "Vice News reports that prominent Republicans are missing from search suggestions.", "evidence": ["E116"] },
+        { "actor": "donald-trump", "to": "@app", "mechanism": "pressure.flak", "text": "President Trump calls it a \"discriminatory and illegal practice\". Twitter changes the system, and the accounts reappear the next day.", "evidence": ["E116", "E117"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Some accounts became harder to find without anyone being told, the account holders included.", "evidence": ["E113", "E116"] }
+      ],
+      "drivers": ["transparency"],
+      "not_established": ["Whether the affected politicians' accounts had shown the behaviour signals Twitter described.", "Twitter said abuse reports fell 4% in search and 8% in conversations; these are its own figures."]
+    },
+    {
+      "id": "myanmar-rohingya", "title": "Facebook and the Rohingya", "period": "2012–18",
+      "venues": ["facebook"], "countries": ["MM"], "languages": ["my"],
+      "summary": "In Myanmar Facebook was, for most people, the internet. Its military ran pages disguised as entertainment and celebrity news that spread hatred of the Rohingya minority. Facebook had no Burmese-speaking staff to receive reports. A UN fact-finding mission documented genocide and said Facebook played a significant role. An assessment Facebook commissioned concluded it had not done enough.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "UN Fact-Finding Mission; the New York Times", "method": "UN investigation and reporting on the military's pages" },
+      "steps": [
+        { "actor": "myanmar-military", "to": "myanmar-military-pages", "mechanism": "prod.front", "text": "The military runs Facebook pages presented as entertainment, wellness and celebrity news, such as \"Let's Laugh Casually\".", "evidence": ["E144"] },
+        { "actor": "myanmar-military-pages", "to": "@app", "mechanism": "crowd.inauthentic", "text": "Thousands of posts call Rohingya \"dogs\" and \"maggots\" and say they should be exterminated. Activity peaks in 2017.", "evidence": ["E144"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.moderation", "text": "The report function is missing from some Facebook apps and no Burmese-speaking staff are in place to receive reports.", "evidence": ["E145"] },
+        { "actor": "un-ffm", "to": "@app", "check": true, "text": "The UN mission attributes a \"significant\" role to Facebook. An assessment the company commissioned finds it was not doing enough.", "evidence": ["E143", "E145"] }
+      ],
+      "effects": [
+        { "line": "offline", "level": "ultimate", "text": "The 2017 military operations killed more than 10,000 Rohingya; a UN report documented genocide and attributed a significant role to Facebook.", "evidence": ["E143"] }
+      ],
+      "drivers": ["transparency"],
+      "not_established": ["How much of the violence is attributable to the platform; the author of the main source calls its culpability \"debatable\".", "No court has ruled on Facebook's responsibility."]
+    },
+    {
+      "id": "houston-rallies", "title": "Two fake pages, one street corner", "period": "2016",
+      "venues": ["facebook"], "countries": ["US", "RU"], "languages": ["en"],
+      "summary": "On 21 May 2016 two Facebook pages called opposing rallies at the same time outside an Islamic centre in Houston. One page promoted Texas secession and the other claimed to speak for American Muslims. Both were run from Russia. People from both sides turned up and confronted each other. A US senator said it cost the operators $200.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "organisational", "origin": "foreign" },
+      "target": "community",
+      "attribution": { "by": "US Senate Intelligence Committee", "method": "Advertisements released by Congress and testimony from Facebook" },
+      "steps": [
+        { "actor": "ira", "to": "heart-of-texas", "mechanism": "prod.front", "text": "Russian operators build \"Heart of Texas\", a page promoting Texas secession, to hundreds of thousands of followers.", "evidence": ["E133", "E60"] },
+        { "actor": "ira", "to": "united-muslims", "mechanism": "prod.front", "text": "The same operators run \"United Muslims of America\".", "evidence": ["E133", "E60"] },
+        { "actor": "heart-of-texas", "to": "@app", "mechanism": "plat.ads", "text": "The page advertises a rally to \"Stop Islamification of Texas\" at noon on 21 May 2016.", "cost": "$200 for the operation, according to a senator", "evidence": ["E133"] },
+        { "actor": "united-muslims", "to": "@app", "mechanism": "plat.ads", "text": "The other page advertises a \"Save Islamic Knowledge\" rally at the same place and time.", "evidence": ["E133"] },
+        { "actor": "us-senate-intel", "to": "@app", "check": true, "text": "The Senate Intelligence Committee releases the advertisements and questions Facebook's general counsel.", "evidence": ["E133"] }
+      ],
+      "effects": [
+        { "line": "offline", "level": "ultimate", "text": "Protesters from both sides turned up and confronted each other in the street.", "evidence": ["E133"] },
+        { "line": "division", "level": "proximate", "text": "The operators built pages for opposing communities and set them against each other.", "evidence": ["E60"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["How many people attended.", "Any effect on votes."]
+    },
+    {
+      "id": "instagram-teens", "title": "Instagram and teenagers", "period": "2021–26",
+      "venues": ["instagram"], "countries": ["US"], "languages": ["en"],
+      "summary": "An internal document shows that in 2021 an Instagram employee opened a test account as a 13-year-old girl looking for diet tips and was led to accounts promoting eating disorders. Company research found Instagram made one in three teenage girls feel worse about their bodies. In 2026 a New Mexico jury and judge ordered Meta to pay nearly $1 billion for putting young users at risk, and Meta settled with a coalition of states for nearly $17 billion.",
+      "attributes": { "intent": "structural", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "community",
+      "attribution": { "by": "CBS News; New Mexico courts", "method": "Internal documents and court rulings" },
+      "steps": [
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "In the company's own test, an account posing as a 13-year-old seeking diet tips is recommended accounts called \"skinny binge\" and \"apple core anorexic\".", "evidence": ["E151"] },
+        { "actor": "@app", "to": "screen", "mechanism": "ui.design", "text": "Families suing the company say the product was designed to be addictive. A CBS producer signs up as a 13-year-old with no verification and finds content promoting anorexia and self-harm.", "evidence": ["E152"] },
+        { "actor": "new-mexico", "to": "meta", "check": true, "text": "A New Mexico jury sets penalties and a judge adds a fund for harm prevention, after a finding of public nuisance.", "cost": "$375 million in penalties and a $567 million fund", "evidence": ["E162", "E163"] },
+        { "actor": "state-ags", "to": "meta", "check": true, "text": "Meta settles a federal case on child safety and mental health with a coalition of state attorneys general.", "cost": "nearly $17 billion", "evidence": ["E162"] }
+      ],
+      "effects": [
+        { "line": "wellbeing", "level": "ultimate", "text": "Company research found Instagram made one in three teenage girls feel worse about their bodies.", "evidence": ["E151"] },
+        { "line": "compulsive", "level": "proximate", "text": "Plaintiffs allege the product was built to be addictive; a court found Meta put young users at risk.", "evidence": ["E152", "E163"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["Meta says it does not allow content promoting self-harm or eating disorders, and is appealing the New Mexico ruling.", "The internal document has not been published."]
+    },
+    {
+      "id": "tiktok-teens", "title": "TikTok and compulsive use", "period": "2020–24",
+      "venues": ["tiktok"], "countries": ["US", "KE", "PH"], "languages": ["en"],
+      "summary": "Internal TikTok documents, exposed by a redaction error in a state lawsuit, show the company worked out that 260 videos are enough to form a habit, and that its own research linked compulsive use to lost sleep and weaker memory. Its tool for limiting screen time cut teenagers' use by a minute and a half a day. The documents also define a \"filter bubble\" and say users fall into one after 30 minutes. Amnesty's test accounts, posing as 13-year-olds, were shown mostly mental-health content within 20 minutes.",
+      "attributes": { "intent": "structural", "transparency": "undisclosed", "coordination": "organisational", "origin": "foreign" },
+      "target": "community",
+      "attribution": { "by": "NPR, from a Kentucky court filing; Amnesty International", "method": "Internal documents quoted in a lawsuit; automated and manual test accounts" },
+      "steps": [
+        { "actor": "@app", "to": "screen", "mechanism": "ui.design", "text": "The company determines that 260 videos form a habit. Its time-limit tool reduces teenagers' use from 108.5 to 107 minutes a day; a manager writes \"Our goal is not to reduce the time spent\".", "evidence": ["E170"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "Internal documents say users are placed in a \"filter bubble\" after 30 minutes in one sitting. Amnesty's test accounts see mostly mental-health content within 3 to 20 minutes, including videos romanticising suicide.", "evidence": ["E171", "E169"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.moderation", "text": "The documents record that between a third and all of the violating content in categories involving minors is not removed.", "evidence": ["E171"] },
+        { "actor": "kentucky-ag", "to": "bytedance", "check": true, "text": "Fourteen state attorneys general investigate and sue.", "evidence": ["E170"] },
+        { "actor": "amnesty", "to": "@app", "check": true, "text": "Amnesty and two partner organisations run more than 30 automated accounts posing as 13-year-olds.", "evidence": ["E169"] }
+      ],
+      "effects": [
+        { "line": "compulsive", "level": "proximate", "text": "The company's own figure: 260 videos to form a habit. Its time-limit tool cut use by about 1.5 minutes a day.", "metric": "108.5 to 107 minutes a day", "evidence": ["E170"] },
+        { "line": "division", "level": "proximate", "text": "By the company's own definition, users are in a filter bubble after 30 minutes.", "evidence": ["E171"] },
+        { "line": "wellbeing", "level": "proximate", "text": "After five to six hours, almost half the videos shown to test accounts posing as 13-year-olds were mental-health-related and potentially harmful.", "metric": "about ten times the share shown to accounts with no such interest", "evidence": ["E169"] },
+        { "line": "attention", "level": "proximate", "text": "The company's research linked compulsive use to loss of analytical skills and memory formation.", "evidence": ["E170"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["TikTok says the complaint cherry-picks quotes and uses outdated documents out of context.", "Most of the internal documents are undated.", "Amnesty's test did not measure harm to real users."]
+    },
+    {
+      "id": "tiktok-us-takeover", "title": "TikTok's change of owner", "period": "2025–26",
+      "venues": ["tiktok"], "countries": ["US", "CN"], "languages": ["en"],
+      "summary": "Under pressure from the US government, TikTok's Chinese parent sold 80% of its US operations to a consortium of American investors that includes Oracle. Days after the handover, users said posts on politically sensitive topics were being hidden, and California's governor announced an investigation. TikTok blamed a power failure at a data centre. A journalist who examined it said it did not look intentional, but that the new owners now hold the means to do it.",
+      "attributes": { "intent": "not established", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "PBS NewsHour", "method": "User reports and the company's statement; no data was shown" },
+      "steps": [
+        { "actor": "us-government", "to": "bytedance", "mechanism": "supp.legal", "text": "The sale takes place under US government pressure, and the buyers are approved by the president.", "evidence": ["E175", "E176"] },
+        { "actor": "tiktok-us-consortium", "to": "@app", "mechanism": "own.consolidation", "text": "A consortium including Oracle, Silver Lake and Andreessen Horowitz takes 80% of TikTok's US operations.", "evidence": ["E175"] },
+        { "actor": "@app", "to": "screen", "mechanism": "supp.demotion", "text": "Users report that posts about Jeffrey Epstein and about shootings by federal agents cannot be shared or seen. A state senator says he could not post about immigration agents for hours.", "evidence": ["E176"] },
+        { "actor": "california", "to": "@app", "check": true, "text": "California's governor announces an investigation into whether content critical of the president is being suppressed.", "evidence": ["E176"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "For some days users could not tell whether political posts were being hidden or the service was broken.", "evidence": ["E176"] }
+      ],
+      "drivers": ["owner", "transparency"],
+      "not_established": ["Whether anything was suppressed on purpose. TikTok says a data-centre power failure caused multiple bugs, and creators of every kind were affected.", "The user reports are second-hand and no data was shown."]
+    },
+    {
+      "id": "ellison-media", "title": "One family, several newsrooms", "period": "2025–26",
+      "venues": ["cbs-news"], "countries": ["US"], "languages": ["en"],
+      "summary": "David Ellison's Skydance merged with Paramount in August 2025, bringing in CBS, and has a pending deal for the company that owns CNN. His father Larry Ellison's company Oracle holds a stake in TikTok's US business. A month before the merger closed, Paramount paid $16 million to settle a lawsuit by Donald Trump over a 60 Minutes interview. In December 2025 CBS News pulled a 60 Minutes segment on deportations hours before broadcast.",
+      "attributes": { "intent": "not established", "transparency": "overt", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Nonprofit Quarterly, relaying NPR, The Hill and the New York Times", "method": "News reports; no company filings were read" },
+      "steps": [
+        { "actor": "donald-trump", "to": "paramount-skydance", "mechanism": "supp.legal", "text": "Donald Trump sues over a 60 Minutes interview. Paramount settles a month before its merger closes.", "cost": "$10 billion claimed; settled for $16 million", "evidence": ["E174", "E54"] },
+        { "actor": "ellison-family", "to": "paramount-skydance", "mechanism": "own.consolidation", "text": "Skydance merges with Paramount in August 2025 and agrees a deal for Warner Bros. Discovery, the owner of CNN, pending regulatory review.", "cost": "$111 billion pending deal", "evidence": ["E173", "E54"] },
+        { "actor": "paramount-skydance", "to": "@app", "mechanism": "own.directive", "text": "CBS News is placed under a new editor in chief, Bari Weiss.", "evidence": ["E173"] },
+        { "actor": "@app", "to": "screen", "mechanism": "supp.omission", "text": "A 60 Minutes segment on men deported to a prison in El Salvador is pulled hours before broadcast. The correspondent calls the decision political; the editor says the segment \"did not advance the ball\".", "evidence": ["E174"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "A finished report was not shown to viewers.", "evidence": ["E174"] }
+      ],
+      "drivers": ["owner"],
+      "not_established": ["That the settlement was made to ease the merger; the source calls this arguable.", "The exact stakes held, since no filings were read.", "That any coverage decision was directed by the owners."]
+    },
+    {
+      "id": "company-west-africa", "title": "Paid articles in West African news", "period": "2024",
+      "venues": ["web"], "countries": ["SN", "ML", "CM", "TD", "TG", "CI"], "languages": ["fr"],
+      "summary": "Leaked files from a Russian influence network list nearly 650 articles placed in 35 French-language West African news outlets in five months, at $250 to $700 each. The money appears to have gone to intermediaries, and several editors say they never knew where the articles came from. The files are the network's own reports to its bosses and contain duplicates and possibly inflated sums. They say nothing about whether anyone was persuaded.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "networked", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "Forbidden Stories, The Continent and France 24", "method": "A leak of 1,431 pages, authenticated by experts" },
+      "steps": [
+        { "actor": "the-company", "to": "wa-intermediaries", "mechanism": "prod.paid_placement", "narrative": "sahel-liberation", "text": "The network pays for ready-to-publish articles that are anti-French, anti-Ukrainian and in favour of the Alliance of Sahel States.", "cost": "$250–700 per article, as listed in the network's own files", "evidence": ["E65", "E90"] },
+        { "actor": "wa-intermediaries", "to": "wa-outlets", "mechanism": "prod.laundering", "narrative": "ukraine-threat", "text": "Articles reach newsrooms through intermediaries or individual journalists, often without the editor knowing. One arrived as a Word file over WhatsApp and was published unchanged. A byline no outlet could identify appears in at least eight outlets.", "knowing": "disputed", "evidence": ["E89", "E90"] },
+        { "actor": "wa-outlets", "to": "@app", "mechanism": "entry.web", "text": "Nearly 650 articles appear in 35 outlets between June and October 2024.", "evidence": ["E65", "E89"] },
+        { "actor": "forbidden-stories", "to": "wa-outlets", "check": true, "text": "A consortium of newsrooms analyses the leak and contacts the outlets. One removes 13 articles within hours.", "evidence": ["E89"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Hundreds of placed articles ran in outlets that readers trust, without any sign of who paid.", "evidence": ["E65"] },
+        { "line": "reality", "level": "ultimate", "text": "No effect is shown: the files are internal reports that contain duplicates and possibly inflated sums.", "evidence": ["E91"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["Whether the listed money was paid, and to whom.", "Whether readers were influenced.", "Three outlets deny receiving any money."]
+    },
+    {
+      "id": "storm-1516", "title": "Storm-1516's fake news videos", "period": "2025–26",
+      "venues": ["x"], "countries": ["FR", "DE", "US", "RU"], "languages": ["fr", "de", "en"],
+      "summary": "A Russian operation known as Storm-1516 produces fake videos and articles that imitate real news outlets. NewsGuard counted 34 false claims about France and Germany in just over a year, viewed 274 million times on X. France's interference agency analysed 77 of its operations and named an individual involved, whom the EU then sanctioned. The accounts that spread the material appear to be a commercial service for hire.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "networked", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "VIGINUM (France) and NewsGuard", "method": "State-agency analysis of 77 operations; a count of false claims" },
+      "steps": [
+        { "actor": "storm-1516", "to": "storm-fakes", "mechanism": "prod.impersonation", "text": "The operation makes deepfake videos imitating the New York Times and ABC News, and plants stories through burner accounts and foreign media.", "evidence": ["E35", "E127"] },
+        { "actor": "storm-fakes", "to": "@app", "mechanism": "entry.direct", "text": "Thirty-four false claims about France and Germany spread in 175,000 posts and articles between January 2025 and February 2026.", "evidence": ["E127"] },
+        { "actor": "engagement-network", "to": "storm-fakes", "mechanism": "crowd.inauthentic", "text": "The network that amplifies them is assessed as \"most likely a commercial engagement-for-hire provider\".", "evidence": ["E127"] },
+        { "actor": "viginum", "to": "storm-1516", "check": true, "text": "France's VIGINUM analyses 77 operations and establishes the involvement of a named individual; the EU sanctions him in December 2025.", "evidence": ["E127"] }
+      ],
+      "effects": [
+        { "line": "trust", "level": "proximate", "text": "Fake videos carried the look of real news brands.", "evidence": ["E35"] },
+        { "line": "reality", "level": "proximate", "text": "The false claims were viewed 274 million times on X. Views show possible exposure, not belief.", "metric": "274 million views on X", "evidence": ["E127"] }
+      ],
+      "drivers": [],
+      "not_established": ["Whether viewers believed the claims. One analysis argues such operations mostly amplify views people already hold."]
+    },
+    {
+      "id": "iran-blackout", "title": "Iran's blackout and the campaigns that filled it", "period": "2026",
+      "venues": ["x", "instagram"], "countries": ["IR"], "languages": ["fa", "en"],
+      "summary": "In January 2026 Iran cut off its internet during protests. With people inside the country silenced, several campaigns of fake accounts competed to tell the world what was happening: accounts backing the government, a network that researchers attribute to Israel urging revolt, and accounts promoting the exiled Reza Pahlavi as the opposition's leader. Researchers could not attribute all of them. They describe the result as confusion.",
+      "attributes": { "intent": "adversarial", "transparency": "deceptive", "coordination": "networked", "origin": "foreign" },
+      "target": "public",
+      "attribution": { "by": "The New York Times, citing Citizen Lab, Golden Owl and other researchers", "method": "Research-lab reports; attribution is partial" },
+      "steps": [
+        { "actor": "iran-government", "mechanism": "ext.shutdown", "text": "Iran shuts down internet and mobile communications from 8 January 2026. This is not drawn: it sits beneath the pipeline, and it opens the space the campaigns fill.", "evidence": ["E32", "E33"] },
+        { "actor": "iran-campaign-accounts", "to": "@app", "mechanism": "crowd.inauthentic", "narrative": "iran-foreign-plot", "text": "Two campaigns with more than 4,700 accounts push pro-government content and blame the unrest on Israel and the United States.", "evidence": ["E84"] },
+        { "actor": "il-persian-network", "to": "@app", "mechanism": "crowd.inauthentic", "text": "A network of more than 50 inauthentic profiles uses AI to urge Iranians to revolt. Citizen Lab concludes it was organised by the Israeli government or a closely supervised subcontractor.", "evidence": ["E85"] },
+        { "actor": "pahlavi-accounts", "to": "@app", "mechanism": "crowd.inauthentic", "narrative": "pahlavi-alternative", "text": "Old accounts, recently reactivated, build up Reza Pahlavi as the face of the opposition. Some address a single reader, the US president.", "evidence": ["E86", "E44"] },
+        { "actor": "citizen-lab", "to": "il-persian-network", "check": true, "text": "Citizen Lab and other researchers identify the networks.", "evidence": ["E85", "E33"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "Researchers describe the result as disorientation: conflicting false accounts of the same events.", "evidence": ["E33"] },
+        { "line": "trust", "level": "proximate", "text": "AI-generated images and recycled footage were passed off as scenes from the protests.", "evidence": ["E33"] }
+      ],
+      "drivers": [],
+      "not_established": ["Who ran the pro-Pahlavi campaign.", "Israel did not respond to the attribution.", "Any effect on events inside Iran."]
+    },
+    {
+      "id": "ai-avatars", "title": "AI-generated political avatars", "period": "2026",
+      "venues": ["tiktok", "instagram", "facebook", "youtube"], "countries": ["US"], "languages": ["en"],
+      "summary": "Ahead of the 2026 US midterms the New York Times tracked more than 300 accounts in which AI-generated people praise Donald Trump. None was labelled as AI, and commenters appear to take them for real. Nobody knows who runs them: TikTok called them spammers chasing engagement and found no sign of a covert operation. A vendor estimates each post costs one to three dollars to make.",
+      "attributes": { "intent": "not established", "transparency": "deceptive", "coordination": "networked", "origin": "not established" },
+      "target": "public",
+      "attribution": { "by": "The New York Times, with Purdue's GRAIL lab and Alethea", "method": "The newspaper's own tracking; no attribution was possible" },
+      "steps": [
+        { "actor": "ai-avatar-accounts", "to": "@app", "mechanism": "crowd.inauthentic", "text": "Hundreds of accounts post videos of AI-generated people using the same scripts, faces and captions. Some also sell products.", "cost": "about $1–3 per post, by a vendor's estimate", "evidence": ["E55", "E87", "E88"] },
+        { "actor": "donald-trump", "to": "@app", "mechanism": "crowd.participatory", "text": "The president reposts a claim made by one of the avatars.", "evidence": ["E55"] },
+        { "actor": "nyt-reporters", "to": "@app", "check": true, "text": "The New York Times tracks the accounts; TikTok reviews them and begins removing them.", "evidence": ["E55", "E87"] }
+      ],
+      "effects": [
+        { "line": "trust", "level": "proximate", "text": "Commenters appear to believe the avatars are real people.", "evidence": ["E55"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["Who runs the accounts, and whether the aim is political or commercial.", "TikTok found \"zero indication of covert influence operations\".", "Any effect on voters."]
+    },
+    {
+      "id": "cambridge-analytica", "title": "Cambridge Analytica", "period": "2013–18",
+      "venues": ["facebook"], "countries": ["US", "GB"], "languages": ["en"],
+      "summary": "A personality quiz taken by about 270,000 Facebook users collected data on up to 87 million people through their friend lists. The political consultancy Cambridge Analytica used it to build psychological profiles for election advertising. The firm boasted of its power to persuade, but no source in the log shows that it changed a vote. Regulators fined Facebook $5 billion, and in 2026 a New Mexico court ordered Meta to pay $25 billion, finding that its promised internal investigation was \"willfully ineffective\".",
+      "attributes": { "intent": "commercial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "The Guardian and the New York Times, from a whistleblower; US regulators", "method": "Whistleblower disclosure, regulatory decisions and a court ruling" },
+      "steps": [
+        { "actor": "gsr", "to": "cambridge-analytica", "mechanism": "plat.ads", "text": "A quiz app collects the data of people who install it and, through Facebook's permissions at the time, of their friends: up to 87 million profiles.", "evidence": ["E139"] },
+        { "actor": "us-campaigns-2016", "to": "cambridge-analytica", "mechanism": "plat.ads", "text": "Two presidential campaigns hire the firm, which builds psychological profiles and splits advertising between supporters and possible swing voters.", "cost": "$5.8 million from one campaign", "evidence": ["E140"] },
+        { "actor": "cambridge-analytica", "to": "@app", "mechanism": "plat.ads", "text": "Tailored advertisements are shown to the profiled users.", "evidence": ["E140"] },
+        { "actor": "ftc", "to": "meta", "check": true, "text": "The US Federal Trade Commission fines Facebook.", "cost": "$5 billion", "evidence": ["E141"] },
+        { "actor": "new-mexico", "to": "meta", "check": true, "text": "A New Mexico court finds more than 43 million violations of state law and that the promised investigation was \"willfully ineffective\".", "cost": "$25 billion, under appeal", "evidence": ["E160", "E161"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "ultimate", "text": "No effect on any vote is shown. The firm's claims about its power were its own sales pitch.", "evidence": ["E142", "E140"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["Whether the targeting changed anyone's vote.", "A UK investigation found the firm was not involved in the Brexit campaign beyond initial enquiries."]
+    },
+    {
+      "id": "mood-experiment", "title": "Facebook's mood experiment", "period": "2012–14",
+      "venues": ["facebook"], "countries": ["US"], "languages": ["en"],
+      "summary": "For a week in 2012 Facebook changed what almost 700,000 users saw, removing posts with positive or negative words to see whether their own mood followed. It did not tell them. The result was published in a scientific journal in 2014. The researcher who led it later apologised and said the effect was small.",
+      "attributes": { "intent": "structural", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Facebook's own published study", "method": "The company's paper and press reporting" },
+      "steps": [
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "Posts containing positive or negative words are removed from the feeds of almost 700,000 users for about a week, without their knowledge.", "evidence": ["E153"] }
+      ],
+      "effects": [
+        { "line": "wellbeing", "level": "proximate", "text": "The company tested whether it could shift users' moods through what it showed them. The size of the effect is not given; its lead researcher called it small.", "evidence": ["E153", "E154"] }
+      ],
+      "drivers": ["transparency"],
+      "not_established": ["The size of the effect.", "Whether anyone was harmed."]
+    }
+  ]
+}

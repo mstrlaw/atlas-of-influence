@@ -23,16 +23,16 @@ export class Stage {
     container.appendChild(this.renderer.domElement);
 
     this.scene.background = new THREE.Color('#d3d5da');
-    this.scene.fog = new THREE.Fog("#d3d5da", 40, 110);
+    this.scene.fog = new THREE.Fog("#d3d5da", 70, 190);
 
-    this.camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+    this.camera = new THREE.PerspectiveCamera(35, 1, 0.1, 220);
     this.camera.position.set(0, 0, 6);
 
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.dampingFactor = 0.08;
     this.controls.minDistance = 2;
-    this.controls.maxDistance = 80;
+    this.controls.maxDistance = 120;
     this.controls.enabled = false;
 
     this.addLights();
@@ -62,8 +62,23 @@ export class Stage {
     const w = window.innerWidth, h = window.innerHeight;
     this.renderer.setSize(w, h);
     this.camera.aspect = w / h;
+    const { x, y } = this.shift;
+    if (x || y) this.camera.setViewOffset(w, h, -x, y, w, h);
     this.camera.updateProjectionMatrix();
     this.resizers.forEach((fn) => fn());
+  }
+
+  private shift = { x: 0, y: 0 };
+  /**
+   * Slide the whole picture right by x and up by y CSS pixels without moving the camera, so the scene
+   * can sit in the part of the window a panel leaves free. Projection (and picking) follow along.
+   */
+  setShift(x: number, y: number) {
+    x = Math.round(x); y = Math.round(y);
+    if (x === this.shift.x && y === this.shift.y) return;
+    this.shift = { x, y };
+    if (x === 0 && y === 0) this.camera.clearViewOffset();
+    else this.camera.setViewOffset(window.innerWidth, window.innerHeight, -x, y, window.innerWidth, window.innerHeight);
   }
 
   /** Run once, after the next frame has actually been drawn (e.g. once a new texture is on screen). */

@@ -4,9 +4,9 @@ import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeome
 
 const BEAM_SEGMENTS = 48;
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
-import type { Entity } from '../data/types';
+import type { Actor, TrailStep } from '../data/types';
 import type { Phone } from './phone';
-import { makeLabel, setLabel } from './network';
+import { fadeLabel, makeLabel, setLabel, TRAIL_STYLE } from './network';
 
 // Slots around the platform cube where algorithm cubes dock (sketch: front, top, right, bottom, left).
 const SLOTS: { p: THREE.Vector3Tuple; s: THREE.Vector3Tuple }[] = [
@@ -37,6 +37,7 @@ function setOpacity(o: THREE.Object3D, v: number) {
 
 /**
  * The platform behind the phone: big cube, docked algorithm cubes and projection beams to the screen.
+ * There is one at a time: it is the app being viewed, and it closes and reopens when that changes.
  * Everything is driven by the plain `anim` object so GSAP can tween each part of the reveal separately.
  */
 export class PlatformView {
@@ -48,7 +49,7 @@ export class PlatformView {
   private beamMat: LineMaterial;
 
   readonly anim = {
-    /** 0 → hidden far behind, 1 → in place */
+    /** 0 → closed (not shown), 1 → open */
     rise: 0,
     /** per algorithm cube, 0 → flung outward and invisible, 1 → docked */
     dock: [] as { t: number }[],
@@ -61,6 +62,8 @@ export class PlatformView {
     this.body.add(this.core);
     this.group.add(this.body);
     this.label.position.set(0, 1.05, 0); // above the top algorithm cube
+    (this.label.material as THREE.SpriteMaterial).depthTest = false; // the platform's name is never hidden
+    this.label.renderOrder = 5;
     this.body.add(this.label);
     // One mesh per slot, built once and reused for every platform: no GPU uploads mid-transition.
     this.slots = SLOTS.map((slot, i) => {
@@ -88,11 +91,21 @@ export class PlatformView {
     scene.add(this.group, ...this.beams);
   }
 
-  setEntity(e: Entity) {
+  /**
+   * How the current trail touches the platform: `active` while any trail is shown, `platform` when a step
+   * involves the platform itself, `screen` when a step reaches the phone (the beams light up).
+   */
+  private glow: { active: boolean; platform: TrailStep['kind'] | null; screen: TrailStep['kind'] | null } = { active: false, platform: null, screen: null };
+
+  setGlow(active: boolean, platform: TrailStep['kind'] | null = null, screen: TrailStep['kind'] | null = null) {
+    this.glow = { active, platform, screen };
+  }
+
+  setEntity(e: Actor) {
     setLabel(this.label, e.name, 'platform');
     const prev = this.anim.dock;
-    const algs = (e.algorithms ?? []).slice(0, SLOTS.length);
-    this.slots.forEach((s, i) => { s.mesh.visible = i < algs.length; s.mesh.name = algs[i]?.id ?? ''; });
+    const algs = (e.app?.algorithms ?? []).slice(0, SLOTS.length);
+    this.slots.forEach((s, i) => { s.mesh.visible = i < algs.length; s.mesh.name = algs[i] ?? ''; });
     this.algos = this.slots.slice(0, algs.length);
     // Keep docking progress for slots that still exist so switching apps mid-explore doesn't pop.
     this.anim.dock = this.algos.map((_, i) => prev[i] ?? { t: 0 });
@@ -128,14 +141,15 @@ export class PlatformView {
     this.beams.forEach((b) => (b.visible = beamsOn));
     if (!this.group.visible) return;
 
-    // Rise: emerge from deeper in the scene, slightly below, scaling up.
-    this.body.position.set(0, -0.6 * (1 - rise), -3.2 * (1 - rise));
+    // Open: grow in place, coming a little forward.
+    this.body.position.set(0, 0, -0.35 * (1 - rise));
     this.body.scale.setScalar(0.6 + 0.4 * rise);
-    this.body.rotation.y = -0.5 * (1 - rise) + Math.sin(t * 0.3) * 0.05;
+    this.body.rotation.y = -0.35 * (1 - rise) + Math.sin(t * 0.3) * 0.05;
     // The core turns fully opaque early, so algorithm cubes hidden inside it stay hidden until they emerge.
     const solid = Math.min(1, rise * 2.2);
     setOpacity(this.core, solid); // algos are overridden just below
-    (this.label.material as THREE.SpriteMaterial).opacity = solid;
+    this.label.visible = true;
+    fadeLabel(this.label, solid);
 
     // Dock: each algorithm cube starts at the centre of the platform cube (fully enclosed) and slides
     // straight out through its face into its slot. No spin, so no corner pokes through early.
@@ -146,6 +160,15 @@ export class PlatformView {
       a.mesh.rotation.set(0, 0, 0);
       setOpacity(a.mesh, solid);
     });
+
+    // Trail: the cube takes the trail's colour when a step involves the platform; the beams light up only
+    // when a step reaches the screen, and fade when a trail is shown that does not.
+    const g = this.glow;
+    const coreMat = this.core.material as THREE.MeshStandardMaterial;
+    coreMat.color.set(g.platform ? TRAIL_STYLE[g.platform].fill : '#ececef');
+    this.beamMat.color.set(g.screen ? TRAIL_STYLE[g.screen].line : g.active ? 0x9a9da8 : 0xe8a400);
+    this.beamMat.opacity = g.active && !g.screen ? 0.35 : 0.95;
+    this.beamMat.linewidth = g.screen ? 3.2 : 2;
 
     if (beamsOn) this.updateBeams();
   }

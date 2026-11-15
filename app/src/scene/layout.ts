@@ -1,48 +1,72 @@
 // @ts-expect-error – d3-force-3d ships no types
 import { forceSimulation, forceLink, forceManyBody } from 'd3-force-3d';
-import type { Atlas, Channel, Entity, Link } from '../data/types';
+import type { Band, Channel, Graph, GraphNode } from '../data/types';
 
 /**
- * Force layout for the network behind a platform.
+ * Layout of the whole atlas. It is computed once, from all the data, and never changes with what is
+ * being explored: every sphere and actor keeps its place, and a selection only lights things up. One platform
+ * stands behind the phone at a time; which one depends on what is being viewed.
  *
- * Only the squares (entities) are simulated. Spheres (concepts) are emergent:
- *  - each sphere's centre is the centroid of its members, its radius grows with member count;
- *  - members are pulled toward that centre and kept inside the radius;
- *  - spheres that would overlap push all their members apart.
- * So sphere placement is driven entirely by the links between squares.
+ * Depth carries meaning. Reading from the phone backwards:
+ *  - the platform: one place, right behind the phone, taken by whichever app is being viewed;
+ *  - the two ways content enters a platform: direct posting, and the web;
+ *  - the crowd, then production (media, think tanks, the influence industry), then structure (states, owners).
+ * Checks are not drawn; if an oversight actor also takes part in a path, its sphere sits above the pipeline, not in it.
  *
- * Coordinates are in the platform's local frame: platform at the origin, its front (+z) faces the
- * phone, so the network is biased toward -z ("behind" the platform).
+ * Each sphere (actor group) has a fixed centre, worked out from the bands alone: all centres lie in one
+ * upright plane along the pipeline, a band is a column of spheres in it, and each band starts where the one
+ * before it ends. Only the cubes are simulated: members settle inside their sphere, and actors with no
+ * sphere (companies, individuals) settle at the back, drawn toward what they own or fund.
+ *
+ * Coordinates are in the atlas frame: the platform is at the origin, facing the phone (+z), and everything
+ * upstream extends toward -z.
  */
 
 export interface LayoutNode {
   id: string;
-  entity: Entity | null; // null for the anchor (the platform itself)
-  concept: string | null;
+  node: GraphNode | null; // null for the platform's place and the entry gateways
+  group: string | null;
+  /** The one place behind the phone where the platform being viewed stands. Every app resolves to it. */
+  platform: boolean;
   x: number; y: number; z: number;
   vx?: number; vy?: number; vz?: number;
   fx?: number; fy?: number; fz?: number;
   hop: number; // graph distance from the platform (for the reveal)
-  gateway?: Channel; // set on the two entry gateways behind the platform
+  gateway?: Channel; // set on the entry gateways behind the platform
 }
-/** kind: 'entity' (between entities), 'entry' (entity → gateway), 'internal' (gateway → platform). */
-export interface LayoutLink { source: LayoutNode; target: LayoutNode; link: Link | null; intra: boolean; kind: 'entity' | 'entry' | 'internal' }
+/** kind: 'entity' (between actors, or straight to a platform), 'entry' (actor → gateway), 'internal' (gateway → platform). */
+export interface LayoutLink {
+  source: LayoutNode; target: LayoutNode; intra: boolean; kind: 'entity' | 'entry' | 'internal';
+  /** Set on a link into the platform: the app it belongs to. It is drawn only while that app is the one being viewed. */
+  app?: string;
+}
 export interface LayoutSphere { id: string; name: string; color: string; x: number; y: number; z: number; r: number; members: LayoutNode[] }
-export interface NetworkLayout { nodes: LayoutNode[]; links: LayoutLink[]; spheres: LayoutSphere[]; anchor: LayoutNode; gateways: LayoutNode[]; maxHop: number }
+export interface NetworkLayout {
+  nodes: LayoutNode[];
+  links: LayoutLink[];
+  spheres: LayoutSphere[];
+  /** The platform's place. */
+  platform: LayoutNode;
+  gateways: LayoutNode[];
+  /** Depth of each band behind the wall, and the lowest point of the atlas (world units): for the depth ruler. */
+  depth: { L5: number; L2: number; L1: number };
+  floor: number;
+  maxHop: number;
+  /** Graph link key → indices into `links`, ordered from the actor toward the platform. */
+  segments: Map<string, number[]>;
+  byId: Map<string, LayoutNode>;
+}
 
-/** Entry gateways, in the platform's frame (world units): two slim slabs just behind the platform cube. */
-// Two ways content reaches a platform, both connected to it:
-//  - publish: entities post on the platform directly → the "Direct posting" slab right behind it;
-//  - scrape: entities publish on their own website, which the platform fetches → the "Website" sphere
-//    (inside the "WWW" outline), at the same level, beside the slab.
-// Squares link to whichever they use (often both); the platform links to both.
+// Two ways content reaches a platform:
+//  - publish: actors post on the platform directly → the "Direct posting" slab right behind it;
+//  - scrape: actors publish on the web, which the platform fetches → "Website" spheres inside "The web".
 export const GATEWAYS: { channel: Channel; label: string; x: number }[] = [
   { channel: 'publish', label: 'Direct posting', x: 0 },
-  { channel: 'scrape', label: 'WWW', x: 1.6 },
+  { channel: 'scrape', label: 'The web', x: 1.6 },
 ];
-/** Outer radius of the WWW sphere (world units). */
+/** Outer radius of the web sphere (world units). */
 export const WWW_R = 0.7;
-/** Websites inside the WWW sphere: small separate spheres (they never link to each other). */
+/** Websites inside the web sphere: small separate spheres (they never link to each other). */
 export const WEBSITE_R = 0.15;
 export const WEBSITE_OFFSETS: [number, number, number][] = [0, 1, 2].map((i) => {
   const a = Math.PI / 2 + (i * Math.PI * 2) / 3; // triangle, one on top
@@ -50,82 +74,120 @@ export const WEBSITE_OFFSETS: [number, number, number][] = [0, 1, 2].map((i) => 
 });
 export const GATEWAY_Z = -2.0;
 
-// Simulation runs in "d3 units" (pixel-like) for well-tuned default behaviour; S converts to world units.
+// The simulation runs in "d3 units" (pixel-like) for well-tuned default behaviour; S converts to world units.
 const S = 50;
 const NODE_GAP = 50;     // ≈ 1 world unit between neighbours in a sphere
-const sphereRadius = (n: number) => 30 + 21 * Math.sqrt(n); // grows with members (d3 units)
+const SPHERE_GAP = 58;   // clear space between neighbouring spheres (room for the name of the lower one)
+const BAND_GAP = 44;     // clear space between one band and the next
+const sphereRadius = (n: number) => 27 + 21 * Math.sqrt(n); // grows with members (d3 units)
+/** The pipeline's bands, from the wall backwards. Oversight is placed afterwards, above them. */
+const PIPELINE: Band[] = ['L5', 'L2', 'L1'];
 
 /** Small seeded PRNG so the same data always gives the same picture. */
 function rng(seed: number) {
   return () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
 }
 
-/** Where the network should settle, relative to the platform (platform-local frame, d3 units). */
-export interface LayoutBias { x: number; y: number; kx?: number; ky?: number }
-
-export function layoutNetwork(atlas: Atlas, anchorId: string, bias: LayoutBias = { x: 0, y: 0 }): NetworkLayout {
+export function layoutNetwork(graph: Graph): NetworkLayout {
   const rand = rng(7);
-  // Other apps are platforms in their own right, not part of this platform's network.
-  const include = (e: Entity) => e.id === anchorId || e.kind !== 'platform';
-  const ents = atlas.entities.filter(include);
+  const nodes: LayoutNode[] = [];
+  const byId = new Map<string, LayoutNode>();
+  const add = (n: LayoutNode) => { nodes.push(n); byId.set(n.id, n); return n; };
 
-  const anchor: LayoutNode = { id: anchorId, entity: null, concept: null, x: 0, y: 0, z: 0, fx: 0, fy: 0, fz: 0, hop: 0 };
-  const members = new Map<string, LayoutNode[]>();
-  const nodes: LayoutNode[] = [anchor];
-  const byId = new Map<string, LayoutNode>([[anchorId, anchor]]);
+  // ---- The platform: one fixed place. Only one platform is shown at a time, so every app resolves to it. ----
+  const apps = graph.nodes.filter((n) => n.band === 'L4');
+  const platform = add({ id: '@platform', node: null, group: null, platform: true, hop: 0, x: 0, y: 0, z: 0, fx: 0, fy: 0, fz: 0 });
+  for (const a of apps) byId.set(a.id, platform);
 
-  // Seed each concept around a ring behind the platform, members jittered around it.
-  const conceptIds = [...new Set(ents.filter((e) => e.id !== anchorId).map((e) => e.concepts[0]))];
-  conceptIds.forEach((c, i) => members.set(c, []));
-  for (const e of ents) {
-    if (e.id === anchorId) continue;
-    const c = e.concepts[0];
-    const ci = conceptIds.indexOf(c);
-    const a = (ci / conceptIds.length) * Math.PI * 2;
-    const n: LayoutNode = {
-      id: e.id, entity: e, concept: c, hop: Infinity,
-      x: Math.cos(a) * 220 + (rand() - 0.5) * 40,
-      y: Math.sin(a) * 160 + (rand() - 0.5) * 40,
-      z: -260 + (rand() - 0.5) * 80,
-    };
-    nodes.push(n); byId.set(e.id, n); members.get(c)!.push(n);
+  // ---- Spheres: fixed centres ----
+  const count = new Map<string, number>();
+  const bandOf = new Map<string, Band>();
+  for (const gn of graph.nodes) if (gn.group) { count.set(gn.group, (count.get(gn.group) ?? 0) + 1); bandOf.set(gn.group, gn.band); }
+  const centre = new Map<string, { x: number; y: number; z: number; r: number }>();
+  const inBand = (band: Band) => graph.spheres
+    .filter((s) => bandOf.get(s.id) === band)
+    .map((s) => ({ id: s.id, r: sphereRadius(count.get(s.id)!) }));
+
+  // All sphere centres lie in one upright plane through the pipeline's axis (x = 0), like a cross-section:
+  // a band is a column in it, its spheres stacked one above the other in the order the framework lists them.
+  // Seen from the side, every sphere has its own place in the picture; depth still reads as "how far upstream".
+  const bandZ: Record<Band, number> = { L4: 0, L5: 0, L2: 0, L1: 0, oversight: 0 };
+  let back = (GATEWAY_Z - WWW_R) * S; // where the entry gateways end
+  for (const band of PIPELINE) {
+    const gs = inBand(band);
+    const rMax = Math.max(sphereRadius(1), ...gs.map((g) => g.r));
+    const z = back - BAND_GAP - rMax;
+    bandZ[band] = z;
+    back = z - rMax;
+    let y = (gs.reduce((h, g) => h + 2 * g.r, 0) + SPHERE_GAP * Math.max(0, gs.length - 1)) / 2;
+    for (const g of gs) { centre.set(g.id, { x: 0, y: y - g.r, z, r: g.r }); y -= 2 * g.r + SPHERE_GAP; }
+  }
+  // Checks and oversight: over the near end of the pipeline, lifted until clear of everything below.
+  bandZ.oversight = bandZ.L5;
+  for (const g of inBand('oversight')) {
+    let y = 0;
+    const clear = () => [...centre.values()].every((c) => Math.hypot(c.y - y, c.z - bandZ.oversight) >= c.r + g.r + SPHERE_GAP);
+    while (!clear()) y += 6;
+    centre.set(g.id, { x: 0, y, z: bandZ.oversight, r: g.r });
   }
 
-  // Entry gateways: fixed nodes. Content never links to the platform directly; it enters through one or both.
-  // Scraping enters through one of several websites inside the WWW sphere.
+  // ---- Actors: seeded inside their sphere, or at the back for those with none ----
+  const members = new Map<string, LayoutNode[]>(graph.spheres.map((s) => [s.id, []]));
+  for (const gn of graph.nodes) {
+    if (gn.band === 'L4') continue;
+    const c = gn.group ? centre.get(gn.group)! : null;
+    const n = add({
+      id: gn.id, node: gn, group: gn.group, platform: false, hop: Infinity,
+      x: c ? c.x + (rand() - 0.5) * c.r : (rand() - 0.5) * 520,
+      y: c ? c.y + (rand() - 0.5) * c.r : (rand() - 0.5) * 200,
+      z: c ? c.z + (rand() - 0.5) * c.r : bandZ[gn.band] + (rand() - 0.5) * 80,
+    });
+    if (gn.group) members.get(gn.group)!.push(n);
+  }
+
+  // ---- Entry gateways: fixed, between the wall and the network ----
   const gateways: LayoutNode[] = [];
   for (const g of GATEWAYS) {
     const spots = g.channel === 'scrape' ? WEBSITE_OFFSETS : [[0, 0, 0] as [number, number, number]];
     spots.forEach(([ox, oy, oz], i) => {
       const x = (g.x + ox) * S, y = oy * S, z = (GATEWAY_Z + oz) * S;
-      const n: LayoutNode = { id: `gateway-${g.channel}-${i}`, entity: null, concept: null, gateway: g.channel, hop: Infinity, x, y, z, fx: x, fy: y, fz: z };
-      nodes.push(n); byId.set(n.id, n); gateways.push(n);
+      gateways.push(add({ id: `gateway-${g.channel}-${i}`, node: null, group: null, platform: false, gateway: g.channel, hop: Infinity, x, y, z, fx: x, fy: y, fz: z }));
     });
   }
-  // Websites: every entity that publishes on its own site (hasWebsite, or scraped by any platform) links to
-  // one, regardless of whether *this* platform scrapes — publishers publish either way. Assigned in turn.
   const websites = gateways.filter((g) => g.gateway === 'scrape');
   const slab = gateways.find((g) => g.gateway === 'publish')!;
-  const scrapedSomewhere = new Set(atlas.links.filter((l) => l.channels?.includes('scrape')).flatMap((l) => [l.source, l.target]));
-  const withSite = nodes.filter((n) => n.entity && (n.entity.hasWebsite || scrapedSomewhere.has(n.id)));
 
-  // The platform is connected to the gateways it actually ingests through.
-  const ingest = atlas.byId.get(anchorId)?.ingest ?? ['publish'];
+  // ---- Links ----
+  // Posted and scraped content never links to a platform directly: it enters through the slab or through
+  // a website. An actor's line to a gateway is drawn once, however many platforms it reaches that way.
   const links: LayoutLink[] = [];
-  if (ingest.includes('publish')) links.push({ source: slab, target: anchor, link: null, intra: false, kind: 'internal' });
-  if (ingest.includes('scrape')) websites.forEach((w) => links.push({ source: w, target: anchor, link: null, intra: false, kind: 'internal' }));
-
-  withSite.forEach((n, i) => links.push({ source: n, target: websites[i % websites.length], link: null, intra: false, kind: 'entry' }));
-
-  for (const l of atlas.links) {
-    if (!byId.has(l.source) || !byId.has(l.target)) continue;
-    const s = byId.get(l.source)!, t = byId.get(l.target)!;
-    if (s === anchor || t === anchor) {
-      // Posting directly goes through the slab; scraped content already arrives via the entity's website.
-      const other = s === anchor ? t : s;
-      if ((l.channels ?? ['publish']).includes('publish')) links.push({ source: other, target: slab, link: l, intra: false, kind: 'entry' });
+  const segments = new Map<string, number[]>();
+  const push = (l: LayoutLink) => links.push(l) - 1;
+  const once = new Map<string, number>();
+  const internal = (g: LayoutNode, app: string) => {
+    const k = `${g.id}>${app}`;
+    if (!once.has(k)) once.set(k, push({ source: g, target: platform, intra: false, kind: 'internal', app }));
+    return once.get(k)!;
+  };
+  const entry = (s: LayoutNode, g: LayoutNode) => {
+    const k = `${s.id}>${g.id}`;
+    if (!once.has(k)) once.set(k, push({ source: s, target: g, intra: false, kind: 'entry' }));
+    return once.get(k)!;
+  };
+  for (const a of apps) {
+    if (a.ingest?.includes('publish')) internal(slab, a.id);
+    if (a.ingest?.includes('scrape')) websites.forEach((w) => internal(w, a.id));
+  }
+  const siteOf = new Map<LayoutNode, LayoutNode>();
+  for (const l of graph.links) {
+    const s = byId.get(l.source), t = byId.get(l.target);
+    if (!s || !t) continue;
+    if (t.platform && (l.via === 'publish' || l.via === 'scrape')) {
+      if (l.via === 'scrape' && !siteOf.has(s)) siteOf.set(s, websites[siteOf.size % websites.length]);
+      const gate = l.via === 'publish' ? slab : siteOf.get(s)!;
+      segments.set(l.key, [entry(s, gate), internal(gate, l.target)]);
     } else {
-      links.push({ source: s, target: t, link: l, intra: !!s.concept && s.concept === t.concept, kind: 'entity' });
+      segments.set(l.key, [push({ source: s, target: t, intra: !!s.group && s.group === t.group, kind: 'entity', app: t.platform ? l.target : undefined })]);
     }
   }
 
@@ -135,92 +197,61 @@ export function layoutNetwork(atlas: Atlas, anchorId: string, bias: LayoutBias =
     adj.set(l.source, [...(adj.get(l.source) ?? []), l.target]);
     adj.set(l.target, [...(adj.get(l.target) ?? []), l.source]);
   }
-  const queue = [anchor];
+  const queue = [platform];
   while (queue.length) {
     const n = queue.shift()!;
     for (const m of adj.get(n) ?? []) if (m.hop === Infinity) { m.hop = n.hop + 1; queue.push(m); }
   }
-  const reached = nodes.filter((n) => n.hop !== Infinity).map((n) => n.hop);
-  const maxReached = Math.max(1, ...reached);
-  nodes.forEach((n) => { if (n.hop === Infinity) n.hop = maxReached + 1; });
+  const maxReached = Math.max(1, ...nodes.filter((n) => n.hop !== Infinity).map((n) => n.hop));
+  nodes.forEach((n) => { if (n.hop === Infinity) n.hop = maxReached; });
 
-  // ---- Custom forces ----
-  const centroid = (ms: LayoutNode[]) => {
-    const c = { x: 0, y: 0, z: 0 };
-    ms.forEach((m) => { c.x += m.x; c.y += m.y; c.z += m.z; });
-    return { x: c.x / ms.length, y: c.y / ms.length, z: c.z / ms.length };
-  };
+  // ---- Forces ----
+  const free = nodes.filter((n) => n.node && !n.platform && !n.group);
+  const zones = [...centre.values()];
 
   // Members drawn toward their sphere's centre.
   function cohesion(alpha: number) {
-    for (const ms of members.values()) {
-      const c = centroid(ms);
+    for (const [id, ms] of members) {
+      const c = centre.get(id)!;
       for (const m of ms) {
-        m.vx! += (c.x - m.x) * 0.12 * alpha;
-        m.vy! += (c.y - m.y) * 0.12 * alpha;
-        m.vz! += (c.z - m.z) * 0.12 * alpha;
+        m.vx! += (c.x - m.x) * 0.1 * alpha;
+        m.vy! += (c.y - m.y) * 0.1 * alpha;
+        m.vz! += (c.z - m.z) * 0.1 * alpha;
       }
     }
   }
 
-  // Spheres never overlap: push whole member groups apart.
-  function separation(alpha: number) {
-    const groups = [...members.values()].map((ms) => ({ ms, c: centroid(ms), r: sphereRadius(ms.length) }));
-    for (let i = 0; i < groups.length; i++)
-      for (let j = i + 1; j < groups.length; j++) {
-        const a = groups[i], b = groups[j];
-        let dx = b.c.x - a.c.x, dy = b.c.y - a.c.y, dz = b.c.z - a.c.z;
-        let d = Math.hypot(dx, dy, dz) || 1e-3;
-        const min = a.r + b.r + 55;
-        if (d >= min) continue;
-        const push = ((min - d) / d) * 0.5 * Math.min(1, alpha * 4);
-        dx *= push; dy *= push; dz *= push;
-        a.ms.forEach((m) => { m.vx! -= dx / 2; m.vy! -= dy / 2; m.vz! -= dz / 2; });
-        b.ms.forEach((m) => { m.vx! += dx / 2; m.vy! += dy / 2; m.vz! += dz / 2; });
-      }
-    // Keep spheres clear of the platform, the slab and the WWW sphere.
-    const zones = [
-      { x: 0, y: 0, z: (GATEWAY_Z * S) / 2, r: 140 },
-      ...GATEWAYS.filter((g) => g.channel === 'scrape').map((g) => ({ x: g.x * S, y: 0, z: GATEWAY_Z * S, r: WWW_R * S + 40 })),
-    ];
-    for (const g of groups) for (const zc of zones) {
-      const dx = g.c.x - zc.x, dy = g.c.y - zc.y, dz = g.c.z - zc.z;
-      const d = Math.hypot(dx, dy, dz) || 1e-3;
-      const min = g.r + zc.r;
-      if (d < min) {
-        const k = ((min - d) / d) * 0.5;
-        g.ms.forEach((m) => { m.vx! += dx * k; m.vy! += dy * k; m.vz! += dz * k; });
+  // Actors with no sphere: held at the depth of their band, loosely centred, and kept out of every sphere.
+  function loose(alpha: number) {
+    for (const n of free) {
+      n.vx! += -n.x * 0.03 * alpha;
+      n.vy! += -n.y * 0.02 * alpha;
+      n.vz! += (bandZ[n.node!.band] - n.z) * 0.16 * alpha;
+      for (const c of zones) {
+        const dx = n.x - c.x, dy = n.y - c.y, dz = n.z - c.z;
+        const d = Math.hypot(dx, dy, dz) || 1e-3;
+        const min = c.r + 30;
+        if (d < min) { const k = ((min - d) / d) * 0.6; n.vx! += dx * k; n.vy! += dy * k; n.vz! += dz * k; }
       }
     }
   }
 
-  // Bias the network behind the platform (away from the phone), offset toward `bias`, so it fans out
-  // where the explore camera reveals it.
-  function depth(alpha: number) {
-    for (const n of nodes) {
-      if (n === anchor || n.gateway) continue;
-      n.vx! += (bias.x - n.x) * (bias.kx ?? 0.02) * alpha;
-      n.vy! += (bias.y - n.y) * (bias.ky ?? 0.02) * alpha;
-      n.vz! += (-430 - n.z) * 0.02 * alpha;
-      if (n.z > -200) n.vz! -= (n.z + 200) * 0.2 * alpha; // stay behind the gateways
-    }
-  }
-
+  const isFree = (n: LayoutNode) => !!n.node && !n.platform && !n.group;
   const sim = forceSimulation(nodes, 3)
     .force('link', forceLink(links)
-      .distance((l: LayoutLink) => (l.intra ? NODE_GAP * 1.1 : l.kind === 'entry' ? 160 : 170))
-      .strength((l: LayoutLink) => (l.kind === 'internal' ? 0 : l.intra ? 0.6 : 0.12)))
-    .force('charge', forceManyBody().strength(-90).distanceMax(400))
+      .distance((l: LayoutLink) => (l.intra ? NODE_GAP * 1.3 : 190))
+      // Links across spheres only lean a cube toward its partners; they never pull a sphere out of place.
+      .strength((l: LayoutLink) => (l.kind === 'internal' ? 0 : l.intra ? 0.5 : isFree(l.source) || isFree(l.target) ? 0.035 : 0.012)))
+    .force('charge', forceManyBody().strength(-85).distanceMax(240))
     .force('cohesion', cohesion)
-    .force('separation', separation)
-    .force('depth', depth)
+    .force('loose', loose)
     .stop();
 
   for (let i = 0; i < 420; i++) {
     sim.tick();
     // Containment: members stay inside their sphere (hard constraint after each step).
-    for (const ms of members.values()) {
-      const c = centroid(ms), r = sphereRadius(ms.length) - 24;
+    for (const [id, ms] of members) {
+      const c = centre.get(id)!, r = c.r - 22;
       for (const m of ms) {
         const dx = m.x - c.x, dy = m.y - c.y, dz = m.z - c.z;
         const d = Math.hypot(dx, dy, dz);
@@ -229,17 +260,14 @@ export function layoutNetwork(atlas: Atlas, anchorId: string, bias: LayoutBias =
     }
   }
 
-  // Convert to world units and derive final spheres (radius guaranteed to enclose its cubes).
+  // Convert to world units.
   nodes.forEach((n) => { n.x /= S; n.y /= S; n.z /= S; });
-  const spheres: LayoutSphere[] = [...members.entries()].map(([id, ms]) => {
-    const c = centroid(ms);
-    const far = Math.max(0, ...ms.map((m) => Math.hypot(m.x - c.x, m.y - c.y, m.z - c.z)));
-    const concept = atlas.concepts.find((k) => k.id === id);
-    return {
-      id, name: concept?.name ?? id, color: concept?.color ?? '#999',
-      ...c, r: Math.max(sphereRadius(ms.length) / S, far + 0.5), members: ms,
-    };
+  const spheres: LayoutSphere[] = graph.spheres.map((s) => {
+    const c = centre.get(s.id)!;
+    return { id: s.id, name: s.name, color: s.color, x: c.x / S, y: c.y / S, z: c.z / S, r: c.r / S, members: members.get(s.id)! };
   });
 
-  return { nodes, links, spheres, anchor, gateways, maxHop: Math.max(...nodes.map((n) => n.hop)) };
+  const depth = { L5: bandZ.L5 / S, L2: bandZ.L2 / S, L1: bandZ.L1 / S };
+  const floor = Math.min(-1.2, ...spheres.map((sp) => sp.y - sp.r), ...nodes.map((n) => n.y));
+  return { nodes, links, spheres, platform, gateways, depth, floor, maxHop: Math.max(...nodes.map((n) => n.hop)), segments, byId };
 }

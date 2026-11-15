@@ -1,0 +1,1032 @@
+{
+  "note": "Structured mirror of docs/framework-spec.md, used by the framework map (scripts/framework-map.mjs) and by the 3D atlas. The spec is the source of truth: change it first, then mirror the change here. Cases, actors and relations live in their own files. The 'evidence_groups' block is a reading aid for the map, not part of the model.",
+  "dimensions": [
+    {
+      "id": "actor",
+      "name": "Actor",
+      "question": "Who acts?"
+    },
+    {
+      "id": "mechanism",
+      "name": "Mechanism",
+      "question": "How?"
+    },
+    {
+      "id": "layer",
+      "name": "Layer",
+      "question": "Where in the chain?"
+    },
+    {
+      "id": "effect",
+      "name": "Effect",
+      "question": "What does it do to a mind?"
+    },
+    {
+      "id": "case",
+      "name": "Case",
+      "question": "When did it really happen?"
+    }
+  ],
+  "layers": [
+    {
+      "id": "L1",
+      "name": "Structure",
+      "covers": "Ownership, funding, advertiser dependence, state or commercial control"
+    },
+    {
+      "id": "L2",
+      "name": "Production",
+      "covers": "What gets written, framed, laundered or manufactured"
+    },
+    {
+      "id": "L3",
+      "name": "Entry",
+      "covers": "How content gets into a platform: direct posting, or the web, later scraped"
+    },
+    {
+      "id": "L4",
+      "name": "Mediation",
+      "covers": "Ranking, search, moderation, ads; for LLMs: corpus, retrieval, owner tuning, output loop"
+    },
+    {
+      "id": "L5",
+      "name": "Crowd",
+      "covers": "Users, influencers, bots and brigades re-amplifying"
+    },
+    {
+      "id": "L6",
+      "name": "Interface",
+      "covers": "The phone: feed, notifications, infinite scroll, chat answers"
+    },
+    {
+      "id": "L7",
+      "name": "Mind",
+      "covers": "Attention, perception, autonomy, trust, polarization, and the behaviour that follows"
+    }
+  ],
+  "loops": [
+    {
+      "from": "L5",
+      "to": "L4",
+      "name": "Crowd reactions feed ranking, boosting or burying",
+      "status": "modelled"
+    },
+    {
+      "from": "L4",
+      "to": "L3",
+      "name": "AI output is published and crawled again (ingestion not yet sourced)",
+      "status": "modelled"
+    },
+    {
+      "from": "L7",
+      "to": "L2",
+      "name": "Audience rewards shape production (on trial)",
+      "status": "modelled"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "Intent",
+      "values": [
+        "structural",
+        "commercial",
+        "ideological / editorial",
+        "adversarial",
+        "not established"
+      ]
+    },
+    {
+      "name": "Transparency",
+      "values": [
+        "overt",
+        "undisclosed",
+        "deceptive"
+      ]
+    },
+    {
+      "name": "Coordination",
+      "values": [
+        "individual",
+        "organisational",
+        "networked"
+      ]
+    },
+    {
+      "name": "Origin",
+      "values": [
+        "domestic",
+        "foreign"
+      ]
+    }
+  ],
+  "confidence": [
+    "documented",
+    "reported",
+    "claimed",
+    "contested",
+    "opinion"
+  ],
+  "effect_targets": [
+    "attention",
+    "perception",
+    "autonomy",
+    "trust",
+    "polarization",
+    "behaviour",
+    "wellbeing"
+  ],
+  "actor_kinds": [
+    "state",
+    "regulator",
+    "platform",
+    "publisher",
+    "outlet",
+    "think_tank",
+    "pr_firm",
+    "influence_vendor",
+    "content_farm",
+    "influencer",
+    "crowd",
+    "company",
+    "individual",
+    "fact_checker",
+    "researcher",
+    "monitor",
+    "political"
+  ],
+  "relation_kinds": [
+    "owns",
+    "funds",
+    "pays",
+    "contracts",
+    "directs",
+    "staffs",
+    "syndicates_to",
+    "publishes_on",
+    "scraped_by",
+    "amplifies",
+    "lobbies",
+    "regulates"
+  ],
+  "mechanisms": [
+    {
+      "id": "own.consolidation",
+      "name": "Ownership consolidation",
+      "from": "L1",
+      "ref": "Herman & Chomsky, filter 1"
+    },
+    {
+      "id": "own.directive",
+      "name": "Owner directive over editorial content or ranking",
+      "from": "L1",
+      "to": "L2",
+      "ref": "Herman & Chomsky, filter 1"
+    },
+    {
+      "id": "fund.ad_dependence",
+      "name": "Advertiser dependence",
+      "from": "L1",
+      "ref": "Herman & Chomsky, filter 2"
+    },
+    {
+      "id": "fund.state_overt",
+      "name": "Overt state media funding",
+      "from": "L1",
+      "ref": "ABCDE: Actor"
+    },
+    {
+      "id": "fund.covert",
+      "name": "Covert funding via intermediaries or shells",
+      "from": "L1",
+      "ref": "DISARM; FARA"
+    },
+    {
+      "id": "fund.disclosure_gap",
+      "name": "Payments routed so no single filing shows the campaign",
+      "from": "L1",
+      "ref": "FARA filings"
+    },
+    {
+      "id": "pressure.flak",
+      "name": "Flak: organised pressure on outlets",
+      "from": "L1",
+      "ref": "Herman & Chomsky, filter 4"
+    },
+    {
+      "id": "prod.framing",
+      "name": "Framing and selective emphasis",
+      "from": "L2",
+      "ref": "Entman"
+    },
+    {
+      "id": "prod.agenda",
+      "name": "Agenda-setting",
+      "from": "L2",
+      "ref": "McCombs & Shaw"
+    },
+    {
+      "id": "prod.headline",
+      "name": "Headline editorialisation, sanewashing, innuendo",
+      "from": "L2",
+      "ref": "Entman"
+    },
+    {
+      "id": "prod.influencer",
+      "name": "Paid or sponsored influencer content",
+      "from": "L2",
+      "ref": "DiResta; DISARM"
+    },
+    {
+      "id": "prod.front",
+      "name": "Front organisations",
+      "from": "L2",
+      "ref": "DISARM"
+    },
+    {
+      "id": "prod.laundering",
+      "name": "Narrative laundering via republication",
+      "from": "L2",
+      "ref": "DISARM"
+    },
+    {
+      "id": "prod.manufactured_doubt",
+      "name": "Manufactured uncertainty",
+      "from": "L2",
+      "ref": "Entman; Guardian analysis"
+    },
+    {
+      "id": "prod.citation_stuffing",
+      "name": "One source repeated to anchor a counter-frame",
+      "from": "L2",
+      "ref": "Guardian analysis"
+    },
+    {
+      "id": "prod.query_mirroring",
+      "name": "Headlines phrased as chatbot questions",
+      "from": "L2",
+      "to": "L4",
+      "ref": "Guardian analysis of Hanover"
+    },
+    {
+      "id": "entry.direct",
+      "name": "Direct posting to a platform",
+      "from": "L3",
+      "ref": "Wardle: distribution"
+    },
+    {
+      "id": "entry.web",
+      "name": "Publishing to the open web",
+      "from": "L3",
+      "ref": "Wardle: distribution"
+    },
+    {
+      "id": "entry.seo_geo",
+      "name": "SEO and generative-engine optimisation",
+      "from": "L3",
+      "to": "L4",
+      "ref": "Industry practice"
+    },
+    {
+      "id": "plat.ranking",
+      "name": "Engagement-optimised recommendation",
+      "from": "L4",
+      "ref": "Pariser; DiResta"
+    },
+    {
+      "id": "plat.search",
+      "name": "Search ranking",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "plat.moderation",
+      "name": "Moderation decisions and gaps",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "plat.ads",
+      "name": "Ad and micro-targeting",
+      "from": "L4",
+      "ref": "Zuboff"
+    },
+    {
+      "id": "llm.corpus",
+      "name": "Training-corpus seeding",
+      "from": "L4",
+      "ref": "ASP, LLM grooming"
+    },
+    {
+      "id": "llm.retrieval",
+      "name": "Retrieval seeding via GEO",
+      "from": "L4",
+      "ref": "Politico and Guardian tests"
+    },
+    {
+      "id": "llm.owner_tuning",
+      "name": "Owner fine-tuning or system-prompt steering",
+      "from": "L1",
+      "to": "L4",
+      "ref": null
+    },
+    {
+      "id": "llm.output_loop",
+      "name": "Model output reposted and re-scraped",
+      "from": "L4",
+      "to": "L3",
+      "ref": null
+    },
+    {
+      "id": "crowd.inauthentic",
+      "name": "Bots, sockpuppets, fake accounts",
+      "from": "L5",
+      "ref": "Woolley & Howard; DISARM"
+    },
+    {
+      "id": "crowd.participatory",
+      "name": "Organic re-amplification, brigading",
+      "from": "L5",
+      "ref": "Starbird; DiResta"
+    },
+    {
+      "id": "ui.design",
+      "name": "Infinite scroll, autoplay, notifications",
+      "from": "L6",
+      "ref": "Attention-economy literature"
+    },
+    {
+      "id": "supp.legal",
+      "name": "Laws or legal action used to block or silence actors",
+      "from": "L1",
+      "ref": "DISARM (IDs to fill)"
+    },
+    {
+      "id": "supp.omission",
+      "name": "Editorial omission: leaving out or cutting what happened",
+      "from": "L2",
+      "ref": "Inverse of agenda-setting (McCombs & Shaw)"
+    },
+    {
+      "id": "supp.lock_ban",
+      "name": "Locking content or banning the people who post or edit it",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "supp.source_exclusion",
+      "name": "Telling a model or ranking system to ignore named sources",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "prod.audience_capture",
+      "name": "Producers optimising for what their audience rewards",
+      "from": "L7",
+      "to": "L2",
+      "ref": "Robertson et al. 2023"
+    },
+    {
+      "id": "supp.demotion",
+      "name": "Leaving content up while reducing its reach, visibility or features",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "supp.data_access",
+      "name": "A platform restricting the data researchers and regulators need to check it",
+      "from": "L4",
+      "ref": null
+    },
+    {
+      "id": "prod.deceptive_sourcing",
+      "name": "A state outlet citing personas or fronts the same state created",
+      "from": "L2",
+      "ref": "DiResta & Goldstein"
+    },
+    {
+      "id": "prod.impersonation",
+      "name": "Impersonating a real outlet, brand or person's voice",
+      "from": "L2",
+      "ref": null
+    },
+    {
+      "id": "prod.paid_placement",
+      "name": "Paying for articles to appear in real outlets",
+      "from": "L2",
+      "ref": null
+    },
+    {
+      "id": "plat.monetisation",
+      "name": "Paying producers by the engagement they generate",
+      "from": "L4",
+      "to": "L2",
+      "ref": null
+    }
+  ],
+  "frameworks": [
+    {
+      "name": "DISARM",
+      "contributes": "Catalogue of influence-operation tactics and techniques",
+      "layers": [
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "name": "ABC / ABCDE (François; Pamment)",
+      "contributes": "Actors, Behaviours, Content, Degree, Effect",
+      "layers": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5",
+        "L6",
+        "L7"
+      ]
+    },
+    {
+      "name": "Information Disorder (Wardle & Derakhshan)",
+      "contributes": "Create, produce, distribute; mis-, dis- and mal-information",
+      "layers": [
+        "L2",
+        "L3"
+      ]
+    },
+    {
+      "name": "Propaganda model (Herman & Chomsky)",
+      "contributes": "Five structural filters",
+      "layers": [
+        "L1"
+      ]
+    },
+    {
+      "name": "Framing (Entman); agenda-setting (McCombs & Shaw)",
+      "contributes": "Selection and salience",
+      "layers": [
+        "L2"
+      ]
+    },
+    {
+      "name": "Invisible Rulers (DiResta)",
+      "contributes": "Influencers, algorithms and crowds as one system",
+      "layers": [
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "name": "Our Minds Under Siege (Giussani)",
+      "contributes": "Technologies of influence on attention, perception, autonomy",
+      "layers": [
+        "L6",
+        "L7"
+      ]
+    },
+    {
+      "name": "Full-spectrum propaganda (DiResta & Goldstein)",
+      "contributes": "A state's overt and covert, broadcast and social channels as one system",
+      "layers": [
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "name": "Network Propaganda (Benkler, Faris, Roberts)",
+      "contributes": "Measurement of asymmetric media ecosystems",
+      "layers": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ]
+    },
+    {
+      "name": "Participatory disinformation (Starbird)",
+      "contributes": "Crowds co-produce narratives with elites",
+      "layers": [
+        "L5"
+      ]
+    },
+    {
+      "name": "Computational propaganda (Woolley & Howard)",
+      "contributes": "Bots and automated amplification",
+      "layers": [
+        "L5"
+      ]
+    }
+  ],
+  "balance_gaps": [
+    "China (one paywalled row)",
+    "Iran's own operations as a case",
+    "US government operations (Pentagon fake-account campaign)",
+    "Left-leaning ownership directives"
+  ],
+  "open_questions": [
+    "How evidence rows link to cases, mechanisms and layers (parked)",
+    "What a case is and how big: campaign, case, incident; dates on relations (parked)",
+    "How each Influence Facts line is computed from evidence",
+    "Giussani's attack vectors are not yet mapped",
+    "Drop Site's chatbot-query methodology, to grade Clock Tower X's effect evidence",
+    "Whether countervailing actors get cases of their own",
+    "DISARM technique IDs for the mechanisms (task)"
+  ],
+  "evidence_groups": [
+    {
+      "name": "Hanover Institute and the Havas chain",
+      "labels": [
+        "Hanover Institute",
+        "Havas chain",
+        "Israel effect",
+        "Israel responses"
+      ]
+    },
+    {
+      "name": "Clock Tower X",
+      "labels": [
+        "Clock Tower X"
+      ]
+    },
+    {
+      "name": "Pravda network",
+      "labels": [
+        "Pravda network"
+      ]
+    },
+    {
+      "name": "Tenet Media",
+      "labels": [
+        "Tenet Media"
+      ]
+    },
+    {
+      "name": "STOIC / Zero Zeno",
+      "labels": [
+        "STOIC"
+      ]
+    },
+    {
+      "name": "Sinclair must-runs",
+      "labels": [
+        "Sinclair"
+      ]
+    },
+    {
+      "name": "Grok: owner tuning incidents",
+      "labels": [
+        "Grok \"MechaHitler\"",
+        "Grok \"white genocide\"",
+        "Grok source censorship",
+        "Grok (Le Monde)",
+        "Grok on its owner"
+      ]
+    },
+    {
+      "name": "Grok: other incidents and Grokipedia",
+      "labels": [
+        "Grok election",
+        "Grokipedia",
+        "\"@grok"
+      ]
+    },
+    {
+      "name": "X: ranking, owner boost, monetisation",
+      "labels": [
+        "X feed algorithm",
+        "X: owner",
+        "X in 2024",
+        "EU vs X"
+      ]
+    },
+    {
+      "name": "\"The Company\": Russia in Africa",
+      "labels": [
+        "\"The Company\""
+      ]
+    },
+    {
+      "name": "Other Russian operations",
+      "labels": [
+        "Storm-1516",
+        "Matryoshka",
+        "Doppelganger",
+        "Euronews voice clones",
+        "Wikipedia:",
+        "Brexit / Russia",
+        "QAnon / NATO",
+        "Houston duelling"
+      ]
+    },
+    {
+      "name": "Iran: blackout and campaigns",
+      "labels": [
+        "Iran blackout",
+        "Iran protest narrative",
+        "Iranian Scottish-indy"
+      ]
+    },
+    {
+      "name": "US: paid and synthetic influence",
+      "labels": [
+        "Loomer",
+        "Paid political posts",
+        "Paid influencers",
+        "Pro-Trump AI avatars",
+        "South Florida Standard",
+        "Musk / Belfast"
+      ]
+    },
+    {
+      "name": "Newsrooms, ownership and framing",
+      "labels": [
+        "NBC / Vance",
+        "Media capture report",
+        "Far-right normalisation",
+        "Bardella / Mediapart",
+        "Atlas Network",
+        "The New York War Crimes"
+      ]
+    },
+    {
+      "name": "Creators with mass reach",
+      "labels": [
+        "Joe Rogan Experience",
+        "DiResta on JRE",
+        "Contrarian science creators"
+      ]
+    },
+    {
+      "name": "Oversight and countermeasures",
+      "labels": [
+        "Stanford Internet Observatory",
+        "CrowdTangle",
+        "Fact-checking"
+      ]
+    },
+    {
+      "name": "Research and frameworks",
+      "labels": [
+        "Negativity bias",
+        "Polarization measure",
+        "AI bot swarms",
+        "Addictive design",
+        "Full-spectrum propaganda"
+      ]
+    },
+    {
+      "name": "China",
+      "labels": [
+        "TikTok / China",
+        "Spamouflage"
+      ]
+    },
+    {
+      "name": "Brazil 2026: Meta and the election",
+      "labels": [
+        "Meta / Brazil",
+        "Brazil 2026"
+      ]
+    },
+    {
+      "name": "Demotion: Twitter 2018 and shadow-ban claims",
+      "labels": [
+        "Twitter visibility",
+        "Suppression claims",
+        "Shadow banning"
+      ]
+    },
+    {
+      "name": "Russia in Europe: hybrid operations",
+      "labels": [
+        "Poland graffiti",
+        "Russia hybrid warfare",
+        "CopyCop",
+        "EU FIMI",
+        "Paid politicians"
+      ]
+    },
+    {
+      "name": "AI chatbots and the mind",
+      "labels": [
+        "AI sycophancy",
+        "AI companions",
+        "AI psychosis",
+        "AI and the mind"
+      ]
+    },
+    {
+      "name": "Unread, topic unknown",
+      "labels": [
+        "Unread:"
+      ]
+    },
+    {
+      "name": "Cambridge Analytica",
+      "labels": [
+        "Cambridge Analytica"
+      ]
+    },
+    {
+      "name": "Facebook and offline violence: Myanmar, Ethiopia",
+      "labels": [
+        "Myanmar",
+        "Ethiopia",
+        "Meta policy changes",
+        "Rohingya"
+      ]
+    },
+    {
+      "name": "Instagram and teenagers",
+      "labels": [
+        "Instagram teens"
+      ]
+    },
+    {
+      "name": "Facebook emotional contagion experiment",
+      "labels": [
+        "Emotional contagion"
+      ]
+    },
+    {
+      "name": "Meta in court: privacy and child safety",
+      "labels": [
+        "Meta in court"
+      ]
+    },
+    {
+      "name": "TikTok and young users",
+      "labels": [
+        "TikTok teens"
+      ]
+    },
+    {
+      "name": "Ellison media ownership",
+      "labels": [
+        "Ellison"
+      ]
+    },
+    {
+      "name": "TikTok US: ownership change and censorship claims",
+      "labels": [
+        "TikTok US"
+      ]
+    }
+  ],
+  "record_types": [
+    "Layer",
+    "Actor",
+    "Mechanism",
+    "Venue",
+    "Effect",
+    "Narrative",
+    "Source",
+    "Relation",
+    "Case"
+  ],
+  "actor_groups": [
+    {
+      "id": "states",
+      "name": "States and politics",
+      "kinds": [
+        "state",
+        "political"
+      ],
+      "layer": "L1",
+      "color": "#4dd6ff"
+    },
+    {
+      "id": "media",
+      "name": "Media",
+      "kinds": [
+        "publisher",
+        "outlet"
+      ],
+      "layer": "L2",
+      "color": "#ff7a3d"
+    },
+    {
+      "id": "think-tanks",
+      "name": "Think tanks and fronts",
+      "kinds": [
+        "think_tank"
+      ],
+      "layer": "L2",
+      "color": "#f5c518"
+    },
+    {
+      "id": "influence-industry",
+      "name": "Influence industry",
+      "kinds": [
+        "pr_firm",
+        "influence_vendor",
+        "content_farm"
+      ],
+      "layer": "L2",
+      "color": "#ff3d6e"
+    },
+    {
+      "id": "voices",
+      "name": "Voices",
+      "kinds": [
+        "influencer",
+        "crowd"
+      ],
+      "layer": "L5",
+      "color": "#9b7bff"
+    },
+    {
+      "id": "oversight",
+      "name": "Checks and oversight",
+      "kinds": [
+        "regulator",
+        "fact_checker",
+        "researcher",
+        "monitor"
+      ],
+      "layer": "oversight",
+      "color": "#3fbf7f"
+    },
+    {
+      "id": null,
+      "name": "Not grouped (placed beside what they own or fund)",
+      "kinds": [
+        "company",
+        "individual"
+      ],
+      "layer": "L1",
+      "color": "#8a8d99"
+    }
+  ],
+  "overlays": [
+    {
+      "name": "Narrative",
+      "shows": "Every path that carries one storyline"
+    },
+    {
+      "name": "Ownership",
+      "shows": "Everything one actor owns or controls"
+    }
+  ],
+  "read_status": [
+    "full",
+    "partial",
+    "secondhand",
+    "unread"
+  ],
+  "response_types": [
+    "denial",
+    "explanation",
+    "admission",
+    "no_reply"
+  ],
+  "extended": [
+    {
+      "id": "ext.shutdown",
+      "name": "Cutting a country's connectivity",
+      "evidence": [
+        "E32",
+        "E33",
+        "E84",
+        "E85",
+        "E86",
+        "E46"
+      ]
+    },
+    {
+      "id": "ext.service_block",
+      "name": "A state blocking or restricting one service",
+      "evidence": [
+        "E77"
+      ]
+    },
+    {
+      "id": "ext.circumvention",
+      "name": "Channels that survive a shutdown: satellite internet and television",
+      "evidence": [
+        "E32",
+        "E86"
+      ]
+    },
+    {
+      "id": "ext.platform_feature",
+      "name": "A platform feature that exposes or hides where accounts operate from",
+      "evidence": [
+        "E46"
+      ]
+    },
+    {
+      "id": "ext.paid_street_action",
+      "name": "Paying people for physical acts that carry a message: graffiti, leaflets, staged events",
+      "evidence": [
+        "E121",
+        "E122"
+      ]
+    },
+    {
+      "id": "ext.sabotage_as_message",
+      "name": "Sabotage meant partly to show that a state cannot protect its people",
+      "evidence": [
+        "E124"
+      ]
+    }
+  ],
+  "source_details": [
+    "confidence grade",
+    "how the source was read",
+    "responses of those named",
+    "whether an actor knew (knowing)",
+    "who attributed it and how",
+    "cost of a step",
+    "countries and languages of a case"
+  ],
+  "facts_sheet": [
+    {
+      "part": "What it does to you",
+      "lines": [
+        {
+          "id": "attention",
+          "name": "Attention",
+          "term": "attention",
+          "definition": "Design that fragments focus: infinite feeds, short loops, autoplay."
+        },
+        {
+          "id": "compulsive",
+          "name": "Compulsive use",
+          "term": "autonomy",
+          "definition": "Being kept on the app, or steered in your choices, against your own intent."
+        },
+        {
+          "id": "reality",
+          "name": "Reality warping",
+          "term": "perception",
+          "definition": "What you come to believe is true, common or important, including what is hidden from you."
+        },
+        {
+          "id": "division",
+          "name": "Division",
+          "term": "polarization",
+          "definition": "Narrowed exposure to other views; people pushed apart."
+        },
+        {
+          "id": "trust",
+          "name": "Trust",
+          "term": "trust",
+          "definition": "Losing the ability to tell what or who is real."
+        },
+        {
+          "id": "offline",
+          "name": "Offline consequences",
+          "term": "behaviour",
+          "definition": "Influence that spills into the physical world: rallies, harassment, votes."
+        },
+        {
+          "id": "wellbeing",
+          "name": "Wellbeing",
+          "term": "wellbeing",
+          "definition": "Harm to mental health, body image and safety, especially for young users."
+        }
+      ]
+    },
+    {
+      "part": "What drives it",
+      "lines": [
+        {
+          "id": "money",
+          "name": "Money",
+          "term": "L1 funding",
+          "definition": "How the platform earns, and what that rewards."
+        },
+        {
+          "id": "owner",
+          "name": "Owner influence",
+          "term": "owns relations",
+          "definition": "Who controls it, and whether they steer it."
+        },
+        {
+          "id": "transparency",
+          "name": "Transparency",
+          "term": "supp.data_access, oversight",
+          "definition": "Whether outsiders can see inside: data for researchers, audits, reports."
+        }
+      ]
+    }
+  ],
+  "grade_meanings": {
+    "documented": "Filings, court records, platform reports, peer-reviewed studies, authenticated leaks",
+    "reported": "Investigative journalism, reproducible tests, research cited in journalism",
+    "claimed": "An actor's or vendor's own statement, unverified",
+    "contested": "Credible accounts conflict",
+    "opinion": "Commentary or argument"
+  },
+  "read_meanings": {
+    "full": "The cited source was read in full",
+    "partial": "Paywalled or truncated; part was read",
+    "secondhand": "Known through other coverage of it",
+    "unread": "Not read yet"
+  }
+}

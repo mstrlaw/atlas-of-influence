@@ -1,10 +1,11 @@
 {
-  "name": "platform-atlas",
+  "name": "atlas-of-influence",
   "version": "1.0.0",
-  "description": "Atlas of Influence: 3D Platform Atlas (static web app)",
+  "description": "Atlas of Influence: the 3D atlas and the framework map (static web app)",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "model": "node ../scripts/validate-model.mjs && node ../scripts/framework-map.mjs",
+    "dev": "npm run model && vite",
+    "build": "npm run model && tsc --noEmit && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && wrangler deploy"
   },

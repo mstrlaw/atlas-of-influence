@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#d3d5da" />
-  <title>Platform Atlas</title>
+  <title>Atlas of Influence</title>
+  <meta name="description" content="A map of how actors, platforms, AI models and crowds shape what appears on a phone screen, with the sources behind every claim." />
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800;900&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Caveat:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div id="stage"></div>
@@ -38,10 +40,25 @@
 
   <!-- Chrome around the 3D stage. -->
   <div id="hud">
-    <div class="brand">Platform Atlas</div>
+    <div class="brand">Atlas of Influence</div>
+    <a class="framework-link" href="./framework.html">The framework →</a>
     <button id="back" class="back" hidden>← Back</button>
-    <aside id="caption" class="caption" hidden></aside>
+    <button id="reset" class="reset" hidden>Reset view</button>
+    <div id="tip" class="tip" hidden></div>
+    <ul id="legend" class="legend" hidden aria-label="How to read the scene">
+      <li><i class="k-cube"></i>actor</li>
+      <li><i class="k-hollow"></i>front or fake account</li>
+      <li><i class="k-line path"></i>path of a case</li>
+      <li><i class="k-line own"></i>ownership</li>
+      <li><i class="k-line thread"></i>narrative</li>
+    </ul>
   </div>
+
+  <!-- Explore: choose what to look at, read about it, and open its sources. The 3D scene follows. -->
+  <aside id="panel" hidden aria-label="Explore the atlas">
+    <button id="panel-grip" class="panel-grip" aria-label="Show or hide the panel"><span></span></button>
+    <div id="panel-body"></div>
+  </aside>
 
   <div id="loading">loading…</div>
   <script type="module" src="/src/main.ts"></script>

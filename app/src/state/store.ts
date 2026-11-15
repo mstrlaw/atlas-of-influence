@@ -1,12 +1,13 @@
-// Tiny state machine: HOME → APP → EXPLORE → FOCUS.
+// Tiny state machine: HOME → APP → EXPLORE (optionally with something selected).
 // The URL hash mirrors the state so every view is shareable.
 // Hashes are plain names (#app-tiktok) because some hosts drop "#/paths".
+
+import type { Selection } from '../data/types';
 
 export type View =
   | { name: 'home' }
   | { name: 'app'; appId: string }
-  | { name: 'explore'; appId: string }
-  | { name: 'focus'; appId: string; entityId: string };
+  | { name: 'explore'; appId: string; sel?: Selection };
 
 type Listener = (next: View, prev: View) => void;
 
@@ -31,15 +32,16 @@ export function toHash(v: View): string {
   switch (v.name) {
     case 'home': return '';
     case 'app': return `app-${v.appId}`;
-    case 'explore': return `explore-${v.appId}`;
-    case 'focus': return `focus-${v.appId}--${v.entityId}`;
+    case 'explore': return v.sel ? `explore-${v.appId}--${v.sel.type}-${v.sel.id}` : `explore-${v.appId}`;
   }
 }
 
+const SEL = /^explore-(.+?)--(case|narrative|owner|actor)-(.+)$/;
+
 export function fromHash(hash: string, isApp: (id: string) => boolean): View {
-  const h = hash.replace(/^#/, '');
+  const h = decodeURIComponent(hash.replace(/^#/, ''));
   let m: RegExpMatchArray | null;
-  if ((m = h.match(/^focus-(.+)--(.+)$/)) && isApp(m[1])) return { name: 'focus', appId: m[1], entityId: m[2] };
+  if ((m = h.match(SEL)) && isApp(m[1])) return { name: 'explore', appId: m[1], sel: { type: m[2] as Selection['type'], id: m[3] } };
   if ((m = h.match(/^explore-(.+)$/)) && isApp(m[1])) return { name: 'explore', appId: m[1] };
   if ((m = h.match(/^app-(.+)$/)) && isApp(m[1])) return { name: 'app', appId: m[1] };
   return { name: 'home' };

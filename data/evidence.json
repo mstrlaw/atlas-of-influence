@@ -7,6 +7,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "FARA filing",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Funding edge Piro → Hanover"
  },
  {
@@ -17,6 +18,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "Site disclosure",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Contract chain LaPam → Havas DE → Piro → Hanover"
  },
  {
@@ -27,6 +29,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "Journalism",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Front actor: hollow cube inside Think tanks sphere"
  },
  {
@@ -37,6 +40,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "Reproducible test",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Proximate effect: path reaches chat surface on phone"
  },
  {
@@ -47,6 +51,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "Technical analysis",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Influence-vendor actor enabling the L3 step"
  },
  {
@@ -57,6 +62,7 @@
   "url": "https://www.politico.com/newsletters/politico-influence/2026/08/14/israeli-pr-wants-to-answer-your-chatgpt-questions-01038138",
   "source_type": "FARA comparison",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Transparency: contract disclosed, purpose undisclosed"
  },
  {
@@ -67,6 +73,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Site analysis",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Volume burst on the WWW gateway"
  },
  {
@@ -77,6 +84,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Content analysis",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Mechanisms prod.manufactured_doubt, prod.citation_stuffing"
  },
  {
@@ -87,6 +95,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA + web archive",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Vendor edge Res → Piro"
  },
  {
@@ -97,6 +106,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Test",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Countervailing loop: journalism re-enters retrieval"
  },
  {
@@ -107,6 +117,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Edge weight Havas DE → Piro"
  },
  {
@@ -117,6 +128,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Money-flow animation down the chain"
  },
  {
@@ -127,6 +139,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Hub node with five outgoing contract edges"
  },
  {
@@ -137,6 +150,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Mechanism fund.disclosure_gap: edge drawn dashed"
  },
  {
@@ -147,6 +161,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Procurement records",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Edge LaPam → Havas, funding gap flagged"
  },
  {
@@ -157,6 +172,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "FARA + platform data",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Parallel overt case from the same funder"
  },
  {
@@ -167,6 +183,7 @@
   "url": "https://quincyinst.org/2026/07/28/israel-is-paying-millions-to-train-ai-chatbots-how-to-talk-about-gaza-its-working/",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Edge Havas DE → Clock Tower X"
  },
  {
@@ -177,6 +194,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Dataset analysis",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Path WWW → training corpus (llm.corpus)"
  },
  {
@@ -187,6 +205,7 @@
   "url": "https://quincyinst.org/2026/07/28/israel-is-paying-millions-to-train-ai-chatbots-how-to-talk-about-gaza-its-working/",
   "source_type": "Traffic analysis",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Low human reach, high machine reach"
  },
  {
@@ -197,6 +216,7 @@
   "url": "https://truthout.org/articles/israel-has-a-new-6m-plan-to-flood-gen-z-platforms-with-pro-israel-content/",
   "source_type": "FARA",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Search-ranking branch at L4"
  },
  {
@@ -207,6 +227,7 @@
   "url": "https://quincyinst.org/2026/07/28/israel-is-paying-millions-to-train-ai-chatbots-how-to-talk-about-gaza-its-working/",
   "source_type": "Vendor claim",
   "confidence": "claimed",
+  "read_status": "full",
   "visual_use": "Effect shown as unverified"
  },
  {
@@ -217,6 +238,7 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Journalism + polls",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Ultimate effect diverges from proximate"
  },
  {
@@ -227,6 +249,24 @@
   "url": "https://www.theguardian.com/world/2026/aug/26/fake-thinktank-israel-ai-propaganda",
   "source_type": "Statements",
   "confidence": "claimed",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Israeli foreign ministry",
+    "type": "denial",
+    "summary": "Says it does not run influence operations in the US"
+   },
+   {
+    "by": "Piro",
+    "type": "explanation",
+    "summary": "Says it was hired to put accurate, sourced facts on the record"
+   },
+   {
+    "by": "Res",
+    "type": "explanation",
+    "summary": "Says its role was disclosed"
+   }
+  ],
   "visual_use": "Shown on case card as actor response"
  },
  {
@@ -237,6 +277,7 @@
   "url": "https://www.newsguardrealitycheck.com/p/a-well-funded-moscow-based-global",
   "source_type": "Audit",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Path WWW → corpus → chat"
  },
  {
@@ -247,6 +288,7 @@
   "url": "https://www.techdirt.com/tag/llm-grooming/",
   "source_type": "Research",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Front outlets as hollow cubes"
  },
  {
@@ -257,6 +299,7 @@
   "url": "https://www.nbcnewyork.com/news/local/crime-and-courts/doj-right-wing-influencers-like-tim-pool-benny-johnson-helped-spread-russian-disinformation-on-youtube-x/5766158/",
   "source_type": "Indictment",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Covert funding edge into influencers"
  },
  {
@@ -267,6 +310,7 @@
   "url": "https://www.nbcnews.com/tech/security/meta-openai-say-disrupted-israeli-companys-influence-campaign-rcna154774",
   "source_type": "Platform reports",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "L5 inauthentic amplification"
  },
  {
@@ -277,6 +321,8 @@
   "url": "https://news.err.ee/1609903256/estonian-volunteers-struggling-to-protect-wikipedia-from-russian-propaganda",
   "source_type": "Journalism (secondhand, unverified)",
   "confidence": "reported",
+  "read_status": "full",
+  "note": "The outlet relays the account secondhand; not independently verified.",
   "visual_use": "Reference commons captured via its own governance; Wikipedia → LLM corpus"
  },
  {
@@ -287,6 +333,7 @@
   "url": "https://news.err.ee/1609903256/estonian-volunteers-struggling-to-protect-wikipedia-from-russian-propaganda",
   "source_type": "Journalism",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Same mechanism, second language edition"
  },
  {
@@ -297,6 +344,7 @@
   "url": "https://www.natureasia.com/en/info/press-releases/detail/9242",
   "source_type": "Peer-reviewed experiment",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Ultimate effect with persistence at L4→L7"
  },
  {
@@ -307,6 +355,7 @@
   "url": "https://www.niemanlab.org/reading/nbc-appears-to-cut-crowds-booing-of-jd-vance-from-winter-olympics-broadcast/",
   "source_type": "Journalism (conflicting accounts)",
   "confidence": "contested",
+  "read_status": "full",
   "visual_use": "Omission at L2; official account amplifies edited clip at L5"
  },
  {
@@ -317,17 +366,26 @@
   "url": "https://www.thenationalnews.com/future/technology/2026/05/08/iranians-reach-120-days-without-the-internet-as-blackout-continues/",
   "source_type": "Journalism + monitors (NetBlocks)",
   "confidence": "documented",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Iranian officials",
+    "type": "explanation",
+    "summary": "Cited countering disinformation as the reason for the shutdown"
+   }
+  ],
   "visual_use": "Suppression at infrastructure level; whole pipeline switched off"
  },
  {
   "id": "E33",
   "case": "Iran blackout",
-  "fact": "NYT on disinformation dynamics during the blackout: not read (site blocked)",
-  "source": "NYT, 16 Jan 2026",
+  "fact": "With Iran offline since 8 Jan 2026, inauthentic accounts spread false and conflicting narratives on X and Instagram, including AI-generated images and recycled footage; researchers found several coordinated campaigns but could not always attribute them, and the main effect was disorientation. The blackout also silenced Iran's own operations (Alethea; the Telegraph on the Scottish-independence accounts, see E46)",
+  "source": "New York Times, 16 Jan 2026",
   "url": "https://www.nytimes.com/2026/01/16/business/iran-internet-blackout-protests-disinformation.html",
-  "source_type": "Journalism",
-  "confidence": "pending text",
-  "visual_use": "Information vacuum filled by competing claims"
+  "source_type": "Journalism citing researchers (DFRLab, Alethea, Citizen Lab, Google TIG)",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Suppression (shutdown) opens a vacuum that several actors fill at once; effect = confusion, not persuasion"
  },
  {
   "id": "E34",
@@ -336,7 +394,9 @@
   "source": "Meta.mk / Truthmeter, 14 Sep 2023",
   "url": "https://meta.mk/en/qanon-propaganda-for-satanizing-nato-and-eu/",
   "source_type": "Fact-check",
-  "confidence": "documented (post); reported (narrative link)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The post itself is documented; its link to a wider narrative is the fact-checker's reading.",
   "visual_use": "Narrative travelling between unconnected actors; fact-checker as countervailing actor"
  },
  {
@@ -347,6 +407,7 @@
   "url": "https://www.counteroffensive.news/p/how-russia-uses-ai-to-meddle-in-midterm",
   "source_type": "Journalism (partly paywalled)",
   "confidence": "reported",
+  "read_status": "partial",
   "visual_use": "Brand impersonation + synthetic media at L2"
  },
  {
@@ -357,6 +418,7 @@
   "url": "https://www.counteroffensive.news/p/how-russia-uses-ai-to-meddle-in-midterm",
   "source_type": "Journalism",
   "confidence": "reported",
+  "read_status": "partial",
   "visual_use": "Fake engagement gaming L4 ranking via L5"
  },
  {
@@ -367,6 +429,7 @@
   "url": "https://futurism.com/artificial-intelligence/local-newspaper-shut-down-reporters-ai-fakes",
   "source_type": "Investigation; operator admission",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Commercial intent; synthetic outlet as front"
  },
  {
@@ -376,28 +439,40 @@
   "source": "CounterPunch, 19 Jun 2026",
   "url": "https://www.counterpunch.org/2026/06/19/elon-musk-and-the-politics-of-trillionaire-fascism/",
   "source_type": "Opinion essay",
-  "confidence": "opinion (needs primary source)",
+  "confidence": "opinion",
+  "read_status": "full",
+  "note": "Needs a primary source for the repost.",
   "visual_use": "Owner amplification on own platform; offline harm effect"
  },
  {
   "id": "E39",
   "case": "Bardella / Mediapart",
-  "fact": "Blog post \"Contre l'information: Bardella au service du faux\" not read (site blocked). Context: Sept 2026 Mediapart published antisemitic messages attributed to Bardella; he called them fakes and filed defamation and forgery complaints; Mediapart published authentication 1 Oct",
-  "source": "Mediapart blog, 19 Jan 2026; AFP via Sud Radio and LCP, Sept 2026",
+  "fact": "Mediapart's publisher writes that Jordan Bardella, after attacking the outlet when its reporter questioned him on 12 Jan 2026, posted a video on 18 Jan containing a fabricated AI image of co-founder Edwy Plenel (a \"deepfake\") tying him to terrorism, and that his followers then harassed the reporter. Separate later context (AFP, Sept 2026, no link logged): Mediapart published antisemitic messages attributed to Bardella; he called them fakes and filed complaints; Mediapart published an authentication on 1 Oct",
+  "source": "Mediapart blog (Carine Fouteau), 19 Jan 2026; AFP via Sud Radio and LCP, Sept 2026",
   "url": "https://blogs.mediapart.fr/carine-fouteau/blog/190126/contre-l-information-bardella-au-service-du-faux",
-  "source_type": "Opinion (unread) + journalism",
-  "confidence": "pending text; affair contested",
-  "visual_use": "Flak against press; liar's dividend"
+  "source_type": "Statement by a party to the dispute + journalism",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "The author is a party to the dispute. The later September affair is contested.",
+  "responses": [
+   {
+    "by": "Jordan Bardella",
+    "type": "denial",
+    "summary": "Called the messages published in September fakes and filed defamation and forgery complaints"
+   }
+  ],
+  "visual_use": "Politician account as producer of synthetic media against a news outlet; flak plus crowd harassment; liar's dividend"
  },
  {
   "id": "E40",
   "case": "Far-right normalisation",
-  "fact": "Op-ed \"Media must stop normalizing the far right\": not read (site blocked). Related: Abou-Chadi on immigration framing aligning with far-right narratives",
-  "source": "Politico Europe (date unknown)",
+  "fact": "Op-ed by Georgios Samaras (King's College London): newsrooms replace \"far right\" with softer labels (hard right, national conservative, populist) that blur ideology; terms such as \"remigration\" and \"great replacement\" are relayed with little scrutiny; Reform UK, with eight MPs, gets outsized airtime and uses legal threats and public pressure against outlets that use established labels; cites the BBC describing Quentin Deranque as a \"far-right feminist\"",
+  "source": "Politico Europe (Georgios Samaras), 4 Mar 2026",
   "url": "https://www.politico.eu/article/media-stop-normalize-far-right/",
-  "source_type": "Opinion",
-  "confidence": "pending text",
-  "visual_use": "Normalisation as agenda-setting/framing at L2; norm-shift effect"
+  "source_type": "Opinion (academic author)",
+  "confidence": "opinion",
+  "read_status": "full",
+  "visual_use": "Euphemistic labelling as framing at L2; flak (legal threats) acting back on newsrooms; norm-shift effect"
  },
  {
   "id": "E41",
@@ -407,6 +482,7 @@
   "url": "https://royalsocietypublishing.org/rsos/article/13/2/251428/479919/A-new-measure-of-issue-polarization-using-k-means",
   "source_type": "Peer-reviewed",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Effect metric: issue polarization and bundling"
  },
  {
@@ -417,6 +493,7 @@
   "url": "https://timothynguyen.org/2025/08/21/physics-grifters-eric-weinstein-sabine-hossenfelder-and-a-crisis-of-credibility/",
   "source_type": "First-person polemic",
   "confidence": "opinion",
+  "read_status": "full",
   "visual_use": "Audience capture loop L7→L2; non-political case"
  },
  {
@@ -426,7 +503,9 @@
   "source": "Schroeder, Marcus, Kunst, 23 Jan 2026; Science doi 10.1126/science.adz1697",
   "url": "https://garymarcus.substack.com/p/ai-bot-swarms-threaten-to-undermine",
   "source_type": "Peer-reviewed perspective + essay",
-  "confidence": "documented (paper); reported (examples)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Peer-reviewed perspective; the examples in the accompanying essay are reported.",
   "visual_use": "Mechanism vocabulary for L5"
  },
  {
@@ -436,7 +515,9 @@
   "source": "Al Jazeera, 15 Jan 2026",
   "url": "https://www.aljazeera.com/features/2026/1/15/network-linked-to-israel-pushes-to-shape-external-iran-protest-narrative",
   "source_type": "Outlet's own analysis (Tweet Binder data)",
-  "confidence": "reported (source state-funded, Qatar)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The source is funded by the state of Qatar.",
   "visual_use": "Hybrid of officials and anonymous nodes at L5"
  },
  {
@@ -447,6 +528,7 @@
   "url": "https://www.euronews.com/my-europe/2026/01/15/euronews-journalists-voices-stolen-in-fake-anti-ukraine-videos",
   "source_type": "Outlet verification (The Cube)",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Brand and voice impersonation; narrative \"Ukrainians threaten Europe\""
  },
  {
@@ -457,6 +539,8 @@
   "url": "https://ukdefencejournal.org.uk/?p=65594",
   "source_type": "Research + journalism",
   "confidence": "reported",
+  "read_status": "full",
+  "note": "The Herald article it draws on was not read.",
   "visual_use": "Attribution by blackout; foreign actor on domestic wedge issue"
  },
  {
@@ -467,6 +551,7 @@
   "url": "https://www.nature.com/articles/s41562-023-01538-4",
   "source_type": "Peer-reviewed registered report",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Demand-side loop L7→L2"
  },
  {
@@ -476,7 +561,9 @@
   "source": "The Free Press (Jay Solomon), Jan 2025",
   "url": "https://www.thefp.com/p/jay-solomon-pro-china-tik-tok-brainwashes-american-youth",
   "source_type": "Journalism citing study (paywalled)",
-  "confidence": "reported (methods unseen)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The study's methods were not visible.",
   "visual_use": "Owner-linked steering at L4; pair with E30"
  },
  {
@@ -486,7 +573,9 @@
   "source": "Progressive International (from CTXT), 3 Dec 2025",
   "url": "https://progressive.international/wire/2025-12-03-atlas-network-la-desinformacin-como-arma-neoliberal/en",
   "source_type": "Polemic citing some primary documents",
-  "confidence": "reported (size, budget); opinion (rest)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Size and budget are reported; the rest of the piece is opinion.",
   "visual_use": "Network of authentic think tanks; overt funding hub"
  },
  {
@@ -497,6 +586,7 @@
   "url": "https://www.ansa.it/amp/english/news/world/2024/08/17/moscow-uses-ai-to-create-fake-news-with-scarce-results-meta_7527920b-8d29-4708-a1cd-4b4107414361.html",
   "source_type": "Platform report (via news agency)",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "AI as incremental gain; counterweight to E43"
  },
  {
@@ -506,18 +596,21 @@
   "source": "newyorkwarcrimes.com, 2026",
   "url": "https://newyorkwarcrimes.com",
   "source_type": "Primary (site itself)",
-  "confidence": "documented (content)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Documents what the site publishes, nothing more.",
   "visual_use": "Overt parody of a brand, not impersonation; boycott pressure on an outlet"
  },
  {
   "id": "E52",
   "case": "Fact-checking",
-  "fact": "\"Fact-checking is not censorship\": not read (rate-limited)",
-  "source": "Poynter, 2024",
+  "fact": "Angie Drobnic Holan (director, International Fact-Checking Network): no platform gives fact-checkers authority to remove content; takedowns follow platform rules on illegal or harmful content; the \"censorship industrial complex\" label is itself aimed at suppressing critique; fact checks correct misperceptions of specific claims but do not change political views",
+  "source": "Poynter (Angie Drobnic Holan), 2 Apr 2024",
   "url": "https://www.poynter.org/commentary/2024/fact-checking-is-not-censorship/",
-  "source_type": "Opinion",
-  "confidence": "pending text",
-  "visual_use": "Countervailing actors; framing fact-checks as censorship"
+  "source_type": "Opinion (practitioner, interested party)",
+  "confidence": "opinion",
+  "read_status": "full",
+  "visual_use": "Countervailing actor with limited powers (label, not remove); \"censorship\" framing as pressure on oversight; limited ultimate effect"
  },
  {
   "id": "E53",
@@ -527,6 +620,7 @@
   "url": "https://www.socialmediatoday.com/news/meta-announces-shut-down-crowdtangle-monitoring-app/710358/",
   "source_type": "Journalism (Meta statement)",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Platform reduces outside observability of L4"
  },
  {
@@ -537,17 +631,19 @@
   "url": "https://mediajustice.org/wp-content/uploads/2026/03/MediaJustice-Media-Capture-Report.pdf",
   "source_type": "Advocacy report (compiled)",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "L1 typology: ownership, dependency, distribution control"
  },
  {
   "id": "E55",
   "case": "Pro-Trump AI avatars",
-  "fact": "Hundreds of AI-generated influencer accounts pushing pro-Trump and \"America First\" messaging appeared ahead of the midterms",
-  "source": "NYT, 17 Apr 2026 (read via summaries)",
+  "fact": "The NYT tracked at least 304 TikTok accounts posting AI-generated pro-Trump influencer avatars from Jan 2026; Purdue's GRAIL found a dozen more on TikTok, Instagram and Facebook and Alethea nine on YouTube. None was labelled as AI; clusters share scripts, faces and captions; several have 35,000+ followers and posts with 500,000+ views; Trump reposted one. Commenters appear to take the avatars for real people",
+  "source": "New York Times, 17 Apr 2026",
   "url": "https://www.nytimes.com/2026/04/17/business/media/artificial-intelligence-trump-social-media.html",
-  "source_type": "Journalism",
-  "confidence": "reported (not read directly)",
-  "visual_use": "Synthetic personas at L5, domestic origin"
+  "source_type": "Journalism (own tracking) + researchers",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Synthetic personas at L5 across four platforms; origin unknown (not established as domestic); illusion of consensus"
  },
  {
   "id": "E56",
@@ -556,7 +652,9 @@
   "source": "The Economist, By Invitation, 29 Apr 2026 (opening read)",
   "url": "https://www.economist.com/by-invitation/2026/04/29/stop-big-tech-from-making-users-behave-in-ways-they-dont-want-to",
   "source_type": "Opinion citing court record",
-  "confidence": "documented (verdict); opinion (argument)",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "The verdict is documented; the op-ed's argument is opinion.",
   "visual_use": "L6 interface mechanisms; autonomy effect; Harms on the Facts sheet"
  },
  {
@@ -566,7 +664,9 @@
   "source": "Observer, 11 Oct 2026; AP, Reuters, Al Jazeera, 12 Oct 2026",
   "url": "https://observer.co.uk/news/national/article/from-russia-with-interference-burnham-first-pm-to-confirm-kremlin-role-in-brexit-vote",
   "source_type": "Head-of-government statement",
-  "confidence": "claimed (official, evidence not released)",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "Official statement; no evidence released.",
   "visual_use": "Retrospective attribution by official assertion"
  },
  {
@@ -576,7 +676,9 @@
   "source": "Jacobin (Ryan Zickgraf), 11 Mar 2025",
   "url": "https://jacobin.com/2025/03/joe-rogan-podcast-manosphere-influencer",
   "source_type": "Magazine commentary (paywalled; intro read)",
-  "confidence": "opinion (figures reported)",
+  "confidence": "opinion",
+  "read_status": "partial",
+  "note": "The audience figures are reported.",
   "visual_use": "Mainstream media node; host as gatekeeper"
  },
  {
@@ -586,7 +688,9 @@
   "source": "Elkins, Millman, Litzow, Ford, HBS Case 726-021, Sep 2025",
   "url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=67851",
   "source_type": "Teaching case",
-  "confidence": "reported (figures from abstract)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Figures come from the abstract.",
   "visual_use": "Reach metric; distribution via Spotify (non-exclusive) and YouTube"
  },
  {
@@ -596,7 +700,9 @@
   "source": "Joe Rogan Experience, 12 Mar 2019 (Podscribe auto-transcript)",
   "url": "https://podscribe.app/feeds/http-joeroganexpjoeroganlibsynprocom-rss/episodes/2b25a552c8104f36ac0cf7673fdf1167",
   "source_type": "Primary interview (auto-transcribed, errors)",
-  "confidence": "documented (statements)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Documents what was said in the interview; auto-transcribed, with errors.",
   "visual_use": "Tribal targeting at L5; offline mobilisation; researcher on a mainstream show"
  },
  {
@@ -606,18 +712,35 @@
   "source": "Platformer, 13 Jun 2024",
   "url": "https://www.platformer.news/stanford-internet-observatory-shutdown-stamos-diresta-sio/",
   "source_type": "Journalism",
-  "confidence": "reported (framing disputed by Stanford)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Stanford disputes the framing.",
+  "responses": [
+   {
+    "by": "Stanford University",
+    "type": "denial",
+    "summary": "Disputes that the Observatory is being dismantled"
+   }
+  ],
   "visual_use": "Flak against countervailing researchers; pair with E53"
  },
  {
   "id": "E62",
   "case": "Stanford Internet Observatory",
-  "fact": "Future unclear; Election Integrity Partnership will not work on 2024 or later elections; Stanford says SIO was not shut down due to outside pressure. SF Chronicle not read (blocked)",
-  "source": "SF Chronicle (unread); NPR, 14 Jun 2024",
+  "fact": "Stanford said the Observatory \"is not being dismantled\": programmes and remaining staff move to its Cyber Policy Center; founder Alex Stamos left; Hewlett Foundation says its grants ended in 2023 as planned. Stanford said lawsuits and congressional investigations \"chill freedom of inquiry\"; Rep. Jim Jordan posted \"Free speech wins again!\". Via NPR (not from this article): the Election Integrity Partnership will not work on 2024 or later elections",
+  "source": "San Francisco Chronicle, Jun 2024; NPR, 14 Jun 2024",
   "url": "https://www.sfchronicle.com/bayarea/article/stanford-internet-observatory-unclear-future-19515031.php",
-  "source_type": "Journalism",
+  "source_type": "Journalism (institution statement)",
   "confidence": "reported",
-  "visual_use": "Same case, institution's response"
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Stanford University",
+    "type": "denial",
+    "summary": "Says the Observatory is not being dismantled and its work continues under new leadership"
+   }
+  ],
+  "visual_use": "Same case, institution's response; oversight worn down by legal and congressional pressure"
  },
  {
   "id": "E63",
@@ -626,7 +749,21 @@
   "source": "NPR, 4–7 Sep 2024 (via member stations); CNN",
   "url": "https://www.npr.org/2024/09/07/nx-s1-5101895/doj-says-russia-paid-right-wing-influencers-to-spread-russian-propaganda",
   "source_type": "Indictment + journalism",
-  "confidence": "documented (indictment); claimed (influencer statements)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The indictment is documented; what the influencers say is their own claim.",
+  "responses": [
+   {
+    "by": "Tim Pool",
+    "type": "explanation",
+    "summary": "Calls the payment market rate"
+   },
+   {
+    "by": "The influencers",
+    "type": "denial",
+    "summary": "Say they were deceived about where the money came from"
+   }
+  ],
   "visual_use": "Price per video as edge weight; witting vs unwitting actors"
  },
  {
@@ -637,46 +774,67 @@
   "url": "https://mediatechdemocracy.com/en/publications/tenet-russia-funding_2024/",
   "source_type": "Research incident report (methods thin)",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Cross-border spillover; severity scale"
  },
  {
   "id": "E65",
   "case": "\"The Company\" in West Africa",
-  "fact": "Leak of 1,431 pages: ~650 paid articles (corrected from 700+) placed in 35 French-language West African outlets, some unaware, at roughly $250–700 per article",
-  "source": "France 24 Observers, 3 Apr 2026 (unread); EUalive, 6 Apr 2026; Africa Confidential, 17 Apr 2026",
+  "fact": "Leak of 1,431 pages from \"the Company\": a 78-page spreadsheet lists nearly 650 articles placed in 35 French-language West African outlets between June and October 2024, priced at about $250–700 each; content is anti-French, anti-Ukrainian, pro-Russian and pro-AES. Many outlets appear unaware and are not the recipients of the money",
+  "source": "France 24 Observers, 3 Apr 2026 (with Forbidden Stories, The Continent, All Eyes On Wagner, RFI); EUalive, 6 Apr 2026; Africa Confidential, 17 Apr 2026",
   "url": "https://www.france24.com/en/africa/20260403-article-russia-influenced-west-african-media-content",
   "source_type": "Leaked documents + consortium journalism (Forbidden Stories, The Continent)",
-  "confidence": "documented (leak, expert-authenticated)",
-  "visual_use": "Paid placement in authentic outlets; low-cost L1→L2"
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Leak authenticated by experts.",
+  "responses": [
+   {
+    "by": "\"The Company\" and Russia's SVR",
+    "type": "no_reply",
+    "summary": "Did not answer Forbidden Stories' questions"
+   }
+  ],
+  "visual_use": "Paid placement in authentic outlets, some unwitting; low-cost L1→L2"
  },
  {
   "id": "E66",
   "case": "\"The Company\" / Africa Politology",
-  "fact": "Ex-Wagner influence arm now under Russia's SVR, active in ~30–34 countries, ~98 operatives by May 2024; $7.3M itemised for influencers and journalists; South African influencers paid ~$150 per X post against the DA; 516 articles in Aug 2024 for ~$340,000",
-  "source": "UATV (unread; Ukrainian state media); Forbidden Stories, 14 Feb 2026; Africa Confidential",
+  "fact": "Ex-Wagner influence arm now under Russia's SVR, active in ~30–34 countries, ~98 operatives by May 2024; $7.3M itemised for influencers and journalists; South African influencers paid ~$150 per X post against the DA; 516 articles in Aug 2024 for ~$340,000. These figures come from earlier Forbidden Stories and Africa Confidential reporting (no link logged). The linked UATV page is a secondhand summary of a later Forbidden Stories article (see E98–E101) and does not carry them; it says the network recruits journalists, activists, NGOs and cultural figures, tries to co-opt or neutralise pro-Western civil society (Niger's Tournons la Page), and expands by a \"ripples on water\" strategy through the Alliance of Sahel States",
+  "source": "Forbidden Stories, 14 Feb 2026; Africa Confidential; UATV (Ukrainian state media, secondhand via The Gaze)",
   "url": "https://uatv.ua/en/leaked-files-detail-russia-s-expanding-influence-network-across-africa/",
   "source_type": "Leaked documents + consortium journalism",
-  "confidence": "documented (leak); source party to conflict",
+  "confidence": "documented",
+  "read_status": "secondhand",
+  "note": "The figures are not in the linked page, which is a secondhand summary by a party to the conflict.",
   "visual_use": "State hub with price list per mechanism"
  },
  {
   "id": "E67",
   "case": "X: owner boost",
-  "fact": "Per Platformer: after Musk's Super Bowl tweet drew ~9M impressions vs Biden's ~29M, engineers deployed a \"power user multiplier\" boosting his tweets by a factor of 1,000 and exempting them from quality filters; later reduced but kept",
-  "source": "Guardian, 15 Feb 2023 (unread; via Bloomberg, Engadget, Rolling Stone)",
+  "fact": "Per Platformer: after Musk's Super Bowl tweet drew ~9.1M impressions against Biden's ~29M, about 80 engineers were pulled in and deployed a change boosting his tweets by a factor of 1,000, so that over 90% of his followers and many non-followers saw them; Musk posted a meme that seemed to confirm it. Via other coverage (not in the Guardian text): a \"power user multiplier\", exemption from quality filters, later reduced but kept",
+  "source": "Guardian, 15 Feb 2023 (reporting Platformer); Bloomberg, Engadget, Rolling Stone",
   "url": "https://www.theguardian.com/technology/2023/feb/15/elon-musk-changes-twitter-algorithm-super-bowl-slump-report",
   "source_type": "Journalism (insider sources)",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Owner directive on L4 ranking for own reach"
  },
  {
   "id": "E68",
   "case": "X: owner boost",
-  "fact": "Same story; Musk said media \"incorrectly reported\" his tweets were boosted and blamed a bug",
-  "source": "Firstpost, Feb 2023 (unread)",
+  "fact": "Musk said media \"wrongly stated\" his tweets were boosted, blamed a bug that gave replies the prominence of tweets, called Platformer's report \"bogus\" and its source a disgruntled employee, and said Twitter would sue; Platformer stood by its report",
+  "source": "Firstpost, Feb 2023",
   "url": "https://www.firstpost.com/world/musk-tweaked-twitter-algo-to-boost-his-posts-lied-about-journalists-and-report-that-called-him-out-12180192.html/amp",
   "source_type": "Journalism + owner denial",
-  "confidence": "claimed (denial)",
+  "confidence": "claimed",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Elon Musk",
+    "type": "denial",
+    "summary": "Said his tweets were not boosted, blamed a bug, and called the report bogus"
+   }
+  ],
   "visual_use": "Actor response on case card"
  },
  {
@@ -687,26 +845,42 @@
   "url": "https://www.nature.com/articles/s41586-026-10098-2",
   "source_type": "Peer-reviewed field experiment",
   "confidence": "documented",
+  "read_status": "secondhand",
   "visual_use": "Issue shift without identity shift; L4→L7"
  },
  {
   "id": "E70",
-  "case": "Grok image abuse (BBC)",
-  "fact": "Not read (blocked); topic not confirmed. BBC coverage in Jan 2026: Grok used to make non-consensual sexualised edits of real people incl. minors; X limited image editing to paid users; Indonesia blocked Grok",
-  "source": "BBC (unread)",
+  "case": "X in 2024 (BBC)",
+  "fact": "X's October 2024 change pays Premium accounts by engagement from other Premium accounts, with no rule to demonetise misinformation. \"Inevitable West\", an anonymous account two months old, reached 131,600 followers and a claimed ~30M daily views while posting a faked Trump video and debunked claims; its creator claims at least $2,500 a month and says they never delete false posts. X did not respond",
+  "source": "BBC News, Dec 2024",
   "url": "https://www.bbc.com/news/articles/c1elddq34p7o",
-  "source_type": "Journalism",
-  "confidence": "pending text",
-  "visual_use": "Synthetic abuse; regulators respond"
+  "source_type": "Journalism (interviews; account's own claims)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Earnings and reach are the account's own claims.",
+  "responses": [
+   {
+    "by": "\"Inevitable West\"",
+    "type": "denial",
+    "summary": "Denies pushing disinformation or inciting violence"
+   },
+   {
+    "by": "X",
+    "type": "no_reply",
+    "summary": "Did not respond to the BBC"
+   }
+  ],
+  "visual_use": "Platform monetisation as incentive for anonymous \"news\" accounts; structural intent, commercial motive"
  },
  {
   "id": "E71",
   "case": "X feed algorithm (commentary)",
-  "fact": "Expert commentary on E69; notes a 2022 study found Twitter's algorithm already amplified the mainstream right in 6 of 7 countries, before Musk's purchase",
-  "source": "The Conversation (Timothy Graham, QUT), Feb 2026 (unread; via QUT, Startup Daily)",
+  "fact": "Expert commentary on E69: 4,965 US users over seven weeks in 2023; the algorithmic feed made users 4.7 points more likely to prioritise Republican issues and 7.4 points less likely to view Zelenskyy positively, raised right-leaning content by 2.9 points, demoted news organisations, and left following patterns changed after the switch back. A 2022 study found Twitter's algorithm already amplified the mainstream right in 6 of 7 countries, before Musk's purchase",
+  "source": "The Conversation (Timothy Graham, QUT), Feb 2026",
   "url": "https://theconversation.com/a-few-weeks-of-xs-algorithm-can-make-you-more-right-wing-and-it-doesnt-wear-off-quickly-276153",
   "source_type": "Expert commentary",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Structural tilt predates owner; outcome ≠ intent"
  },
  {
@@ -717,6 +891,14 @@
   "url": "https://gizmodo.com/researchers-find-that-xs-algorithm-can-push-users-to-lean-more-conservative-2000723017",
   "source_type": "Journalism",
   "confidence": "reported",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "X",
+    "type": "no_reply",
+    "summary": "Did not respond"
+   }
+  ],
   "visual_use": "—"
  },
  {
@@ -727,17 +909,32 @@
   "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_26_203/IP_26_203_EN.pdf",
   "source_type": "Official regulatory",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Regulator as countervailing actor; LLM entering L4 ranking"
  },
  {
   "id": "E74",
   "case": "Grok (Le Monde)",
-  "fact": "Not read (blocked). Context: Paris prosecutor extended its X probe to Holocaust-denial statements by Grok (19 Nov 2025); Grokipedia's sourcing criticised",
-  "source": "Le Monde, 24 Nov 2025 (unread)",
+  "fact": "News analysis: in one week Grok spread false information about the November 2015 Paris attacks and said Zyklon B was used \"for disinfection\"; earlier it urged a vote for Le Pen and praised Hitler's \"efficiency\". xAI blamed an \"unauthorized modification\" and Musk \"adversarial prompting\". Grok draws on X in real time and partly on Musk's own posts; Musk said it would be updated not to cite Rolling Stone or Media Matters. 64M monthly users (NYT). The author's thesis that Grok was \"designed to misinform\" is his own",
+  "source": "Le Monde (Olivier Clairouin), 24 Nov 2025",
   "url": "https://www.lemonde.fr/en/pixels/article/2025/11/24/why-grok-is-first-and-foremost-a-disinformation-machine_6747782_13.html",
-  "source_type": "Journalism / analysis",
-  "confidence": "pending text",
-  "visual_use": "LLM output as disinformation source; Grokipedia as rival reference commons"
+  "source_type": "News analysis",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The incidents are reported; the thesis is the author's opinion.",
+  "responses": [
+   {
+    "by": "xAI",
+    "type": "explanation",
+    "summary": "Blamed an \"unauthorized modification\""
+   },
+   {
+    "by": "Elon Musk",
+    "type": "explanation",
+    "summary": "Blamed \"adversarial prompting\""
+   }
+  ],
+  "visual_use": "Owner tuning plus retrieval from the owner's platform; source exclusion; actor responses on case card"
  },
  {
   "id": "E75",
@@ -747,6 +944,7 @@
   "url": "https://journalismsciencealliance.eu/project/grok-is-this-true-how-ai-fact-checkers-are-reshaping-truth-and-spreading-misinformation-in-real-time/",
   "source_type": "Research project (planned) + research",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Users outsourcing verification to an owner-controlled LLM"
  },
  {
@@ -757,26 +955,41 @@
   "url": "https://oecd.ai/en/incidents/2024-11-11-1690",
   "source_type": "Incident database (press-based)",
   "confidence": "reported",
+  "read_status": "full",
   "visual_use": "Model vs owner tension preceding E80"
  },
  {
   "id": "E77",
   "case": "Grok \"MechaHitler\"",
-  "fact": "After Musk said Grok had \"improved significantly\" (4 Jul 2025) and a prompt told it not to shy from politically incorrect claims, Grok posted antisemitic content and called itself \"MechaHitler\" for ~16 hours (7–8 Jul); xAI blamed an upstream code update that made it mirror extremist X posts, apologised and published prompts",
-  "source": "NPR, 9 Jul 2025 (unread; via Engadget, TechCrunch)",
+  "fact": "After Musk said Grok had \"improved significantly\" (4 Jul 2025) and a weekend system-prompt update told it not to \"shy away from making claims which are politically incorrect\" and to assume media viewpoints are biased, Grok posted antisemitic content, praised Hitler, misidentified a woman from a 2021 video and called itself \"MechaHitler\". xAI removed the instruction on 8 Jul and said it was removing the posts; Poland said it would report xAI to the European Commission and Turkey restricted access. Via later coverage (not in the NPR text): ~16 hours; xAI blamed an upstream code update, apologised and published prompts",
+  "source": "NPR, 9 Jul 2025; Engadget, TechCrunch",
   "url": "https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content",
   "source_type": "Journalism + company admission",
   "confidence": "documented",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "xAI",
+    "type": "admission",
+    "summary": "Acknowledged the posts, said it was removing them, and removed the prompt instruction"
+   },
+   {
+    "by": "X and xAI",
+    "type": "no_reply",
+    "summary": "Did not respond to NPR"
+   }
+  ],
   "visual_use": "Owner tuning at L4; platform posts feed back into model"
  },
  {
   "id": "E78",
   "case": "Grok election misinformation",
-  "fact": "After Biden withdrew (21 Jul 2024), Grok said ballot deadlines had passed in nine states; repeated for over a week until corrected 31 Jul; five secretaries of state wrote to Musk; X then pointed election queries to vote.gov",
-  "source": "Guardian, 12 Sep 2024 (unread); NBC, AP, TechCrunch, Aug 2024",
+  "fact": "After Biden withdrew (21 Jul 2024), Grok wrongly said ballot deadlines had passed in nine states; screenshots drew millions of views. Secretaries of state contacted X, which at first shrugged; five then signed a public letter to Musk, and X began pointing election queries to vote.gov. Via other coverage (not in the Guardian text): the error persisted for over a week, until 31 Jul",
+  "source": "Guardian, 12 Sep 2024; NBC, AP, TechCrunch, Aug 2024",
   "url": "https://www.theguardian.com/us-news/2024/sep/12/twitter-ai-bot-grok-election-misinformation",
   "source_type": "Official letter + journalism",
   "confidence": "documented",
+  "read_status": "full",
   "visual_use": "Structural error with civic harm; official pressure fixes it"
  },
  {
@@ -787,6 +1000,14 @@
   "url": "https://mg.co.za/news/south-africa/2025-05-24-grok-s-white-genocide-misinformation-shows-need-for-african-tailored-ai-algorithms/",
   "source_type": "Journalism + company admission",
   "confidence": "documented",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "xAI",
+    "type": "explanation",
+    "summary": "Blamed an \"unauthorised modification\" of the system prompt and pledged to publish its prompts"
+   }
+  ],
   "visual_use": "System-prompt steering echoing owner's views"
  },
  {
@@ -797,36 +1018,1595 @@
   "url": "https://unn.ua/en/amp/grok-temporarily-refused-to-respond-to-sources-accusing-musk-and-trump-of-disinformation",
   "source_type": "Journalism + company admission",
   "confidence": "documented",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "xAI (Igor Babuschkin)",
+    "type": "admission",
+    "summary": "Confirmed the instruction and blamed an employee acting without approval"
+   }
+  ],
   "visual_use": "Suppression inside the model; recurring \"rogue employee\" explanation"
  },
  {
   "id": "E81",
   "case": "Loomer paid posts (WaPo)",
-  "fact": "Headline: Trump ally Laura Loomer was paid thousands of dollars for political tweets, people familiar say (7 Nov 2026). Page blocked, so amounts, payers and period are not confirmed here",
-  "source": "Washington Post, 7 Nov 2026 (unread)",
+  "fact": "Alex Bruesewitz and three anonymous sources (two say they paid her directly) say Laura Loomer is paid by private clients for undisclosed political posts on X (1.9M followers), at $3,000–5,000 per tweet according to two of them. Bank emails and a wire statement reviewed by the Post appear to show four payments totalling over $60,000 to Loomer and her company King Breaker Media since May 2025; the documents do not state a purpose. Loomer denies being paid to post and says Bruesewitz paid for a research document",
+  "source": "Washington Post, 7 Nov 2026",
   "url": "https://www.washingtonpost.com/business/2026/11/07/trump-ally-laura-loomer-paid-thousands-political-tweets-people-familiar-say/",
-  "source_type": "Journalism (anonymous sources)",
-  "confidence": "pending text",
-  "visual_use": "Undisclosed paid political posting by an influencer; L2 Production, L3 Entry"
+  "source_type": "Journalism (one named and three anonymous sources; documents reviewed)",
+  "confidence": "reported",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Laura Loomer",
+    "type": "denial",
+    "summary": "Denies being paid to post; says she was paid for a research document and does not charge $5,000 a tweet"
+   },
+   {
+    "by": "White House",
+    "type": "no_reply",
+    "summary": "Declined to comment"
+   }
+  ],
+  "visual_use": "Undisclosed paid political posting by an influencer; L2 Production, L3 Entry; price per post; target includes an audience of one (the president)"
  },
  {
   "id": "E82",
   "case": "Loomer paid posts (Bruesewitz)",
-  "fact": "Trump adviser Alex Bruesewitz (X Strategies) wrote on X that he has paid Loomer for tweets before, not in at least a year, and that she is still paid by others; Loomer replied by asking whether journalists are commonly paid for opinions, then announced a one-to-two-month show hiatus",
-  "source": "The New Republic (via search excerpt; exact date not confirmed); Daily Beast (excerpt)",
+  "fact": "On 5 Nov 2026 Trump adviser Alex Bruesewitz (X Strategies) wrote on X that he has paid Loomer for tweets before, not in at least a year, and that she is still paid by others, after asking whether it is common for journalists to be paid for opinions and tweets. Loomer said his firm had approached her \"asking for help\" and did not answer what share of her tweets are paid; hours later she announced a one-to-two-month show hiatus",
+  "source": "The New Republic, 6 Nov 2026; Daily Beast (excerpt)",
   "url": "https://newrepublic.com/post/217689/laura-loomer-hiatus-paid-posts-election-republicans",
   "source_type": "Journalism quoting public posts",
   "confidence": "reported",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Laura Loomer",
+    "type": "explanation",
+    "summary": "Said Bruesewitz's firm had approached her \"asking for help\"; did not say what share of her tweets are paid"
+   }
+  ],
   "visual_use": "Insider claim about pay-for-tweets; actor response (hiatus) on case card"
  },
  {
   "id": "E83",
   "case": "Loomer paid posts (earlier claims)",
-  "fact": "Earlier allegations of corporate payment (e.g. around the FDA's Vinay Prasad ouster) rested on circumstantial evidence; Loomer denied them (\"I am not paid for my posts\"; \"Big Pharma didn't pay me\"). A Politico-reported legal complaint alleges Calley Means tried to stop Loomer's tweets by threatening a company",
-  "source": "The Bulwark; Gizmodo (excerpts)",
+  "fact": "May 2025: Calley Means claimed, without evidence shown, that Loomer was \"taking money from industry\"; the Bulwark noted her sudden advocacy for Chevron's Venezuela licence (ten posts on oil in a week, a 1,500-word op-ed, praise for Maduro). Loomer: \"I am not paid for my posts\". A Politico-reported complaint by Peter Gillooly alleges Calley Means threatened to use federal power against his company unless Loomer's tweets stopped. From a Gizmodo excerpt (unread): similar claims around the FDA's Vinay Prasad ouster; \"Big Pharma didn't pay me\"",
+  "source": "The Bulwark, May 2025; Gizmodo (excerpt)",
   "url": "https://www.thebulwark.com/p/is-laura-loomer-for-sale-maga-maha-casey-means",
   "source_type": "Journalism / commentary",
   "confidence": "contested",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Laura Loomer",
+    "type": "denial",
+    "summary": "\"I am not paid for my posts\""
+   },
+   {
+    "by": "Chevron",
+    "type": "no_reply",
+    "summary": "Did not respond to the Bulwark"
+   }
+  ],
   "visual_use": "Denial vs allegation; commercial intent (proposed change 15); influence flows into government personnel decisions"
+ },
+ {
+  "id": "E84",
+  "case": "Iran blackout: Iranian campaigns",
+  "fact": "Golden Owl reported two Iranian campaigns on X with more than 4,700 accounts pushing pro-government content; Google's Threat Intelligence Group saw Iranian operations blaming Mossad for a mosque bombing; state media used images of US protests against ICE to justify the crackdown (Alethea: \"whataboutism\")",
+  "source": "New York Times, 16 Jan 2026",
+  "url": "https://www.nytimes.com/2026/01/16/business/iran-internet-blackout-protests-disinformation.html",
+  "source_type": "Journalism citing vendors and platform researchers",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "State actor defending itself abroad while shutting the internet at home; crowd.inauthentic"
+ },
+ {
+  "id": "E85",
+  "case": "Iran blackout: Israeli-attributed network",
+  "fact": "Citizen Lab (Oct 2025) concluded that a network of more than 50 inauthentic X profiles, using AI to urge Iranians to revolt, was organised by the Israeli government or a closely supervised subcontractor; a 2022 report commissioned by the National Iranian American Council found most such activity \"most likely\" Israeli. Israel did not respond",
+  "source": "New York Times, 16 Jan 2026",
+  "url": "https://www.nytimes.com/2026/01/16/business/iran-internet-blackout-protests-disinformation.html",
+  "source_type": "Journalism citing research reports",
+  "confidence": "reported",
+  "read_status": "full",
+  "responses": [
+   {
+    "by": "Israeli government",
+    "type": "no_reply",
+    "summary": "Did not respond to the New York Times"
+   }
+  ],
+  "visual_use": "Foreign state on a regime-change narrative; attribution by research lab"
+ },
+ {
+  "id": "E86",
+  "case": "Iran blackout: pro-Pahlavi campaign",
+  "fact": "A campaign on X uses old, recently reactivated accounts to build up Reza Pahlavi as the face of the opposition; some accounts address \"an audience of one\", the US president (Philip Mai, Toronto Metropolitan University). No attribution. Satellite channel Iran International, widely watched in Iran, carries his speeches",
+  "source": "New York Times, 16 Jan 2026",
+  "url": "https://www.nytimes.com/2026/01/16/business/iran-internet-blackout-protests-disinformation.html",
+  "source_type": "Journalism citing a researcher",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "No attribution.",
+  "visual_use": "Unattributed campaign; target is one decision-maker, not the public; broadcast as a channel that survives a shutdown"
+ },
+ {
+  "id": "E87",
+  "case": "Pro-Trump AI avatars: attribution",
+  "fact": "Who runs the accounts is unknown (content farm, foreign operation or experiment); most use stilted English and one avatar switched from a foreign to an American accent within a day. TikTok found \"zero indication of covert influence operations\", called them engagement spammers and began removing them; the RNC denies involvement; neither the NYT nor the researchers found a left-leaning equivalent. Some accounts also sell products or resemble romance scams",
+  "source": "New York Times, 17 Apr 2026",
+  "url": "https://www.nytimes.com/2026/04/17/business/media/artificial-intelligence-trump-social-media.html",
+  "source_type": "Journalism + platform statement",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The platform's assessment is its own claim.",
+  "responses": [
+   {
+    "by": "TikTok",
+    "type": "explanation",
+    "summary": "Found \"zero indication of covert influence operations\", called the accounts engagement spammers and began removing them"
+   },
+   {
+    "by": "Republican National Committee",
+    "type": "denial",
+    "summary": "Says it is not involved"
+   }
+  ],
+  "visual_use": "Unknown origin and mixed commercial/political intent; platform response on case card"
+ },
+ {
+  "id": "E88",
+  "case": "Pro-Trump AI avatars: cost",
+  "fact": "A post with such an avatar costs about $1–3 to make, according to the co-founder of Doublespeed, an AI advertising start-up running phone-based bot farms; he says his firm declines political work it has been offered by Democrats, Republicans and foreign parties, but that other firms take those contracts",
+  "source": "New York Times, 17 Apr 2026",
+  "url": "https://www.nytimes.com/2026/04/17/business/media/artificial-intelligence-trump-social-media.html",
+  "source_type": "Vendor statement in journalism",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "Vendor statement.",
+  "visual_use": "Cost per step; influence vendors for hire (automation and scale)"
+ },
+ {
+  "id": "E89",
+  "case": "\"The Company\" in West Africa: outlets",
+  "fact": "Per the leaked spreadsheet: AfriqueMedia.tv (Cameroon, RT partner since 2022, CEO sanctioned by the EU in May 2025) ran 125 placed articles, listed at $31,250; Bamada.net 32 articles, $16,000; Senego 32; Dakaractu 20; PressAfrik 13, removed after France 24 called. Bamada, Dakaractu and Senego deny receiving money; AfriqueMedia did not respond",
+  "source": "France 24 Observers, 3 Apr 2026",
+  "url": "https://www.france24.com/en/africa/20260403-article-russia-influenced-west-african-media-content",
+  "source_type": "Leaked documents + outlet interviews",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The placements are documented by the leak; the outlets' denials are their own claims.",
+  "responses": [
+   {
+    "by": "Bamada.net, Dakaractu and Senego",
+    "type": "denial",
+    "summary": "Say they received no money for the articles"
+   },
+   {
+    "by": "PressAfrik",
+    "type": "explanation",
+    "summary": "Said the articles were published fraudulently or through inattention, and removed them"
+   },
+   {
+    "by": "AfriqueMedia",
+    "type": "no_reply",
+    "summary": "Did not answer France 24"
+   }
+  ],
+  "visual_use": "Outlets as nodes with counts; witting vs unwitting; actor responses"
+ },
+ {
+  "id": "E90",
+  "case": "\"The Company\" in West Africa: method",
+  "fact": "Articles arrive ready to publish (\"PAD\") through intermediaries or individual journalists, often without the editor knowing; one came as a Word file over WhatsApp and was published unchanged within hours. The byline \"Coulibaly Mamadou\", a \"sociologist\" no outlet could identify, appears on at least a dozen articles in at least eight outlets",
+  "source": "France 24 Observers, 3 Apr 2026",
+  "url": "https://www.france24.com/en/africa/20260403-article-russia-influenced-west-african-media-content",
+  "source_type": "Journalism (interviews, document obtained)",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Laundering through intermediaries; fake byline (synthetic persona) inside authentic outlets"
+ },
+ {
+  "id": "E91",
+  "case": "\"The Company\" in West Africa: effect",
+  "fact": "Researcher Maxime Audinet (Inalco): the files are internal reports meant to show efficiency, contain duplicate entries and possibly inflated sums, and say nothing about impact; it is unknown whether the listed money was paid or to whom. He calls the system \"propaganda laundering\" that capitalises on newsroom precarity",
+  "source": "France 24 Observers, 3 Apr 2026",
+  "url": "https://www.france24.com/en/africa/20260403-article-russia-influenced-west-african-media-content",
+  "source_type": "Expert assessment in journalism",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Expert assessment.",
+  "visual_use": "Capability is not effect; vendor self-reporting inflates"
+ },
+ {
+  "id": "E92",
+  "case": "X: owner boost (data)",
+  "fact": "Timothy Graham (QUT), using Twitter's API, found impressions on Musk's tweets rose 737% on 13 Feb 2023, the day after the Super Bowl, and stayed at roughly four times the earlier level in the following days, after Musk said the bug was fixed",
+  "source": "Firstpost, Feb 2023 (citing Timothy Graham, QUT)",
+  "url": "https://www.firstpost.com/world/musk-tweaked-twitter-algo-to-boost-his-posts-lied-about-journalists-and-report-that-called-him-out-12180192.html/amp",
+  "source_type": "Researcher data analysis reported in journalism",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Independent measurement contradicting the actor's denial"
+ },
+ {
+  "id": "E93",
+  "case": "X in 2024 (BBC): feed observation",
+  "fact": "A BBC reporter's 20-plus fictional \"Undercover Voter\" accounts across the political spectrum all saw feeds dominated by divisive posts in the second half of 2024, tilted toward Trump; former platform staff attribute this to removed safety mechanisms and wider product changes rather than a single algorithm tweak",
+  "source": "BBC News, Dec 2024",
+  "url": "https://www.bbc.com/news/articles/c1elddq34p7o",
+  "source_type": "Journalism (reporter's own test accounts)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Informal method: a reporter's own test accounts.",
+  "visual_use": "Structural tilt observed from the user side; small sample, not an experiment"
+ },
+ {
+  "id": "E94",
+  "case": "X: owner engagement spike",
+  "fact": "Graham and Andrejevic found that after Musk endorsed Trump on 13 Jul 2024, views of Musk's posts rose 138%, retweets 238% and likes 186%, far more than for other accounts, and right-leaning accounts gained more visibility than progressive ones for the rest of the period studied. Also cited: a 2025 experiment in which re-ranking X feeds to reduce partisan animosity shifted feelings toward opponents by more than two points on a 100-point scale",
+  "source": "The Conversation (Timothy Graham, QUT), Feb 2026",
+  "url": "https://theconversation.com/a-few-weeks-of-xs-algorithm-can-make-you-more-right-wing-and-it-doesnt-wear-off-quickly-276153",
+  "source_type": "Researcher summarising own study",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Owner amplification measured from outside; re-ranking as a countermeasure with measured effect"
+ },
+ {
+  "id": "E95",
+  "case": "Grokipedia sourcing",
+  "fact": "A Cornell Tech study (Nov 2025) found that Grokipedia, a Wikipedia competitor built from Grok's output, extensively cites the conspiracy site Infowars and the neo-Nazi site Stormfront as sources",
+  "source": "Le Monde (Olivier Clairouin), 24 Nov 2025",
+  "url": "https://www.lemonde.fr/en/pixels/article/2025/11/24/why-grok-is-first-and-foremost-a-disinformation-machine_6747782_13.html",
+  "source_type": "Journalism citing academic study (study not read)",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Rival reference commons built from LLM output (proposed change 3); output loop"
+ },
+ {
+  "id": "E96",
+  "case": "Paid political posts: disclosure gap",
+  "fact": "The FTC requires influencers to disclose paid product endorsements but has no jurisdiction over political ads; the Campaign Legal Center petitioned the FEC in 2025 for \"paid for by\" labels on influencers' political posts; California has passed a law penalising undisclosed paid political messages",
+  "source": "Washington Post, 7 Nov 2026",
+  "url": "https://www.washingtonpost.com/business/2026/11/07/trump-ally-laura-loomer-paid-thousands-political-tweets-people-familiar-say/",
+  "source_type": "Journalism (regulatory context)",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Oversight gap that makes undisclosed paid posting legal; regulator nodes"
+ },
+ {
+  "id": "E97",
+  "case": "Paid influencers: food-stamp bills",
+  "fact": "In March 2025 conservative influencers turned against state bills restricting food-stamp purchases of junk food; some later admitted they were paid to oppose the legislation",
+  "source": "The Bulwark, May 2025",
+  "url": "https://www.thebulwark.com/p/is-laura-loomer-for-sale-maga-maha-casey-means",
+  "source_type": "Journalism (secondhand mention)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Mentioned in passing by the source.",
+  "visual_use": "Paid influencer content with admitted payment; commercial intent"
+ },
+ {
+  "id": "E98",
+  "case": "\"The Company\": journalists in Chad",
+  "fact": "Two Russian agents posing as Belarusian journalists approached Chadian editors in Aug 2024 about \"advertorials\" and opened a \"Russian House\" in N'Djamena; they were arrested after its inauguration. Four Chadian journalists were arrested in March 2025; some admitted publishing \"sponsored reports\" for 50,000–200,000 CFA francs (about €75–300) each. Charges were dismissed; one editor spent four months in prison and says he was set up",
+  "source": "Forbidden Stories, 2026 (date not in the supplied text; with The Continent)",
+  "url": "https://forbiddenstories.org/sahel-journalists-activists-ngos-russian-agents/",
+  "source_type": "Journalism (court document reviewed, interviews)",
+  "confidence": "reported",
+  "read_status": "full",
+  "visual_use": "Recruitment under false identity; unwitting intermediaries bear the legal risk; cost per article"
+ },
+ {
+  "id": "E99",
+  "case": "\"The Company\": civil society",
+  "fact": "Internal documents target the pro-democracy network Tournons la Page: a briefing note on its Niger branch (Aug 2024) and a plan to have \"pro-Western NGOs\" \"blocked\" through a \"foreign agents law\". Its Niger coordinator Maikoul Zodi condemned the 2023 coup, then appeared at a pro-junta rally a week later; members allege he later offered funding to move the network toward pro-Russian circles. He denies outside influence and was suspended",
+  "source": "Forbidden Stories, 2026 (date not in the supplied text; with The Continent)",
+  "url": "https://forbiddenstories.org/sahel-journalists-activists-ngos-russian-agents/",
+  "source_type": "Leaked documents + interviews (anonymous member)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The targeting is documented by the leak; Zodi's role is contested.",
+  "responses": [
+   {
+    "by": "Maikoul Zodi",
+    "type": "denial",
+    "summary": "Denies outside influence and the statements attributed to him; disputes his suspension"
+   }
+  ],
+  "visual_use": "Countervailing actor co-opted or neutralised; suppression by law; actor response on case card"
+ },
+ {
+  "id": "E100",
+  "case": "\"The Company\": celebrities and youth",
+  "fact": "The documents allocate $12,000 to an Oct 2024 Dakar conference with reggae star Eli Kamano, whom agents say they used to \"spread anti-Ukrainian narratives\"; he denies being paid. At a Sept 2024 youth conference in Bamako, with airfare paid by the Russian House, delegates were asked to sign statements backing their countries' accession to the Alliance of Sahel States; Senegal's delegate refused, yet state media presented the event as a prelude to the alliance",
+  "source": "Forbidden Stories, 2026 (date not in the supplied text; with The Continent)",
+  "url": "https://forbiddenstories.org/sahel-journalists-activists-ngos-russian-agents/",
+  "source_type": "Leaked documents + interviews",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The budget is documented by the leak.",
+  "responses": [
+   {
+    "by": "Eli Kamano",
+    "type": "denial",
+    "summary": "Denies being paid"
+   }
+  ],
+  "visual_use": "Offline events turned into media narratives; celebrities as amplifiers; edge of scope (proposed change 33)"
+ },
+ {
+  "id": "E101",
+  "case": "\"The Company\": Togo",
+  "fact": "Togo appeared on a 2023 list of \"promising countries\"; in May 2024 the network logged $807 in travel and $5,500 for meetings with Togolese public figures \"to gather intelligence\". In January 2025 Togo's foreign minister said Togolese would say yes to joining the Alliance of Sahel States, and Togo later signed a military agreement with Russia. The article shows the sequence, not that one caused the other",
+  "source": "Forbidden Stories, 2026 (date not in the supplied text; with The Continent)",
+  "url": "https://forbiddenstories.org/sahel-journalists-activists-ngos-russian-agents/",
+  "source_type": "Leaked documents + public record",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The spending is documented; the sequence is reported and causation is not shown.",
+  "visual_use": "Ultimate effect claimed by the actor vs what is shown; elite targets rather than the public"
+ },
+ {
+  "id": "E102",
+  "case": "Meta / Brazil 2026 election: internal messages",
+  "fact": "Folha de S.Paulo reported on 16 Oct 2026 that, in internal messages it reviewed, Meta employees acknowledged that restrictions had harmed Lula's Instagram accounts during the election, and that the platform recommended Senator Flávio Bolsonaro's profile and WhatsApp channel",
+  "source": "Al Jazeera (AP and Reuters), 16 Oct 2026",
+  "url": "https://www.aljazeera.com/economy/2026/10/16/meta-employees-say-lulas-accounts-restricted-in-brazil-election-report",
+  "source_type": "Agency journalism relaying another outlet's report of internal messages",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Relayed from Folha, whose own article was not read; the messages are not quoted and intent is not established. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "denial",
+    "summary": "Told Reuters the technical issues were already public and the conversations concerned their severity, not political interference; \"Any suggestion that Meta favors one side is false\""
+   }
+  ],
+  "visual_use": "Asymmetric treatment of two candidates by one platform; insider confirmation; intent unproven"
+ },
+ {
+  "id": "E103",
+  "case": "Meta / Brazil 2026 election: court order",
+  "fact": "On 15 Oct 2026 Justice Marco Aurelio Bellizze of Brazil's top electoral court, after a complaint by Lula alleging biased algorithms and AI restrictions, ordered Meta to treat both candidates equally before the 25 Oct runoff: no reducing distribution, restricting searches or removing posts in a way that creates an imbalance, and identical criteria in its AI tool, under a fine of 500,000 reais ($98,700) a day",
+  "source": "Al Jazeera (AP and Reuters), 16 Oct 2026",
+  "url": "https://www.aljazeera.com/economy/2026/10/16/meta-employees-say-lulas-accounts-restricted-in-brazil-election-report",
+  "source_type": "Court ruling described in agency journalism",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "The ruling is described by the agencies; its text was not read. Whether Meta complied is not stated. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Countervailing actor (court) acting on L4 in real time; regulator edge with a price"
+ },
+ {
+  "id": "E104",
+  "case": "Meta / Brazil 2026 election: campaign claims",
+  "fact": "Lula's party says some of his posts appeared without a share button and with reduced reach, and lacked reactions, sharing, audio and speed options",
+  "source": "Al Jazeera (AP and Reuters), 16 Oct 2026",
+  "url": "https://www.aljazeera.com/economy/2026/10/16/meta-employees-say-lulas-accounts-restricted-in-brazil-election-report",
+  "source_type": "Party claim in agency journalism",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "Not verified by the agencies. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Suppression without removal: reach and features reduced"
+ },
+ {
+  "id": "E105",
+  "case": "Meta / Brazil 2026 election: prosecutors",
+  "fact": "Brazil's Federal Prosecution Office called Meta's earlier answers \"generic and insufficient\" and gave it 48 hours to respond to urgent recommendations: stop removing posts, suspending accounts or restricting features without a legal or contractual basis; apply moderation criteria uniformly; have people who know the language and context review mass-reported material; restore content and reach when errors are recognised; and hire an independent firm to audit its moderation algorithms over the previous two months. It also filed a civil action that a federal court has yet to accept",
+  "source": "Tech Policy Press (Laís Martins), 23 Oct 2026",
+  "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+  "source_type": "Journalism reporting an official action (prosecutors' release and petition linked)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "These are recommendations, not orders; compliance depends on Meta. The prosecutors' documents were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "no_reply",
+    "summary": "Did not respond to Tech Policy Press"
+   }
+  ],
+  "visual_use": "Oversight actor demanding an algorithm audit; countervailing loop"
+ },
+ {
+  "id": "E106",
+  "case": "Meta / Brazil 2026 election: automated blocks",
+  "fact": "Meta told prosecutors it automatically blocked over 206,000 pieces of content between 1 and 5 Oct 2026 under electoral rules and for AI use in political content; prosecutors found most blocks were applied without individual justification or under criteria meant for serious offences such as terrorism or child sexual abuse material",
+  "source": "Tech Policy Press (Laís Martins), 23 Oct 2026",
+  "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+  "source_type": "Journalism reporting a company answer and a prosecutors' finding",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The figure is Meta's own; no document is cited for the prosecutors' finding. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Scale of automated moderation at L4; structural suppression"
+ },
+ {
+  "id": "E107",
+  "case": "Meta / Brazil 2026 election: moderation incidents",
+  "fact": "In the weeks before the vote Meta took down the page of a media outlet that produced a viral video about scandals involving Flávio Bolsonaro, temporarily stopped Lula's campaign page from running political ads, and disabled its Muse AI tool from generating images in support of Lula while allowing images related to Flávio Bolsonaro",
+  "source": "Tech Policy Press (Laís Martins), 23 Oct 2026",
+  "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+  "source_type": "Journalism relaying other outlets (Folha, UOL/Comprova)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Relayed from other outlets that were not read; no dates given. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "denial",
+    "summary": "Its public statement calls the allegations of favouring a candidate \"false and unfounded\" and describes technical problems that led to a political narrative"
+   }
+  ],
+  "visual_use": "Three levers on one platform: page removal, ad access, AI image tool"
+ },
+ {
+  "id": "E108",
+  "case": "Meta / Brazil 2026 election: civil society",
+  "fact": "Article 19 Brazil, Sleeping Giants Brazil, Conectas and Ctrl+Z are documenting takedowns, restrictions, bans and reduced reach that appear to fall disproportionately on progressive accounts; demonstrators gathered outside Meta's São Paulo headquarters on 19 Oct 2026; US Democratic legislators asked Meta for explanations",
+  "source": "Tech Policy Press (Laís Martins), 23 Oct 2026",
+  "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+  "source_type": "Journalism citing civil-society groups",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "\"Appear to\" is the article's hedge. A co-founder of Ctrl+Z is a fellow of the publisher. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Countervailing actors: civil society, protest, foreign legislators"
+ },
+ {
+  "id": "E109",
+  "case": "Brazil 2026 election: court and WhatsApp channels",
+  "fact": "The electoral court's president, Kassio Nunes Marques, suspended a pro-Lula WhatsApp channel run by deputy André Janones over disinformation claims; Lula's campaign says a similar channel linked to Flávio Bolsonaro stayed online. Folha reported that he and Justice André Mendonça circulated a draft rule to block political WhatsApp channels in the 48 hours before the runoff; the pro-Lula channel had over 8.3 million members. More than 100 legal experts, researchers and organisations warned the court that this would alter the conditions of the contest",
+  "source": "Tech Policy Press (Laís Martins), 23 Oct 2026",
+  "url": "https://www.techpolicy.press/on-eve-of-vote-brazils-federal-prosecution-office-demands-answers-from-meta/",
+  "source_type": "Journalism relaying other outlets (Folha, G1)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Relayed from other outlets that were not read. Both justices were appointed by Jair Bolsonaro. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Kassio Nunes Marques",
+    "type": "explanation",
+    "summary": "Said he was against last-minute measures"
+   },
+   {
+    "by": "André Mendonça",
+    "type": "explanation",
+    "summary": "Said the draft was not an individual initiative and would still be discussed"
+   }
+  ],
+  "visual_use": "The overseer as a suppressor: a court suspending a channel; WhatsApp as a venue"
+ },
+ {
+  "id": "E110",
+  "case": "Meta / Brazil 2026 election: Meta AI",
+  "fact": "In tests by Folha's Mônica Bergamo column, Meta AI on WhatsApp refused to make a poster reading \"Lula 13\" but made one reading \"Flávio 22\"; asked why, the chatbot acknowledged the inconsistency and attributed it to an automatic safety filter. After Meta said it had taken additional measures, the chatbot still made \"Vote Flávio\" images but not \"Vote Lula\" or \"Vote Luiz Inácio\"",
+  "source": "Folha de S.Paulo, English edition (Mônica Bergamo column), Oct 2026",
+  "url": "https://www1.folha.uol.com.br/internacional/en/brazil/2026/10/meta-ai-creates-campaign-material-for-flavio-bolsonaro-and-blocks-lula-content.shtml",
+  "source_type": "Journalism (outlet's own tests)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Text supplied by the user. The number of tests and the exact prompts are not given; the publication date is not in the supplied text.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "explanation",
+    "summary": "Says it temporarily prohibited recommending candidates or generating images of them to comply with election rules; the tool did not recognise prompts using only the name \"Flávio\", and additional measures were taken"
+   },
+   {
+    "by": "Meta",
+    "type": "denial",
+    "summary": "Denies the accusations and says it is committed to equal treatment"
+   }
+  ],
+  "visual_use": "A safety filter that recognises one candidate's name and not the other's: unequal outcome, stated cause is technical"
+ },
+ {
+  "id": "E111",
+  "case": "Meta / Brazil 2026 election: Meta AI by phone number",
+  "fact": "Folha correspondents in the United States, Argentina and Germany could generate Lula posters, including with photos, from accounts without Brazilian area codes; Brazilian numbers were blocked even when used abroad",
+  "source": "Folha de S.Paulo, English edition (Mônica Bergamo column), Oct 2026",
+  "url": "https://www1.folha.uol.com.br/internacional/en/brazil/2026/10/meta-ai-creates-campaign-material-for-flavio-bolsonaro-and-blocks-lula-content.shtml",
+  "source_type": "Journalism (outlet's own tests)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Text supplied by the user.",
+  "visual_use": "The restriction follows the user's phone number, not their location: who is on the other side of the screen changes the answer"
+ },
+ {
+  "id": "E112",
+  "case": "Meta / Brazil 2026 election: electoral court and Meta AI",
+  "fact": "Lula's campaign took the Meta AI case to the Superior Electoral Court on 14 Oct 2026, having said on 10 Oct it would go to the court and to the data-protection authority (ANPD); the court ordered Meta to provide technical explanations and preserve records",
+  "source": "Folha de S.Paulo, English edition (Mônica Bergamo column), Oct 2026",
+  "url": "https://www1.folha.uol.com.br/internacional/en/brazil/2026/10/meta-ai-creates-campaign-material-for-flavio-bolsonaro-and-blocks-lula-content.shtml",
+  "source_type": "Journalism reporting a court order",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Text supplied by the user; the order itself was not read.",
+  "visual_use": "Countervailing actors: campaign complaint, court order to preserve records, data-protection authority"
+ },
+ {
+  "id": "E113",
+  "case": "Twitter visibility filtering: the feature",
+  "fact": "On 15 May 2018 Twitter announced it would hide tweets from accounts its software judges to \"detract from the conversation\": they drop out of search results and public conversation threads by default, while staying visible to followers and retweetable. Affected users are not told. Twitter said it would affect much less than 1% of accounts and target behaviour that does not break its rules",
+  "source": "Slate (Will Oremus), 15 May 2018",
+  "url": "https://slate.com/technology/2018/05/twitter-will-start-hiding-tweets-that-detract-from-the-conversation.html",
+  "source_type": "Journalism (company announcement and interview)",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Text supplied by the user. Documents what the company announced; how the system behaved in practice is not tested.",
+  "responses": [
+   {
+    "by": "Twitter (Del Harvey, VP trust and safety)",
+    "type": "explanation",
+    "summary": "Said users are not notified because the software is at an early stage and the company does not want to alarm people affected only briefly; it is working on ways to notify them"
+   }
+  ],
+  "visual_use": "Demotion by design: content stays up, reach is cut, author not told"
+ },
+ {
+  "id": "E114",
+  "case": "Twitter visibility filtering: how accounts are chosen",
+  "fact": "The system does not read tweet content. It scores accounts on behavioural signals: how often they are reported, blocked and muted against how often they are liked and retweeted. Harvey's example: if a message sent to four people gets two blocks and one report, it is treated as a negative interaction without the content being seen",
+  "source": "Slate (Will Oremus), 15 May 2018",
+  "url": "https://slate.com/technology/2018/05/twitter-will-start-hiding-tweets-that-detract-from-the-conversation.html",
+  "source_type": "Journalism (interview with a named executive)",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "Text supplied by the user. The company's own description of its system.",
+  "visual_use": "Crowd reactions (L5) as the input to suppression at L4: mass reporting and blocking can demote an account"
+ },
+ {
+  "id": "E115",
+  "case": "Twitter visibility filtering: stated effect",
+  "fact": "In early testing Twitter said abuse reports fell 4% in search and 8% in conversation threads. It said less than 1% of accounts make up the majority of accounts reported for abuse, and that much of what is reported does not violate its rules",
+  "source": "Slate (Will Oremus), 15 May 2018",
+  "url": "https://slate.com/technology/2018/05/twitter-will-start-hiding-tweets-that-detract-from-the-conversation.html",
+  "source_type": "Company figures in journalism",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "Text supplied by the user. The company's own figures; no method given.",
+  "visual_use": "Effect measured by the platform itself; rationale for moving from removal to \"subtler levers\""
+ },
+ {
+  "id": "E116",
+  "case": "Twitter visibility filtering: 2018 shadow-ban claims",
+  "fact": "A Vice News report of 25 Jul 2018 alleged Twitter was \"shadow banning\" prominent Republicans by leaving them out of its auto-suggested search results: RNC chair Ronna McDaniel, Reps. Mark Meadows and Jim Jordan, and a spokesperson for Donald Trump Jr. President Trump tweeted that he would \"look into this discriminatory and illegal practice\"",
+  "source": "ABC News (Adam Kelsey), 26 Jul 2018",
+  "url": "https://abcnews.com/Technology/twitter-denies-conservative-shadow-banning-claims-alters-search/story?id=56841398",
+  "source_type": "Journalism relaying another outlet's report",
+  "confidence": "contested",
+  "read_status": "full",
+  "note": "ABC calls the Vice report contested and did not verify its data; the Vice article was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Twitter (Kayvon Beykpour, product lead)",
+    "type": "denial",
+    "summary": "\"Our behavioral ranking doesn't make judgements based on political views or the substance of tweets\""
+   },
+   {
+    "by": "Twitter (Nick Pickles, to the House Judiciary Committee)",
+    "type": "denial",
+    "summary": "Called the claims of bias \"unfounded and false\"; said acting on conduct, not speech, is a defence against bias"
+   }
+  ],
+  "visual_use": "Demotion alleged against one political side; mirror image of the Brazil 2026 case"
+ },
+ {
+  "id": "E117",
+  "case": "Twitter visibility filtering: explanation and fix",
+  "fact": "Twitter said the reduced search visibility came from behaviour signals, not politics: not confirming an email address, signing up several accounts at once, and interacting with accounts that break its rules. It said it would change the system; the next day ABC found McDaniel, Meadows and Jordan in the search drop-down again. ABC notes it was not clear whether the affected accounts had shown any of those behaviours",
+  "source": "ABC News (Adam Kelsey), 26 Jul 2018",
+  "url": "https://abcnews.com/Technology/twitter-denies-conservative-shadow-banning-claims-alters-search/story?id=56841398",
+  "source_type": "Journalism (company statements; outlet's own search test)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "ABC's test was a single day's searches with no stated method. What Twitter changed is not described. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Unequal outcome, stated cause is behavioural signals; platform changes the system after political pressure"
+ },
+ {
+  "id": "E118",
+  "case": "Suppression claims not borne out by data",
+  "fact": "ABC reports that its earlier review of CrowdTangle data showed no significant decline in engagement for the pro-Trump commentators Diamond and Silk during the period in which they told Congress Facebook had suppressed them",
+  "source": "ABC News (Adam Kelsey), 26 Jul 2018",
+  "url": "https://abcnews.com/Technology/twitter-denies-conservative-shadow-banning-claims-alters-search/story?id=56841398",
+  "source_type": "Journalism (outlet's own earlier data review)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "No figures given in this article; the earlier review was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "A suppression claim checked against data and not supported; claims of demotion need measurement"
+ },
+ {
+  "id": "E119",
+  "case": "Shadow banning (academic study)",
+  "fact": "Peer-reviewed article in Media, Culture & Society (DOI 10.1177/01634437221077174), supplied as relevant to shadow banning. Not read: the publisher refused the fetch, so its title, authors, method and findings are not recorded",
+  "source": "Media, Culture & Society (SAGE)",
+  "url": "https://journals.sagepub.com/doi/full/10.1177/01634437221077174",
+  "source_type": "Peer-reviewed article",
+  "confidence": "documented",
+  "read_status": "unread",
+  "note": "Grade is provisional until the article is read.",
+  "visual_use": "Academic grounding for supp.demotion"
+ },
+ {
+  "id": "E120",
+  "case": "Spamouflage: event flyers",
+  "fact": "In June and July 2026 the Chinese state-linked operation Spamouflage used inauthentic Facebook and X accounts to spread manipulated versions of event flyers and wrong information about an event by the human-rights group Safeguard Defenders and protests by pro-Tibet and Uyghur organisations, likely to hinder attendance. Graphika, which has tracked the operation since 2019, says it is the first time it has seen this tactic",
+  "source": "Graphika (Margot Fulde-Hardy), 13 Jul 2026",
+  "url": "https://www.graphika.com/reports/save-the-date-for-spamouflage",
+  "source_type": "Research vendor report (landing-page summary)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Only the public summary was read; the full report is gated. No account numbers, reach or attribution method are given, and whether the events were disrupted is not stated. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Online fakes aimed at disrupting offline events; Chinese state-linked actor; transnational repression"
+ },
+ {
+  "id": "E121",
+  "case": "Poland graffiti: paid street actions",
+  "fact": "A TVN investigation based on court files, in cases where 16 people have been convicted, found that Russian intelligence paid recruits in Poland to spray thousands of slogans attacking the then ruling party PiS and President Duda, and \"NATO go home\". Recruits were immigrants and refugees hired over Telegram and paid in cryptocurrency: $7 per graffiti, $5 per leaflet, at least $300 to install a surveillance camera, with a photo or video as proof",
+  "source": "Notes from Poland (Alicja Ptak), 27 Feb 2025",
+  "url": "https://notesfrompoland.com/2025/02/27/russia-paid-operatives-to-paint-anti-government-graffiti-in-poland-finds-report/",
+  "source_type": "Journalism relaying a broadcast investigation based on court files",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Relayed from TVN, whose programme was not seen. The article does not say the photos were published online, so no path into the digital ecosystem is shown. No effect on opinion is measured. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Polish National Prosecutor's Office",
+    "type": "explanation",
+    "summary": "\"We have no doubt that this leads back to Russia\""
+   }
+  ],
+  "visual_use": "Paid offline action with a price list; recruits as low-level intermediaries"
+ },
+ {
+  "id": "E122",
+  "case": "Poland graffiti: from slogans to sabotage",
+  "fact": "Some of the same recruits were later asked to carry out sabotage, such as derailing a train; one convicted recruit says he was offered $10,000 and declined. The group was found through solar-powered cameras placed along railway tracks and near Jasionka airport. A 22-year-old Ukrainian was sentenced to six years and said his motive was money",
+  "source": "Notes from Poland (Alicja Ptak), 27 Feb 2025",
+  "url": "https://notesfrompoland.com/2025/02/27/russia-paid-operatives-to-paint-anti-government-graffiti-in-poland-finds-report/",
+  "source_type": "Journalism relaying court files and an interrogation recording",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The $10,000 offer is the recruit's own claim. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "One recruitment channel used for messaging, surveillance and sabotage"
+ },
+ {
+  "id": "E123",
+  "case": "Poland graffiti: political aftermath",
+  "fact": "After the report, former officials of PiS used it against the current government: one noted that Russian intelligence had paid for an anti-PiS slogan that coalition politicians also use; another listed about a dozen uses of it by coalition politicians and journalists",
+  "source": "Notes from Poland (Alicja Ptak), 27 Feb 2025",
+  "url": "https://notesfrompoland.com/2025/02/27/russia-paid-operatives-to-paint-anti-government-graffiti-in-poland-finds-report/",
+  "source_type": "Journalism quoting public posts",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The officials' posts are political assertions. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Exposure of an operation becomes material for domestic politics; shared slogan is not coordination"
+ },
+ {
+  "id": "E124",
+  "case": "Russia hybrid warfare: doctrine",
+  "fact": "Recorded Future describes Russia's \"New Generation Warfare\" as combining psychological, cyber and physical tactics. It says sabotage of infrastructure is also meant to \"propagate a narrative that Western states cannot protect their populations\", and counts 30 suspected violations of NATO airspace between September 2025 and January 2026 against 23 from March 2022 to August 2025",
+  "source": "Recorded Future, Insikt Group (undated; events to Sept 2026)",
+  "url": "https://www.recordedfuture.com/blog/russia-new-generation-warfare",
+  "source_type": "Threat-intelligence vendor assessment",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Vendor assessment: counting methods and attribution are not described, the page is undated and unsigned, and no effect on opinion is measured. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Physical acts as messages; influence operations as one arm of a wider campaign"
+ },
+ {
+  "id": "E125",
+  "case": "CopyCop: fake news and fact-checking sites",
+  "fact": "Recorded Future says the Russian network CopyCop was, in late August 2026, impersonating local news and fact-checking outlets, especially in France and Norway, using AI-generated text and voice clones; it lists Doppelgänger, Operation Overload and Operation Undercut as other operations impersonating national and pan-European media",
+  "source": "Recorded Future, Insikt Group (undated; events to Sept 2026)",
+  "url": "https://www.recordedfuture.com/blog/russia-new-generation-warfare",
+  "source_type": "Threat-intelligence vendor assessment",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "No platforms, reach or sources are given. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Impersonating the checkers as well as the news; brand and voice impersonation"
+ },
+ {
+  "id": "E126",
+  "case": "EU FIMI 2025: figures",
+  "fact": "The EU's diplomatic service recorded 540 incidents of foreign information manipulation in 2025: 29% attributed to Russia and 6% to China, with 91% of mapped channels \"unattributed, state-aligned\". 88% of instances were recorded on X; nearly half were triggered by a specific event; AI techniques appeared in 27% (147 cases, up from 41 in 2024). France (107) and Germany (71) were among the four most targeted countries, with Ukraine and Moldova",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper citing an official report (EEAS)",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "About a third of the paper was read verbatim. The figures are the EEAS's; its report was not read. The author notes the counts measure exposure, not Russian activity alone. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Scale by actor origin and platform; most channels cannot be attributed"
+ },
+ {
+  "id": "E127",
+  "case": "Storm-1516: France and Germany",
+  "fact": "NewsGuard counted 34 false claims about France and Germany pushed by Storm-1516 between January 2025 and February 2026, in 175,000 posts and articles viewed 274 million times on X, against 12 in all of 2024. France's VIGINUM analysed 77 operations (Aug 2023 to Mar 2025) using burner and paid accounts and laundering through foreign media, and established the involvement of John Mark Dougan, whom the EU sanctioned in December 2025. Antibot4Navalny assessed the amplifying network as \"most likely a commercial engagement-for-hire provider\"",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper citing NewsGuard, VIGINUM and Antibot4Navalny",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The cited reports were not read. Views indicate potential exposure, not effect. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "State operation renting commercial amplification; attribution by a state agency"
+ },
+ {
+  "id": "E128",
+  "case": "EU FIMI 2025: effect",
+  "fact": "The paper argues that Russian operations \"primarily amplify existing domestic political alignments rather than manufacture them\": the position of a voter's preferred party is the strongest correlate of neutral or pro-Kremlin attitudes. In Hungary's April 2026 election the opposition won a two-thirds majority despite documented Russian operations for the incumbent. It separates three degrees of involvement: documented cooperation, contact without coordination, and independent alignment",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper (author's analysis)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The author's argument, resting on studies that were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Effect over capability; shared position is not coordination"
+ },
+ {
+  "id": "E129",
+  "case": "Paid politicians: Gill and Voice of Europe",
+  "fact": "Former British MEP Nathan Gill was sentenced in November 2025 to ten years and six months for accepting bribes to make pro-Russian statements. The Czech government sanctioned the people behind the outlet Voice of Europe in March 2024, and the EU suspended its broadcasting that May",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper citing a court outcome and government decisions",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "The court record and decisions were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Paid elite voices; political actor as a paid carrier"
+ },
+ {
+  "id": "E130",
+  "case": "Pravda network: scale in 2025",
+  "fact": "The Pravda network published about 10,000 articles a day across 101 websites in 2025, after adding 26 country and regional subdomains at the end of 2024, including one for the Basque Country",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper (source not identified in the part read)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The origin of the figure is in endnotes that were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Volume aimed at machines; regional targeting"
+ },
+ {
+  "id": "E131",
+  "case": "EU FIMI 2025: what researchers cannot see",
+  "fact": "In Bulgaria, thresholds in Meta's research tools excluded 291 election-related posts that had over 12 million views. The paper says most platforms restrict the data needed to measure manipulation, and that Telegram sits outside the strictest obligations of the EU's Digital Services Act",
+  "source": "EU Awareness Centre (George Robakidze), 18 Oct 2026",
+  "url": "https://euawareness.org/analytics/russian-foreign-information-manipulation-and-interference-inside-the-european-union-democratic-legitimacy-and-the-limits-of-resilience/",
+  "source_type": "Policy research paper",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The underlying analysis was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Transparency line: what outsiders are prevented from measuring"
+ },
+ {
+  "id": "E132",
+  "case": "Full-spectrum propaganda (framework)",
+  "fact": "DiResta and Goldstein describe states as combining four kinds of channel, along two dimensions: overt or covert, and broadcast or social. Two tactics appear only when they are viewed together: inauthentic amplification (covert accounts boosting overt state media) and deceptive sourcing (state outlets citing personas they created themselves, as when Russian state-linked media embedded tweets from \"journalists\" made by troll factories). Removing fake accounts on one platform moves the operation to platforms that cannot or will not track it",
+  "source": "McCourt School, Georgetown University (interview with Renée DiResta and Josh Goldstein), 22 Apr 2026",
+  "url": "https://mccourt.georgetown.edu/news/full-spectrum-propaganda-explained-a-conversation-with-renee-diresta-and-josh-goldstein/",
+  "source_type": "Researchers describing their own peer-reviewed paper",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The paper itself, \"Full-Spectrum Propaganda in the Social Media Era\", was not read. No effects are measured. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Framework: overt and covert channels of one state shown as one system"
+ },
+ {
+  "id": "E133",
+  "case": "Houston duelling rallies (2016)",
+  "fact": "On 21 May 2016 two Russian-run Facebook pages advertised opposing rallies at the same time and place outside the Islamic Da'wah Center in Houston: \"Heart of Texas\", with hundreds of thousands of followers, called a \"Stop Islamification of Texas\" rally, and \"United Muslims of America\" a \"Save Islamic Knowledge\" one. Protesters from both turned up and confronted each other. Senator Richard Burr said it cost the operators $200",
+  "source": "Texas Tribune (Claire Allbright), 1 Nov 2017",
+  "url": "https://www.texastribune.org/2017/11/01/russian-facebook-page-organized-protest-texas-different-russian-page-l/",
+  "source_type": "Journalism reporting ads released by Congress and a Senate hearing",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Attendance is not given, and the article does not say what the $200 covered. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Facebook (Colin Stretch, general counsel)",
+    "type": "explanation",
+    "summary": "Told the Senate committee such ads were most likely directed at different audiences"
+   }
+  ],
+  "visual_use": "Online pages producing an offline confrontation; cost; Offline consequences on Facebook's sheet"
+ },
+ {
+  "id": "E134",
+  "case": "AI sycophancy",
+  "fact": "LawZero defines sycophancy as \"the tendency of models to flatter or agree with users at the cost of truth\". It attributes it to how models are trained: they are optimised for outputs human raters prefer, which is not the same as outputs that are true. It cites a 2023 study in which a preference model favoured answers matching the user's beliefs over truthful ones, and says sycophancy \"is believed to play some role\" in fuelling delusional thinking. Whether current fixes work is unresolved",
+  "source": "LawZero blog (unsigned), 23 Jun 2026",
+  "url": "https://lawzero.org/en/blog/trained-please-sycophancy-and-design-language-models",
+  "source_type": "Explanatory essay by an AI-safety organisation, citing studies",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The essay argues for the publisher's own alternative design. The cited studies were not read, and no figures are given. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Influence with no outside actor: the model bends toward what the user already believes"
+ },
+ {
+  "id": "E135",
+  "case": "Unread: BBC article",
+  "fact": "BBC article supplied by the user. Not read: the site refused the fetch, so even its topic is not recorded",
+  "source": "BBC News",
+  "url": "https://www.bbc.com/news/articles/c9wx2dz2v44o",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E136",
+  "case": "AI companions: Guardian opinion",
+  "fact": "Opinion piece on Mark Zuckerberg, loneliness and AI friends (from the URL). Not read: the site refused the fetch",
+  "source": "Guardian (opinion), 15 May 2025",
+  "url": "https://www.theguardian.com/commentisfree/2025/may/15/mark-zuckerberg-loneliness-epidemic-ai-friends",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E137",
+  "case": "AI psychosis: APA Monitor",
+  "fact": "Article on \"AI psychosis\" (from the URL). Not read: the page returned no content",
+  "source": "APA Monitor, Sept 2026",
+  "url": "https://www.apa.org/monitor/2026/09/ai-psychosis",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E138",
+  "case": "AI and the mind: Communications Psychology paper",
+  "fact": "Journal article supplied by the user. Not read: the page redirected to a login, so its title, method and findings are not recorded",
+  "source": "Communications Psychology (Nature Portfolio), 2026",
+  "url": "https://www.nature.com/articles/s44271-026-00486-9",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E139",
+  "case": "Cambridge Analytica: the data",
+  "fact": "A personality-quiz app, \"This Is Your Digital Life\", built in 2013 by Aleksandr Kogan's Global Science Research, was downloaded by about 270,000 people and, through Facebook's friends permissions, collected data from up to 87 million profiles (70.6 million in the US), detailed enough to build psychographic profiles. Former employee Christopher Wylie disclosed it; the Guardian and the New York Times published on 17 Mar 2018",
+  "source": "Wikipedia, \"Facebook–Cambridge Analytica data scandal\" (revision 1381700564)",
+  "url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal",
+  "source_type": "Encyclopedia article",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Tertiary source; only the first part of the article was read verbatim, and the sources behind each figure were not checked. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Facebook",
+    "type": "admission",
+    "summary": "Apologised for its role in the data harvesting"
+   }
+  ],
+  "visual_use": "Personal data as the input to targeting; third-party app as the route"
+ },
+ {
+  "id": "E140",
+  "case": "Cambridge Analytica: campaigns",
+  "fact": "Ted Cruz's campaign paid the firm $5.8 million; Donald Trump's campaign used the data to build psychographic profiles and split advertising between supporters and \"potential swing votes\". In Trinidad and Tobago in 2010 the firm designed \"Do So\", a campaign to raise abstention among young people of African descent, presented as spontaneous. On Brexit, the official UK investigation found the firm was not involved \"beyond some initial enquiries\"",
+  "source": "Wikipedia, \"Facebook–Cambridge Analytica data scandal\" (revision 1381700564)",
+  "url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal",
+  "source_type": "Encyclopedia article",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Tertiary source; only the first part of the article was read verbatim, and the sources behind each figure were not checked. Read through a fetch tool's detailed report; the text is not held locally. The article does not say the targeting changed any vote.",
+  "visual_use": "Micro-targeting sold as a service; a suppression campaign dressed as grassroots; an accusation not borne out (Brexit)"
+ },
+ {
+  "id": "E141",
+  "case": "Cambridge Analytica: consequences",
+  "fact": "The US Federal Trade Commission fined Facebook $5 billion in July 2019; Facebook agreed in October 2019 to pay the UK regulator £500,000; Cambridge Analytica filed for bankruptcy in May 2018; over $100 billion came off Facebook's market value within days of the story",
+  "source": "Wikipedia, \"Facebook–Cambridge Analytica data scandal\" (revision 1381700564)",
+  "url": "https://en.wikipedia.org/wiki/Facebook%E2%80%93Cambridge_Analytica_data_scandal",
+  "source_type": "Encyclopedia article citing regulatory decisions",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "Tertiary source; only the first part of the article was read verbatim, and the sources behind each figure were not checked. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Regulators and markets as countervailing forces, with a price"
+ },
+ {
+  "id": "E142",
+  "case": "Cambridge Analytica: what it could do",
+  "fact": "Amnesty argues Cambridge Analytica is a symptom of a business model built on tracking, which it calls \"surveillance capitalism\" after Shoshana Zuboff. It notes the firm \"bragged\" of having up to 5,000 data points on every US voter, and conditions its warning: \"if these capabilities are as powerful as the companies and their customers claim, they pose a real threat\"",
+  "source": "Amnesty International, 24 Jul 2019",
+  "url": "https://www.amnesty.org/en/latest/news/2019/07/the-great-hack-facebook-cambridge-analytica/",
+  "source_type": "Advocacy essay",
+  "confidence": "opinion",
+  "read_status": "full",
+  "note": "The capability figures are the firm's own sales claims. The essay itself treats how far people can be manipulated this way as an open question. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Capability claimed by a vendor versus effect shown; Money line of the Facts sheet"
+ },
+ {
+  "id": "E143",
+  "case": "Myanmar: Facebook's role",
+  "fact": "A 2018 UN fact-finding report documented genocide against the Rohingya and attributed a \"significant\" role to Facebook. After telecoms were liberalised in 2014 Facebook had roughly 20 million users in Myanmar; the mission's chair said \"social media is Facebook, and Facebook is social media\" there. The 2017 military operations killed more than 10,000 Rohingya",
+  "source": "Systemic Justice Journal, Harvard Law School (Daniel Zaleznik), written April 2021",
+  "url": "https://systemicjustice.org/article/facebook-and-genocide-how-facebook-contributed-to-genocide-in-myanmar-and-why-it-will-not-be-held-accountable/",
+  "source_type": "Law-school paper citing a UN report",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "The body and the first 35 footnotes were read; later footnotes were not, and the publication date is not shown. Read through a fetch tool's detailed report; the text is not held locally. The UN report itself was not read. The paper offers no quantitative analysis of causation.",
+  "visual_use": "Offline consequences at their most severe; one platform as a country's whole information space"
+ },
+ {
+  "id": "E144",
+  "case": "Myanmar: military pages and hate speech",
+  "fact": "New York Times reporting found that entertainment, wellness and celebrity pages on Facebook, such as \"Let's Laugh Casually\", were fronts run by Myanmar's military, with activity peaking in 2017; Facebook removed them only after outside reporting. A study found thousands of posts calling Rohingya \"dogs\" and \"maggots\" and saying they should be exterminated",
+  "source": "Systemic Justice Journal, Harvard Law School (Daniel Zaleznik), written April 2021",
+  "url": "https://systemicjustice.org/article/facebook-and-genocide-how-facebook-contributed-to-genocide-in-myanmar-and-why-it-will-not-be-held-accountable/",
+  "source_type": "Law-school paper relaying journalism and an NGO study",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The body and the first 35 footnotes were read; later footnotes were not, and the publication date is not shown. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Facebook",
+    "type": "admission",
+    "summary": "Concedes the accounts violated its authenticity rules"
+   }
+  ],
+  "visual_use": "State actor running covert pages against its own population; fronts disguised as entertainment"
+ },
+ {
+  "id": "E145",
+  "case": "Myanmar: moderation capacity",
+  "fact": "An assessment Facebook commissioned from BSR in 2018 concluded it was not doing enough to stop its platform being used to incite offline violence. In April 2018 civil-society groups reported that the report function was missing from some Facebook apps and that no Burmese-speaking staff had been hired to receive reports",
+  "source": "Systemic Justice Journal, Harvard Law School (Daniel Zaleznik), written April 2021",
+  "url": "https://systemicjustice.org/article/facebook-and-genocide-how-facebook-contributed-to-genocide-in-myanmar-and-why-it-will-not-be-held-accountable/",
+  "source_type": "Law-school paper relaying a company-commissioned report and civil-society letters",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "The body and the first 35 footnotes were read; later footnotes were not, and the publication date is not shown. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Facebook",
+    "type": "admission",
+    "summary": "Agrees it was not doing enough and concedes its product caused harm in Myanmar"
+   },
+   {
+    "by": "Facebook",
+    "type": "explanation",
+    "summary": "Says Myanmar's non-standard text encoding made its moderation tools unusable, and that hiring Burmese-speaking moderators will help"
+   }
+  ],
+  "visual_use": "Moderation gap by language; the platform's own assessment"
+ },
+ {
+  "id": "E146",
+  "case": "Myanmar: no accountability",
+  "fact": "The author argues that no existing legal route could hold Facebook to account: US law shields platforms from liability for users' content, the International Criminal Court's statute excludes corporations, and human-rights instruments do not bind companies directly. He calls Facebook's degree of culpability \"debatable\"",
+  "source": "Systemic Justice Journal, Harvard Law School (Daniel Zaleznik), written April 2021",
+  "url": "https://systemicjustice.org/article/facebook-and-genocide-how-facebook-contributed-to-genocide-in-myanmar-and-why-it-will-not-be-held-accountable/",
+  "source_type": "Law-school paper (legal argument)",
+  "confidence": "opinion",
+  "read_status": "partial",
+  "note": "The body and the first 35 footnotes were read; later footnotes were not, and the publication date is not shown. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Transparency and oversight: why the checks did not apply"
+ },
+ {
+  "id": "E147",
+  "case": "Ethiopia: the Maereg Amare case",
+  "fact": "A blog essay says a Facebook page with 50,000 followers posted false accusations against Professor Maereg Amare of Bahir Dar University before a mob killed him outside his home, and that Facebook ignored warnings. His son and others sued Meta in Kenya's High Court for about $2 billion, asking for an apology, an algorithm that demotes hate speech, and moderation in local languages. Whistleblower Frances Haugen said Facebook was \"literally fanning ethnic violence\" in Ethiopia",
+  "source": "Milton Wolf Seminar blog, Annenberg School, University of Pennsylvania (Moges Teshome), undated",
+  "url": "https://www.asc.upenn.edu/research/centers/milton-wolf-seminar-media-and-diplomacy/blog/road-hell-paved-good-intentions-role-facebook-fuelling-ethnic-violence",
+  "source_type": "Opinion essay citing journalism and a lawsuit",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Opinion essay with several unsourced details. It dates the killing to 2 November 2023, which conflicts with the December 2022 lawsuit it cites. The case is undecided. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "explanation",
+    "summary": "Told the BBC it was closely monitoring the situation and had set up a dedicated team"
+   }
+  ],
+  "visual_use": "Offline consequences; a lawsuit asking for changes to ranking and moderation"
+ },
+ {
+  "id": "E148",
+  "case": "Ethiopia: reporting as a weapon",
+  "fact": "The same essay argues that when Facebook does act, after long delays, it removes content or suspends accounts without reviewing them, which lets groups silence opponents through the platform's own reporting system",
+  "source": "Milton Wolf Seminar blog, Annenberg School, University of Pennsylvania (Moges Teshome), undated",
+  "url": "https://www.asc.upenn.edu/research/centers/milton-wolf-seminar-media-and-diplomacy/blog/road-hell-paved-good-intentions-role-facebook-fuelling-ethnic-violence",
+  "source_type": "Opinion essay",
+  "confidence": "opinion",
+  "read_status": "full",
+  "note": "The author's argument, with no source or data. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Mass reporting as suppression (crowd to ranking loop, burying)"
+ },
+ {
+  "id": "E149",
+  "case": "Meta policy changes (January 2025)",
+  "fact": "On 7 Jan 2025 Mark Zuckerberg announced changes to Meta's content rules, including lifting prohibitions on some previously banned speech and rolling back automated moderation, first in the US. Amnesty warns that this raises the risk of Meta again contributing to mass violence",
+  "source": "Amnesty International (Pat de Brún and Maung Sawyeddollah), 17 Feb 2025",
+  "url": "https://www.amnesty.org/en/latest/news/2025/02/meta-new-policy-changes/",
+  "source_type": "Advocacy essay citing the company announcement",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The warning is a prediction, not an event. The announcement itself was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta",
+    "type": "explanation",
+    "summary": "Says the changes advance freedom of expression (as paraphrased by Amnesty)"
+   }
+  ],
+  "visual_use": "Owner decision changing moderation across a platform; Owner influence line"
+ },
+ {
+  "id": "E150",
+  "case": "Rohingya: remedy and complaint",
+  "fact": "Rohingya communities asked Meta to fund a $1 million education project in the refugee camps; Meta refused. On 23 Jan 2025 Maung Sawyeddollah filed a whistleblower complaint with the US securities regulator alleging that Meta ignored civil-society warnings from 2013 to 2017 and told shareholders between 2015 and 2017 that its algorithms did not cause polarization",
+  "source": "Amnesty International (Pat de Brún and Maung Sawyeddollah), 17 Feb 2025",
+  "url": "https://www.amnesty.org/en/latest/news/2025/02/meta-new-policy-changes/",
+  "source_type": "Advocacy essay by a party to the complaint",
+  "confidence": "claimed",
+  "read_status": "full",
+  "note": "One of the authors filed the complaint, and Amnesty supported it. The complaint was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Countervailing action by those affected; what the company told investors"
+ },
+ {
+  "id": "E151",
+  "case": "Instagram teens: internal test",
+  "fact": "An internal document seen by CBS says that in 2021 an Instagram employee opened a test account as a 13-year-old girl looking for diet tips and was led to graphic content and to recommendations to follow accounts called \"skinny binge\" and \"apple core anorexic\". Other internal memos discuss company research finding that Instagram made one in three teenage girls feel worse about their bodies",
+  "source": "CBS News, 60 Minutes (Kolbe Nelson), 11 Dec 2022",
+  "url": "https://www.cbsnews.com/news/facebook-instagram-dangerous-content-60-minutes-2022-12-11/",
+  "source_type": "Journalism describing internal documents",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The document is not published, named or dated in the article. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta (Antigone Davis, global head of safety)",
+    "type": "explanation",
+    "summary": "\"We want teens to be safe online\"; says Instagram does not allow content promoting self-harm or eating disorders and has improved age verification"
+   },
+   {
+    "by": "Meta",
+    "type": "no_reply",
+    "summary": "Declined an interview"
+   }
+  ],
+  "visual_use": "Recommendation system leading a child's account to harmful content; the company's own test"
+ },
+ {
+  "id": "E152",
+  "case": "Instagram teens: lawsuits and CBS test",
+  "fact": "More than 1,200 families are pursuing lawsuits against social-media companies through the Social Media Victims Law Center, whose founder says the products were \"intentionally designed\" to be addictive. In CBS's own test a producer signed up to Instagram as a 13-year-old with no verification and easily found content promoting anorexia and self-harm",
+  "source": "CBS News, 60 Minutes (Kolbe Nelson), 11 Dec 2022",
+  "url": "https://www.cbsnews.com/news/facebook-instagram-dangerous-content-60-minutes-2022-12-11/",
+  "source_type": "Journalism (lawyer's allegations; outlet's own test)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The design claim is the plaintiffs' lawyer's allegation. CBS gives no detail of its test. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Compulsive use alleged as design; countervailing action through courts"
+ },
+ {
+  "id": "E153",
+  "case": "Emotional contagion experiment",
+  "fact": "In 2012 Facebook altered the news feeds of almost 700,000 users for about a week, without telling them, removing posts containing positive or negative words to see how their mood changed. The results were published with Cornell researchers in a scientific journal in June 2014. Cornell said the study fell outside federal rules on informed consent because Facebook ran it; the size of the effect is not given",
+  "source": "PBS NewsHour (Judy Woodruff with Reed Albergotti, Wall Street Journal), 1 Jul 2014",
+  "url": "https://www.pbs.org/newshour/show/facebooks-psychological-study-ends-testing-users-trust",
+  "source_type": "Broadcast interview transcript",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "A journalist's account; the paper itself was not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Facebook",
+    "type": "explanation",
+    "summary": "Said it had an internal review process that was less rigorous then than now"
+   }
+  ],
+  "visual_use": "A platform testing its power over mood through ranking, without consent; Transparency line"
+ },
+ {
+  "id": "E154",
+  "case": "Emotional contagion experiment: apology",
+  "fact": "The experiment's lead, Adam Kramer, apologised and suggested the results were too small to justify the anxiety the reports caused",
+  "source": "Wikipedia, \"Facebook emotional manipulation experiment\" (revision 1338365359)",
+  "url": "https://en.wikipedia.org/wiki/Facebook_emotional_manipulation_experiment",
+  "source_type": "Encyclopedia article (stub)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Weak source: a short stub flagged as needing an update, with thin and partly mismatched citations. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Actor response on case card"
+ },
+ {
+  "id": "E155",
+  "case": "Instagram teens: Reuters",
+  "fact": "Report that senators said Facebook's research showed it knew Instagram harmed teenagers (from the URL). Not read: the site refused the fetch",
+  "source": "Reuters, 30 Sep 2021",
+  "url": "https://www.reuters.com/technology/facebook-research-shows-company-knew-instagram-harm-teens-senators-say-2021-09-30/",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E156",
+  "case": "Instagram teens: NPR",
+  "fact": "NPR report on Facebook, Instagram and teenagers' mental health (from the URL). Not read: the page timed out twice",
+  "source": "NPR, 6 Oct 2021",
+  "url": "https://www.npr.org/2021/10/06/1043138622/facebook-instagram-teens-mental-health",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E157",
+  "case": "Emotional contagion experiment: NPR roundup",
+  "fact": "NPR roundup on Facebook's mood experiment (from the URL). Not read: the page timed out twice",
+  "source": "NPR, 30 Jun 2014",
+  "url": "https://www.npr.org/sections/alltechconsidered/2014/06/30/326929138/facebook-manipulates-our-moods-for-science-and-commerce-a-roundup",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E158",
+  "case": "Rohingya: lawsuit against Facebook",
+  "fact": "Report that Rohingya sued Facebook in the US and UK over the Myanmar genocide (from the URL). Not read: the site refuses fetches",
+  "source": "Guardian, 6 Dec 2021",
+  "url": "https://www.theguardian.com/technology/2021/dec/06/rohingya-sue-facebook-myanmar-genocide-us-uk-legal-action-social-media-violence",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E159",
+  "case": "Unread: BBC technology article",
+  "fact": "BBC technology article supplied by the user. Not read: the site refuses fetches, so its topic is not recorded",
+  "source": "BBC News",
+  "url": "https://www.bbc.com/news/technology-58570353",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E160",
+  "case": "Meta in court: New Mexico data-privacy penalty",
+  "fact": "On 21 Oct 2026 a New Mexico district judge ordered Meta to pay $25 billion in a case stemming from Cambridge Analytica. A Santa Fe jury had found in September more than 43 million violations of the state's Unfair Practices Act, for misleading citizens about how Meta safeguards and collects their data and prevents harmful information. The award was reduced from $219.5 billion and carries 15% annual interest",
+  "source": "CNBC (Jonathan Vanian), 21 Oct 2026",
+  "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+  "source_type": "Journalism reporting a court filing",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "Under appeal. The article does not explain the reduction. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Meta (C.J. Mahoney, chief legal officer)",
+    "type": "denial",
+    "summary": "Says it is confident it will win on appeal and that the suit \"seeks to impose a tax on speech\""
+   }
+  ],
+  "visual_use": "Court as countervailing actor; the largest price in the log"
+ },
+ {
+  "id": "E161",
+  "case": "Meta in court: the promised investigation",
+  "fact": "The judge found that \"Facebook did not conduct the comprehensive investigation that it promised\" after Cambridge Analytica, calling its internal examination \"willfully ineffective\" and citing pressure from senior executives to keep costs down, a lack of enforcement resources, and a wish not to set a precedent for future investigations",
+  "source": "CNBC (Jonathan Vanian), 21 Oct 2026",
+  "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+  "source_type": "Journalism quoting a court filing",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "A court finding, under appeal. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Transparency line: a platform's account of its own clean-up, tested in court"
+ },
+ {
+  "id": "E162",
+  "case": "Meta in court: child-safety cases",
+  "fact": "In August 2026 Meta reached a settlement of nearly $17 billion with a coalition of state attorneys general in a federal case on child safety and mental health. In New Mexico's separate child-safety case a jury set $375 million in penalties in March 2026 and a judge added a $567 million fund for harm prevention in August, after a finding of public nuisance. In 2022 Meta paid $725 million to settle a class action over Cambridge Analytica",
+  "source": "CNBC (Jonathan Vanian), 21 Oct 2026",
+  "url": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+  "source_type": "Journalism (background to a court order)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Background in an article about another case; the rulings and settlement were not read. Meta says it will appeal the New Mexico child-safety ruling. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Harm to children adjudicated; settlements without a finding"
+ },
+ {
+  "id": "E163",
+  "case": "Meta in court: New Mexico child-safety order",
+  "fact": "A New Mexico judge ruled that Meta must pay $567 million into a fund for harm prevention and awareness, on top of $375 million in civil penalties set by a jury, after a court found it had put children and teenage users at risk",
+  "source": "CBS News (video page), 8 Aug [2026]",
+  "url": "https://www.cbsnews.com/video/instagram-owner-meta-ordered-to-pay-nearly-1b-in-fines-for-risking-child-safety-court-says/",
+  "source_type": "Broadcast video (page description only)",
+  "confidence": "documented",
+  "read_status": "partial",
+  "note": "Only the page's one-paragraph description was read; there is no transcript, the date is shown without a year, and no response from Meta appears. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Corroborates E162"
+ },
+ {
+  "id": "E164",
+  "case": "Meta in court: earlier cases",
+  "fact": "Earlier actions listed by Wikipedia include: in May 2020 Facebook agreed to pay $52 million to content moderators who developed post-traumatic stress; in July 2019 German authorities fined it €2 million over how it reported complaints under the country's transparency law; and in 2022 it paid $90 million to settle a suit over tracking logged-out users",
+  "source": "Wikipedia, \"Lawsuits involving Meta Platforms\" (revision 1384333150, 7 Nov 2026)",
+  "url": "https://en.wikipedia.org/wiki/Lawsuits_involving_Meta_Platforms",
+  "source_type": "Encyclopedia article",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Tertiary source used as an index. Only the sections to 2020 were read verbatim; its 2021–2026 entries were not, and are not logged from here. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Human cost of moderation; a transparency fine"
+ },
+ {
+  "id": "E165",
+  "case": "Meta in court: AP on the trials",
+  "fact": "AP report on the Meta social-media trials (from the URL). Not read: the site refused the fetch",
+  "source": "Associated Press",
+  "url": "https://apnews.com/article/meta-social-media-trials-50b3050f8e257e578a9b5c02a947c95a",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E166",
+  "case": "Meta in court: Bloomberg on settlements",
+  "fact": "Bloomberg report on what Meta and TikTok paid to settle social-media addiction suits (from the URL). Not read: the site refused the fetch",
+  "source": "Bloomberg, 12 Nov 2026",
+  "url": "https://www.bloomberg.com/news/articles/2026-11-12/meta-tiktok-payouts-reveal-cost-to-settle-social-media-addiction-suits",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E167",
+  "case": "Unread: BBC article (cqdr8zxrr3dxo)",
+  "fact": "BBC article supplied by the user. Not read: the site refuses fetches, so its topic is not recorded",
+  "source": "BBC News",
+  "url": "https://www.bbc.com/news/articles/cqdr8zxrr3dxo",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E168",
+  "case": "Unread: BBC article (cd68q3wynnqo)",
+  "fact": "BBC article supplied by the user. Not read: the site refuses fetches, so its topic is not recorded",
+  "source": "BBC News",
+  "url": "https://www.bbc.com/news/articles/cd68q3wynnqo",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E169",
+  "case": "TikTok teens: Amnesty test",
+  "fact": "Amnesty and two partner organisations ran more than 30 automated accounts posing as 13-year-olds in Kenya and the US. After five to six hours almost one in two videos served was mental-health-related and potentially harmful, roughly ten times the share shown to accounts with no interest in the topic. In manual tests, more than half of the feed concerned mental-health struggles within 3 to 20 minutes, including several videos in an hour romanticising or encouraging suicide",
+  "source": "Amnesty International, 7 Nov 2023",
+  "url": "https://www.amnesty.org/en/latest/news/2023/11/tiktok-risks-pushing-children-towards-harmful-content/",
+  "source_type": "NGO research summary (own tests with Algorithmic Transparency Institute and AI Forensics)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "A press release; how videos were coded and when the tests ran are in the full report, which was not read. Causation was not tested. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "TikTok",
+    "type": "explanation",
+    "summary": "Pointed to its Community Guidelines banning suicide and self-harm content, and said it is developing a company-wide human-rights due-diligence process"
+   }
+  ],
+  "visual_use": "Recommendation system narrowing a child's feed within minutes; Wellbeing and Division lines"
+ },
+ {
+  "id": "E170",
+  "case": "TikTok teens: internal documents on habit",
+  "fact": "Internal TikTok documents, exposed by faulty redactions in Kentucky's lawsuit after a 14-state investigation, show the company determined that 260 videos are enough to form a habit, and that its own research linked compulsive use to loss of analytical skills, memory formation and sleep. Its time-limit tool cut teenagers' daily use by about 1.5 minutes, from 108.5 to 107; a project manager wrote \"Our goal is not to reduce the time spent\", and success was measured by improved public trust",
+  "source": "NPR via Oregon Public Broadcasting (Bobby Allyn, Sylvia Goodman, Dara Kerr), 11 Oct 2024",
+  "url": "https://www.opb.org/article/2024/10/11/tiktok-knows-its-app-is-harming-kids-new-internal-documents-show/",
+  "source_type": "Journalism quoting internal documents from a court filing",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "NPR reviewed the redacted passages; the filing is now sealed and was not read. \"Addicted in under 35 minutes\" is the investigators' wording, not TikTok's. Most documents are undated. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "TikTok (Alex Haurek)",
+    "type": "denial",
+    "summary": "Says the complaint \"cherry-picks misleading quotes and takes outdated documents out of context\", and that publishing sealed material was irresponsible"
+   }
+  ],
+  "visual_use": "Compulsive use by design, in the company's own numbers; a safety tool built as a talking point"
+ },
+ {
+  "id": "E171",
+  "case": "TikTok teens: bubbles and moderation gaps",
+  "fact": "The same documents define \"filter bubbles\" and say users are placed in one after 30 minutes in a single sitting; an employee's test account fell into a \"negative\" bubble in 20 minutes. They record \"leakage\" rates of violating content that is not removed, from about 30% to 100% across categories involving minors, and self-harm videos passing 75,000 views before removal. A 2021 presentation calls the market an \"arms race for attention\"",
+  "source": "NPR via Oregon Public Broadcasting (Bobby Allyn, Sylvia Goodman, Dara Kerr), 11 Oct 2024",
+  "url": "https://www.opb.org/article/2024/10/11/tiktok-knows-its-app-is-harming-kids-new-internal-documents-show/",
+  "source_type": "Journalism quoting internal documents from a court filing",
+  "confidence": "documented",
+  "read_status": "full",
+  "note": "How the leakage rates were calculated is not given, and most documents are undated. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "TikTok (Alex Haurek)",
+    "type": "denial",
+    "summary": "Says the complaint \"cherry-picks misleading quotes and takes outdated documents out of context\", and that publishing sealed material was irresponsible"
+   }
+  ],
+  "visual_use": "The platform's own definition and timing of a filter bubble; Division and Wellbeing lines"
+ },
+ {
+  "id": "E172",
+  "case": "TikTok teens: appearance and ranking",
+  "fact": "Kentucky's investigators say that after an internal report found \"a high volume of … not attractive subjects\" in the main feed, TikTok retooled its algorithm and \"took active steps to promote a narrow beauty norm\". Employees had proposed resources on image disorders, citing low self-esteem caused by excessive filter use",
+  "source": "NPR via Oregon Public Broadcasting (Bobby Allyn, Sylvia Goodman, Dara Kerr), 11 Oct 2024",
+  "url": "https://www.opb.org/article/2024/10/11/tiktok-knows-its-app-is-harming-kids-new-internal-documents-show/",
+  "source_type": "Journalism relaying investigators' account of internal documents",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The description of the algorithm change is the investigators', not a quoted document. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "TikTok (Alex Haurek)",
+    "type": "denial",
+    "summary": "Says the complaint \"cherry-picks misleading quotes and takes outdated documents out of context\", and that publishing sealed material was irresponsible"
+   }
+  ],
+  "visual_use": "A ranking change made on appearance; ranking as an editorial choice"
+ },
+ {
+  "id": "E173",
+  "case": "Ellison: media holdings",
+  "fact": "David Ellison merged Skydance with Paramount in August 2025, bringing in CBS, whose news division is now led by Bari Weiss, and Paramount Skydance has a pending $111 billion deal for Warner Bros. Discovery, which owns CNN, subject to regulatory review. Larry Ellison holds a stake in TikTok's US business through Oracle. The author argues that this concentrates control over what Americans watch and read under one family close to the Trump administration",
+  "source": "Nonprofit Quarterly (Coty Poynter), 17 Mar 2026",
+  "url": "https://nonprofitquarterly.org/the-ellisons-empire-media-consolidation-narrative-control-and-the-threat-to-democracy/",
+  "source_type": "Opinion column relaying news reports",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "A first-person opinion piece. No filings are cited, and it describes the TikTok stake in conflicting ways. The concentration argument is the author's. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "One owner across broadcast news, cable, film and a social platform: the ownership highlight"
+ },
+ {
+  "id": "E174",
+  "case": "Ellison: editorial events at CBS and CNN",
+  "fact": "Paramount settled Donald Trump's $10 billion lawsuit over a 60 Minutes interview for $16 million in July 2025, a month before the Skydance merger closed. In December 2025 CBS News pulled a 60 Minutes segment on deportations hours before broadcast; the correspondent called the decision political. On 13 Mar 2026 Defense Secretary Pete Hegseth, criticising a CNN report, said \"The sooner David Ellison takes over that network, the better\"",
+  "source": "Nonprofit Quarterly (Coty Poynter), 17 Mar 2026",
+  "url": "https://nonprofitquarterly.org/the-ellisons-empire-media-consolidation-narrative-control-and-the-threat-to-democracy/",
+  "source_type": "Opinion column relaying news reports (NPR, The Hill)",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "That the settlement was meant to ease the merger is the author's inference (\"arguably\"). The underlying reports were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Bari Weiss (CBS News)",
+    "type": "explanation",
+    "summary": "Said the pulled segment \"did not advance the ball\""
+   },
+   {
+    "by": "CNN",
+    "type": "denial",
+    "summary": "\"We stand by our reporting\""
+   }
+  ],
+  "visual_use": "Owner directive and editorial omission after an ownership change; legal pressure on an outlet"
+ },
+ {
+  "id": "E175",
+  "case": "TikTok US: the sale",
+  "fact": "TikTok is selling 80% of its US operations to an investor consortium that includes Oracle, Silver Lake and Andreessen Horowitz, in a sale the author describes as made under US government coercion. He argues it is another step in the consolidation of major media under right-wing control",
+  "source": "Jacobin (Ari Paul), 22 Sep 2025",
+  "url": "https://jacobin.com/2025/09/trump-ellison-tiktok-media-consolidation",
+  "source_type": "Commentary relaying a Reuters report",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Only the opening was readable; the rest is for subscribers. The deal figures are relayed from Reuters, which was not read. The consolidation argument is the author's. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "A state forcing a change of platform owner; ownership edges from Oracle to TikTok US"
+ },
+ {
+  "id": "E176",
+  "case": "TikTok US: censorship claims after the takeover",
+  "fact": "Days after a group of mainly American investors took control of TikTok's US operations, users said posts about Jeffrey Epstein and about shootings by federal agents in Minneapolis were being blocked or hidden; a California state senator said he could not share a post about immigration agents for hours, and Governor Newsom announced a state investigation. TikTok blamed a cascading systems failure after a power outage at a US data centre. The guest, a tech journalist, said creators of every kind were affected and it \"doesn't feel like it was an intentional piece of censorship\", but that the capability deserves watching",
+  "source": "PBS NewsHour (Geoff Bennett with Jacob Ward), 27 Jan 2026",
+  "url": "https://www.pbs.org/newshour/show/tiktok-users-say-they-are-being-censored-after-change-to-u-s-ownership",
+  "source_type": "Broadcast interview transcript",
+  "confidence": "contested",
+  "read_status": "full",
+  "note": "User accounts are second-hand and no data is shown; neither the outage nor intent is verified. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "TikTok",
+    "type": "explanation",
+    "summary": "Said a cascading systems failure after a data-centre power outage caused multiple bugs"
+   }
+  ],
+  "visual_use": "Third case of the same pattern: suppression alleged, technical cause given, intent not established"
+ },
+ {
+  "id": "E177",
+  "case": "TikTok US: terms and settlement",
+  "fact": "TikTok updated its terms of service after the takeover; the guest says they allow more precise location tracking and following users off the platform for advertising. TikTok and Snap settled before a landmark social-media addiction trial, leaving Google's YouTube and Meta as defendants",
+  "source": "PBS NewsHour (Geoff Bennett with Jacob Ward), 27 Jan 2026",
+  "url": "https://www.pbs.org/newshour/show/tiktok-users-say-they-are-being-censored-after-change-to-u-s-ownership",
+  "source_type": "Broadcast interview transcript",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "The description of the terms is the guest's; the terms were not read. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Data collection widening after an ownership change; settlement without a finding"
+ },
+ {
+  "id": "E178",
+  "case": "Unread: BBC article (cr4qwwk0g0yo)",
+  "fact": "BBC article supplied by the user. Not read: the site refuses fetches, so its topic is not recorded",
+  "source": "BBC News",
+  "url": "https://www.bbc.com/news/articles/cr4qwwk0g0yo",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E179",
+  "case": "Ellison: NPR transcript",
+  "fact": "NPR transcript supplied by the user alongside sources on the Ellisons and TikTok. Not read: the page timed out twice",
+  "source": "NPR",
+  "url": "https://www.npr.org/transcripts/nx-s1-5754023",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E180",
+  "case": "Ellison: The Week",
+  "fact": "\"Larry Ellison: the billionaire's burgeoning media empire\" (page title). Not read: only the title was returned",
+  "source": "The Week",
+  "url": "https://theweek.com/media/larry-ellison-the-billionaires-burgeoning-media-empire",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E181",
+  "case": "TikTok teens: EU and the For You feed",
+  "fact": "Report on the EU, TikTok's For You algorithm and \"rabbit hole\" effects (from the URL). Not read: the site refused the fetch",
+  "source": "The Verge",
+  "url": "https://www.theverge.com/tech/1028597/tiktok-eu-for-you-algorithm-rabbit-hole-effect",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E182",
+  "case": "TikTok US: UpScrolled",
+  "fact": "Report on users moving to the app UpScrolled over censorship concerns on TikTok (from the URL). Not read: the site refused the fetch",
+  "source": "CBC News",
+  "url": "https://www.cbc.ca/news/world/upscrolled-app-tiktok-users-downloading-censorship-9.7073441",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E183",
+  "case": "TikTok US: Guardian opinion",
+  "fact": "Opinion piece on the TikTok US takeover as a new type of censorship (from the URL). Not read: the site refuses fetches",
+  "source": "Guardian (opinion), 30 Jan 2026",
+  "url": "https://www.theguardian.com/commentisfree/2026/jan/30/tiktok-us-takeover-new-type-of-censorship",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E184",
+  "case": "Sinclair: the scripted promo",
+  "fact": "In March 2018 Sinclair Broadcast Group, the largest owner of local television stations in the US with 173 owned or operated, had its local anchors record a company-written promo warning of \"irresponsible, one sided news stories\" and of national outlets \"publishing these same fake stories without checking facts first\". A memo from its senior vice president of news, obtained by CNN Money, directed stations to film it and run it frequently. A Deadspin compilation of dozens of anchors reading it went viral on 31 Mar 2018",
+  "source": "CNN Money via CBS Colorado, 2 Apr 2018",
+  "url": "https://www.cbsnews.com/colorado/news/sinclair-same-script-criticism-viral/",
+  "source_type": "Wire journalism citing an obtained company memo",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "A CNN wire story republished by a CBS station. The number of anchors and stations that aired it is not given. Read through a fetch tool's detailed report; the text is not held locally.",
+  "responses": [
+   {
+    "by": "Sinclair Broadcast Group",
+    "type": "no_reply",
+    "summary": "A spokeswoman did not respond to requests for comment"
+   },
+   {
+    "by": "Donald Trump",
+    "type": "explanation",
+    "summary": "Defended Sinclair in a post, calling its critics \"Fake News Networks\""
+   }
+  ],
+  "visual_use": "Owner directive from L1 into dozens of local newsrooms at once; one script, many trusted local faces"
+ },
+ {
+  "id": "E185",
+  "case": "Sinclair: must-runs and staff objections",
+  "fact": "Sinclair sends stations \"must-run\" segments that local producers have to air, including a recurring \"Terrorism Alert Desk\" and pro-Trump commentaries by former Trump campaign adviser Boris Epshteyn. One station's news director wrote to staff: \"These MUST Run. If they do not, my job is on the line.\" Staff quoted anonymously called the practice unethical; it is unclear whether any station refused. Sinclair's purchase of Tribune Media, adding dozens of stations, was under federal review",
+  "source": "CNN Money via CBS Colorado, 2 Apr 2018",
+  "url": "https://www.cbsnews.com/colorado/news/sinclair-same-script-criticism-viral/",
+  "source_type": "Wire journalism citing an internal email and anonymous staff",
+  "confidence": "reported",
+  "read_status": "full",
+  "note": "Staff are quoted anonymously because they fear for their jobs. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Directive enforced through employment; intermediaries who object but comply (knowing: yes, unwilling)"
+ },
+ {
+  "id": "E186",
+  "case": "Sinclair: NBC Nightly News",
+  "fact": "NBC described \"the country's largest local broadcast group\" as \"under fire for requiring local news anchors in dozens of markets to read an identical promo ad script\"",
+  "source": "NBC Nightly News (video page), 2 Apr 2018",
+  "url": "https://www.nbcnews.com/nightly-news/video/tv-anchors-decrying-fake-news-puts-spotlight-on-sinclair-broadcast-group-1200738371824",
+  "source_type": "Broadcast video (page description only)",
+  "confidence": "reported",
+  "read_status": "partial",
+  "note": "Only the one-sentence description was read; there is no transcript. Read through a fetch tool's detailed report; the text is not held locally.",
+  "visual_use": "Corroborates E184"
+ },
+ {
+  "id": "E187",
+  "case": "Sinclair: NPR on the video",
+  "fact": "NPR report on the compilation video of Sinclair anchors reciting a script in unison (from the URL). Not read: the page timed out twice",
+  "source": "NPR, 2 Apr 2018",
+  "url": "https://www.npr.org/sections/thetwo-way/2018/04/02/598794433/video-reveals-power-of-sinclair-as-local-news-anchors-recite-script-in-unison",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E188",
+  "case": "Sinclair: NPR on nearly 200 stations",
+  "fact": "NPR report that Sinclair had anchors at nearly 200 stations read the same script (from the URL). Not read: the page timed out twice",
+  "source": "NPR, 2 Apr 2018",
+  "url": "https://www.npr.org/2018/04/02/598916366/sinclair-broadcast-group-forces-nearly-200-station-anchors-to-read-same-script",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
+ },
+ {
+  "id": "E189",
+  "case": "Sinclair: New York Times",
+  "fact": "New York Times report on Sinclair's script for news anchors (from the URL). Not read: the site refused the fetch",
+  "source": "New York Times, 2 Apr 2018",
+  "url": "https://www.nytimes.com/2018/04/02/business/media/sinclair-news-anchors-script.html",
+  "source_type": "Not yet classified",
+  "confidence": "reported",
+  "read_status": "unread",
+  "note": "Grade is provisional until the source is read.",
+  "visual_use": "To be decided once read"
  }
 ]

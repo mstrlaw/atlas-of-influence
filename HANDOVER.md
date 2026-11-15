@@ -2,6 +2,8 @@
 
 Handover date: 13 Nov 2026. From: Claude chat/cowork session. To: a code session taking over the project.
 
+> Historical background, not kept current. Since 13 Nov 2026 the repository is the source of truth for the model (`docs/framework-spec.md`); the working document described in §3.1 is retired. See `CLAUDE.md` and `README.md` for the current state.
+
 ## 1. What this project is
 
 The **Atlas of Influence** maps how actors, institutions, platforms, AI models and crowds shape what appears on a phone screen, and what that does to the mind of the person reading it. It is a learning tool: every claim is a sourced path through a shared model, never an accusation.
@@ -25,10 +27,10 @@ It has two parts:
 
 ### 3.1 The living doc (source of truth for the model)
 
-Claude Docs doc **"Atlas of Influence — Framework Spec"**, https://claude.ai/artifact/KkTgE2rpBKg8LeN6pZSckL (project id `97d5eaf7-5112-4422-a28d-9f69883300c5`). Two tabs:
+A private working document, "Atlas of Influence — Framework Spec", with two tabs:
 
-- Main tab (file `52367a1d-1739`, body `87acf4e5-e0f6`): the framework spec. Mirrored in `docs/framework-spec.md` (the embedded pipeline diagram widget is described in text there).
-- Evidence log (file `e0d86fb1-cfea`, body `f22a3448-2beb`, table `m9pdvwnqakn.396`): 83 rows. Mirrored in `data/evidence.json` and `data/evidence.md`.
+- Main tab: the framework spec. Mirrored in `docs/framework-spec.md` (the embedded pipeline diagram widget is described in text there).
+- Evidence log: 83 rows. Mirrored in `data/evidence.json` and `data/evidence.md`.
 
 One doc comment is open: rename the Influence Facts groups (see open question 2).
 
