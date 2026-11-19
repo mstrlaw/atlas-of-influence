@@ -775,6 +775,48 @@
       "labels": [
         "TikTok US"
       ]
+    },
+    {
+      "name": "Ground News: bias ratings, funding and critique",
+      "labels": [
+        "Ground News"
+      ]
+    },
+    {
+      "name": "PragerU: videos, funding, platforms and schools",
+      "labels": [
+        "PragerU"
+      ]
+    },
+    {
+      "name": "Andrew Tate: affiliates, reach and bans",
+      "labels": [
+        "Andrew Tate"
+      ]
+    },
+    {
+      "name": "Clipping: paid short-form clips",
+      "labels": [
+        "Clipping"
+      ]
+    },
+    {
+      "name": "Fake salespeople on LinkedIn",
+      "labels": [
+        "Fake salespeople"
+      ]
+    },
+    {
+      "name": "France and Russia in Africa",
+      "labels": [
+        "France and Russia"
+      ]
+    },
+    {
+      "name": "NAEBC: a fake right-wing news site",
+      "labels": [
+        "NAEBC"
+      ]
     }
   ],
   "record_types": [

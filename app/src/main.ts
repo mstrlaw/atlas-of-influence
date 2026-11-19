@@ -1,7 +1,7 @@
 import './ui/styles.css';
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { actor, apps, atlasGraph, caseOf, contextFor, isApp, kindLabel, trailForActor, trailForCase, trailForNarrative, trailForOwner } from './data/model';
+import { actor, appForActor, apps, atlasGraph, caseOf, contextFor, isApp, kindLabel, trailForActor, trailForCase, trailForNarrative, trailForOwner } from './data/model';
 import type { Selection, TrailStep } from './data/types';
 import { Stage } from './scene/stage';
 import { Phone, PHONE, SCREEN_PX } from './scene/phone';
@@ -345,7 +345,9 @@ async function boot() {
     select: (sel, appId) => {
       const v = getView();
       const current = v.name === 'home' ? appIds[0] : v.appId;
-      go({ name: 'explore', appId: appId ?? current, sel: sel ?? undefined });
+      // An actor's network may run into another platform: show that one behind the phone.
+      const app = sel?.type === 'actor' && !appId ? appForActor(sel.id, current) : appId ?? current;
+      go({ name: 'explore', appId: app, sel: sel ?? undefined });
     },
     step: (i) => jumpToStep(i),
     togglePlay: () => {
@@ -492,7 +494,8 @@ async function boot() {
       if (!d || !inExplore(v) || !freeCamera) return;
       if (Math.hypot(ev.clientX - d.x, ev.clientY - d.y) > 6 || performance.now() - d.t > 500) return;
       const id = hit(ev);
-      if (id) go({ name: 'explore', appId: v.appId, sel: { type: 'actor', id } });
+      // Light the actor's whole network, on the platform it runs into if that is not the one open.
+      if (id) go({ name: 'explore', appId: appForActor(id, v.appId), sel: { type: 'actor', id } });
     });
     let queued = false;
     canvas.addEventListener('pointermove', (ev) => {

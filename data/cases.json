@@ -468,6 +468,127 @@
       ],
       "drivers": ["transparency"],
       "not_established": ["The size of the effect.", "Whether anyone was harmed."]
+    },
+    {
+      "id": "prageru", "title": "PragerU", "period": "2009–2025",
+      "venues": ["youtube", "facebook"], "countries": ["US"], "languages": ["en"],
+      "summary": "A conservative nonprofit, openly funded by wealthy donors and foundations, makes short videos that present a political view as plain fact. It posts them on the big platforms, pays those platforms tens of millions of dollars a year to promote them, and has students share them. A 2018 study says YouTube's suggestions linked its channel to further-right channels, though no platform data shows how strong that link is. The platforms have also limited some of its videos, which PragerU calls censorship. From the platforms its videos have moved into classrooms in about ten US states.",
+      "attributes": { "intent": "ideological / editorial", "transparency": "overt", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "PragerU, under its own name", "method": "Its own filings and statements; journalism and research" },
+      "steps": [
+        { "actor": "prageru", "to": "@app", "mechanism": "entry.direct", "text": "PragerU posts short explainer videos under its own name, for adults and for children. It has more than 3 million YouTube subscribers and 11 million followers across social media.", "evidence": ["E201", "E205", "E270"] },
+        { "actor": "prageru", "to": "@app", "mechanism": "plat.ads", "text": "It pays the platforms to promote them: in 2024, $11.6 million to Meta, $10.5 million to Google and $1.5 million to X. In 2019 it was among the ten biggest political advertisers on Facebook.", "cost": "$29.4 million on advertising in 2024", "evidence": ["E212", "E214", "E216"] },
+        { "actor": "pragerforce", "to": "@app", "mechanism": "crowd.participatory", "text": "About 6,500 students in its PragerFORCE programme share the videos.", "evidence": ["E210"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "A 2018 study says PragerU relies on search optimisation and suggested content, and that YouTube connected it to further-right channels; its Related Channels column listed Fox News, The Daily Wire and Stefan Molyneux.", "evidence": ["E206"] },
+        { "actor": "@app", "to": "screen", "mechanism": "supp.demotion", "text": "YouTube put dozens of its videos in Restricted Mode or demonetised them and added fact-check panels to its climate videos; Facebook removed two and restored them as a mistake. PragerU's lawsuit against Google was dismissed.", "evidence": ["E209"] }
+      ],
+      "effects": [
+        { "line": "reality", "level": "proximate", "text": "PragerU says it had nearly 1.5 billion views by 2018 and that 70% of viewers changed their mind on an issue; it gives no method for that figure. Historians say some videos get facts wrong; PragerU says its content is fact-based.", "evidence": ["E205", "E203"] },
+        { "line": "division", "level": "proximate", "text": "A sociologist and two academics argue that PragerU, through shared branding and platform suggestions, links mainstream conservative viewers to alt-right figures. Neither measures it.", "evidence": ["E206", "E271"] },
+        { "line": "offline", "level": "ultimate", "text": "Florida approved its materials for classrooms in 2023 and about ten states now allow them. Oklahoma screens teachers from New York and California with a PragerU-developed test. Wealthy supporters introduced it to state education officials.", "evidence": ["E201", "E202", "E216", "E269"] }
+      ],
+      "drivers": ["money"],
+      "not_established": ["How strongly recommendation systems steer PragerU viewers toward further-right content: the 2018 study and the 2023 article are qualitative and no platform data is shown.", "Any change in viewers' beliefs; the 70% figure is PragerU's own.", "Whether the platforms' restrictions were ideological: the platforms say not, PragerU says they were, and a court found no free-speech violation."]
+    },
+    {
+      "id": "tate-clips", "title": "Andrew Tate's clip army", "period": "2022–26",
+      "venues": ["tiktok", "instagram", "youtube", "facebook"], "countries": ["GB", "US", "AU"], "languages": ["en"],
+      "summary": "Andrew Tate's paid online course, Hustlers University, paid members commission for recruiting others and told them to open accounts and post short, deliberately provocative clips of him. Within months the clips made him one of the most searched-for people in the world, and TikTok's feed offered him to a new account without being asked. In August 2022 Meta, TikTok and YouTube banned his own accounts, but fan and copycat accounts carried on. A US court later upheld Meta's ban. Tate says his videos are parody and the picture of him is a false narrative.",
+      "attributes": { "intent": "commercial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "The Guardian / Observer, ABC News and others", "method": "Leaked course instructions, a test account, platform statements" },
+      "steps": [
+        { "actor": "hustlers-university", "to": "hu-affiliates", "mechanism": "prod.influencer", "text": "Hustlers University, a $50-a-month course, pays members commission for recruiting others through affiliate links. Its guides tell them to post controversial clips: \"You want arguments, you want war.\"", "cost": "commission on each referral", "evidence": ["E218", "E226", "E232"] },
+        { "actor": "hu-affiliates", "to": "@app", "mechanism": "entry.direct", "text": "Members, by one account including boys as young as 13, open accounts, clip short pieces of Tate's podcasts and interviews and post them as widely as they can. A newsletter says Tate admitted paying hundreds of people to clip his content.", "evidence": ["E222", "E276", "E256"] },
+        { "actor": "andrew-tate", "to": "@app", "mechanism": "entry.direct", "text": "Tate also posts on his own accounts: he had more than 4.7 million Instagram followers when Meta banned him.", "evidence": ["E275"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "The clips reach young users. An Observer test account for an 18-year-old was offered Tate on TikTok without liking or searching for anything, and #andrewtate passed 12 billion views there. In 2023, with his own accounts banned, a Sky News test account for a teenager was shown his content on YouTube Shorts after about an hour.", "evidence": ["E227", "E217", "E233", "E281"] },
+        { "actor": "@app", "to": "andrew-tate", "mechanism": "supp.lock_ban", "text": "In August 2022 Meta banned him under its dangerous organisations and individuals policy, and TikTok and YouTube removed his accounts. Fan accounts with hundreds of thousands of followers carried on; the course then closed its affiliate scheme.", "evidence": ["E217", "E261", "E275", "E221", "E226"] },
+        { "actor": "us-court-ndcal", "to": "meta", "check": true, "text": "A US federal court dismisses the Tates' $50 million lawsuit over six deleted Instagram accounts, holding it barred by Section 230, the First Amendment and Instagram's terms. Meta had cited dangerous individuals and inciting misogyny; the Tates said the removals were tied to their arrests.", "evidence": ["E278"] }
+      ],
+      "effects": [
+        { "line": "attention", "level": "proximate", "text": "In July 2022 Tate drew more Google searches than Donald Trump and Kim Kardashian combined.", "evidence": ["E219"] },
+        { "line": "offline", "level": "ultimate", "text": "An extremism researcher says boys who find him on TikTok carry his message into schoolyards. This is an expert's view, not a measurement.", "evidence": ["E220"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["How much of the reach came from paid members rather than unpaid fans: no count separates them.", "Whether the feed favoured Tate beyond engagement: the Observer's test was a single account.", "What the 12 billion views count: Tate's own videos or everything tagged with his name.", "Tate says his videos are parody and denies being anti-women."]
+    },
+    {
+      "id": "tate-x", "title": "Andrew Tate on X", "period": "2016–25",
+      "venues": ["x"], "countries": ["US", "GB"], "languages": ["en"],
+      "summary": "Twitter banned Andrew Tate for saying women should bear responsibility for being sexually assaulted (sources give 2016 or 2017). Elon Musk reinstated the account on 18 November 2022. It went from 38,400 followers to a million in two days and 6.4 million by April 2023, jumping after his arrest in Romania, and passed 10 million by 2025. For a time it was the only mainstream platform carrying his own account. A research group estimates Twitter could earn about £9.8 million a year in ads from it and argues that this is why he was let back; Twitter did not reply.",
+      "attributes": { "intent": "not established", "transparency": "overt", "coordination": "individual", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "Sky News, Mashable, CCDH, Associated Press", "method": "Archived follower counts; an advocacy group's revenue estimate; journalism" },
+      "steps": [
+        { "actor": "@app", "to": "andrew-tate", "mechanism": "plat.moderation", "text": "Twitter bans Tate (2016 or 2017; sources differ). After buying the company, Elon Musk reinstates the account on 18 November 2022, with other banned accounts.", "evidence": ["E275", "E261", "E273"] },
+        { "actor": "andrew-tate", "to": "@app", "mechanism": "entry.direct", "text": "Tate posts on his own account. Its following grows from 38,400 to 6.4 million in five months, about 40,000 a day, and passes 10 million by 2025.", "evidence": ["E273", "E274"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "His posts are seen about 35 million times a day, by a research group's estimate.", "evidence": ["E279"] }
+      ],
+      "effects": [
+        { "line": "attention", "level": "proximate", "text": "His following jumped by 400,000 on the day of his arrest in Romania and by half a million on the day he moved to house arrest. Sky calls the rate of growth unusually high.", "evidence": ["E273"] }
+      ],
+      "drivers": ["owner", "money"],
+      "not_established": ["Why he was reinstated: a research group argues it was for advertising revenue, an inference from its own estimate; Twitter did not reply.", "How many of the followers are genuine: Sky's check of 100 recent followers found about half genuine and none confirmed as bots.", "The year of the original ban: 2016 or 2017."]
+    },
+    {
+      "id": "clavicular-clips", "title": "Clavicular's clippers", "period": "2026",
+      "venues": ["tiktok", "instagram", "youtube"], "countries": ["US"], "languages": ["en"],
+      "summary": "The streamer Clavicular exists online mainly through clips of his streams, not the streams themselves. About 1,600 clippers, paid by the views they get, posted tens of thousands of clips a month on his behalf, and he went from obscurity to a 60 Minutes interview. The livestreaming service Kick pays some of them, by his own account nearly $700,000 in one month. His own X account has 175,000 followers.",
+      "attributes": { "intent": "commercial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "The Verge (Mia Sato), the New York Times, streaming analysts", "method": "Counts of clipper accounts; Clavicular's own statements" },
+      "steps": [
+        { "actor": "kick", "to": "clavicular-clippers", "mechanism": "prod.influencer", "text": "Kick, where Clavicular streams up to eight hours a day to make clippable moments, pays some of his viewers to clip short videos. Clavicular says it spent nearly $700,000 promoting his clips in a single month.", "cost": "nearly $700,000 in one month, by Clavicular's own claim", "evidence": ["E241", "E235"] },
+        { "actor": "clavicular", "to": "clavicular-clippers", "mechanism": "prod.influencer", "text": "Clavicular is reported to spend more than $650,000 a month on clipping himself; an analyst estimates the campaign costs about $666,000 a month even at $1 per thousand views.", "cost": "over $650,000 a month, reportedly", "evidence": ["E257", "E244", "E229"] },
+        { "actor": "clavicular-clippers", "to": "@app", "mechanism": "entry.direct", "text": "About 1,600 clippers post nearly 70,000 clips a month, made to blend in with ordinary posts and paid only once they pass a view threshold.", "evidence": ["E229", "E244", "E230"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "The clips reach billions of views: about 2.2 billion in one month, by his own claim. An analyst calls the algorithm \"completely paid for\".", "evidence": ["E229", "E235", "E244"] }
+      ],
+      "effects": [
+        { "line": "attention", "level": "proximate", "text": "Clavicular went from obscurity to a 60 Minutes interview, known mainly through clips.", "evidence": ["E229"] },
+        { "line": "trust", "level": "proximate", "text": "A commentator argues that paid clipping means viral noise can no longer be trusted to show genuine popularity. This is an argument, not a measurement.", "evidence": ["E242"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["Kick's spending is Clavicular's own claim; Kick's side is not reported.", "How much of his reach is paid rather than organic.", "Whether the platforms detect or limit paid clips."]
+    },
+    {
+      "id": "elephant-clipping", "title": "Elephant Clipping", "period": "2025–26",
+      "venues": ["tiktok", "instagram", "youtube"], "countries": ["US"], "languages": ["en"],
+      "summary": "A Latvian clipping company, ClipIt, pays subcontractors, many outside the United States, to post short pro-Republican clips from accounts made to look like ordinary Americans, with no sign that they are paid. A Norwegian company, ClipSon, runs a similar server from the same folder of videos. The folders were filled by what appear to be employees of a Las Vegas marketing company, Enclave & Key; its role is not specified. Who pays for the campaigns is not known. The Atlantic's reporter saw this from inside the campaigns' Discord servers.",
+      "attributes": { "intent": "ideological / editorial", "transparency": "deceptive", "coordination": "organisational", "origin": "not established" },
+      "target": "public",
+      "attribution": { "by": "The Atlantic (Ali Breland)", "method": "The reporter joined the campaigns' Discord servers; budgets and view counts are the servers' own displays" },
+      "steps": [
+        { "actor": "clipit", "to": "elephant-clippers", "mechanism": "prod.influencer", "text": "ClipIt's Elephant Clipping campaign pays clippers to post \"positively framed conservative pro-Republican content\" from a shared folder of videos. Its promoter gave the goal as \"So that republican win in USA\".", "cost": "$300,000 a month, at $300 per million views", "evidence": ["E243"] },
+        { "actor": "clipson", "to": "us-politics-clippers", "mechanism": "prod.influencer", "text": "ClipSon's US Politics Clipping server pays clippers to cut clips only from the videos supplied, from the same folder.", "cost": "$125,000 a month", "evidence": ["E247"] },
+        { "actor": "elephant-clippers", "to": "@app", "mechanism": "crowd.inauthentic", "text": "The clippers post short videos from accounts made to look like ordinary Americans. They are told to use US proxy servers to hide where they are, and nothing tells them to disclose payment.", "evidence": ["E243", "E245", "E249"] },
+        { "actor": "@app", "to": "screen", "mechanism": "plat.ranking", "text": "The campaign aims for a billion views a month and, by its own automated updates, reaches hundreds of millions a week.", "evidence": ["E246"] }
+      ],
+      "effects": [
+        { "line": "trust", "level": "proximate", "text": "A researcher says unlabelled short videos like these can suggest a groundswell that does not exist.", "evidence": ["E250"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["Who funds the campaigns.", "What role, if any, Enclave & Key plays: its apparent employees uploaded the videos, and the folders were moved after the reporter's questions.", "The budgets and view counts are the servers' own figures, not verified.", "Which platforms the US Politics Clipping clips are posted on: the source does not say, so they are not drawn reaching one.", "Whether any of it breaks the law: experts say no clear disclosure rules apply."]
+    },
+    {
+      "id": "politiclip", "title": "Politiclip and paid campaign clips", "period": "2026",
+      "venues": ["instagram"], "countries": ["US"], "languages": ["en"],
+      "summary": "Democratic campaigns in three US races paid the clipping firm Politiclip, whose creators posted short videos backing the candidates. In Los Angeles and Michigan many creators disclosed that they were paid. In Texas, where the law also requires it, hundreds of posts for Gina Hinojosa or against Governor Greg Abbott carried no disclosure. Some creators posted in all three races and disclosed only in two.",
+      "attributes": { "intent": "ideological / editorial", "transparency": "undisclosed", "coordination": "organisational", "origin": "domestic" },
+      "target": "public",
+      "attribution": { "by": "New York Times (Ken Bensinger)", "method": "Campaign finance filings and internal screenshots the Times reviewed" },
+      "steps": [
+        { "actor": "hinojosa-campaign", "to": "politiclip", "mechanism": "prod.influencer", "text": "The Hinojosa campaign pays Politiclip for \"news clipping services\", according to its filings.", "cost": "$150,000", "evidence": ["E251"] },
+        { "actor": "raman-campaign", "to": "politiclip", "mechanism": "prod.influencer", "text": "Nithya Raman's Los Angeles mayoral campaign pays Politiclip too.", "cost": "$100,000", "evidence": ["E253"] },
+        { "actor": "fighting-for-michigan", "to": "politiclip", "mechanism": "prod.influencer", "text": "So does Fighting for Michigan, a super PAC backing Abdul El-Sayed's Senate bid.", "cost": "$25,000 in July", "evidence": ["E253"] },
+        { "actor": "politiclip", "to": "politiclip-creators", "mechanism": "prod.influencer", "text": "Politiclip approves more than 550 posts for Hinojosa or against Abbott and offers some creators $3 per 1,000 views.", "cost": "$3 per 1,000 views for some creators", "evidence": ["E251"] },
+        { "actor": "politiclip-creators", "to": "@app", "mechanism": "entry.direct", "text": "Creators post on Instagram. Hundreds of the Texas posts carry no disclosure; one anonymous account with 274,000 followers disclosed payment for the other two campaigns but not in at least 22 posts for Hinojosa, and deleted them after the Times asked.", "evidence": ["E251", "E253"] }
+      ],
+      "effects": [
+        { "line": "trust", "level": "proximate", "text": "Texas viewers could not tell that hundreds of campaign posts were paid. An elections lawyer says the campaign's reading of the disclosure law would not hold up.", "evidence": ["E251", "E252"] }
+      ],
+      "drivers": ["money", "transparency"],
+      "not_established": ["Whether the account that deleted its posts was part of Politiclip's paid campaign: Politiclip did not answer.", "Who, if anyone, is liable under the Texas rule, which does not say.", "Which other platforms the clips ran on: the source names only Instagram."]
     }
   ]
 }
