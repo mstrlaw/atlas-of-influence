@@ -10,6 +10,7 @@
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -44,10 +45,23 @@ for (const row of evidence) {
   source.evidence.push(row.id);
 }
 
+// Files git ignores (local copies not republished) are not listed as snapshots.
+function ignored(paths) {
+  if (!paths.length) return new Set();
+  try {
+    const out = execFileSync('git', ['check-ignore', '--', ...paths], { cwd: root, encoding: 'utf8' });
+    return new Set(out.split('\n').filter(Boolean));
+  } catch (e) {
+    return new Set(String(e.stdout ?? '').split('\n').filter(Boolean)); // exit 1 = none ignored
+  }
+}
+
 const sources = [...byUrl.values()].sort((a, b) => a.id.localeCompare(b.id));
 for (const source of sources) {
   const dir = join(sourcesDir, source.id);
-  source.files = existsSync(dir) ? readdirSync(dir).filter((f) => IMAGE.test(f)).sort() : [];
+  const found = existsSync(dir) ? readdirSync(dir).filter((f) => IMAGE.test(f)).sort() : [];
+  const skip = ignored(found.map((f) => join('data', 'sources', source.id, f)));
+  source.files = found.filter((f) => !skip.has(join('data', 'sources', source.id, f)));
 }
 
 writeFileSync(indexPath, JSON.stringify(sources, null, 2) + '\n');

@@ -1463,5 +1463,482 @@
     "captured": null,
     "archive_url": null,
     "notes": ""
+  },
+  {
+    "id": "S117",
+    "url": "https://literatemachine.com/2026/07/29/ground-news-and-the-war-on-reality/",
+    "publisher": "literatemachine.com",
+    "evidence": [
+      "E190",
+      "E191",
+      "E192",
+      "E193",
+      "E198",
+      "E199",
+      "E200"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S118",
+    "url": "https://literatemachine.com/2026/08/16/is-ground-news-a-right-wing-psy-op/",
+    "publisher": "literatemachine.com",
+    "evidence": [
+      "E194",
+      "E195",
+      "E196",
+      "E197"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S119",
+    "url": "https://www.pbs.org/newshour/show/why-critics-are-alarmed-about-the-influence-of-pragerus-educational-videos",
+    "publisher": "pbs.org",
+    "evidence": [
+      "E201",
+      "E202",
+      "E203",
+      "E204"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S120",
+    "url": "https://www.splcenter.org/resources/hatewatch/pragerus-influence/",
+    "publisher": "splcenter.org",
+    "evidence": [
+      "E205",
+      "E206",
+      "E207"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S121",
+    "url": "https://en.wikipedia.org/wiki/PragerU",
+    "publisher": "en.wikipedia.org",
+    "evidence": [
+      "E208",
+      "E209",
+      "E210"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S122",
+    "url": "https://www.influencewatch.org/non-profit/prager-university-foundation-prageru/",
+    "publisher": "influencewatch.org",
+    "evidence": [
+      "E211",
+      "E212",
+      "E213"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S123",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/0031322X.2023.2219167",
+    "publisher": "tandfonline.com",
+    "evidence": [
+      "E214",
+      "E270",
+      "E271"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S124",
+    "url": "https://www.forbes.com/sites/antoniopequenoiv/2023/09/05/what-is-prageru-controversial-conservative-platform-entering-classrooms-in-florida-and-oklahoma/",
+    "publisher": "forbes.com",
+    "evidence": [
+      "E215"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S125",
+    "url": "https://www.npr.org/2024/03/07/1234491074/prageru-schools-videos-growth",
+    "publisher": "npr.org",
+    "evidence": [
+      "E216",
+      "E269"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S126",
+    "url": "https://www.abc.net.au/news/2022-08-22/misogynist-influencer-andrew-tate-is-being-scrubbed-from-tiktok/101356652",
+    "publisher": "abc.net.au",
+    "evidence": [
+      "E217",
+      "E218",
+      "E219",
+      "E220",
+      "E221"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S127",
+    "url": "https://waccglobal.org/real-people-against-hate/",
+    "publisher": "waccglobal.org",
+    "evidence": [
+      "E222",
+      "E223"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S128",
+    "url": "https://www.malwarebytes.com/blog/news/2024/11/hilariously-insecure-andrew-tates-the-real-world-breached-800000-users-affected",
+    "publisher": "malwarebytes.com",
+    "evidence": [
+      "E224"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S129",
+    "url": "https://www.vox.com/podcasts/489213/clips-short-form-video-social-media-clavicular",
+    "publisher": "vox.com",
+    "evidence": [
+      "E225",
+      "E229",
+      "E230",
+      "E231"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S130",
+    "url": "https://www.theguardian.com/media/2022/aug/20/andrew-tate-money-making-scheme-for-fans-of-extreme-misogynist-closes",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E226",
+      "E232",
+      "E233"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S131",
+    "url": "https://www.theguardian.com/technology/2022/aug/06/revealed-how-tiktok-bombards-young-men-with-misogynistic-videos-andrew-tate",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E227"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S132",
+    "url": "https://news.sky.com/story/andrew-tates-get-rich-quick-scheme-advertised-in-google-search-results-research-finds-12810764",
+    "publisher": "news.sky.com",
+    "evidence": [
+      "E228"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S133",
+    "url": "https://palai.media/en/articles/how-much-streamer-clippers-really-earn",
+    "publisher": "palai.media",
+    "evidence": [
+      "E234",
+      "E235",
+      "E236",
+      "E237"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S134",
+    "url": "https://artofthebrand.substack.com/p/how-clipping-became-a-billion-dollar",
+    "publisher": "artofthebrand.substack.com",
+    "evidence": [
+      "E238",
+      "E239",
+      "E240"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S135",
+    "url": "https://businessoftv.substack.com/p/clippers-and-view-botting-big-social",
+    "publisher": "businessoftv.substack.com",
+    "evidence": [
+      "E241",
+      "E242"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S136",
+    "url": "https://www.theatlantic.com/politics/2026/09/conservative-hijack-social-media/688447/",
+    "publisher": "theatlantic.com",
+    "evidence": [
+      "E243",
+      "E245",
+      "E246",
+      "E247",
+      "E248",
+      "E249",
+      "E250"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S137",
+    "url": "https://timesofindia.indiatimes.com/world/us-streamers/clavicular-spends-over-650k-on-clipping-campaign-reports-claim/articleshow/130460429.cms",
+    "publisher": "timesofindia.indiatimes.com",
+    "evidence": [
+      "E244"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S138",
+    "url": "https://www.nytimes.com/2026/10/28/business/media/gina-hinojosa-political-ads-texas-midterm-elections.html",
+    "publisher": "nytimes.com",
+    "evidence": [
+      "E251",
+      "E252",
+      "E253",
+      "E254"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S139",
+    "url": "https://sageofquay.substack.com/p/the-latvian-clip-farms-behind-the",
+    "publisher": "sageofquay.substack.com",
+    "evidence": [
+      "E255"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S140",
+    "url": "https://www.nightlight.news/p/clip-that",
+    "publisher": "nightlight.news",
+    "evidence": [
+      "E256"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S141",
+    "url": "https://spectator.com/article/how-social-media-clippers-are-shaping-politics/",
+    "publisher": "spectator.com",
+    "evidence": [
+      "E257",
+      "E258",
+      "E259"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S142",
+    "url": "https://www.counterharm.com/blog/who-is-andrew-tate-influencer-misogyny-women-hate",
+    "publisher": "counterharm.com",
+    "evidence": [
+      "E260",
+      "E261"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S143",
+    "url": "https://misinforeview.hks.harvard.edu/article/research-note-this-salesperson-does-not-exist-how-tactics-from-political-influence-operations-on-social-media-are-deployed-for-commercial-lead-generation/",
+    "publisher": "misinforeview.hks.harvard.edu",
+    "evidence": [
+      "E262",
+      "E263"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S144",
+    "url": "https://www.graphika.com/reports/more-troll-kombat",
+    "publisher": "graphika.com",
+    "evidence": [
+      "E264",
+      "E267",
+      "E268"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S145",
+    "url": "https://www.nbcnews.com/tech/tech-news/russian-operation-masqueraded-right-wing-news-site-n1241710",
+    "publisher": "nbcnews.com",
+    "evidence": [
+      "E265"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S146",
+    "url": "https://www.theguardian.com/technology/2020/sep/01/facebook-russia-internet-research-agency-fake-news",
+    "publisher": "theguardian.com",
+    "evidence": [
+      "E266",
+      "E272"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S147",
+    "url": "https://news.sky.com/story/andrew-tate-how-the-arrest-of-controversial-influencer-has-boosted-his-twitter-following-12867054",
+    "publisher": "news.sky.com",
+    "evidence": [
+      "E273",
+      "E279",
+      "E280",
+      "E281"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S148",
+    "url": "https://www.pbs.org/newshour/nation/what-to-know-about-the-tate-brothers-social-media-influencers-who-face-trafficking-charges",
+    "publisher": "pbs.org",
+    "evidence": [
+      "E274"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S149",
+    "url": "https://mashable.com/article/andrew-tate-banned-facebook-instagram-meta",
+    "publisher": "mashable.com",
+    "evidence": [
+      "E275",
+      "E276"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S150",
+    "url": "https://www.midiaresearch.com/blog/andrew-tate-the-manosphere-and-social-media-platform-responsibility",
+    "publisher": "midiaresearch.com",
+    "evidence": [
+      "E277"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
+  },
+  {
+    "id": "S151",
+    "url": "https://news.bloomberglaw.com/litigation/meta-sheds-influencer-andrew-tates-lawsuit-over-instagram-ban",
+    "publisher": "news.bloomberglaw.com",
+    "evidence": [
+      "E278"
+    ],
+    "files": [],
+    "captured": null,
+    "archive_url": null,
+    "notes": ""
   }
 ]

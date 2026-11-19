@@ -6,7 +6,7 @@ Maps how actors, institutions, platforms, AI models and crowds shape what appear
 
 - **Discuss before changing the model.** When the user shares links, analyse how they fit or change the model and discuss; do not edit `docs/framework-spec.md` unprompted.
 - **Phase 2 is under way** (user go-ahead, 14 Nov 2026): the 3D atlas is drawn from the model in `data/`. The renderer knows nothing about specific companies; to change what is shown, change the data.
-- **Log every source the user provides** in `data/evidence.json` (next ID: **E190**), following `docs/source-analysis.md`: one grade (documented / reported / claimed / contested / opinion), a `read_status` (full / partial / secondhand / unread), an optional `note`, any `responses` from those named, and a `visual_use` note. Regenerate `data/evidence.md` with `node scripts/evidence-md.mjs`, then run `node scripts/sources-index.mjs`; never hand-edit the markdown table.
+- **Log every source the user provides** in `data/evidence.json` (next ID: **E282**), following `docs/source-analysis.md`: one grade (documented / reported / claimed / contested / opinion), a `read_status` (full / partial / secondhand / unread), an optional `note`, any `responses` from those named, and a `visual_use` note. Regenerate `data/evidence.md` with `node scripts/evidence-md.mjs`, then run `node scripts/sources-index.mjs`; never hand-edit the markdown table.
 - Academic grounding: reuse existing frameworks and their IDs (DISARM, ABC/ABCDE, etc.) rather than inventing vocabulary.
 - Balance: mechanisms are ideology-agnostic; cases span actor origins and the political spectrum; name intermediaries without implying culpability unless a source does.
 - Decided 14 Nov 2026 (replaces 9 Nov): "mainstream" means an established news institution, not reach. The Joe Rogan Experience is an `influencer` with very large reach, not mainstream media.
@@ -31,7 +31,7 @@ HANDOVER.md              handover from the chat session (13 Nov 2026); backgroun
 docs/framework-spec.md   model spec (source of truth)
 docs/source-analysis.md  how sources are read and graded, with a reusable prompt (v0.1, to be strengthened)
 docs/proposed-changes.md 44 proposed changes and the decisions taken
-data/evidence.json       evidence log, E01–E189 (edit this)
+data/evidence.json       evidence log, E01–E281 (edit this)
 data/evidence.md         generated table of the same
 data/sources/            source snapshots, one folder per source (see its README); index.json is generated
 data/narratives.json     narratives (rule: only when a source names one; worded as a claim in circulation)

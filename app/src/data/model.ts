@@ -266,13 +266,51 @@ export function trailForOwner(ownerId: string, viewed: string): TrailStep[] {
   return steps;
 }
 
+/**
+ * The whole network an actor belongs to: every link reachable from it through a chain of other actors,
+ * walked outward from the actor (nearest first). A platform ends a chain rather than continuing it, since
+ * almost everything reaches a platform and the network would otherwise be the whole atlas.
+ */
+function actorNetwork(actorId: string): { from: string; to: string; link: GraphLink }[] {
+  const adj = new Map<string, GraphLink[]>();
+  for (const l of atlasGraph().links) for (const id of [l.source, l.target]) (adj.get(id) ?? adj.set(id, []).get(id)!).push(l);
+  const out: { from: string; to: string; link: GraphLink }[] = [];
+  const seen = new Set([actorId]), used = new Set<string>();
+  const queue = [actorId];
+  while (queue.length) {
+    const id = queue.shift()!;
+    if (id !== actorId && appIds.has(id)) continue;
+    for (const l of adj.get(id) ?? []) {
+      if (used.has(l.key)) continue;
+      used.add(l.key);
+      const other = l.source === id ? l.target : l.source;
+      out.push({ from: id, to: other, link: l });
+      if (!seen.has(other)) { seen.add(other); queue.push(other); }
+    }
+  }
+  return out;
+}
+
+/**
+ * The app to view an actor's network on: the current one if the network reaches it, otherwise the app
+ * the network reaches most. A platform's own network is viewed on that platform.
+ */
+export function appForActor(actorId: string, current: string): string {
+  if (appIds.has(actorId)) return actorId;
+  const count = new Map<string, number>();
+  for (const { link } of actorNetwork(actorId)) for (const id of [link.source, link.target]) if (appIds.has(id)) count.set(id, (count.get(id) ?? 0) + 1);
+  if (!count.size || count.has(current)) return current;
+  return [...count].sort((a, b) => b[1] - a[1])[0][0];
+}
+
 export function trailForActor(actorId: string, viewed: string): TrailStep[] {
   const kind: TrailStep['kind'] = 'path';
-  const steps: TrailStep[] = [{ nodes: [actorId], links: [], platform: false, screen: false, kind }];
-  for (const l of atlasGraph().links) {
-    if (l.source !== actorId && l.target !== actorId) continue;
-    const other = l.source === actorId ? l.target : l.source;
-    steps.push({ nodes: [other], links: [{ key: l.key, from: l.source, to: l.target }], platform: other === viewed, screen: false, kind });
+  const steps: TrailStep[] = [{ nodes: [actorId], links: [], platform: actorId === viewed, screen: false, kind }];
+  for (const { from, to, link: l } of actorNetwork(actorId)) {
+    // Links into a platform are drawn only for the app being viewed.
+    const app = [l.source, l.target].find((id) => appIds.has(id));
+    if (app && app !== viewed) continue;
+    steps.push({ nodes: [from, to], links: [{ key: l.key, from, to }], platform: from === viewed || to === viewed, screen: false, kind });
   }
   return steps;
 }
